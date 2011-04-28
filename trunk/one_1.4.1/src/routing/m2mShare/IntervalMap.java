@@ -89,12 +89,14 @@ public class IntervalMap{
 			//divide the remaining space of the Interval			
 			if(newIntervals[1] == null){
 				System.err.println("newIntervals[1] == null");
+				mergeIntervals();
 				return;
 			}
 			if(remainingData == newIntervals[1].size()){
 				System.err.println("remainingData == newIntervals[1].size()");
 				newIntervals[1].setFreeSpace(false);
 				orderedInsert(newIntervals[1]);
+				mergeIntervals();
 				return;
 			} 
 			else if(remainingData < newIntervals[1].size()){
@@ -111,6 +113,7 @@ public class IntervalMap{
 				}				
 				orderedInsert(newIntervalsAfter[0]);
 				orderedInsert(newIntervalsAfter[1]);
+				mergeIntervals();
 				return;
 			}
 			else if(remainingData > newIntervals[1].size()){
@@ -122,13 +125,24 @@ public class IntervalMap{
 				newIntervalStart = newIntervals[1].getUpperEnd() +1;
 				if(newIntervalStart >= this.length){
 					newIntervalStart = 0;
-				}				
-				
+				}	
 			}
-			
 		}
 		
-		
+	}
+	
+	private void mergeIntervals(){
+		if(intervals.size() <= 1){
+			return;
+		}
+		int i=0;
+		while(i<intervals.size()-1){
+			while(intervals.get(i).isFreeSpace() == intervals.get(i+1).isFreeSpace()){
+				Interval newInterval = Interval.merge(intervals.remove(i), intervals.remove(i));
+				orderedInsert(newInterval);
+			}
+			i++;
+		}
 	}
 
 	private int getContainingIndex(int point) {
@@ -153,6 +167,4 @@ public class IntervalMap{
 		return s;
 	}
 	
-	
-
 }
