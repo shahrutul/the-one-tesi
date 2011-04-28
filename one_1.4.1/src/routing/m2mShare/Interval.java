@@ -47,8 +47,26 @@ public class Interval {
         Interval[] toReturn =
                 new Interval[]{this,new
                 Interval(splitPoint, upperEnd)};
-        this.upperEnd = splitPoint;
+        this.upperEnd = splitPoint-1;
+        toReturn[1].setFreeSpace(this.freeSpace);
         return toReturn;
+    }
+    
+    /**
+     * Merge 2 near intervals into a single interval.
+     * The two intervals must be of the same type (freespace or not)     * 
+     * @param firstInterval
+     * @param secondInterval
+     * @return The unified Interval or null if firstInterval and secondInterval are not near
+     */
+    public static Interval merge(Interval firstInterval, Interval secondInterval){
+    	if(firstInterval.isFreeSpace() != secondInterval.isFreeSpace()){
+    		return null;
+    	}
+    	if(firstInterval.getUpperEnd() != secondInterval.getLowerEnd()-1){
+    		return null;
+    	}
+    	return new Interval(firstInterval.getLowerEnd(), secondInterval.getUpperEnd(), firstInterval.isFreeSpace());
     }
 
     public boolean equals(Object obj) {
