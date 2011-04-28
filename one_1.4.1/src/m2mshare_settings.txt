@@ -1,0 +1,51 @@
+
+Scenario.name = [WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_Delega; WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_No_Delega]
+Scenario.simulateConnections = true
+Scenario.simulateFiles = true
+Scenario.updateInterval = 0.5
+# 43k ~= 12h
+# 86k ~= 24h
+# 172k ~= 48h
+Scenario.endTime = 40
+
+###################################
+### common settings for all groups
+Group.movementModel = MapBasedMovement
+Group.router = M2MShareRouter
+Group.transmitRange = 10
+# transmit speed of 2 Mbps = 250kBps
+Group.transmitSpeed = 100k
+
+###################################
+# path to files generation input files
+#FilesGenerator.filepath = filesInput/500copie_uniform.txt
+#FilesGenerator.filepath = filesInput/25copie_group.txt
+FilesGenerator.filepath = filesInput/1copia_a_135.txt
+FilesGenerator.rngSeed = 0
+
+###################################
+# How many event generators
+Events.nrof = 1
+Events1.class = M2MShareQueryReader
+Events1.queryFile = queries/single_query.txt
+
+# seed for movement models' pseudo random number generator (default = 0)
+#MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
+MovementModel.rngSeed = 2
+
+
+## Reports - all report names have to be valid report classes
+# how many reports to load
+Report.nrofReports = 1
+# default directory of reports (can be overriden per Report with output setting)
+#Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = FileGatheringReport
+
+# M2MShare settings
+M2MShareRouter.frequencyThreshold = 2
+M2MShareRouter.useDelegation = [true; false]
+M2MShareRouter.stopOnFirstQuerySatisfied = true
+
+

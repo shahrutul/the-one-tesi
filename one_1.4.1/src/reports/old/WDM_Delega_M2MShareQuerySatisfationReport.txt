@@ -1,0 +1,5 @@
+# time  event
+100.0000 - query created in 32: M2MShareQuery [fromAddr=32, filename=ogher_sotto_la_doccia.mkv, creationTime=100.0, timeToLive=43200]
+11660.0000 query delegated from A32 to A40
+11671.0000 - original query satisfied in A32: M2MShareQuery [fromAddr=32, filename=ogher_sotto_la_doccia.mkv, creationTime=100.0, timeToLive=43200]
+11671.0000 - delegated query satisfied in A40: M2MShareQuery [fromAddr=32, filename=ogher_sotto_la_doccia.mkv, creationTime=11662.0, timeToLive=42000]
