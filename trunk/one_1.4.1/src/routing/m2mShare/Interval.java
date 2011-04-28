@@ -10,8 +10,16 @@ public class Interval {
 
     private int lowerEnd;
     private int upperEnd;
+    private boolean freeSpace;
 
     public Interval(int lowerEnd, int upperEnd) {
+    	this.freeSpace = true;
+        this.lowerEnd = lowerEnd;
+        this.upperEnd = upperEnd;
+    }
+    
+    public Interval(int lowerEnd, int upperEnd, boolean freeSpace) {
+    	this.freeSpace = freeSpace;
         this.lowerEnd = lowerEnd;
         this.upperEnd = upperEnd;
     }
@@ -70,10 +78,19 @@ public class Interval {
 
     public int size() {
         return upperEnd - lowerEnd + 1;
-    }
+    }    
 
-    private boolean has(int value) {
+    public boolean has(int value) {
         return (value >= lowerEnd &&
                 value <= upperEnd);
     }
+
+	public boolean isFreeSpace() {
+		return freeSpace;
+	}
+
+	public void setFreeSpace(boolean freeSpace) {
+		this.freeSpace = freeSpace;
+	}    
+    
 }

@@ -28,7 +28,7 @@ public class VirtualFile extends DTNActivity {
 		}
 		else{
 			int fileBytes = file.getSize();
-			map = new IntervalMap(fileBytes, 1024);
+			map = new IntervalMap(fileBytes);
 		}	
 	}
 	
