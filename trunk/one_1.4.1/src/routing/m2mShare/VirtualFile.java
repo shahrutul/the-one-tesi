@@ -24,12 +24,24 @@ public class VirtualFile extends DTNActivity {
 		this.myRouter = m2mShareRouter;
 		DTNFile file = SimScenario.getInstance().getFileGenerator().getFile(fileHash);
 		if(file == null){
-			map = new IntervalMap();
+			map = new IntervalMap(1000000);
 		}
 		else{
 			int fileBytes = file.getSize();
 			map = new IntervalMap(fileBytes);
 		}	
+
+		System.err.println("Initial map: "+map);
+		
+		map.insertData(0, 500000);
+		System.err.println("Primo inserimento: "+map);
+		
+		map.insertData(1000000, 500000);
+		System.err.println("Secondo inserimento: "+map);
+		
+		map.insertData(800000, 2000000);
+		System.err.println("Terzo inserimento: "+map);
+		
 	}
 	
 	@Override
@@ -74,7 +86,9 @@ public class VirtualFile extends DTNActivity {
 	}
 
 	@Override
-	public boolean isComplete(int byteTransferred) {		
+	public boolean isComplete(int byteTransferred) {
+		map.insertData(0, byteTransferred);
+		System.err.println("Mappa aggiornata: "+map);
 		int fileBytes = map.mapSize();
 		return byteTransferred >= fileBytes;
 	}

@@ -91,6 +91,16 @@ public class Interval {
 
 	public void setFreeSpace(boolean freeSpace) {
 		this.freeSpace = freeSpace;
+	}
+
+	@Override
+	public String toString() {
+		if(freeSpace){
+			return "*" + lowerEnd + "," + upperEnd +"*";
+		}
+		return "[" + lowerEnd + "," + upperEnd +"]";
 	}    
+	
+	
     
 }

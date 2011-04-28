@@ -42,14 +42,16 @@ public class IntervalMap{
     public IntervalMap(int length) {
         this.length = length;
         intervals = new Vector<Interval>();
-        intervals.addElement(new Interval(0,length));
+        intervals.addElement(new Interval(0,length-1));
     }
     
   //precondition: intervals never overlap
     public void orderedInsert(Interval i) {
     	if(i==null){
+    		System.err.println("insert NULL");   
     		return;
     	}
+    	System.err.println("insert "+ i);   
     	
         if(intervals.size() == 0) {
             intervals.addElement(i);
@@ -72,16 +74,58 @@ public class IntervalMap{
 	}
 	
 	public void insertData(int startingPoint, int size){
+		System.err.println("INSERT_DATA -> "+size);
 		int remainingData = size;
 		int newIntervalStart = startingPoint;
+		
 		while(remainingData > 0){
+			System.err.println("remaining data "+remainingData);
 			int indexInterval = getContainingIndex(newIntervalStart);
 			Interval intervalToDivide = intervals.remove(indexInterval);
 			Interval[] newIntervals = intervalToDivide.split(newIntervalStart);
+			//insert Interval before startingPoint
 			orderedInsert(newIntervals[0]);
 			
+			//divide the remaining space of the Interval			
+			if(newIntervals[1] == null){
+				System.err.println("newIntervals[1] == null");
+				return;
+			}
+			if(remainingData == newIntervals[1].size()){
+				System.err.println("remainingData == newIntervals[1].size()");
+				newIntervals[1].setFreeSpace(false);
+				orderedInsert(newIntervals[1]);
+				return;
+			} 
+			else if(remainingData < newIntervals[1].size()){
+				System.err.println("remainingData < newIntervals[1].size()");
+				int splitPoint = newIntervals[1].getLowerEnd()+remainingData;
+				Interval[] newIntervalsAfter = newIntervals[1].split(splitPoint);
+				if(newIntervalsAfter[0] != null){
+					System.err.println("newIntervalsAfter[0] == null");
+					newIntervalsAfter[0].setFreeSpace(false);
+				}
+				else{
+					System.err.println("newIntervalsAfter[1] == null");
+					newIntervalsAfter[1].setFreeSpace(false);
+				}				
+				orderedInsert(newIntervalsAfter[0]);
+				orderedInsert(newIntervalsAfter[1]);
+				return;
+			}
+			else if(remainingData > newIntervals[1].size()){
+				System.err.println("remainingData > newIntervals[1].size()");
+				newIntervals[1].setFreeSpace(false);
+				orderedInsert(newIntervals[1]);
+				remainingData -= newIntervals[1].size();
+				
+				newIntervalStart = newIntervals[1].getUpperEnd() +1;
+				if(newIntervalStart >= this.length){
+					newIntervalStart = 0;
+				}				
+				
+			}
 			
-			orderedInsert(newIntervals[1]);			
 		}
 		
 		
@@ -98,5 +142,17 @@ public class IntervalMap{
 		}
 		return -1;
 	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		for(int i=0; i<intervals.size(); i++){
+			Interval temp = intervals.get(i);
+			s+=temp;
+		}
+		return s;
+	}
+	
+	
 
 }
