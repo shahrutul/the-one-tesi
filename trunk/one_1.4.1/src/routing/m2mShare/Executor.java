@@ -62,17 +62,18 @@ public class Executor {
 	/**
 	 * Add a new Communicator for the running Activity
 	 * @param connection the connection associated at the transfer
+	 * @param totData 
+	 * @param minData 
+	 * @param startingPoint 
 	 * @return true if a new Communicator has been added, false otherwise
 	 */
-	public boolean addCommunicator(Connection connection) {
+	public boolean addCommunicator(Connection connection, int startingPoint, int minData, int totData) {
 		System.err.println(SimClock.getTime()+" aggiunto communicator");
-		if(scheduler.moreCommunicatorsAvailable()){
-			Communicator newComm = new Communicator(SimClock.getTime(), currentActivity, connection);
-			communicators.put(connection, newComm);
-			newComm.start();
-			return true;
-		}
-		return false;
+		Communicator newComm = new Communicator(currentActivity, connection, minData, totData);
+		communicators.put(connection, newComm);		
+		newComm.start();
+		scheduler.communicatorAdded();
+		return true;
 	}
 
 	/**
@@ -116,6 +117,10 @@ public class Executor {
 	
 	public boolean isReady(){
 		return ready;
+	}
+
+	public int getAvailableCommunicators() {
+		return scheduler.getAvailableCommunicators();
 	}
 	
 }

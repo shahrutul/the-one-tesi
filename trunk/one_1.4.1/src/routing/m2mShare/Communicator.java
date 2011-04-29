@@ -10,6 +10,14 @@ public class Communicator {
 	 */
 	private double startTime;
 	/**
+	 * the minimum asked connection time
+	 */
+	private double minEndTime;
+	/**
+	 * the time at when the communicator will have downloaded all requested data
+	 */
+	private double maxEndTime;
+	/**
 	 * The activity to execute
 	 */
 	private DTNActivity activityToExecute;
@@ -18,11 +26,13 @@ public class Communicator {
 	 */
 	private Connection connection;
 	
-	public Communicator(double startTime, DTNActivity activityToExecute, Connection conn) {
-		super();
-		this.startTime = startTime;
-		this.activityToExecute = activityToExecute;
+	public Communicator(DTNActivity activityToExecute, Connection conn, int minData, int totData) {
+		this.startTime = SimClock.getTime();
 		this.connection = conn;
+		this.minEndTime = SimClock.getTime() + (minData / connection.getSpeed());
+		this.maxEndTime = SimClock.getTime() + (totData / connection.getSpeed());
+		this.activityToExecute = activityToExecute;		
+		System.err.println("communicator: "+ conn + " - "+ minData+"(" +minEndTime+ ") - "+ totData+"("+maxEndTime+")");
 	}
 
 	/**
