@@ -1,6 +1,7 @@
 package routing.m2mShare;
 
 import java.util.HashMap;
+import java.util.Vector;
 
 import core.Connection;
 import core.DTNFile;
@@ -29,34 +30,18 @@ public class VirtualFile extends DTNActivity {
 		else{
 			int fileBytes = file.getSize();
 			map = new IntervalMap(fileBytes);
-		}	
-
-		System.err.println("Initial map: "+map);
-		
-		map.insertData(0, 500000);
-		System.err.println("Primo inserimento: "+map);
-		
-		map.insertData(1000000, 500000);
-		System.err.println("Secondo inserimento: "+map);
-		
-		map.insertData(800000, 2000000);
-		System.err.println("Terzo inserimento: "+map);
-		
+		}		
 	}
 	
 	@Override
 	public void execute(Executor executor) {	
 		System.err.println(SimClock.getTime()+" attivato VirtualFile");
 		setActive();
-		int serversFound = 0;
+		Vector<Connection> compatibleHostsConns = new Vector<Connection>();
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
-		for(DTNHost host: neighbours.keySet()){		
-			boolean hasFile = host.getFileSystem().hasFile(fileHash);
-			if(hasFile){
-				
-				if(executor.addCommunicator(neighbours.get(host))){
-					serversFound++;
-				}
+		for(DTNHost host: neighbours.keySet()){	
+			if(host.getFileSystem().hasFile(fileHash)){
+				compatibleHostsConns.add(neighbours.get(host));
 				/*
 				DTNFile file = host.getFileSystem().getFile(fileHash);
 				myRouter.getHost().getFileSystem().addToFiles(file);
@@ -65,11 +50,21 @@ public class VirtualFile extends DTNActivity {
 				setCompleted();*/
 			}
 		}	
-		if(serversFound > 0){
-			//still running for transfer
+		if(compatibleHostsConns.size() == 0 || executor.getAvailableCommunicators()==0){
+			//no host found or no Communicator available
+			setIncomplete();
 			return;
 		}
-		setIncomplete();
+		int availableCommunicators = Math.min(compatibleHostsConns.size(), executor.getAvailableCommunicators());				
+		int[] startingPoints = map.getStartingPoints(availableCommunicators);
+		
+		for(int i=0; i< availableCommunicators; i++){
+			executor.addCommunicator(compatibleHostsConns.get(i),startingPoints[i], 
+					map.getMinFreeSpace(startingPoints[i]), map.getTotalFreeSpace());
+		}
+		//still running for transfer
+		// status == Active
+		
 	}
 
 

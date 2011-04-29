@@ -242,5 +242,13 @@ public class DTNScheduler {
 		activeCommunicators -= numRemoved;
 	}
 
+	public int getAvailableCommunicators() {
+		return MAX_COMMUNICATORS - activeCommunicators;
+	}
+
+	public void communicatorAdded() {
+		activeCommunicators++;
+	}
+
 	
 }
