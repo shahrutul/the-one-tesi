@@ -25,31 +25,32 @@ public class VirtualFile extends DTNActivity {
 		this.myRouter = m2mShareRouter;
 		DTNFile file = SimScenario.getInstance().getFileGenerator().getFile(fileHash);
 		if(file == null){
-			map = new IntervalMap(1000000);
+			map = new IntervalMap(1000000, 1024);
 		}
 		else{
 			int fileBytes = file.getSize();
-			map = new IntervalMap(fileBytes);
+			map = new IntervalMap(fileBytes, 1024);
 		}		
 	}
 	
 	@Override
 	public void execute(Executor executor) {	
+		int communicatorActivated = 0;
 		System.err.println(SimClock.getTime()+" attivato VirtualFile");
 		setActive();
-		Vector<Connection> compatibleHostsConns = new Vector<Connection>();
+		//Vector<Connection> compatibleHostsConns = new Vector<Connection>();
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
 		for(DTNHost host: neighbours.keySet()){	
-			if(host.getFileSystem().hasFile(fileHash)){
-				compatibleHostsConns.add(neighbours.get(host));
-				/*
-				DTNFile file = host.getFileSystem().getFile(fileHash);
-				myRouter.getHost().getFileSystem().addToFiles(file);
-				System.err.println(myRouter.getHost()+" - trovato da solo il file cercato");
-				myRouter.notifyQuerySatisfied(fileHash, true);
-				setCompleted();*/
+			if(host.getFileSystem().hasFile(fileHash) && executor.moreCommunicatorsAvailable()){
+				//compatibleHostsConns.add(neighbours.get(host));	
+				try {
+					executor.addCommunicator(neighbours.get(host),map.cut(false));
+				} catch (Exception e) {
+					//nothing to download
+				}
 			}
 		}	
+		/*
 		if(compatibleHostsConns.size() == 0 || executor.getAvailableCommunicators()==0){
 			//no host found or no Communicator available
 			setIncomplete();
@@ -62,7 +63,11 @@ public class VirtualFile extends DTNActivity {
 			executor.addCommunicator(compatibleHostsConns.get(i),startingPoints[i], 
 					map.getMinFreeSpace(startingPoints[i]), map.getTotalFreeSpace());
 		}
-		//still running for transfer
+		*/
+		if(communicatorActivated == 0){
+			setIncomplete();
+		}
+		// else still running for transfer
 		// status == Active
 		
 	}

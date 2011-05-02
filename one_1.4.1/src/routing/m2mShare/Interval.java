@@ -3,23 +3,18 @@
  * and open the template in the editor.
  */
 
-package routing.m2mShare;
+package utilities;
 
-
+/**
+ *
+ * @author albadmin
+ */
 public class Interval {
 
     private int lowerEnd;
     private int upperEnd;
-    private boolean freeSpace;
 
     public Interval(int lowerEnd, int upperEnd) {
-    	this.freeSpace = true;
-        this.lowerEnd = lowerEnd;
-        this.upperEnd = upperEnd;
-    }
-    
-    public Interval(int lowerEnd, int upperEnd, boolean freeSpace) {
-    	this.freeSpace = freeSpace;
         this.lowerEnd = lowerEnd;
         this.upperEnd = upperEnd;
     }
@@ -47,26 +42,8 @@ public class Interval {
         Interval[] toReturn =
                 new Interval[]{this,new
                 Interval(splitPoint, upperEnd)};
-        this.upperEnd = splitPoint-1;
-        toReturn[1].setFreeSpace(this.freeSpace);
+        this.upperEnd = splitPoint;
         return toReturn;
-    }
-    
-    /**
-     * Merge 2 near intervals into a single interval.
-     * The two intervals must be of the same type (freespace or not)     * 
-     * @param firstInterval
-     * @param secondInterval
-     * @return The unified Interval or null if firstInterval and secondInterval are not near
-     */
-    public static Interval merge(Interval firstInterval, Interval secondInterval){
-    	if(firstInterval.isFreeSpace() != secondInterval.isFreeSpace()){
-    		return null;
-    	}
-    	if(firstInterval.getUpperEnd() != secondInterval.getLowerEnd()-1){
-    		return null;
-    	}
-    	return new Interval(firstInterval.getLowerEnd(), secondInterval.getUpperEnd(), firstInterval.isFreeSpace());
     }
 
     public boolean equals(Object obj) {
@@ -96,29 +73,10 @@ public class Interval {
 
     public int size() {
         return upperEnd - lowerEnd + 1;
-    }    
+    }
 
-    public boolean has(int value) {
+    private boolean has(int value) {
         return (value >= lowerEnd &&
                 value <= upperEnd);
     }
-
-	public boolean isFreeSpace() {
-		return freeSpace;
-	}
-
-	public void setFreeSpace(boolean freeSpace) {
-		this.freeSpace = freeSpace;
-	}
-
-	@Override
-	public String toString() {
-		if(freeSpace){
-			return "*" + lowerEnd + "," + upperEnd +"*";
-		}
-		return "[" + lowerEnd + "," + upperEnd +"]";
-	}    
-	
-	
-    
 }

@@ -25,6 +25,7 @@ public class Communicator {
 	 * The connection used by this Communicator
 	 */
 	private Connection connection;
+	private int[] mapOut;
 	
 	public Communicator(DTNActivity activityToExecute, Connection conn, int minData, int totData) {
 		this.startTime = SimClock.getTime();
@@ -33,6 +34,14 @@ public class Communicator {
 		this.maxEndTime = SimClock.getTime() + (totData / connection.getSpeed());
 		this.activityToExecute = activityToExecute;		
 		System.err.println("communicator: "+ conn + " - "+ minData+"(" +minEndTime+ ") - "+ totData+"("+maxEndTime+")");
+	}
+
+	public Communicator(DTNActivity currentActivity, Connection conn, int[] mapOut) {
+		this.startTime = SimClock.getTime();
+		this.connection = conn;
+		this.activityToExecute = currentActivity;
+		this.mapOut = mapOut;
+		
 	}
 
 	/**
