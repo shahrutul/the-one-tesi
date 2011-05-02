@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import core.Connection;
+import core.DTNHost;
 import core.SimClock;
 
 public class Executor {
@@ -59,22 +60,20 @@ public class Executor {
 		}
 	}
 	
+
 	/**
 	 * Add a new Communicator for the running Activity
 	 * @param connection the connection associated at the transfer
-	 * @param totData 
-	 * @param minData 
-	 * @param startingPoint 
-	 * @return true if a new Communicator has been added, false otherwise
+	 * @param mapOut
 	 */
-	public boolean addCommunicator(Connection connection, int startingPoint, int minData, int totData) {
+	public void addCommunicator(Connection connection, int[] mapOut) {
 		System.err.println(SimClock.getTime()+" aggiunto communicator");
-		Communicator newComm = new Communicator(currentActivity, connection, minData, totData);
+		Communicator newComm = new Communicator(currentActivity, connection, mapOut);
 		communicators.put(connection, newComm);		
 		newComm.start();
 		scheduler.communicatorAdded();
-		return true;
 	}
+	
 
 	/**
 	 * Remove the selected communicator (if associated with this Executor)
@@ -121,6 +120,10 @@ public class Executor {
 
 	public int getAvailableCommunicators() {
 		return scheduler.getAvailableCommunicators();
+	}
+
+	public boolean moreCommunicatorsAvailable() {		
+		return scheduler.moreCommunicatorsAvailable();
 	}
 	
 }
