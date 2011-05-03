@@ -611,7 +611,7 @@ public class IntervalMap{
     		return 0;
     	}
     }*/
-    
+    /*
     public static int mapSize(int[] downloadMap) {
         if(downloadMap.length==0) return 0;
         int valuePos;
@@ -653,8 +653,70 @@ public class IntervalMap{
             }
         }
         return new int[][]{new int[]{pointerPos},newMap};
+    }*/
+    
+    public static int mapSize(int[] downloadMap) {
+    	return interestingIntervalsSize(interestingIntervals(downloadMap));
     }
+    
+    public static int interestingIntervalsSize(int[] intervals){
+    	int total=0;
+    	for(int i=0; i < intervals.length; i+=2) {
+    		total += (intervals[i+1] - intervals[i] + 1);
+    	}
+    	return total;
+    }
+    
+    public static int[] interestingIntervals(int[] map){        
+        Vector<Integer> newVector = new Vector<Integer>();        
+        int lower, upper;
+        int pointerValue = map[0];
 
+        for(int i=1; i < map.length; i+=2) {
+            lower = map[i];
+            upper = map[i+1];
+            if(lower < pointerValue && upper > pointerValue) {
+            	newVector.add(pointerValue);
+            	newVector.add(upper);
+            }
+            else if(lower >= pointerValue){
+            	newVector.add(lower);
+            	newVector.add(upper);
+            }
+        }
+        int[] newMap = new int[newVector.size()];
+        for(int i=0; i<newVector.size(); i++){
+        	newMap[i] = newVector.get(i);
+        }
+        return newMap;
+    }
+    
+    public static int[] updateIntervals(int[] intervals, int byteTransferred) {
+    	Vector<Integer> newVector = new Vector<Integer>();        
+        int lower, upper, intervalSize;
+        int remainingData = byteTransferred;
+
+        for(int i=0; i < intervals.length && remainingData>0; i+=2) {
+            lower = intervals[i];
+            upper = intervals[i+1];
+            intervalSize = upper - lower +1;
+            if(intervalSize <= remainingData) {
+            	newVector.add(lower);
+            	newVector.add(upper);            	
+            }
+            else{
+            	newVector.add(lower);
+            	newVector.add(lower+remainingData);
+            }
+            remainingData -= intervalSize;
+        }
+        int[] newMap = new int[newVector.size()];
+        for(int i=0; i<newVector.size(); i++){
+        	newMap[i] = newVector.get(i);
+        }
+        return newMap;
+	}
+/*
     private static int binarySearch(int[] values, int value, int low, int high) {
         if (high < low)
             return -1;
@@ -665,7 +727,7 @@ public class IntervalMap{
             return binarySearch(values, value, mid+1, high);
         else
             return mid;
-   }
+   }*/
 
 	@Override
 	public String toString() {
@@ -676,6 +738,8 @@ public class IntervalMap{
 		}
 		return s;
 	}
+
+	
 
 }
 

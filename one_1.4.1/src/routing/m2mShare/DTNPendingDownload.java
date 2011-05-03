@@ -106,9 +106,11 @@ public class DTNPendingDownload extends DTNActivity {
 
 
 	@Override
-	public void addTransferredData(int byteTransferred, int startPoint) {
+	public void addTransferredData(int[] intervals) {
 		try {
-			map.update(startPoint, startPoint+byteTransferred);
+			for(int i=0; i<intervals.length-1; i+=2){
+				map.update(intervals[i], intervals[i+1]);
+			}			
 			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "Mappa aggiornata PENDING: "+map);
 			if(map.mapSize() == 0){
 				setCompleted();

@@ -32,7 +32,7 @@ public abstract class DTNActivity {
 		state = STATE_INCOMPLETE;
 	}
 
-	public abstract void addTransferredData(int byteTransferred, int startPoint);
+	public abstract void addTransferredData(int[] intervals);
 
 	public abstract int[] getRestOfMap();
 

@@ -21,20 +21,20 @@ public class Communicator {
 	 * The connection used by this Communicator
 	 */
 	private Connection connection;
-	private int[] mapOut;
+	private int[] intervals;
 	private Executor executor;
 	
 	
-	public Communicator(DTNActivity currentActivity, Connection conn, int[] mapOut, Executor executor) {
+	public Communicator(DTNActivity currentActivity, Connection conn, int[] mapOut, Executor executor) {		
 		this.startTime = SimClock.getTime();
 		this.connection = conn;
 		this.activityToExecute = currentActivity;
-		this.mapOut = mapOut;
-		int dataToTransfer = IntervalMap.mapSize(mapOut);
+		this.intervals = IntervalMap.interestingIntervals(mapOut);
+		int dataToTransfer = IntervalMap.interestingIntervalsSize(intervals);
 		this.endTime = startTime + (dataToTransfer / conn.getSpeed());
 		this.executor = executor;
 		
-		System.err.print("communicator: "+ conn + "(");
+		System.err.print("communicator created: "+ conn + "(");
 		for(int i:mapOut){
 			System.err.print(i+" ");
 		}
@@ -48,8 +48,8 @@ public class Communicator {
 	public void stop(){
 		//avvisa l'activity che hai finito di scaricare
 		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
-		System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
-		activityToExecute.addTransferredData(byteTransferred, mapOut[0]);		
+		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
+		activityToExecute.addTransferredData(IntervalMap.updateIntervals(intervals, byteTransferred));			
 	}	
 	
 	/**
@@ -59,17 +59,19 @@ public class Communicator {
 	 */
 	public boolean finish() {
 		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
-		System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator finished, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
-		activityToExecute.addTransferredData(byteTransferred, mapOut[0]);
+		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator finished, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
+		activityToExecute.addTransferredData(intervals);
 		if(activityToExecute.getState() == DTNActivity.STATE_COMPLETED){
 			return true;
 		}
 		else{
 			try{
 				int[] map = activityToExecute.getRestOfMap();
-				int dataToTransfer = map[2]-map[1];
 				startTime = SimClock.getTime();
+				this.intervals = IntervalMap.interestingIntervals(map);
+				int dataToTransfer = IntervalMap.interestingIntervalsSize(intervals);
 				endTime = startTime + (dataToTransfer / connection.getSpeed());
+				//System.err.println("got rest of map - bytes: "+dataToTransfer+" end: "+endTime);
 			}catch(Exception e){}			
 			return false;
 		}
@@ -80,7 +82,7 @@ public class Communicator {
 	}
 
 	public void start() {
-		System.err.println("comincio a scaricare..");
+		System.err.println("Communicator started..");
 	}
 
 	public Executor getExecutor() {
