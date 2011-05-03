@@ -474,7 +474,7 @@ public class M2MShareRouter extends ActiveRouter {
 					((DTNPendingDownload)newActivity).getRequestor(), 
 					getHost(), 
 					((DTNPendingDownload)newActivity).getFilehash());
-			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - ricevuta PendingDownload");
+			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - ricevuta PendingDownload "+(DTNPendingDownload)newActivity);
 			queuingCentral.push(newActivity, QueuingCentral.DTN_PENDING_ID);
 		}		
 	}
