@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package utilities;
+package routing.m2mShare;
 
 /**
  *
@@ -79,4 +79,9 @@ public class Interval {
         return (value >= lowerEnd &&
                 value <= upperEnd);
     }
+    
+    @Override
+	public String toString() {
+		return "[" + lowerEnd + "," + upperEnd +"]";
+	}    
 }

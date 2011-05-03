@@ -28,7 +28,7 @@ public class DTNPresenceCollector {
 	
 	private Map<DTNHost, Connection> hostsInRange;
 	private Map<Connection, DTNHost> connections;
-	private Map<DTNHost, Double> connectionsDuration;
+	//private Map<DTNHost, Double> connectionsDuration;
 
 	private int servantsThisDay;
 
@@ -41,7 +41,7 @@ public class DTNPresenceCollector {
 		this.encounters = new HashMap<DTNHost, Integer>();
 		this.hostsInRange = new HashMap<DTNHost, Connection>();
 		this.connections = new HashMap<Connection, DTNHost>();
-		this.connectionsDuration = new HashMap<DTNHost, Double>();
+		//this.connectionsDuration = new HashMap<DTNHost, Double>();
 		this.servantsThisDay = 0;
 	}
 
@@ -64,10 +64,10 @@ public class DTNPresenceCollector {
 					//M2MShareRouter works only with other M2MShareRouters
 					if((otherHost.getRouter() instanceof M2MShareRouter)){
 						hostsInRange.put(otherHost, con);
-						connections.put(con, otherHost);
+						connections.put(con, otherHost);/*
 						if(!connectionsDuration.containsKey(otherHost)){
 							connectionsDuration.put(otherHost, SimClock.getTime());
-						}
+						}*/
 						int newEncountersValue = getEncountersFor(otherHost) +1;
 						
 						if(newEncountersValue >= frequencyThreshold && 
@@ -193,12 +193,13 @@ public class DTNPresenceCollector {
 			hostsInRange.remove(hostNoMoreConnected);
 			connections.remove(con);
 			myRouter.getScheduler().removeCommunicator(con);
+			/*
 			if(myRouter.getHost().getAddress() == 32){
 				double duration = SimClock.getTime() - connectionsDuration.get(hostNoMoreConnected);
 				System.err.println(SimClock.getTime()+"-"+ connectionsDuration.get(hostNoMoreConnected) + "32 connesso con "+hostNoMoreConnected+" per "+ duration +
 						"("+ con.getSpeed()*duration+ " trasferiti)");
-			}
-			connectionsDuration.remove(hostNoMoreConnected);
+			}*/
+			//connectionsDuration.remove(hostNoMoreConnected);
 			
 		}		
 	}

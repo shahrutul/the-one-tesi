@@ -7,6 +7,7 @@ import routing.M2MShareRouter;
 import core.Connection;
 import core.DTNFile;
 import core.DTNHost;
+import core.SimClock;
 
 public class DTNPendingDownload extends DTNActivity {
 
@@ -30,28 +31,34 @@ public class DTNPendingDownload extends DTNActivity {
 	@Override
 	public void execute(Executor executor) {
 		setActive();
+		int communicatorActivated = 0;
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
 		if(neighbours.size() == 0){
 			setIncomplete();
 		}
 		
 		for(DTNHost host: neighbours.keySet()){
-			if(!myRouter.getPresenceCollector().isHostInRange(host)){
-				continue;
-			}
+			
 			boolean hasFile = host.getFileSystem().hasFile(filehash);
-			if(hasFile){
-				DTNFile file = host.getFileSystem().getFile(filehash);
-				myRouter.getHost().getFileSystem().addToFiles(file);
+			if(hasFile && executor.moreCommunicatorsAvailable()){
+				//DTNFile file = host.getFileSystem().getFile(filehash);
+				//myRouter.getHost().getFileSystem().addToFiles(file);
 				System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file");
-				
-				DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, myRouter);
-				myRouter.addDownloadFwd(newActivity);
-				
-				setCompleted();
+
+				try {
+					executor.addCommunicator(neighbours.get(host),map.cut(false));
+					communicatorActivated++;
+				} catch (Exception e) {
+					//nothing to download
+				}
+
 			}
 		}
-		setIncomplete();
+		if(communicatorActivated == 0){
+			setIncomplete();
+		}
+		// else still running for transfer
+		// status == Active
 	}
 
 
@@ -74,6 +81,16 @@ public class DTNPendingDownload extends DTNActivity {
 		return ttl;
 	}
 	
+	
+	
+	@Override
+	public void setCompleted() {
+		super.setCompleted();
+		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, myRouter);
+		myRouter.addDownloadFwd(newActivity);
+	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if(!(obj instanceof DTNPendingDownload)){
@@ -86,10 +103,26 @@ public class DTNPendingDownload extends DTNActivity {
 	}
 
 
+
+
 	@Override
-	public boolean isComplete(int byteTransferred) {
-		System.err.println("DTNpendingDownload isComplete");
-		return false;
+	public void addTransferredData(int byteTransferred, int startPoint) {
+		try {
+			map.update(startPoint, startPoint+byteTransferred);
+			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "Mappa aggiornata PENDING: "+map);
+			if(map.mapSize() == 0){
+				setCompleted();
+				System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "PENDING completa");
+			}
+			
+		} catch (Exception e) {
+		}
+	}
+
+
+	@Override
+	public int[] getRestOfMap() {
+		return map.assignRestofMap();
 	}
 
 }

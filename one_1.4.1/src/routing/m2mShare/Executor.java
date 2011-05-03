@@ -15,7 +15,6 @@ public class Executor {
 	 */
 	private DTNScheduler scheduler;
 	
-	private Map<Connection, Communicator> communicators;
 	/**
 	 * The activity to execute
 	 */
@@ -27,16 +26,19 @@ public class Executor {
 
 	private boolean ready;
 	
+	private int id;
 	
-	public Executor(DTNScheduler dtnScheduler) {
+	private int activeCommunicators;
+	
+	public Executor(DTNScheduler dtnScheduler, int id) {
 		super();
+		this.id = id;
 		this.scheduler = dtnScheduler;
-		this.communicators = new HashMap<Connection, Communicator>();
 		this.ready = true;
+		activeCommunicators = 0;
 	}
 
 	public void runActivity(DTNActivity activityToExecute, int activityQueue){
-		System.err.println(SimClock.getTime()+" c'è qualcosa da fare");
 		this.ready = false;
 		this.currentActivity = activityToExecute;
 		this.currentActivityQueue = activityQueue;
@@ -44,16 +46,16 @@ public class Executor {
 		switch (currentActivity.getState()) {
 		
 		case DTNActivity.STATE_ACTIVE:
-			System.err.println(SimClock.getTime()+" attiva");
+			//System.err.println(SimClock.getTime()+" attiva");
 			return;
 			
 		case DTNActivity.STATE_COMPLETED:
-			System.err.println(SimClock.getTime()+" completa");
+			//System.err.println(SimClock.getTime()+" completa");
 			this.ready = true;
 			return;
 
 		case DTNActivity.STATE_INCOMPLETE:
-			System.err.println(SimClock.getTime()+" incompleta");
+			//System.err.println(SimClock.getTime()+" incompleta");
 			this.ready = true;
 			scheduler.reQueue(currentActivity, activityQueue);
 			return;
@@ -67,52 +69,47 @@ public class Executor {
 	 * @param mapOut
 	 */
 	public void addCommunicator(Connection connection, int[] mapOut) {
-		System.err.println(SimClock.getTime()+" aggiunto communicator");
-		Communicator newComm = new Communicator(currentActivity, connection, mapOut);
-		communicators.put(connection, newComm);		
-		newComm.start();
-		scheduler.communicatorAdded();
+		//System.err.println(SimClock.getTime()+" aggiunto communicator");
+		Communicator newComm = new Communicator(currentActivity, connection, mapOut, this);		
+		scheduler.addCommunicator(newComm);
+		activeCommunicators++;
+		newComm.start();		
 	}
 	
 
-	/**
-	 * Remove the selected communicator (if associated with this Executor)
-	 * @param con the Connection now closed
-	 */
-	public void removeCommunicator(Connection con) {
-		Communicator comm = communicators.get(con);
-		if(comm == null){
-			return;
-		}
-		// Stop the Communicator and checks if the Activity is completed
-		if(comm.stop()){
-			System.err.println("Activity completata");
-			scheduler.communicatorRemoved(communicators.size());
-			communicators.clear();
+	public void communicatorRemoved() {
+		if(currentActivity.getState() == DTNActivity.STATE_COMPLETED){
+			activeCommunicators = 0;
 			ready = true;
+			//System.err.println("Activity completed in exec");
 			return;
 		}
-		communicators.remove(con);
-		scheduler.communicatorRemoved(1);
-		if(communicators.size() == 0){
+		activeCommunicators--;
+		
+		if(activeCommunicators == 0){
 			this.ready = true;
 			//no more downloads: set the activity as complete or incomplete
 			switch (currentActivity.getState()) {
 			
 			case DTNActivity.STATE_ACTIVE:
+				//System.err.println("Activity ancora attiva ma senza communicators in exec");
+				currentActivity.setIncomplete();
+				scheduler.reQueue(currentActivity, currentActivityQueue);
+				//System.err.println("Activity incompleta -> riaccodata in exec");
 				return;
 				
 			case DTNActivity.STATE_COMPLETED:
-				this.ready = true;
+				//System.err.println("Activity finita! in exec");
 				return;
 
 			case DTNActivity.STATE_INCOMPLETE:
-				this.ready = true;
 				scheduler.reQueue(currentActivity, currentActivityQueue);
+				//System.err.println("Activity incompleta -> riaccodata in exec");
 				return;
 			}
 		}
 	}
+	
 	
 	public boolean isReady(){
 		return ready;
@@ -125,5 +122,12 @@ public class Executor {
 	public boolean moreCommunicatorsAvailable() {		
 		return scheduler.moreCommunicatorsAvailable();
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return (obj instanceof Executor) && ((Executor)obj).id == this.id;
+	}
+	
+	
 	
 }
