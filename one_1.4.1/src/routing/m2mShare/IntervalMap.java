@@ -66,7 +66,17 @@ public class IntervalMap{
     }
 
     public IntervalMap(int[] restOfMap) {
-		// TODO Auto-generated constructor stub
+    	this.pcktSize = 1024;
+    	intervals = new Vector<Interval>();
+    	int lowerEnd, upperEnd;
+    	try{
+    		for(int i=1;i<restOfMap.length; i+=2){
+    			lowerEnd = restOfMap[i];
+                upperEnd = restOfMap[i+1];
+                orderedInsert(new Interval(lowerEnd, upperEnd));
+    		}    		
+    		this.endInterval = intervals.lastElement().getUpperEnd();
+    	}catch(Exception e){}
 	}
 
 	/**
