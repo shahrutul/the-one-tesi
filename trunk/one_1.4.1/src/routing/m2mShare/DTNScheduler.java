@@ -1,5 +1,7 @@
 package routing.m2mShare;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 import core.Connection;
@@ -19,7 +21,7 @@ public class DTNScheduler {
 	private int taskTurn;
 	
 	private Executor[] executors;
-	private int activeCommunicators;
+	private Vector<Communicator> activeCommunicators;
 	
 	
 	
@@ -29,10 +31,9 @@ public class DTNScheduler {
 		this.myRouter = myRouter;
 		this.executors = new Executor[4];
 		for(int i=0; i<executors.length; i++){
-			this.executors[i] = new Executor(this);
+			this.executors[i] = new Executor(this, i);
 		}
-		
-		this.activeCommunicators = 0;
+		activeCommunicators = new Vector<Communicator>();
 		virtualFileTurn = true;
 		taskTurn = 0;
 	}
@@ -78,6 +79,8 @@ public class DTNScheduler {
 		if(taskTurn > 3){
 			taskTurn = 0;
 		}	
+		
+		checkCommunicators();
 		/*
 		}*/
 		
@@ -201,7 +204,7 @@ public class DTNScheduler {
 				DTNActivity newActivity = new DTNPendingDownload(
 						myRouter.getHost(), 
 						virtualFile.getFileHash(),
-						new IntervalMap(),
+						new IntervalMap(virtualFile.getRestOfMap()),
 						10000,
 						otherRouter
 				);
@@ -214,6 +217,7 @@ public class DTNScheduler {
 		}
 	}
 
+
 	/**
 	 * push in the queue specified the Activity
 	 * @param activity 
@@ -223,9 +227,8 @@ public class DTNScheduler {
 		queuingCentral.push(activity, activityQueue);
 	}
 	
-
 	public boolean moreCommunicatorsAvailable() {
-		return this.activeCommunicators < MAX_COMMUNICATORS;
+		return activeCommunicators.size() < MAX_COMMUNICATORS;
 	}
 
 	/**
@@ -233,21 +236,57 @@ public class DTNScheduler {
 	 * @param connection used by the communicator to be removed
 	 */
 	public void removeCommunicator(Connection con) {
-		for(int i = 0; i<4; i++){
-			executors[i].removeCommunicator(con);
-		}			
+		for(int i=activeCommunicators.size()-1; i>=0; i--){
+			Communicator comm = activeCommunicators.get(i);
+			if(comm.getConnection().equals(con)){
+				comm.stop();
+				comm.getExecutor().communicatorRemoved();
+				activeCommunicators.remove(i);
+			}
+		}
 	}
 
-	public void communicatorRemoved(int numRemoved) {
-		activeCommunicators -= numRemoved;
+	public void communicatorRemoved(Communicator comm) {
+		activeCommunicators.remove(comm);
 	}
 
 	public int getAvailableCommunicators() {
-		return MAX_COMMUNICATORS - activeCommunicators;
+		return MAX_COMMUNICATORS - activeCommunicators.size();
 	}
 
-	public void communicatorAdded() {
-		activeCommunicators++;
+	public void addCommunicator(Communicator comm) {
+		int i=0;
+		while(i<activeCommunicators.size() && 
+				activeCommunicators.get(i).getEndTime() < comm.getEndTime()){
+			i++;
+		}
+		activeCommunicators.insertElementAt(comm, i);
+	}
+	
+
+	private void checkCommunicators() {		
+		double simTime = SimClock.getTime();
+		try{
+			while(activeCommunicators.firstElement().getEndTime() <= simTime){
+				stopCommunicator(activeCommunicators.remove(0));
+			}
+		}catch(Exception e){}		
+	}
+
+	private void stopCommunicator(Communicator removed) {
+		if(removed.finish()){
+			Executor ex = removed.getExecutor();
+			for(int i=activeCommunicators.size()-1; i>=0; i--){
+				Communicator comm = activeCommunicators.get(i);
+				if(comm.getExecutor().equals(ex)){
+					activeCommunicators.remove(i);
+				}
+			}
+			ex.communicatorRemoved();
+		}
+		else{
+			addCommunicator(removed);
+		}		
 	}
 
 	

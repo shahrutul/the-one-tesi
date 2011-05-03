@@ -324,8 +324,8 @@ public final class MixUtil {
    }
 
     /**
-     * Serializes file content in the outpustream given as input. The content serialized
-     * is done by chunks in order not to overrrun the memory usage and network connection.
+     * Serializes file content in the outputstream given as input. The content serialized
+     * is done by chunks in order not to overrun the memory usage and network connection.
      * The outputStream is not closed as it is reused from callee again.
      */
     public static int writeOut(String persistedPath, OutputStream out) {

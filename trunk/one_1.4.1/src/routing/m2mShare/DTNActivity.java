@@ -15,8 +15,6 @@ public abstract class DTNActivity {
 	 * @return true if the activity has ended, false otherwise
 	 */
 	public abstract void execute(Executor executor);
-
-	public abstract boolean isComplete(int byteTransferred);
 	
 	public int getState(){
 		return state;
@@ -33,6 +31,10 @@ public abstract class DTNActivity {
 	public void setIncomplete(){
 		state = STATE_INCOMPLETE;
 	}
+
+	public abstract void addTransferredData(int byteTransferred, int startPoint);
+
+	public abstract int[] getRestOfMap();
 
 	
 }

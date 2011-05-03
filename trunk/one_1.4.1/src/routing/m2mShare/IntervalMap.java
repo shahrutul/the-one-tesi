@@ -65,7 +65,11 @@ public class IntervalMap{
         intervals.addElement(new Interval(0,endInterval));
     }
 
-    /**
+    public IntervalMap(int[] restOfMap) {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      *
      */
     public synchronized int[] cut(boolean delegation) throws Exception {
@@ -597,6 +601,71 @@ public class IntervalMap{
         this.pcktSize = pcktSize;
     }
     
+    /*
+    public static int mapOutToLength(int[] mapOut){
+    	try{
+        	int startPoint = mapOut[0];
+        	int length = s
+        	for(int )
+    	}catch (Exception e){
+    		return 0;
+    	}
+    }*/
+    
+    public static int mapSize(int[] downloadMap) {
+        if(downloadMap.length==0) return 0;
+        int valuePos;
+        int sumInterval=0;
+        int[][] mapApos = elaborateMap(downloadMap);
+        valuePos = mapApos[0][0];
+        downloadMap = mapApos[1];
+        for(int i:downloadMap){
+			System.err.print(i+" ");
+		}
+		System.err.println();
+            for(int i=valuePos; i<downloadMap.length; i+=2) {
+                sumInterval+=(downloadMap[i+1]-downloadMap[i])+1;
+            }       
+        return sumInterval;
+    }
+    
+    public static int[][] elaborateMap(int[] map) {
+
+        int pointerPos = binarySearch(map, map[0], 1 , map.length);        
+        if(pointerPos!=-1) return new int[][]{new int[]{pointerPos}, map};
+        int[] newMap = new int[map.length + 2];//new interval to be added
+        int newMapPos=0, lower, upper;
+        int pointerValue = map[0];
+        newMap[newMapPos++] = map[0];
+
+        for(int i=1; i < map.length; i+=2) {
+            lower = map[i];
+            upper = map[i+1];
+            if(lower < pointerValue && upper > pointerValue) {
+                newMap[newMapPos++] = lower;
+                newMap[newMapPos++] = pointerValue-1;
+                newMap[newMapPos++] = pointerValue;
+                pointerPos = newMapPos-1;
+                newMap[newMapPos++] = upper;
+            }else {
+                newMap[newMapPos++] = lower;
+                newMap[newMapPos++] = upper;
+            }
+        }
+        return new int[][]{new int[]{pointerPos},newMap};
+    }
+
+    private static int binarySearch(int[] values, int value, int low, int high) {
+        if (high < low)
+            return -1;
+        int mid = low + ((high - low) / 2) ;
+        if (values[mid] > value)
+            return binarySearch(values, value, low, mid-1);
+        else if (values[mid] < value)
+            return binarySearch(values, value, mid+1, high);
+        else
+            return mid;
+   }
 
 	@Override
 	public String toString() {

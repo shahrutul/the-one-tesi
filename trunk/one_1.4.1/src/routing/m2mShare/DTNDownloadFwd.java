@@ -52,10 +52,15 @@ public class DTNDownloadFwd extends DTNActivity {
 			((DTNDownloadFwd)obj).requestor.equals(this.requestor);
 	}
 
+	
 	@Override
-	public boolean isComplete(int byteTransferred) {
-		System.err.println("downloadfwd isComplete");
-		return false;
+	public void addTransferredData(int byteTransferred, int i) {
+		System.err.println("downloadfwd unComplete");
+	}
+
+	@Override
+	public int[] getRestOfMap() {
+		return null;
 	}
 	
 	

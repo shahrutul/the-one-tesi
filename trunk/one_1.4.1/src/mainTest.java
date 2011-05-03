@@ -7,22 +7,29 @@ public class mainTest {
 	public static void main(String[] args) {
 		IntervalMap map = new IntervalMap(1000000,1024);
 		System.err.println(map);
-		System.err.println(map.mapSize());
 		
-		int[] outMap;
+		
 		try {
-			outMap = map.cut(true);
-			for(int i:outMap){
-				System.err.print(i+" ");
-			}
+			int[] outMap = map.cut(false);
+			stampa(outMap);
+			System.err.println("mapSize di mapout: "+IntervalMap.mapSize(outMap));
 			System.err.println();
-			System.err.println(map.mapSize());
 			
-			map.update(0, 300000);	
+			int[] outMap2 = map.cut(false);
+			stampa(outMap2);
+			System.err.println("mapSize di mapout2: "+IntervalMap.mapSize(outMap2));
 			System.err.println();
+			
+			map.update(outMap[0], outMap[0]+100000);		
 			System.err.println(map);
-			System.err.println(map.mapSize());
 			
+			map.update(outMap2[0], outMap2[0]+100000);
+			System.err.println(map);			
+			
+			int[] outMap3= map.assignRestofMap();
+			stampa(outMap3);
+			System.err.println("mapSize di mapout3: "+IntervalMap.mapSize(outMap3));
+			System.err.println();
 			/*
 			outMap = map.cut(false);
 			for(int i:outMap){
@@ -80,5 +87,12 @@ public class mainTest {
 			System.err.print(startingPoints[i]+" ");
 		}
 		System.err.println();*/
+	}
+	
+	static void stampa(int[] array){
+		for(int i:array){
+			System.err.print(i+" ");
+		}
+		System.err.println();
 	}
 }

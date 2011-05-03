@@ -36,7 +36,6 @@ public class VirtualFile extends DTNActivity {
 	@Override
 	public void execute(Executor executor) {	
 		int communicatorActivated = 0;
-		System.err.println(SimClock.getTime()+" attivato VirtualFile");
 		setActive();
 		//Vector<Connection> compatibleHostsConns = new Vector<Connection>();
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
@@ -45,6 +44,7 @@ public class VirtualFile extends DTNActivity {
 				//compatibleHostsConns.add(neighbours.get(host));	
 				try {
 					executor.addCommunicator(neighbours.get(host),map.cut(false));
+					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
 				}
@@ -72,7 +72,6 @@ public class VirtualFile extends DTNActivity {
 		
 	}
 
-
 	public String getFileHash() {
 		return fileHash;
 	}
@@ -84,12 +83,23 @@ public class VirtualFile extends DTNActivity {
 	public double getCreationTime() {
 		return creationTime;
 	}
+	
+	@Override
+	public void addTransferredData(int byteTransferred, int startPoint) {
+		try {
+			map.update(startPoint, startPoint+byteTransferred);
+			//System.err.println("Mappa aggiornata: "+map);
+			if(map.mapSize() == 0){
+				setCompleted();
+				System.err.println("virtualFile completa");
+			}
+			
+		} catch (Exception e) {
+		}
+	}
 
 	@Override
-	public boolean isComplete(int byteTransferred) {
-		map.insertData(0, byteTransferred);
-		System.err.println("Mappa aggiornata: "+map);
-		int fileBytes = map.mapSize();
-		return byteTransferred >= fileBytes;
+	public int[] getRestOfMap() {
+		return map.assignRestofMap();
 	}
 }
