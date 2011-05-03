@@ -11,24 +11,31 @@ public class mainTest {
 		
 		try {
 			int[] outMap = map.cut(false);
-			stampa(outMap);
+			System.err.print("outmap: ");stampa(outMap);
+			stampa(IntervalMap.interestingIntervals(outMap));
 			System.err.println("mapSize di mapout: "+IntervalMap.mapSize(outMap));
 			System.err.println();
 			
 			int[] outMap2 = map.cut(false);
-			stampa(outMap2);
+			System.err.print("outmap2: ");stampa(outMap2);
+			System.err.print("interest outmap2: ");stampa(IntervalMap.interestingIntervals(outMap2));
 			System.err.println("mapSize di mapout2: "+IntervalMap.mapSize(outMap2));
+			System.err.println("mapSize interest di mapout2: "+
+					IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap2)));
 			System.err.println();
 			
 			map.update(outMap[0], outMap[0]+100000);		
 			System.err.println(map);
 			
-			map.update(outMap2[0], outMap2[0]+100000);
+			map.update(IntervalMap.interestingIntervals(outMap2)[0], IntervalMap.interestingIntervals(outMap2)[1]);
 			System.err.println(map);			
 			
 			int[] outMap3= map.assignRestofMap();
-			stampa(outMap3);
+			System.err.print("outmap3: ");stampa(outMap3);
+			System.err.print("interest outmap3: ");stampa(IntervalMap.interestingIntervals(outMap3));
 			System.err.println("mapSize di mapout3: "+IntervalMap.mapSize(outMap3));
+			System.err.println("mapSize interest di mapout3: "+
+					IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap3)));
 			System.err.println();
 			/*
 			outMap = map.cut(false);
@@ -90,6 +97,10 @@ public class mainTest {
 	}
 	
 	static void stampa(int[] array){
+		if(array==null){
+			System.err.println("null");
+			return;
+		}
 		for(int i:array){
 			System.err.print(i+" ");
 		}

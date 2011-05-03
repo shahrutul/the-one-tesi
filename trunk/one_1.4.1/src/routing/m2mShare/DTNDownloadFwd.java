@@ -54,7 +54,7 @@ public class DTNDownloadFwd extends DTNActivity {
 
 	
 	@Override
-	public void addTransferredData(int byteTransferred, int i) {
+	public void addTransferredData(int[] intervals) {
 		System.err.println("downloadfwd unComplete");
 	}
 

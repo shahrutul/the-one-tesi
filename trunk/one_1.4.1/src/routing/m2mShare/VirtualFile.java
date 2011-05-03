@@ -85,10 +85,12 @@ public class VirtualFile extends DTNActivity {
 	}
 	
 	@Override
-	public void addTransferredData(int byteTransferred, int startPoint) {
+	public void addTransferredData(int[] intervals) {
 		try {
-			map.update(startPoint, startPoint+byteTransferred);
-			//System.err.println("Mappa aggiornata: "+map);
+			for(int i=0; i<intervals.length-1; i+=2){
+				map.update(intervals[i], intervals[i+1]);
+			}	
+			System.err.println("Mappa aggiornata: "+map);
 			if(map.mapSize() == 0){
 				setCompleted();
 				System.err.println("virtualFile completa");
