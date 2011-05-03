@@ -25,6 +25,7 @@ public class DTNDownloadFwd extends DTNActivity {
 	public void execute(Executor executor) {
 		setActive();
 		if(myRouter.getPresenceCollector().isHostInRange(requestor)){
+			manca da creare il file x trasferirlo
 			DTNFile file = myRouter.getHost().getFileSystem().getFile(filehash);
 			requestor.getFileSystem().addToFiles(file);
 			System.err.println(myRouter.getHost() + " - in DTNDownloadFwd.execute ritornato file a "+requestor);

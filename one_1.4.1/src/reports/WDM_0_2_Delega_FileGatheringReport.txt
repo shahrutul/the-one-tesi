@@ -1,6 +1,0 @@
-# time  event
-1.0000 - query created in B32 (317200191)
-
-1 file requests created
-0 times a file requests has been delegated
-0 file requests satisfied (in 0.0000 s)

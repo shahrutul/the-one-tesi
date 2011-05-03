@@ -6,7 +6,7 @@ Scenario.updateInterval = 0.5
 # 43k ~= 12h
 # 86k ~= 24h
 # 172k ~= 48h
-Scenario.endTime = 40
+Scenario.endTime = 172k
 
 ###################################
 ### common settings for all groups
@@ -19,8 +19,8 @@ Group.transmitSpeed = 100k
 ###################################
 # path to files generation input files
 #FilesGenerator.filepath = filesInput/500copie_uniform.txt
-#FilesGenerator.filepath = filesInput/25copie_group.txt
-FilesGenerator.filepath = filesInput/1copia_a_135.txt
+FilesGenerator.filepath = filesInput/25copie_group.txt
+#FilesGenerator.filepath = filesInput/1copia_a_135.txt
 FilesGenerator.rngSeed = 0
 
 ###################################

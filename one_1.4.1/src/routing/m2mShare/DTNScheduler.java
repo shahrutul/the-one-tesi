@@ -200,7 +200,7 @@ public class DTNScheduler {
 		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID); i++){
 			try{
 				VirtualFile virtualFile = (VirtualFile) queuingCentral.pop(QueuingCentral.VIRTUAL_FILE_QUEUE_ID);
-				System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
+				//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
 				DTNActivity newActivity = new DTNPendingDownload(
 						myRouter.getHost(), 
 						virtualFile.getFileHash(),
