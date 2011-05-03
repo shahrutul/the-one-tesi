@@ -25,6 +25,7 @@ public class DTNPendingDownload extends DTNActivity {
 		this.map = map;
 		this.ttl = ttl;
 		this.myRouter = m2mShareRouter;
+		System.err.println(SimClock.getTime()+" - nuova DTNPendingDownload, map: "+map);
 	}
 
 
