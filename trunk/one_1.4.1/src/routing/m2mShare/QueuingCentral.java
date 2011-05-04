@@ -65,6 +65,18 @@ public class QueuingCentral {
 		}
 		return 0;
 	}
+
+
+	public VirtualFile getVirtualFile(String filehash) {
+		try{
+			for(DTNActivity activity: queues.get(VIRTUAL_FILE_QUEUE_ID)){
+				if(((VirtualFile)activity).getFileHash().equals(filehash)){
+					return (VirtualFile)activity;
+				}
+			}
+		}catch (Exception e){}
+		return null;		
+	}
 	
 	
 

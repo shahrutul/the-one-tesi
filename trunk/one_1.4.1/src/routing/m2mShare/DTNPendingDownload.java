@@ -82,14 +82,12 @@ public class DTNPendingDownload extends DTNActivity {
 	}
 	
 	
-	
 	@Override
 	public void setCompleted() {
 		super.setCompleted();
 		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, myRouter);
 		myRouter.addDownloadFwd(newActivity);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -102,9 +100,6 @@ public class DTNPendingDownload extends DTNActivity {
 			((DTNPendingDownload)obj).ttl == this.ttl;
 	}
 
-
-
-
 	@Override
 	public void addTransferredData(int[] intervals) {
 		try {
@@ -112,12 +107,12 @@ public class DTNPendingDownload extends DTNActivity {
 				map.update(intervals[i], intervals[i+1]);
 			}			
 			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "Mappa aggiornata PENDING: "+map);
-			if(map.mapSize() == 0){
-				setCompleted();
-				System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "PENDING completa");
-			}
-			
+						
 		} catch (Exception e) {
+		}
+		if(map.mapSize() == 0){
+			setCompleted();
+			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "PENDING completa");
 		}
 	}
 

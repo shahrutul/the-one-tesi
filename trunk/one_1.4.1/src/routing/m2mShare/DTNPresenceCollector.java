@@ -203,6 +203,10 @@ public class DTNPresenceCollector {
 			
 		}		
 	}
+
+	public Connection getConnectionFor(DTNHost host) {
+		return hostsInRange.get(host);
+	}
 	
 	
 

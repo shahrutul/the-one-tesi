@@ -12,6 +12,7 @@ import routing.m2mShare.M2MShareConstants;
 import routing.m2mShare.DTNPresenceCollector;
 import routing.m2mShare.M2MShareQuery;
 import routing.m2mShare.QueuingCentral;
+import routing.m2mShare.VirtualFile;
 
 import core.Connection;
 import core.DTNFile;
@@ -496,6 +497,29 @@ public class M2MShareRouter extends ActiveRouter {
 			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - aggiunto DownloadFWD");
 			queuingCentral.push(newActivity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
 		}	
+	}
+
+
+	public int[] getIntervalsForDownloadFwd(String filehash) {
+		VirtualFile vf = queuingCentral.getVirtualFile(filehash);
+		if(vf == null){
+			return null;
+		}
+		return vf.getRestOfMap();
+	}
+
+
+	public void dataFromDownloadFwd(String filehash, int[] intervals) {
+		VirtualFile vf = queuingCentral.getVirtualFile(filehash);
+		if(vf == null){
+			return;
+		}
+		vf.addTransferredData(intervals);
+	}
+
+
+	public boolean isStopOnFirstQuerySatisfied() {
+		return stopOnFirstQuerySatisfied;
 	}
 	
 	
