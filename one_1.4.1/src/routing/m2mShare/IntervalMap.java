@@ -349,8 +349,14 @@ public class IntervalMap{
      * @return
      */
     public int mapSize() {return intervals.size();}
+    
+    
 
-    private Interval markInterval(Interval i, int bi, int b, int e) {
+    public int getEndInterval() {
+		return endInterval;
+	}
+
+	private Interval markInterval(Interval i, int bi, int b, int e) {
 
 
         if(b==e) return markPoint(i, bi, b, e);

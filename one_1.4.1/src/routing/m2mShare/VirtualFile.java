@@ -13,12 +13,14 @@ import routing.M2MShareRouter;
 public class VirtualFile extends DTNActivity {
 
 	private String fileHash;
+	private String filename;
 	private int fromAddr;
 	private double creationTime;
 	private M2MShareRouter myRouter;
 	private IntervalMap map;
 	
 	public VirtualFile(M2MShareQuery m2mQuery, M2MShareRouter m2mShareRouter) {
+		this.filename = m2mQuery.getFilename();
 		this.fileHash = DTNFile.hashFromFilename(m2mQuery.getFilename());
 		this.fromAddr = m2mQuery.getFromAddr();
 		this.creationTime = m2mQuery.getCreationTime();
@@ -90,18 +92,36 @@ public class VirtualFile extends DTNActivity {
 			for(int i=0; i<intervals.length-1; i+=2){
 				map.update(intervals[i], intervals[i+1]);
 			}	
-			System.err.println("Mappa aggiornata: "+map);
-			if(map.mapSize() == 0){
-				setCompleted();
-				System.err.println("virtualFile completa");
-			}
+			System.err.println(myRouter.getHost() +" In VirtualFile Mappa aggiornata: "+map);			
 			
-		} catch (Exception e) {
+		} catch (Exception e) {}
+		if(map.mapSize() == 0){
+			setCompleted();
+			createFile();
+			System.err.println(myRouter.getHost() +" virtualFile completa");
 		}
+	}
+
+	private void createFile() {
+		DTNFile file = new DTNFile(filename, fileHash, map.getEndInterval());
+		if(!myRouter.getHost().getFileSystem().hasFile(fileHash)){
+			myRouter.getHost().getFileSystem().addToFiles(file);
+		}		
 	}
 
 	@Override
 	public int[] getRestOfMap() {
 		return map.assignRestofMap();
 	}
+
+	@Override
+	public void setCompleted() {
+		super.setCompleted();
+		if(myRouter.isStopOnFirstQuerySatisfied()){
+			System.err.println("fine");
+			SimScenario.getInstance().getWorld().cancelSim();
+		}
+	}
+	
+	
 }

@@ -58,7 +58,6 @@ public class Communicator {
 	 * @return true if the activity is complete, false otherwise
 	 */
 	public boolean finish() {
-		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
 		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator finished, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
 		activityToExecute.addTransferredData(intervals);
 		if(activityToExecute.getState() == DTNActivity.STATE_COMPLETED){

@@ -206,6 +206,9 @@ public class DTNScheduler {
 						virtualFile.getFileHash(),
 						new IntervalMap(virtualFile.getRestOfMap()),
 						10000,
+						sistemare ttl delega
+						reports
+						no delega a chi ha fwd
 						otherRouter
 				);
 
