@@ -2,6 +2,8 @@ package routing.m2mShare;
 
 import java.util.Vector;
 
+import core.DTNHost;
+
 import routing.M2MShareRouter;
 
 public class QueuingCentral {
@@ -76,6 +78,17 @@ public class QueuingCentral {
 			}
 		}catch (Exception e){}
 		return null;		
+	}
+
+
+	public boolean containsDownloadFwd(DTNHost requestor, String filehash) {
+		for(DTNActivity activity: queues.get(DTN_PENDING_UPLOAD_ID)){
+			if(((DTNDownloadFwd)activity).getFileHash().equals(filehash) &&
+					((DTNDownloadFwd)activity).getRequestor().equals(requestor)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

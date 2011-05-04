@@ -34,7 +34,6 @@
 49158.0000 query delegated from B32 to B139
 49208.0000 query delegated from B32 to B121
 86408.0000 query delegated from B32 to B60
-86718.0000 query delegated from B32 to B9
 88388.0000 query delegated from B32 to C452
 90198.0000 query delegated from B32 to B192
 90208.0000 query delegated from B32 to D270
@@ -50,5 +49,5 @@
 91108.0000 query delegated from B32 to D285
 
 1 file requests created
-48 times a file requests has been delegated
+47 times a file requests has been delegated
 0 file requests satisfied (in 0.0000 s)

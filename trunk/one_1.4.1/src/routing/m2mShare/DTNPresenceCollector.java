@@ -207,6 +207,11 @@ public class DTNPresenceCollector {
 	public Connection getConnectionFor(DTNHost host) {
 		return hostsInRange.get(host);
 	}
+
+	public int getDelegationTTL() {		
+		// 86400 seconds for 1 day
+		return probationWindow*86400;
+	}
 	
 	
 
