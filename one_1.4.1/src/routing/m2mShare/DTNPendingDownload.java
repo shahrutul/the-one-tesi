@@ -14,7 +14,7 @@ public class DTNPendingDownload extends DTNActivity {
 	private DTNHost requestor;
 	private String filehash;
 	private IntervalMap map;
-	private long ttl;
+	private double maxEndTime;
 	private M2MShareRouter myRouter;
 	
 	public DTNPendingDownload(DTNHost requestor, String filehash,
@@ -23,7 +23,7 @@ public class DTNPendingDownload extends DTNActivity {
 		this.requestor = requestor;
 		this.filehash = filehash;
 		this.map = map;
-		this.ttl = ttl;
+		this.maxEndTime = SimClock.getTime()+ttl;
 		this.myRouter = m2mShareRouter;
 	}
 
@@ -77,15 +77,15 @@ public class DTNPendingDownload extends DTNActivity {
 	}
 
 
-	public long getTtl() {
-		return ttl;
+	public double getMaxEndTime() {
+		return maxEndTime;
 	}
 	
 	
 	@Override
 	public void setCompleted() {
 		super.setCompleted();
-		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, myRouter);
+		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, maxEndTime, myRouter);
 		myRouter.addDownloadFwd(newActivity);
 	}
 
@@ -97,7 +97,7 @@ public class DTNPendingDownload extends DTNActivity {
 		return ((DTNPendingDownload)obj).filehash.equals(this.filehash) &&
 			((DTNPendingDownload)obj).requestor.equals(this.requestor) &&
 			//((DTNPendingDownload)obj).map.equals(this.map) &&
-			((DTNPendingDownload)obj).ttl == this.ttl;
+			((DTNPendingDownload)obj).maxEndTime == this.maxEndTime;
 	}
 
 	@Override

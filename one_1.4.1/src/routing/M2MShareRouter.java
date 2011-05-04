@@ -470,7 +470,8 @@ public class M2MShareRouter extends ActiveRouter {
 
 
 	public void addPendingDownload(DTNActivity newActivity) {		
-		if(!queuingCentral.contains(newActivity, QueuingCentral.DTN_PENDING_ID)){
+		if(!queuingCentral.contains(newActivity, QueuingCentral.DTN_PENDING_ID)
+				&& !queuingCentral.containsDownloadFwd(((DTNPendingDownload)newActivity).getRequestor(), ((DTNPendingDownload)newActivity).getFilehash())){
 			notifyfileRequestDelegated(
 					((DTNPendingDownload)newActivity).getRequestor(), 
 					getHost(), 

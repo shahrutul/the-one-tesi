@@ -1,4 +1,2 @@
-QueryRequest.java:
-togliere il trasferimento istantaneo e brutale dei file
-
-
+sistemare ttl delega
+reports

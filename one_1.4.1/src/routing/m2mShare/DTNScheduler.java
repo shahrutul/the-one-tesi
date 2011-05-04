@@ -1,7 +1,5 @@
 package routing.m2mShare;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 
 import core.Connection;
@@ -90,6 +88,10 @@ public class DTNScheduler {
 	void runTriggeredActivityFlow(){
 		try {
 			DTNActivity activity = queuingCentral.pop(QueuingCentral.DTN_PENDING_UPLOAD_ID);
+			if(((DTNDownloadFwd)activity).getMaxEndTime() <= SimClock.getTime()){
+				//DTNDownloadFwd expired
+				return;
+			}
 			//execute(activity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
 			if(executors[0].isReady()){			
 				executors[0].runActivity(activity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
@@ -101,7 +103,7 @@ public class DTNScheduler {
 	
 	private void updateUploadActivity() {
 		try {
-			DTNActivity activity = queuingCentral.pop(QueuingCentral.UPLOAD_QUEUE_ID);
+			DTNActivity activity = queuingCentral.pop(QueuingCentral.UPLOAD_QUEUE_ID);			
 			//execute(activity, QueuingCentral.UPLOAD_QUEUE_ID);
 			if(executors[3].isReady()){			
 				executors[3].runActivity(activity, QueuingCentral.UPLOAD_QUEUE_ID);
@@ -115,6 +117,10 @@ public class DTNScheduler {
 		try {
 			DTNActivity activity = queuingCentral.pop(QueuingCentral.DTN_PENDING_ID);
 			//execute(activity, QueuingCentral.DTN_PENDING_ID);
+			if(((DTNPendingDownload)activity).getMaxEndTime() <= SimClock.getTime()){
+				//DTNDownloadFwd expired
+				return;
+			}
 			if(executors[2].isReady()){			
 				executors[2].runActivity(activity, QueuingCentral.DTN_PENDING_ID);
 			}
@@ -205,10 +211,7 @@ public class DTNScheduler {
 						myRouter.getHost(), 
 						virtualFile.getFileHash(),
 						new IntervalMap(virtualFile.getRestOfMap()),
-						10000,
-						sistemare ttl delega
-						reports
-						no delega a chi ha fwd
+						presenceCollector.getDelegationTTL(),
 						otherRouter
 				);
 

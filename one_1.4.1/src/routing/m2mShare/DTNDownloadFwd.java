@@ -11,13 +11,15 @@ public class DTNDownloadFwd extends DTNActivity {
 	private IntervalMap map;
 	private String filehash;
 	private M2MShareRouter myRouter;
+	private double maxEndTime;
 
-	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, M2MShareRouter myRouter) {
+	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime,M2MShareRouter myRouter) {
 		super();
 		this.requestor = requestor;
 		this.map = map;
 		this.filehash = filehash;
 		this.myRouter = myRouter;
+		this.maxEndTime = maxEndTime;
 	}
 
 	@Override
@@ -51,6 +53,10 @@ public class DTNDownloadFwd extends DTNActivity {
 	public IntervalMap getMap() {
 		return map;
 	}
+	
+	public double getMaxEndTime(){
+		return maxEndTime;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -73,6 +79,10 @@ public class DTNDownloadFwd extends DTNActivity {
 	@Override
 	public int[] getRestOfMap() {
 		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(filehash);
+	}
+
+	public String getFileHash() {
+		return filehash;
 	}
 	
 }
