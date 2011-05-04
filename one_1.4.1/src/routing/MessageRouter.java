@@ -649,7 +649,7 @@ public abstract class MessageRouter {
 	
 	public void notifyfileRequestCreated(DTNHost where, String filehash){
 		for (FileEventListener ql : this.qListeners) {
-			ql.newFileRequest(where, filehash);
+			ql.newVirtualFile(where, filehash);
 		}
 	}
 	
@@ -667,7 +667,7 @@ public abstract class MessageRouter {
 	
 	public void notifyfileRequestExpired(DTNHost where, DTNHost requestor, String filehash){
 		for (FileEventListener ql : this.qListeners) {
-			ql.fileRequestExpired(where, requestor, filehash);
+			ql.pendingDownloadExpired(where, requestor, filehash);
 		}
 	}
 	

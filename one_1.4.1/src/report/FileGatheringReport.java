@@ -9,6 +9,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	private int created;
 	private int satisfied;
 	private int delegated;
+	private int expired;
 	private double timeSatisfied;
 	
 	/**
@@ -25,6 +26,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 		satisfied = 0;
 		delegated = 0;
 		timeSatisfied = 0;
+		expired = 0;
 		write(HEADER);
 	}
 	
@@ -39,7 +41,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	}
 
 	@Override
-	public void newFileRequest(DTNHost where, String filehash) {
+	public void newVirtualFile(DTNHost where, String filehash) {
 		if (!isWarmup()) {
 			created++;
 			write(format(getSimTime()) + " - query created in " + where + " (" + filehash + ")");
@@ -50,14 +52,14 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	public void fileRequestDelegated(DTNHost from, DTNHost to, String filehash) {
 		if (!isWarmup()) {
 			delegated++;
-			write(format(getSimTime()) + " query delegated from " + from + " to " + to);
+			write(format(getSimTime()) + " PendingDownload " + from + " to " + to);
 		}
 	}
 
 	@Override
-	public void fileRequestExpired(DTNHost where, DTNHost requestor,
+	public void pendingDownloadExpired(DTNHost where, DTNHost requestor,
 			String filehash) {
-		write(format(getSimTime()) + " - file request expired in " + 
+		write(format(getSimTime()) + " - PendingDownload expired in " + 
 				where + " (" + filehash + " requested by "+requestor + ")");					
 	}
 
@@ -77,6 +79,20 @@ public class FileGatheringReport extends Report implements FileEventListener{
 			}
 			
 		}
+	}
+
+	@Override
+	public void downloadFWDExpired(DTNHost where, DTNHost requestor,
+			String filehash) {
+		
+		write(format(getSimTime()) + " - DownloadFWD expired in " + 
+				where + " (" + filehash + " requested by "+requestor + ")");	
+	}
+
+	@Override
+	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -36,12 +36,13 @@ MovementModel.rngSeed = 1918430133
 
 ## Reports - all report names have to be valid report classes
 # how many reports to load
-Report.nrofReports = 1
+Report.nrofReports = 2
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/
+Report.reportDir = reports/%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%/
 # Report classes to load
 Report.report1 = FileGatheringReport
+Report.report2 = DataTransferReport
 
 # M2MShare settings
 M2MShareRouter.frequencyThreshold = 2
