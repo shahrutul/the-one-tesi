@@ -1,6 +1,7 @@
 package routing.m2mShare;
 
 import core.Connection;
+import core.DTNHost;
 import core.SimClock;
 
 public class Communicator {
@@ -23,12 +24,14 @@ public class Communicator {
 	private Connection connection;
 	private int[] intervals;
 	private Executor executor;
+	private DTNHost otherHost;
 	
 	
-	public Communicator(DTNActivity currentActivity, Connection conn, int[] mapOut, Executor executor) {		
+	public Communicator(DTNActivity currentActivity, Connection conn, DTNHost otherHost, int[] mapOut, Executor executor) {		
 		this.startTime = SimClock.getTime();
 		this.connection = conn;
 		this.activityToExecute = currentActivity;
+		this.otherHost = otherHost;
 		this.intervals = IntervalMap.interestingIntervals(mapOut);
 		int dataToTransfer = IntervalMap.interestingIntervalsSize(intervals);
 		this.endTime = startTime + (dataToTransfer / conn.getSpeed());
@@ -49,7 +52,7 @@ public class Communicator {
 		//avvisa l'activity che hai finito di scaricare
 		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
 		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
-		activityToExecute.addTransferredData(IntervalMap.updateIntervals(intervals, byteTransferred));			
+		activityToExecute.addTransferredData(IntervalMap.updateIntervals(intervals, byteTransferred), otherHost);			
 	}	
 	
 	/**
@@ -59,7 +62,7 @@ public class Communicator {
 	 */
 	public boolean finish() {
 		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator finished, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
-		activityToExecute.addTransferredData(intervals);
+		activityToExecute.addTransferredData(intervals, otherHost);
 		if(activityToExecute.getState() == DTNActivity.STATE_COMPLETED){
 			return true;
 		}

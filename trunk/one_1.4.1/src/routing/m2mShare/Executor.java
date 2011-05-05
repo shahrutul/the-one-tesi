@@ -66,11 +66,12 @@ public class Executor {
 	/**
 	 * Add a new Communicator for the running Activity
 	 * @param connection the connection associated at the transfer
+	 * @param otherHost 
 	 * @param mapOut
 	 */
-	public void addCommunicator(Connection connection, int[] mapOut) {
+	public void addCommunicator(Connection connection, DTNHost otherHost, int[] mapOut) {
 		//System.err.println(SimClock.getTime()+" aggiunto communicator");
-		Communicator newComm = new Communicator(currentActivity, connection, mapOut, this);		
+		Communicator newComm = new Communicator(currentActivity, connection, otherHost, mapOut, this);		
 		scheduler.addCommunicator(newComm);
 		activeCommunicators++;
 		newComm.start();		

@@ -55,4 +55,12 @@ public class DataTransferReport extends Report implements FileEventListener {
 	public void fileRequestSatisfied(DTNHost where, String filehash,
 			boolean selfSatisfied) {}
 
+	@Override
+	public void downloadFWDReturned(DTNHost from, DTNHost requestor,
+			String filehash) {}
+
+	@Override
+	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor,
+			String filehash) {}
+
 }
