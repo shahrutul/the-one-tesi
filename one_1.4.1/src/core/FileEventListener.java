@@ -23,7 +23,11 @@ public interface FileEventListener {
 	 */
 	public void pendingDownloadExpired(DTNHost where, DTNHost requestor, String filehash);
 	
+	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor, String filehash);
+	
 	public void downloadFWDExpired(DTNHost where, DTNHost requestor, String filehash);
+	
+	public void downloadFWDReturned(DTNHost from, DTNHost requestor, String filehash);
 	
 	public void dataTransferred(DTNHost from, DTNHost to, int bytes);	
 	

@@ -1,5 +1,7 @@
 package routing.m2mShare;
 
+import core.DTNHost;
+
 public abstract class DTNActivity {
 	
 	public static final int STATE_QUEUED = 0;
@@ -32,9 +34,10 @@ public abstract class DTNActivity {
 		state = STATE_INCOMPLETE;
 	}
 
-	public abstract void addTransferredData(int[] intervals);
+	public abstract void addTransferredData(int[] intervals, DTNHost from);
 
 	public abstract int[] getRestOfMap();
+
 
 	
 }

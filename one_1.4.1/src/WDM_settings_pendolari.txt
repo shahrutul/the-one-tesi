@@ -1,12 +1,5 @@
 
-Scenario.name = [WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_Delega; WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_No_Delega]
-Scenario.simulateConnections = true
-Scenario.simulateFiles = true
-Scenario.updateInterval = 0.5
-# 43k ~= 12h
-# 86k ~= 24h
-# 172k ~= 48h
-Scenario.endTime = 172k
+
 
 #Report.warmup = 200000
 Group.msgTtl = 1433

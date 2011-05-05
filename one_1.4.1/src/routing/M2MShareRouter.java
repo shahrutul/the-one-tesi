@@ -179,7 +179,7 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 	
 	
-	public void notifyQuerySatisfied(String filehash, boolean selfSatisfied){
+	public void notifyfileRequestSatisfied(String filehash, boolean selfSatisfied){
 		notifyfileRequestSatisfied(getHost(), filehash, selfSatisfied);
 		if(stopOnFirstQuerySatisfied){
 			SimScenario.getInstance().getWorld().cancelSim();
@@ -237,7 +237,7 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 		
 	}*/
-	
+	/*
 	private boolean isTransferringFile(Connection conn, String fileHash) {
 		
 		Message msgOnFly = conn.getMessage();
@@ -298,7 +298,7 @@ public class M2MShareRouter extends ActiveRouter {
 		m.addProperty(M2MShareConstants.MSG_TYPE_STR, M2MShareConstants.TYPE_DATA_REQUEST);
 		m.addProperty(M2MShareConstants.MSG_FILE_ID, fileHash);
 		addToMessages(m, true);		
-	}
+	}*/
 	
 /*
 	private void delegateMyQueries(DTNHost otherHost) {
@@ -510,12 +510,13 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
-	public void dataFromDownloadFwd(String filehash, int[] intervals) {
+	public void dataFromDownloadFwd(String filehash, int[] intervals, DTNHost from) {
 		VirtualFile vf = queuingCentral.getVirtualFile(filehash);
 		if(vf == null){
 			return;
 		}
-		vf.addTransferredData(intervals);
+		vf.setSelfSatisfied(false);
+		vf.addTransferredData(intervals, from);
 	}
 
 

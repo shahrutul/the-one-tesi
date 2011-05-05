@@ -46,7 +46,7 @@ public class DTNPendingDownload extends DTNActivity {
 				System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file");
 
 				try {
-					executor.addCommunicator(neighbours.get(host),map.cut(false));
+					executor.addCommunicator(neighbours.get(host), host, map.cut(false));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
@@ -85,8 +85,9 @@ public class DTNPendingDownload extends DTNActivity {
 	@Override
 	public void setCompleted() {
 		super.setCompleted();
+		myRouter.notifyPendingDownloadCompleted(myRouter.getHost(), requestor, filehash);
 		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, maxEndTime, myRouter);
-		myRouter.addDownloadFwd(newActivity);
+		myRouter.addDownloadFwd(newActivity);		
 	}
 
 	@Override
@@ -95,21 +96,23 @@ public class DTNPendingDownload extends DTNActivity {
 			return false;
 		}
 		return ((DTNPendingDownload)obj).filehash.equals(this.filehash) &&
-			((DTNPendingDownload)obj).requestor.equals(this.requestor) &&
-			//((DTNPendingDownload)obj).map.equals(this.map) &&
-			((DTNPendingDownload)obj).maxEndTime == this.maxEndTime;
+			((DTNPendingDownload)obj).requestor.equals(this.requestor);
+			//((DTNPendingDownload)obj).map.equals(this.map) &&;
 	}
 
 	@Override
-	public void addTransferredData(int[] intervals) {
+	public void addTransferredData(int[] intervals, DTNHost from) {
+		int bytesTrasferred = 0;
 		try {
 			for(int i=0; i<intervals.length-1; i+=2){
 				map.update(intervals[i], intervals[i+1]);
+				bytesTrasferred += intervals[i+1]-intervals[i]+1;
 			}			
 			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "Mappa aggiornata PENDING: "+map);
 						
 		} catch (Exception e) {
 		}
+		myRouter.notifyDataTransferred(from, myRouter.getHost(), bytesTrasferred);
 		if(map.mapSize() == 0){
 			setCompleted();
 			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "PENDING completa");

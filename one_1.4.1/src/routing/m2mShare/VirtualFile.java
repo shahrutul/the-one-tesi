@@ -18,6 +18,7 @@ public class VirtualFile extends DTNActivity {
 	private double creationTime;
 	private M2MShareRouter myRouter;
 	private IntervalMap map;
+	private boolean selfSatisfied;
 	
 	public VirtualFile(M2MShareQuery m2mQuery, M2MShareRouter m2mShareRouter) {
 		this.filename = m2mQuery.getFilename();
@@ -25,6 +26,7 @@ public class VirtualFile extends DTNActivity {
 		this.fromAddr = m2mQuery.getFromAddr();
 		this.creationTime = m2mQuery.getCreationTime();
 		this.myRouter = m2mShareRouter;
+		this.selfSatisfied = true;
 		DTNFile file = SimScenario.getInstance().getFileGenerator().getFile(fileHash);
 		if(file == null){
 			map = new IntervalMap(1000000, 1024);
@@ -45,7 +47,7 @@ public class VirtualFile extends DTNActivity {
 			if(host.getFileSystem().hasFile(fileHash) && executor.moreCommunicatorsAvailable()){
 				//compatibleHostsConns.add(neighbours.get(host));	
 				try {
-					executor.addCommunicator(neighbours.get(host),map.cut(false));
+					executor.addCommunicator(neighbours.get(host), host,map.cut(false));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
@@ -86,8 +88,13 @@ public class VirtualFile extends DTNActivity {
 		return creationTime;
 	}
 	
+	public void setSelfSatisfied(boolean self){
+		this.selfSatisfied = self;
+	}
+	
 	@Override
-	public void addTransferredData(int[] intervals) {
+	public void addTransferredData(int[] intervals, DTNHost from){
+		
 		try {
 			for(int i=0; i<intervals.length-1; i+=2){
 				map.update(intervals[i], intervals[i+1]);
@@ -96,9 +103,9 @@ public class VirtualFile extends DTNActivity {
 			
 		} catch (Exception e) {}
 		if(map.mapSize() == 0){
-			setCompleted();
 			createFile();
 			System.err.println(myRouter.getHost() +" virtualFile completa");
+			setCompleted();				
 		}
 	}
 
@@ -117,10 +124,7 @@ public class VirtualFile extends DTNActivity {
 	@Override
 	public void setCompleted() {
 		super.setCompleted();
-		if(myRouter.isStopOnFirstQuerySatisfied()){
-			System.err.println("fine");
-			SimScenario.getInstance().getWorld().cancelSim();
-		}
+		myRouter.notifyfileRequestSatisfied(fileHash, selfSatisfied);
 	}
 	
 	

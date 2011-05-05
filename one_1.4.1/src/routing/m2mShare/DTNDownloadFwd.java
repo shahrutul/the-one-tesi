@@ -32,7 +32,7 @@ public class DTNDownloadFwd extends DTNActivity {
 				return;
 			}
 			System.err.println(myRouter.getHost() + " - in DTNDownloadFwd.execute comincio a trasferire a "+requestor);
-			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(requestor),missingRestOfMap);
+			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(requestor), myRouter.getHost(), missingRestOfMap);
 			
 			/*
 			manca da creare il file x trasferirlo
@@ -69,8 +69,8 @@ public class DTNDownloadFwd extends DTNActivity {
 	}
 	
 	@Override
-	public void addTransferredData(int[] intervals) {
-		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(filehash, intervals);
+	public void addTransferredData(int[] intervals, DTNHost from) {
+		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(filehash, intervals, myRouter.getHost());		
 		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(filehash) == null){
 			setCompleted();
 		}
@@ -84,5 +84,13 @@ public class DTNDownloadFwd extends DTNActivity {
 	public String getFileHash() {
 		return filehash;
 	}
+
+	@Override
+	public void setCompleted() {		
+		super.setCompleted();
+		myRouter.notifyDownloadFWDReturned(myRouter.getHost(), requestor, filehash);
+	}
+	
+	
 	
 }

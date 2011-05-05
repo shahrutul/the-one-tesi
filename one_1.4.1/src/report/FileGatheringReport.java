@@ -2,6 +2,8 @@ package report;
 
 import core.DTNHost;
 import core.FileEventListener;
+import core.SimClock;
+import core.SimScenario;
 
 public class FileGatheringReport extends Report implements FileEventListener{
 
@@ -9,8 +11,12 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	private int created;
 	private int satisfied;
 	private int delegated;
-	private int expired;
+	private int downExpired;
+	private int downCompleted;
+	private int fwdExpired;
 	private double timeSatisfied;
+	private int fwdReturned;
+	private long startTime;
 	
 	/**
 	 * Constructor.
@@ -26,7 +32,11 @@ public class FileGatheringReport extends Report implements FileEventListener{
 		satisfied = 0;
 		delegated = 0;
 		timeSatisfied = 0;
-		expired = 0;
+		downExpired = 0;
+		fwdExpired = 0;
+		fwdReturned = 0;
+		downCompleted = 0;
+		startTime = System.currentTimeMillis();
 		write(HEADER);
 	}
 	
@@ -34,9 +44,17 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	@Override
 	public void done() {
 		write("");
-		write(created + " file requests created");
-		write(delegated + " times a file requests has been delegated");
-		write(satisfied + " file requests satisfied (in "+ format(timeSatisfied) + " s)");
+		write(created + " VirtualFile created");
+		write(delegated + " times a task has been delegated");
+		write(downCompleted + " PendingDownloads completed");
+		write(downExpired + " PendingDownloads expired");
+		write(fwdExpired + " DownloadFWDs expired");
+		write(fwdReturned + " DownloadFWDs returned succesfully");		
+		write(satisfied + " file requests satisfied");
+		write(timeSatisfied + " : time first VirtualFile satisfied (seconds)");
+		write(SimClock.getIntTime() + " : simulated time (seconds)");	
+		double duration = (System.currentTimeMillis() - startTime)/1000.0;
+		write(String.format("%.2f", duration) + " : simulation duration (seconds)");
 		super.done();
 	}
 
@@ -44,7 +62,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	public void newVirtualFile(DTNHost where, String filehash) {
 		if (!isWarmup()) {
 			created++;
-			write(format(getSimTime()) + " - query created in " + where + " (" + filehash + ")");
+			write(format(getSimTime()) + " VirtualFile created in " + where + " (" + filehash + ")");
 		}
 	}
 
@@ -59,7 +77,8 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	@Override
 	public void pendingDownloadExpired(DTNHost where, DTNHost requestor,
 			String filehash) {
-		write(format(getSimTime()) + " - PendingDownload expired in " + 
+		downExpired++;
+		write(format(getSimTime()) + " PendingDownload expired in " + 
 				where + " (" + filehash + " requested by "+requestor + ")");					
 	}
 
@@ -70,11 +89,11 @@ public class FileGatheringReport extends Report implements FileEventListener{
 			satisfied++;
 			timeSatisfied = getSimTime();
 			if(selfSatisfied){
-				write(format(getSimTime()) + " - file request satisfied in " + 
+				write(format(getSimTime()) + " VirtualFile satisfied in " + 
 						where + " without delegation (" + filehash + ")");					
 			}
 			else{
-				write(format(getSimTime()) + " - file request satisfied in " + 
+				write(format(getSimTime()) + " VirtualFile satisfied in " + 
 						where + " using delegation  (" + filehash + ")");
 			}
 			
@@ -84,15 +103,28 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	@Override
 	public void downloadFWDExpired(DTNHost where, DTNHost requestor,
 			String filehash) {
-		
-		write(format(getSimTime()) + " - DownloadFWD expired in " + 
+		fwdExpired++;
+		write(format(getSimTime()) + " DownloadFWD expired in " + 
 				where + " (" + filehash + " requested by "+requestor + ")");	
 	}
 
 	@Override
-	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {
-		// TODO Auto-generated method stub
-		
+	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {}
+
+	@Override
+	public void downloadFWDReturned(DTNHost from, DTNHost requestor,
+			String filehash) {
+		fwdReturned++;
+		write(format(getSimTime()) + " DownloadFWD returned from " + 
+				from + " to " + requestor + " (" + filehash + ")");	
+	}
+
+	@Override
+	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor,
+			String filehash) {
+		downCompleted++;
+		write(format(getSimTime()) + " PendingDownload completed in " + 
+				where + " (" + filehash + " requested by "+requestor + ")");	
 	}
 	
 }

@@ -665,10 +665,35 @@ public abstract class MessageRouter {
 		}
 	}
 	
-	public void notifyfileRequestExpired(DTNHost where, DTNHost requestor, String filehash){
+	public void notifyPendingDownloadExpired(DTNHost where, DTNHost requestor, String filehash){
 		for (FileEventListener ql : this.qListeners) {
 			ql.pendingDownloadExpired(where, requestor, filehash);
 		}
 	}
+	
+	public void notifyPendingDownloadCompleted(DTNHost where, DTNHost requestor, String filehash){
+		for (FileEventListener ql : this.qListeners) {
+			ql.pendingDownloadCompleted(where, requestor, filehash);
+		}
+	}
+	
+	public void notifyDownloadFWDExpired(DTNHost where, DTNHost requestor,String filehash) {
+		for (FileEventListener ql : this.qListeners) {
+			ql.downloadFWDExpired(where, requestor, filehash);
+		}
+	}
+	
+	public void notifyDownloadFWDReturned(DTNHost from, DTNHost requestor,String filehash) {
+		for (FileEventListener ql : this.qListeners) {
+			ql.downloadFWDReturned(from, requestor, filehash);
+		}
+	}
+	
+	public void notifyDataTransferred(DTNHost from, DTNHost to, int bytes) {
+		for (FileEventListener ql : this.qListeners) {
+			ql.dataTransferred(from, to, bytes);
+		}
+	}
+	
 	
 }
