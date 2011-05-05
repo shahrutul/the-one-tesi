@@ -1,12 +1,14 @@
 
-Scenario.name = [WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_Delega; WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_No_Delega]
+Scenario.name = [WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_50_Delega; WDM_%%FilesGenerator.rngSeed%%_%%MovementModel.rngSeed%%_50_No_Delega]
 Scenario.simulateConnections = true
 Scenario.simulateFiles = true
 Scenario.updateInterval = 0.5
+
 # 43k ~= 12h
 # 86k ~= 24h
 # 172k ~= 48h
-Scenario.endTime = 172k
+# 602k ~= 1 week
+Scenario.endTime = 602k
 
 ###################################
 ### common settings for all groups
@@ -18,8 +20,8 @@ Group.transmitSpeed = 100k
 
 ###################################
 # path to files generation input files
-#FilesGenerator.filepath = filesInput/500copie_uniform.txt
-FilesGenerator.filepath = filesInput/25copie_group.txt
+FilesGenerator.filepath = filesInput/50copie_uniform.txt
+#FilesGenerator.filepath = filesInput/25copie_group.txt
 #FilesGenerator.filepath = filesInput/1copia_a_135.txt
 FilesGenerator.rngSeed = 0
 

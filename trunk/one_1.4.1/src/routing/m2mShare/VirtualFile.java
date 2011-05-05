@@ -33,7 +33,7 @@ public class VirtualFile extends DTNActivity {
 		}
 		else{
 			int fileBytes = file.getSize();
-			map = new IntervalMap(fileBytes, 1024);
+			map = new IntervalMap(fileBytes-1, 1024);
 		}		
 	}
 	
@@ -94,14 +94,16 @@ public class VirtualFile extends DTNActivity {
 	
 	@Override
 	public void addTransferredData(int[] intervals, DTNHost from){
-		
+		int bytesTrasferred = 0;
 		try {
 			for(int i=0; i<intervals.length-1; i+=2){
 				map.update(intervals[i], intervals[i+1]);
+				bytesTrasferred += intervals[i+1]-intervals[i]+1;
 			}	
 			System.err.println(myRouter.getHost() +" In VirtualFile Mappa aggiornata: "+map);			
 			
 		} catch (Exception e) {}
+		myRouter.notifyDataTransferred(from, myRouter.getHost(), bytesTrasferred);
 		if(map.mapSize() == 0){
 			createFile();
 			System.err.println(myRouter.getHost() +" virtualFile completa");

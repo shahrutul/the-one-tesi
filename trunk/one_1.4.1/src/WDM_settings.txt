@@ -1,17 +1,6 @@
 
-Scenario.name = [WDM_Delega; WDM_No_Delega]
-Scenario.simulateConnections = true
-Scenario.simulateFiles = true
-Scenario.updateInterval = 1
-# 43k ~= 12h
-# 86k ~= 24h
-# 172k ~= 48h
-Scenario.endTime = 86k
 
-#Report.warmup = 200000
-Group.msgTtl = 1433
-
-Scenario.nrofHostGroups = 17
+Scenario.nrofHostGroups = 16
 
 ###################################
 ### common settings for all groups
@@ -227,30 +216,6 @@ Group16.shoppingControlSystemNr = 8
 Group16.nrOfOffices = 40
 Group16.nrOfMeetingSpots = 5
 
-Group17.groupID = K
-Group17.movementModel = ShortestPathMapBasedMovement
-Group17.fileCapability = true
-Group17.waitTime = 100, 300
-Group17.speed = 7, 10
-Group17.nrofHosts = 10
-
-# max number of external events to preload (default = 500) 
-#ExternalEvents.nrofPreload = 500
-# path to external events file
-#ExternalEvents.filePath = ee/700_events_1000_nodes_700ks.txt
-
-# path to files generation input files
-FilesGenerator.filepath = filesInput/500copie_uniform.txt
-FilesGenerator.rngSeed = 98092
-
-# How many event generators
-Events.nrof = 1
-Events1.class = M2MShareQueryReader
-Events1.queryFile = queries/single_query.txt
-
-# seed for movement models' pseudo random number generator (default = 0)
-#MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
-MovementModel.rngSeed = 98092
 
 # World's size for Movement Models without implicit size (width, height; meters)
 MovementModel.worldSize = 10000, 8000
@@ -262,20 +227,10 @@ MapBasedMovement.nrofMapFiles = 1
 
 MapBasedMovement.mapFile1 = data/HelsinkiMedium/roads.wkt
 
-
-## Reports - all report names have to be valid report classes
-# how many reports to load
-Report.nrofReports = 1
-# default directory of reports (can be overriden per Report with output setting)
-#cReport.reportDir = [reports/DELEGA/; reports/NODELEGA/; reports/3; reports/4; reports/5]
-Report.reportDir = reports/
-# Report classes to load
-Report.report1 = M2MShareQuerySatisfationReport
-
-# M2MShare settings
-M2MShareRouter.frequencyThreshold = 2
-M2MShareRouter.useDelegation = [true; false]
-
+## Default settings for some routers settings
+ProphetRouter.secondsInTimeUnit = 30
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
 
 
 ## Optimization settings -- these affect the speed of the simulation
