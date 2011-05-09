@@ -1,0 +1,5 @@
+# time  from  to  bytesTrasferred
+86639.5000 A115 A32 2750001
+86729.5000 A115 A32 249999
+
+Total data trasferred (bytes): 3000000

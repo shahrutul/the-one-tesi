@@ -1,0 +1,14 @@
+# time  event
+1.0000 VirtualFile created in A32 (317200191)
+4973.0000 VirtualFile satisfied in A32 without delegation (317200191)
+
+1 VirtualFile created
+0 times a task has been delegated
+0 PendingDownloads completed
+0 PendingDownloads expired
+0 DownloadFWDs expired
+0 DownloadFWDs returned succesfully
+1 file requests satisfied
+4973.0 : time first VirtualFile satisfied (seconds)
+4973 : simulated time (seconds)
+121.91 : simulation duration (seconds)
