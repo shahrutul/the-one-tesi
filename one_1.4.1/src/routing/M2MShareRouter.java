@@ -1,14 +1,15 @@
 
 package routing;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
+import routing.m2mShare.BroadcastModule;
+import routing.m2mShare.BroadcastModule.Pair;
 import routing.m2mShare.DTNActivity;
 import routing.m2mShare.DTNDownloadFwd;
 import routing.m2mShare.DTNPendingDownload;
 import routing.m2mShare.DTNScheduler;
-import routing.m2mShare.M2MShareConstants;
 import routing.m2mShare.DTNPresenceCollector;
 import routing.m2mShare.M2MShareQuery;
 import routing.m2mShare.QueuingCentral;
@@ -17,7 +18,6 @@ import routing.m2mShare.VirtualFile;
 import core.Connection;
 import core.DTNFile;
 import core.DTNHost;
-import core.Message;
 import core.Settings;
 import core.SimClock;
 import core.SimScenario;
@@ -53,6 +53,7 @@ public class M2MShareRouter extends ActiveRouter {
 	private boolean stopOnFirstQuerySatisfied;
 	private DTNScheduler scheduler;
 	private QueuingCentral queuingCentral;
+	private BroadcastModule broadcastModule;
 	
 	
 	/**
@@ -118,6 +119,7 @@ public class M2MShareRouter extends ActiveRouter {
 		presenceCollector = new DTNPresenceCollector(this, frequencyThreshold);
 		queuingCentral = new QueuingCentral();
 		scheduler = new DTNScheduler(presenceCollector, queuingCentral, this);
+		broadcastModule = new BroadcastModule(this);
 	}
 	
 		
@@ -165,7 +167,9 @@ public class M2MShareRouter extends ActiveRouter {
 				
 	}
 	
-	
+	public Vector<Pair<DTNHost, Connection>> broadcastQuery(String fileHash){
+		return broadcastModule.broadcastQuery(fileHash);
+	}
 	
 
 	@Override
@@ -523,6 +527,18 @@ public class M2MShareRouter extends ActiveRouter {
 	public boolean isStopOnFirstQuerySatisfied() {
 		return stopOnFirstQuerySatisfied;
 	}
+
+
+	public boolean hasRemoteFile(String fileHash, Vector<DTNHost> visitedHosts) {
+		return broadcastModule.hasRemoteFile(fileHash, visitedHosts);
+	}
+
+
+	public BroadcastModule getBroadcastModule() {
+		return broadcastModule;		
+	}
+
+	
 	
 	
 
