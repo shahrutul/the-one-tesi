@@ -188,8 +188,13 @@ public class DTNPresenceCollector {
 	
 
 	public void changedConnection(Connection con) {		
-		if(!con.isUp() && connections.containsKey(con)){
-			DTNHost hostNoMoreConnected = connections.get(con);
+		if(con.isUp()){
+			return;
+		}
+		DTNHost hostNoMoreConnected = connections.get(con);
+		myRouter.getBroadcastModule().connectionLostWith(hostNoMoreConnected);
+		
+		if(connections.containsKey(con)){	
 			hostsInRange.remove(hostNoMoreConnected);
 			connections.remove(con);
 			myRouter.getScheduler().removeCommunicator(con);

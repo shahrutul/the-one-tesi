@@ -47,7 +47,7 @@ public class VirtualFile extends DTNActivity {
 			if(host.getFileSystem().hasFile(fileHash) && executor.moreCommunicatorsAvailable()){
 				//compatibleHostsConns.add(neighbours.get(host));	
 				try {
-					executor.addCommunicator(neighbours.get(host), host,map.cut(false));
+					executor.addCommunicator(neighbours.get(host), host, map.cut(false));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
