@@ -1,0 +1,4 @@
+# time  from  to  bytesTrasferred
+95080.5000 A83 A32 3000000
+
+Total data trasferred (bytes): 3000000

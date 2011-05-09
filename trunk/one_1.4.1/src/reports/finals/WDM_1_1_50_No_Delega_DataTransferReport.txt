@@ -1,0 +1,6 @@
+# time  from  to  bytesTrasferred
+7243.5000 G792 A32 1250001
+40715.0000 H1009 A32 1500001
+40716.0000 H1009 A32 249998
+
+Total data trasferred (bytes): 3000000

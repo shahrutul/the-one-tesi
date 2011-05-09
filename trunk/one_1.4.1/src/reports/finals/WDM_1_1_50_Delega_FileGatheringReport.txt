@@ -1,0 +1,46 @@
+# time  event
+1.0000 VirtualFile created in A32 (317200191)
+7208.0000 PendingDownload A32 to E471
+7498.0000 PendingDownload A32 to K1020
+7748.0000 PendingDownload A32 to H831
+7818.0000 PendingDownload A32 to F568
+7938.0000 PendingDownload A32 to H949
+7938.0000 PendingDownload A32 to H992
+7938.0000 PendingDownload A32 to H855
+8310.5000 PendingDownload completed in E471 (317200191 requested by A32)
+9904.0000 PendingDownload completed in H949 (317200191 requested by A32)
+12128.0000 PendingDownload A32 to A46
+12558.0000 PendingDownload A32 to A86
+12866.0000 PendingDownload completed in A86 (317200191 requested by A32)
+13048.0000 PendingDownload A32 to E485
+14488.0000 PendingDownload A32 to A64
+15218.0000 PendingDownload A32 to E481
+15448.0000 PendingDownload A32 to F587
+15588.0000 PendingDownload A32 to G795
+37738.0000 PendingDownload A32 to A54
+37822.0000 PendingDownload completed in F568 (317200191 requested by A32)
+38728.0000 PendingDownload A32 to H821
+39068.0000 PendingDownload A32 to H919
+39068.0000 PendingDownload A32 to H822
+39068.0000 PendingDownload A32 to H978
+39068.0000 PendingDownload A32 to H967
+39736.0000 PendingDownload completed in H821 (317200191 requested by A32)
+39736.0000 PendingDownload completed in H967 (317200191 requested by A32)
+40248.0000 PendingDownload A32 to H1005
+40708.0000 PendingDownload A32 to H999
+40708.0000 PendingDownload A32 to H904
+40715.0000 DownloadFWD returned from H967 to A32 (317200191)
+40715.0000 DownloadFWD returned from H821 to A32 (317200191)
+40716.0000 PendingDownload completed in H904 (317200191 requested by A32)
+40716.0000 VirtualFile satisfied in A32 without delegation (317200191)
+
+1 VirtualFile created
+23 times a task has been delegated
+7 PendingDownloads completed
+0 PendingDownloads expired
+0 DownloadFWDs expired
+2 DownloadFWDs returned succesfully
+1 file requests satisfied
+40716.0 : time first VirtualFile satisfied (seconds)
+40716 : simulated time (seconds)
+744.62 : simulation duration (seconds)

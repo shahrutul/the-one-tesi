@@ -1,0 +1,23 @@
+# time  event
+1.0000 VirtualFile created in A32 (317200191)
+2218.0000 PendingDownload A32 to G773
+2408.0000 PendingDownload A32 to G781
+2611.0000 PendingDownload completed in G781 (317200191 requested by A32)
+4288.0000 PendingDownload A32 to G664
+4521.0000 PendingDownload completed in G664 (317200191 requested by A32)
+4818.0000 PendingDownload A32 to H965
+5288.0000 PendingDownload A32 to H999
+5392.0000 PendingDownload completed in H999 (317200191 requested by A32)
+5398.0000 PendingDownload A32 to F567
+5491.5000 VirtualFile satisfied in A32 without delegation (317200191)
+
+1 VirtualFile created
+6 times a task has been delegated
+3 PendingDownloads completed
+0 PendingDownloads expired
+0 DownloadFWDs expired
+0 DownloadFWDs returned succesfully
+1 file requests satisfied
+5491.5 : time first VirtualFile satisfied (seconds)
+5492 : simulated time (seconds)
+129.52 : simulation duration (seconds)

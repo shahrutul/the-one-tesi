@@ -1,6 +1,6 @@
 
 
-Scenario.nrofHostGroups = 16
+Scenario.nrofHostGroups = 17
 
 ###################################
 ### common settings for all groups
@@ -215,6 +215,13 @@ Group16.ownCarProb = 0.5
 Group16.shoppingControlSystemNr = 8
 Group16.nrOfOffices = 40
 Group16.nrOfMeetingSpots = 5
+
+Group17.groupID = K
+Group17.movementModel = ShortestPathMapBasedMovement
+Group16.fileCapability = true
+Group17.waitTime = 100, 300
+Group17.speed = 7, 10
+Group17.nrofHosts = 10
 
 
 # World's size for Movement Models without implicit size (width, height; meters)

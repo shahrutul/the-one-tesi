@@ -1,0 +1,49 @@
+# time  event
+1.0000 VirtualFile created in A32 (317200191)
+2218.0000 PendingDownload A32 to G773
+2408.0000 PendingDownload A32 to G781
+4288.0000 PendingDownload A32 to G664
+4818.0000 PendingDownload A32 to H965
+5288.0000 PendingDownload A32 to H999
+5398.0000 PendingDownload A32 to F567
+5498.0000 PendingDownload A32 to G801
+6058.0000 PendingDownload A32 to G672
+6318.0000 PendingDownload A32 to H863
+7028.0000 PendingDownload A32 to H866
+7498.0000 PendingDownload A32 to G730
+7998.0000 PendingDownload A32 to H896
+7998.0000 PendingDownload A32 to H911
+8188.0000 PendingDownload A32 to G746
+8468.0000 PendingDownload A32 to G685
+8698.0000 PendingDownload A32 to H973
+9498.0000 PendingDownload A32 to E423
+9628.0000 PendingDownload A32 to G707
+12088.0000 PendingDownload A32 to E467
+14368.0000 PendingDownload A32 to H906
+16241.0000 PendingDownload completed in G672 (317200191 requested by A32)
+35288.0000 PendingDownload A32 to H960
+37258.0000 PendingDownload A32 to H934
+37718.0000 PendingDownload A32 to H939
+37897.0000 PendingDownload completed in G730 (317200191 requested by A32)
+37991.0000 PendingDownload completed in H934 (317200191 requested by A32)
+37991.0000 PendingDownload completed in H896 (317200191 requested by A32)
+37991.0000 PendingDownload completed in H911 (317200191 requested by A32)
+38274.0000 PendingDownload completed in H863 (317200191 requested by A32)
+38661.0000 PendingDownload completed in G685 (317200191 requested by A32)
+38959.5000 PendingDownload completed in G746 (317200191 requested by A32)
+39098.0000 PendingDownload A32 to H976
+39248.0000 PendingDownload A32 to E414
+39477.5000 PendingDownload completed in H866 (317200191 requested by A32)
+39550.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+39550.0000 DownloadFWD returned from G730 to A32 (317200191)
+
+1 VirtualFile created
+25 times a task has been delegated
+9 PendingDownloads completed
+0 PendingDownloads expired
+0 DownloadFWDs expired
+1 DownloadFWDs returned succesfully
+1 file requests satisfied
+39550.0 : time first VirtualFile satisfied (seconds)
+39550 : simulated time (seconds)
+888.96 : simulation duration (seconds)

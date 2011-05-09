@@ -1,0 +1,48 @@
+# time  event
+1.0000 VirtualFile created in A32 (317200191)
+968.0000 PendingDownload A32 to A112
+43241.0000 PendingDownload completed in A112 (317200191 requested by A32)
+84098.0000 PendingDownload A32 to G710
+85078.0000 PendingDownload A32 to A108
+85308.0000 PendingDownload A32 to H968
+86108.0000 PendingDownload A32 to H969
+86218.0000 PendingDownload A32 to A35
+86288.0000 PendingDownload A32 to A149
+86288.0000 PendingDownload A32 to A16
+86308.0000 PendingDownload A32 to A33
+86358.0000 PendingDownload A32 to G680
+86358.0000 PendingDownload A32 to F521
+86638.0000 PendingDownload A32 to A115
+86638.0000 PendingDownload A32 to H830
+87228.0000 PendingDownload A32 to A6
+87301.0000 PendingDownload completed in A33 (317200191 requested by A32)
+87371.0000 PendingDownload completed in H969 (317200191 requested by A32)
+88021.0000 PendingDownload completed in G680 (317200191 requested by A32)
+89628.0000 PendingDownload A32 to A126
+91218.0000 PendingDownload A32 to A55
+92108.0000 PendingDownload A32 to A81
+92158.0000 PendingDownload A32 to A69
+101943.0000 PendingDownload completed in A35 (317200191 requested by A32)
+110271.0000 PendingDownload completed in F521 (317200191 requested by A32)
+111478.0000 PendingDownload A32 to G805
+112918.0000 PendingDownload A32 to A22
+113051.0000 PendingDownload completed in A115 (317200191 requested by A32)
+115798.0000 PendingDownload A32 to E507
+116080.5000 PendingDownload completed in A55 (317200191 requested by A32)
+116118.0000 PendingDownload A32 to A88
+116118.0000 PendingDownload A32 to A84
+116318.0000 PendingDownload A32 to F661
+116318.0000 PendingDownload A32 to G768
+116460.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+116460.0000 DownloadFWD returned from A33 to A32 (317200191)
+
+1 VirtualFile created
+25 times a task has been delegated
+8 PendingDownloads completed
+0 PendingDownloads expired
+0 DownloadFWDs expired
+1 DownloadFWDs returned succesfully
+1 file requests satisfied
+116460.0 : time first VirtualFile satisfied (seconds)
+116460 : simulated time (seconds)
+2194.31 : simulation duration (seconds)

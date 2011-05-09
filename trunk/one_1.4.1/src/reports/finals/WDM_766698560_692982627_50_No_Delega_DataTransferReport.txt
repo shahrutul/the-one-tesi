@@ -1,0 +1,4 @@
+# time  from  to  bytesTrasferred
+50000.5000 G722 A32 3000000
+
+Total data trasferred (bytes): 3000000
