@@ -538,6 +538,12 @@ public class M2MShareRouter extends ActiveRouter {
 		return broadcastModule;		
 	}
 
+
+	public void relayedFileNoMoreAvailable(String fileHash, DTNHost relayHost) {
+		broadcastModule.relayedFileNoMoreAvailable(fileHash, relayHost);
+		scheduler.removeCommunicator(fileHash, relayHost);
+	}
+
 	
 	
 	

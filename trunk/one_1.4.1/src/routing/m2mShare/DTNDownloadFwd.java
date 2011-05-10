@@ -32,7 +32,7 @@ public class DTNDownloadFwd extends DTNActivity {
 				return;
 			}
 			System.err.println(myRouter.getHost() + " - in DTNDownloadFwd.execute comincio a trasferire a "+requestor);
-			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(requestor), myRouter.getHost(), missingRestOfMap);
+			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(requestor), myRouter.getHost(), filehash, missingRestOfMap);
 			
 			/*
 			manca da creare il file x trasferirlo

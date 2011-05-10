@@ -9,6 +9,7 @@ import core.DTNHost;
 import core.SimClock;
 import core.SimScenario;
 import routing.M2MShareRouter;
+import routing.m2mShare.BroadcastModule.Pair;
 
 public class VirtualFile extends DTNActivity {
 
@@ -41,7 +42,19 @@ public class VirtualFile extends DTNActivity {
 	public void execute(Executor executor) {	
 		int communicatorActivated = 0;
 		setActive();
-		myRouter.broadcastQuery(fileHash);
+		Vector<Pair<DTNHost, Connection>> servers = myRouter.broadcastQuery(fileHash);
+		
+		if(servers != null){
+			for(Pair<DTNHost, Connection> server:servers){
+				try {
+					executor.addCommunicator(server.getSecond(), server.getFirst(), fileHash, map.cut(false));
+					communicatorActivated++;
+				} catch (Exception e) {
+					//nothing to download
+				}
+			}
+		}
+
 		/*
 		//Vector<Connection> compatibleHostsConns = new Vector<Connection>();
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
