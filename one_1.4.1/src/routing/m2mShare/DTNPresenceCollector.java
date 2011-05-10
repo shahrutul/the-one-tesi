@@ -34,7 +34,7 @@ public class DTNPresenceCollector {
 
 	public DTNPresenceCollector(M2MShareRouter m2mShareRouter, int frequencyThreshold) {
 		this.myRouter = m2mShareRouter;
-		this.lastScanTime = -10;//new Random(0).nextDouble() * myRouter.getScanFrequency();
+		this.lastScanTime = new Random(0).nextDouble() * myRouter.getScanFrequency();
 		
 
 		this.lastAdaptTime = SimClock.getTime();
@@ -193,7 +193,10 @@ public class DTNPresenceCollector {
 		if(con.isUp()){
 			return;
 		}
-		DTNHost hostNoMoreConnected = connections.get(con);
+		DTNHost hostNoMoreConnected = con.getOtherNode(myRouter.getHost());
+		if(hostNoMoreConnected == null){
+			return;
+		}
 		myRouter.getBroadcastModule().connectionLostWith(hostNoMoreConnected);
 		
 		if(connections.containsKey(con)){	

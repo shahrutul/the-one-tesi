@@ -1,8 +1,10 @@
 package routing.m2mShare;
 
 import java.util.HashMap;
+import java.util.Vector;
 
 import routing.M2MShareRouter;
+import routing.m2mShare.BroadcastModule.Pair;
 
 import core.Connection;
 import core.DTNFile;
@@ -32,6 +34,20 @@ public class DTNPendingDownload extends DTNActivity {
 	public void execute(Executor executor) {
 		setActive();
 		int communicatorActivated = 0;
+		
+		Vector<Pair<DTNHost, Connection>> servers = myRouter.broadcastQuery(filehash);
+		if(servers != null && servers.size()!=0){
+			System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file "+servers.size()+" volte");
+			for(Pair<DTNHost, Connection> server:servers){
+				try {
+					executor.addCommunicator(server.getSecond(), server.getFirst(), filehash, map.cut(false));
+					communicatorActivated++;
+				} catch (Exception e) {
+					//nothing to download
+				}
+			}
+		}
+		/*
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
 		if(neighbours.size() == 0){
 			setIncomplete();
@@ -46,14 +62,14 @@ public class DTNPendingDownload extends DTNActivity {
 				System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file");
 
 				try {
-					executor.addCommunicator(neighbours.get(host), host, map.cut(false));
+					executor.addCommunicator(neighbours.get(host), host, filehash, map.cut(false));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
 				}
 
 			}
-		}
+		}*/
 		if(communicatorActivated == 0){
 			setIncomplete();
 		}

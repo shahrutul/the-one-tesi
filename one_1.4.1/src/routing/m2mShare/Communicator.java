@@ -25,13 +25,15 @@ public class Communicator {
 	private int[] intervals;
 	private Executor executor;
 	private DTNHost otherHost;
+	private String filehash;
 	
 	
-	public Communicator(DTNActivity currentActivity, Connection conn, DTNHost otherHost, int[] mapOut, Executor executor) {		
+	public Communicator(DTNActivity currentActivity, Connection conn, DTNHost otherHost, String filehash, int[] mapOut, Executor executor) {		
 		this.startTime = SimClock.getTime();
 		this.connection = conn;
 		this.activityToExecute = currentActivity;
 		this.otherHost = otherHost;
+		this.filehash = filehash;
 		this.intervals = IntervalMap.interestingIntervals(mapOut);
 		int dataToTransfer = IntervalMap.interestingIntervalsSize(intervals);
 		this.endTime = startTime + (dataToTransfer / conn.getSpeed());
@@ -51,7 +53,7 @@ public class Communicator {
 	public void stop(){
 		//avvisa l'activity che hai finito di scaricare
 		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
-		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
+		System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
 		activityToExecute.addTransferredData(IntervalMap.updateIntervals(intervals, byteTransferred), otherHost);			
 	}	
 	
@@ -93,6 +95,14 @@ public class Communicator {
 
 	public Connection getConnection() {
 		return connection;
+	}
+	
+	public String getFilehash(){
+		return filehash;
+	}
+	
+	public DTNHost getOtherHost(){
+		return otherHost;
 	}
 
 	

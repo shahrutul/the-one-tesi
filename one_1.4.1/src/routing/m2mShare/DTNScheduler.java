@@ -254,6 +254,17 @@ public class DTNScheduler {
 		}
 	}
 
+	public void removeCommunicator(String fileHash, DTNHost relayHost) {
+		for(int i=activeCommunicators.size()-1; i>=0; i--){
+			Communicator comm = activeCommunicators.get(i);
+			if(comm.getOtherHost().equals(relayHost) && comm.getFilehash().equals(fileHash)){
+				comm.stop();
+				comm.getExecutor().communicatorRemoved();
+				activeCommunicators.remove(i);
+			}
+		}
+	}
+
 	public void communicatorRemoved(Communicator comm) {
 		activeCommunicators.remove(comm);
 	}
@@ -296,6 +307,7 @@ public class DTNScheduler {
 			addCommunicator(removed);
 		}		
 	}
+
 
 	
 }
