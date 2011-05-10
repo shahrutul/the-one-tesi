@@ -34,7 +34,9 @@ public class DTNPresenceCollector {
 
 	public DTNPresenceCollector(M2MShareRouter m2mShareRouter, int frequencyThreshold) {
 		this.myRouter = m2mShareRouter;
-		this.lastScanTime = new Random(0).nextDouble() * myRouter.getScanFrequency();
+		this.lastScanTime = -10;//new Random(0).nextDouble() * myRouter.getScanFrequency();
+		
+
 		this.lastAdaptTime = SimClock.getTime();
 		this.probationWindow = PROBATION_WINDOW_DEFAULT_SIZE;
 		this.frequencyThreshold = frequencyThreshold;
