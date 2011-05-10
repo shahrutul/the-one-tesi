@@ -41,6 +41,8 @@ public class VirtualFile extends DTNActivity {
 	public void execute(Executor executor) {	
 		int communicatorActivated = 0;
 		setActive();
+		myRouter.broadcastQuery(fileHash);
+		/*
 		//Vector<Connection> compatibleHostsConns = new Vector<Connection>();
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
 		for(DTNHost host: neighbours.keySet()){	
@@ -53,7 +55,8 @@ public class VirtualFile extends DTNActivity {
 					//nothing to download
 				}
 			}
-		}	
+		}	*/
+		
 		/*
 		if(compatibleHostsConns.size() == 0 || executor.getAvailableCommunicators()==0){
 			//no host found or no Communicator available

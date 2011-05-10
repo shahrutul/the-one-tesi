@@ -9,6 +9,7 @@ import routing.M2MShareRouter;
 
 import core.Connection;
 import core.DTNHost;
+import core.SimClock;
 
 public class BroadcastModule {
 	
@@ -33,17 +34,65 @@ public class BroadcastModule {
 		for(DTNHost host: neighbours.keySet()){
 			if(((M2MShareRouter)host.getRouter()).hasRemoteFile(fileHash, visitedHosts)){
 				servers.add(new Pair<DTNHost, Connection>(host, neighbours.get(host)));
+				System.err.println(SimClock.getTime()+" broadcastQuery trovati: "+host+" > "+neighbours.get(host));
 			}
 		}		
+		
 		return servers;
 	}
 
 	public boolean hasRemoteFile(String fileHash, Vector<DTNHost> visitedTillNow) {
-		System.err.println(myRouter.getHost()+" - host visitati: "+visitedTillNow.size());
+		System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - host visitati: "+visitedTillNow.size());
 		/* check if I own the searched file */
 		if(myRouter.getHost().getFileSystem().hasFile(fileHash)){
+			System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - possiede "+fileHash);
 			return true;
 		}
+		
+		if(routingTable.containsKey(fileHash)){
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - routingTable (prima): ");
+			for(Map.Entry routingEntry: routingTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+
+			System.err.println();
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - responseTable (prima): ");
+			for(Map.Entry routingEntry: responseTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+			System.err.println();
+			return true;
+		}
+		else{
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - routingTable (prima) non contiene "+fileHash);
+			for(Map.Entry routingEntry: routingTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+			System.err.println();
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - responseTable (prima): ");
+			for(Map.Entry routingEntry: responseTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+			System.err.println();
+		}
+		
+		
 				
 		/* else broadcast a yes/no query for the file */
 		DTNHost askingHost = visitedTillNow.lastElement();
@@ -64,10 +113,13 @@ public class BroadcastModule {
 					routingTable.put(fileHash, servers);
 				}
 				else{
-					servers.add(host);
+					if(!servers.contains(host)){
+						servers.add(host);
+					}
 				}
 			}
 		}	
+		
 		/* check if I am in contact with a DTNHost with the searched file */
 		if(routingTable.containsKey(fileHash)){			
 			Vector<DTNHost> clients = responseTable.get(fileHash);
@@ -77,11 +129,32 @@ public class BroadcastModule {
 				responseTable.put(fileHash, clients);
 			}
 			else{
-				clients.add(askingHost);
+				if(!clients.contains(askingHost)){
+					clients.add(askingHost);
+				}
 			}
-			
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - routingTable (dopo): ");
+			for(Map.Entry routingEntry: routingTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+			System.err.println();
+			System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - responseTable (dopo): "+responseTable.size());
+			for(Map.Entry routingEntry: responseTable.entrySet()){
+				Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+				System.err.print(routingEntry.getKey()+ " - ");
+				for(DTNHost host:serversList){
+					System.err.print(host+ ", ");
+				}
+			}
+			System.err.println();
 			return true;
 		}
+		System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - routingTable (dopo) non contiene "+fileHash);
+		
 		return false;
 	}
 	
@@ -104,11 +177,24 @@ public class BroadcastModule {
 			routingTable.remove(fileHash);
 			Vector<DTNHost> clients = responseTable.get(fileHash);
 			for(DTNHost client:clients){
-				((M2MShareRouter)client.getRouter())
+				System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - connessione persa: avviso"+client);
+				
 			}
 		}
 	}
 	
+	private String mapToString(Map<String, Vector<DTNHost>> map){
+		String s= SimClock.getTime()+ " "+myRouter.getHost()+" - "+map.getClass().getSimpleName()+": ";
+		for(Map.Entry routingEntry: responseTable.entrySet()){
+			Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
+			s +=routingEntry.getKey()+ " - ";
+			for(DTNHost host:serversList){
+				s +=host+ ", ";
+			}
+		}
+		s += "/n";
+		return s;
+	}
 
 	public class Pair <T, U>
 	{
