@@ -23,7 +23,7 @@ Group.transmitSpeed = 100k
 FilesGenerator.filepath = filesInput/50copie_uniform.txt
 #FilesGenerator.filepath = filesInput/25copie_group.txt
 #FilesGenerator.filepath = filesInput/1copia_a_135.txt
-FilesGenerator.rngSeed = 1331238991
+FilesGenerator.rngSeed = 0
 
 ###################################
 # How many event generators
@@ -33,7 +33,7 @@ Events1.queryFile = queries/single_query.txt
 
 # seed for movement models' pseudo random number generator (default = 0)
 #MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
-MovementModel.rngSeed = 1331238991
+MovementModel.rngSeed = 2
 
 
 ## Reports - all report names have to be valid report classes
@@ -41,7 +41,7 @@ MovementModel.rngSeed = 1331238991
 Report.nrofReports = 2
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/finals/
+Report.reportDir = reports/test/
 # Report classes to load
 Report.report1 = FileGatheringReport
 Report.report2 = DataTransferReport
