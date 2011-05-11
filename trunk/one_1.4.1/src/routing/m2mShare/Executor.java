@@ -51,6 +51,7 @@ public class Executor {
 			
 		case DTNActivity.STATE_COMPLETED:
 			//System.err.println(SimClock.getTime()+" completa");
+			scheduler.updateSomethingToDo(id);
 			this.ready = true;
 			return;
 
@@ -102,6 +103,7 @@ public class Executor {
 				
 			case DTNActivity.STATE_COMPLETED:
 				//System.err.println("Activity finita! in exec");
+				scheduler.updateSomethingToDo(id);
 				return;
 
 			case DTNActivity.STATE_INCOMPLETE:

@@ -20,6 +20,8 @@ public class DTNScheduler {
 	
 	private Executor[] executors;
 	private Vector<Communicator> activeCommunicators;
+
+	private boolean[] hasSomethingToDo;
 	
 	
 	
@@ -28,8 +30,10 @@ public class DTNScheduler {
 		this.queuingCentral = queuingCentral;
 		this.myRouter = myRouter;
 		this.executors = new Executor[4];
+		this.hasSomethingToDo = new boolean[4];
 		for(int i=0; i<executors.length; i++){
 			this.executors[i] = new Executor(this, i);
+			this.hasSomethingToDo[i] = false;
 		}
 		activeCommunicators = new Vector<Communicator>();
 		virtualFileTurn = true;
@@ -86,6 +90,9 @@ public class DTNScheduler {
 
 	//TRIGGERED_ACTIVITY_FLOW
 	void runTriggeredActivityFlow(){
+		if(!hasSomethingToDo[0]){
+			return;
+		}
 		try {
 			DTNActivity activity = queuingCentral.pop(QueuingCentral.DTN_PENDING_UPLOAD_ID);
 			if(((DTNDownloadFwd)activity).getMaxEndTime() <= SimClock.getTime()){
@@ -97,17 +104,26 @@ public class DTNScheduler {
 			if(executors[0].isReady()){			
 				executors[0].runActivity(activity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
 			}
+			else{
+				queuingCentral.push(activity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
+			}
 		} catch (NoActivityInQueueException e) {
 			return;
 		}
 	}
 	
 	private void updateUploadActivity() {
+		if(!hasSomethingToDo[3]){
+			return;
+		}
 		try {
 			DTNActivity activity = queuingCentral.pop(QueuingCentral.UPLOAD_QUEUE_ID);			
 			//execute(activity, QueuingCentral.UPLOAD_QUEUE_ID);
 			if(executors[3].isReady()){			
 				executors[3].runActivity(activity, QueuingCentral.UPLOAD_QUEUE_ID);
+			}
+			else{
+				queuingCentral.push(activity, QueuingCentral.UPLOAD_QUEUE_ID);
 			}
 		} catch (NoActivityInQueueException e) {
 			return;
@@ -115,6 +131,9 @@ public class DTNScheduler {
 	}
 
 	private void updatePendingActivity() {
+		if(!hasSomethingToDo[2]){
+			return;
+		}
 		try {
 			DTNActivity activity = queuingCentral.pop(QueuingCentral.DTN_PENDING_ID);
 			//execute(activity, QueuingCentral.DTN_PENDING_ID);
@@ -126,12 +145,18 @@ public class DTNScheduler {
 			if(executors[2].isReady()){			
 				executors[2].runActivity(activity, QueuingCentral.DTN_PENDING_ID);
 			}
+			else{
+				queuingCentral.push(activity, QueuingCentral.DTN_PENDING_ID);
+			}
 		} catch (NoActivityInQueueException e) {
 			return;
 		}
 	}
 
 	private void updateLocalActivity() {
+		if(!hasSomethingToDo[1]){
+			return;
+		}
 		int queueToPop = -1;
 		DTNActivity activityToExecute = null;
 		if(queuingCentral.getQueueSize(QueuingCentral.DTN_DOWNLOAD_QUEUE_ID) != 0){
@@ -173,6 +198,9 @@ public class DTNScheduler {
 		//executeCommunicator(activityToExecute, queueToPop);
 		if(executors[1].isReady()){			
 			executors[1].runActivity(activityToExecute, queueToPop);
+		}
+		else{
+			queuingCentral.push(activityToExecute, queueToPop);
 		}
 	}
 
@@ -305,6 +333,35 @@ public class DTNScheduler {
 		}
 		else{
 			addCommunicator(removed);
+		}		
+	}
+
+	public void setSomethingToDo(int i, boolean b) {
+		hasSomethingToDo[i] = b;
+	}
+	
+	public void updateSomethingToDo(int i) {
+		switch (i) {
+		case 0:
+			hasSomethingToDo[i] = queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_UPLOAD_ID) > 0;
+			break;
+			
+		case 1:
+			hasSomethingToDo[i] = (queuingCentral.getQueueSize(QueuingCentral.DTN_DOWNLOAD_QUEUE_ID) +
+					queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID)+
+					queuingCentral.getQueueSize(QueuingCentral.QUERY_QUEUE_ID)) > 0;
+			break;
+			
+		case 2:
+			hasSomethingToDo[i] = queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_ID) > 0;
+			break;
+			
+		case 3:
+			hasSomethingToDo[i] = queuingCentral.getQueueSize(QueuingCentral.UPLOAD_QUEUE_ID) > 0;
+			break;
+
+		default:
+			break;
 		}		
 	}
 

@@ -355,6 +355,7 @@ public class M2MShareRouter extends ActiveRouter {
 	 */
 	public void addM2MQuery(M2MShareQuery query) {
 		queuingCentral.addFileRequest(query, this);	
+		scheduler.setSomethingToDo(1, true);
 		notifyfileRequestCreated(getHost(), DTNFile.hashFromFilename(query.getFilename()));
 	}
 	
@@ -482,6 +483,7 @@ public class M2MShareRouter extends ActiveRouter {
 					((DTNPendingDownload)newActivity).getFilehash());
 			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - ricevuta PendingDownload "+(DTNPendingDownload)newActivity);
 			queuingCentral.push(newActivity, QueuingCentral.DTN_PENDING_ID);
+			scheduler.setSomethingToDo(2, true);
 		}		
 	}
 
@@ -501,6 +503,7 @@ public class M2MShareRouter extends ActiveRouter {
 		if(!queuingCentral.contains(newActivity, QueuingCentral.DTN_PENDING_UPLOAD_ID)){
 			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - aggiunto DownloadFWD");
 			queuingCentral.push(newActivity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
+			scheduler.setSomethingToDo(0, true);
 		}	
 	}
 
