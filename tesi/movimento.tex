@@ -1,0 +1,103 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+%: ----------------------- name of chapter  -------------------------
+\chapter{Modelli di movimento}\label{movimento} % top level followed by section, subsection
+
+
+%: ----------------------- paths to graphics ------------------------
+
+% change according to folder and file names
+%\graphicspath{{2-Consorzi/images/}}
+
+
+%: ----------------------- contents from here ------------------------
+Uno degli aspetti più importante per garantire la realisticità di una simulazione riguarda il comportamento dei nodi, in particolare il loro movimento. Come è facile intuire, in una DTN i cambiamenti di posizione dei vari nodi influiscono pesantemente la connettività e quindi le prestazioni dell'intera rete. Proprio per questo motivo è fondamentale simulare il più realisticamente possibile il comportamento dei nodi all'interno della simulazione.
+\\
+
+Il simulatore TheONE contiene al suo interno diversi modelli di movimento che possono essere assegnati ai vari gruppi di nodi. Presenterò ora un breve riassunto dei modelli a disposizione, soffermandomi in particolare su quello scelto per le simulazioni svolte, ossia il Working Day Movement Model (WDM)
+
+\section{Random Map-Based Movement}
+Il modello più semplice fra quelli disponibili è il Random Map-Based Movement (RMBM). I nodi che adottano questo modello si muovono in maniera casuale ma sempre seguendo le strade descritte dalla mappa della simulazione. Il risultato di questa modalità è un movimento troppo casuale per simulare accuratamente il comportamento unmano per quanto riguarda la mobilità.
+
+\section{Shortest Path Map-Based Movement}
+Lo Shortest Path Map-Based Movement (SPMBM) è un modello leggermente più realistico rispetto a RMBM. In questo modello i nodi scelgono casualmente un punto di destinazione all'interno della mappa e seguono la via più breve per raggiungerlo dalla posizione attuale, sempre seguendo le strade descritte dalla mappa della simulazione. Le destinazioni possono essere scelte in maniera completamente casuale o da un insieme di Punti di Interesse, in modo da simulare l'attrazione delle persone per luoghi come punti di ristoro, negozi o attrazioni turistiche.
+
+\section{Routed Map-Based Movement}
+Un modello che invece della casualità nel movimento utilizza dei persorsi predeterminati è il Routed Map-Based Movement (RMBM). I nodi che adottano questo modello si muovono lungo rotte predefinite, per tutta la durata della simulazione, rendendo RMBM utile per rappresentare degli spostamenti ripetitivi, come ad esempio quelli di autobus, tram o treni.
+
+\section{Working Day Movement Model}
+Il modello più realistico è senza dubbio il Working Day Movement Model (WDM). Come il nome può fare intuire, questo modello simula i movimenti di 
+\\
+
+\subsection{Home Activity Submodel}
+
+\subsection{Office Activity Submodel}
+
+\subsection{Evening Activity Submodel}
+
+\subsection{Transport Activity Submodel}
+
+I Consorzi di bonifica sono, infatti, enti che si autogovernano (in quanto sono i consorziati, cioè quelli che pagano, ad eleggere i proprio amministratori ed a decidere cosa fare) e che si autofinanziano, cioè non dipendono dalla Regione o dallo Stato per i soldi necessari a garantire la manutenzione e l'efficienza delle opere. Nei Consorzi sono da sempre attuati quelli che oggi si direbbero "decentramento amministrativo" e "federalismo fiscale".
+\\
+Tra le attività quotidiane del Consorzio ritroviamo il funzionamento degli impianti di sollevamento, la pulizia dei corsi d'acqua in gestione, l'espurgo dei canali, la difesa idraulica, la manutenzione delle siepi, il restauro di antichi manufatti idraulici.
+\\
+Il personale di campagna e l'ufficio tecnico curano giornalmente il buon funzionamento di tutti gli impianti di sollevamento e delle altre opere idrauliche compresa la rete di scolo e quella di distribuzione irrigua.
+\\
+Lo sfalcio e la pulizia dei corsi d'acqua consorziali sono effettuati nel corso di tutto l'anno su una rete di corsi d'acqua di 26.050 chilometri.
+\\
+Un continuo espurgo e la pulizia degli alvei dei canali sono finalizzati a garantire la necessaria funzionalità della rete salvaguardando il territorio dai possibili fenomeni di sommersione e allagamento.
+\\
+
+La difesa di sponde, salti di fondo, ponti ed altre opere sono realizzati per limitare le erosioni per contribuire alla sicurezza idraulica dei territori attraversati dai corsi d'acqua. Molti lavori vengono eseguiti con la collaborazione delle Amministrazioni comunali appartenenti al comprensorio del Consorzio.
+\\
+La riqualificazione paesaggistica attraverso l'incremento dell'arredo arboreo di campagna, la messa a dimora di specie arboree ed arbustive, la ricostituzione delle siepi ripariali, determinano un beneficio di ordine sia naturalistico che ambientale.
+
+\figuremacro{consorzi}{Mappa dei Consorzi del Veneto}{}{}
+
+\section{Il Consorzio Bacchiglione Brenta}
+Il Consorzio di bonifica Bacchiglione Brenta ha sede in Padova.
+Il comprensorio del Consorzio di bonifica Bacchiglione Brenta ricade nelle provincie di Padova e Venezia, interessando una superficie complessiva di 58.247 ettari, il 20,27\% della quale risulta urbanizzata.
+I Comuni interessati al territorio consortile sono 39, di cui 31 nella provincia di Padova. 
+Il comprensorio è suddiviso in 10 bacini idraulici.
+\\
+
+Le aree a deflusso naturale sono 23.999 ettari (41,2\%), quelle a deflusso meccanico di 14.350 ettari (24,64\%), quelle a deflusso alternato (scolo naturale e scolo meccanico) di 19.898 ettari (34,16\%).
+Le superfici idraulicamente sofferenti sono all'incirca pari a 10.250 ettari (17,60\%), mentre le superfici ad allagamento certo senza azioni di pompaggio da parte del Consorzio sono all'incirca di 20.000 ettari (34,34\%).
+Il Consorzio Bacchiglione Brenta gestisce 37 impianti di sollevamento (idrovore) con una quantità di acqua sollevata pari a 70 milioni di mc/anno e un consumo assorbito pari a 1,034 milioni di kWh (quinquennio 2003-2007).
+L'estensione della rete idraulica consortile è di 884 chilometri, dei quali 291 (32,92\%) risultano ad esclusivo uso scolo, 30 (3,39\%) ad uso esclusivamente irriguo e i rimanenti 563 (63,69\%) ad uso misto scolo e irrigazione.
+La superficie irrigata interessa 15.732 ettari (il 27,01\% della superficie consortile); l'intera superficie irrigata presenta un'irrigazione con metodo di soccorso (irrigazione attuata per impedire a condizioni climatiche avverse di rovinare il raccolto).
+\\
+
+I consorziati sono 169.474 per un introito complessivo di 7.903.913 euro, di cui 5.587.939 euro sono relativi alla contribuenza extragricola (70,70\%) e 2.315.974 euro relativi alla contribuenza agricola (29,30\%).
+Le unità lavorative presenti nel Consorzio sono 81.
+\\
+
+I dati dei sensori ambientali del Consorzio Bacchiglione Brenta sono stati utilizzati per avviare la sperimentazione del progetto.
+
+\section{Sensori ambientali}
+I Consorzi gestiscono una serie di impianti volti alla sicurezza idraulica e alla distribuzione irrigua. Per la gestione di tali impianti è indispensabile monitorare costantemente la situazione idrica e meteorica del territorio al fine di prevenire o limitare fenomeni dannosi quali piene o, all'estremo opposto, fenomeni di siccità. A tale scopo nel territorio consortile, ed in particolare in prossimità degli impianti, sono installati appositi sensori adibiti al monitoraggio del livello dei fiumi, della temperatura, dell'umidità, delle precipitazioni meteoriche. Vediamo più in dettaglio due di questi, utilizzati nella sperimentazione del progetto: l'idrometro e il pluviometro.
+\\
+
+L'idrometro è lo strumento necessario per poter rilevare le quote idrometriche, cioè l'innalzamento o l'abbassamento del livello dell'acqua dei fiumi o dei laghi.
+Il più semplice degli idrometri è quello ad asta che è costituito appunto da una barra, generalmente in lega metallica per poter resistere alla corrosione, contrassegnata da tacche numerate che riportano i progressivi riferimenti all'unità di misura in vigore (metro, centimetro, ecc.) e posta verticalmente a diretto contatto con l'acqua del fiume, spesso fissata ad una spalla o ad una pila di un ponte o di una banchina fluviale.
+Attualmente vengono utilizzati strumenti più complessi e sofisticati (idrometrografi, teleidrometri) che utilizzano tecnologie più moderne (laser, ultrasuoni, ecc.) per effettuare le letture idrometriche e per raccogliere e trasmettere i relativi dati a distanza ed in tempo reale.
+\\
+
+Per "livello idrometrico" in un determinato luogo del fiume si intende la misura del dislivello tra la superficie dell'acqua di un fiume ed un punto di riferimento altimetrico che può essere il livello medio del mare (l.m.m) oppure il riferimento "zero" dell'idrometro stesso (detto "zero idrometrico").
+Lo zero dell'idrometro altro non è che la quota altimetrica (sempre sul livello medio del mare) che si è convenuta per quell'idrometro stesso.
+\\
+
+L'idrometro è un valido aiuto per l'attività di salvaguardia del territorio contro i pericoli conseguenti alle piene dei fiumi, poiché è il monitoraggio dei livelli idrometrici che consente di fare previsioni sull'andamento degli eventi di piena e prendere le misure del caso, quali attivare un impianto di scolo o, in casi estremi, allertare gli organi di protezione civile.
+
+\figuremacro{idro}{Idrometro}{Un esempio di idrometro nella sua forma più semplice. Per monitorare i livelli dei fiumi i Consorzi utilizzano ad oggi più sofisticati idrometri elettronici in grado di comunicare la lettura a distanza.}{}
+
+Il pluviometro è lo strumento utilizzato per misurare la quantità di pioggia caduta. Fino a circa 10-20 anni fa si indicavano come pluviometri quegli strumenti che di fatto non avevano modo di registrare l'evoluzione temporale della pioggia e che venivano controllati a cadenza quotidiana. Diversamente il pluviografo era uno strumento che riusciva, mediante un sistema di registrazione meccanico, a riportare graficamente la quantità di pioggia caduta in un certo intervallo di tempo (giornaliero, settimanale, ecc), su un'apposita striscia di carta millimetrata. Con questi strumenti era possibile arrivare a risoluzioni temporali massime dell'ordine di cinque minuti, anche se nella maggioranza dei casi la risoluzione utilizzata era nell'ordine della mezz'ora. Ovviamente la registrazione di un evento di pioggia con questo sistema comportava una serie di problemi di manutenzione, affidabilità degli strumenti, lettura e trattazione dei dati che doveva essere fatta comunque a mano. Con lo sviluppo dell'elettronica prima e dell'informatica poi, i pluviografi sono andati sempre più affermandosi dato che acquistavano facilità di gestione e di utilizzo, soprattutto perché si passava da strumenti meccanici a strumenti elettronici con la possibilità di archiviare i dati in maniera digitale. I pluviometri utilizzati attualmente sono costituiti da un imbuto che porta acqua in una doppia vaschetta metallica o di plastica, incernierata in un punto. È un sistema il cui equilibrio varia a seconda di quanta acqua c'è nelle vaschette. Il ribaltamento avviene per 0,2 mm, quindi ogni volta che cadono 0,2 mm di pioggia si ribalta. Tale vaschetta è collegata ad un sistema elettronico che registra i ribaltamenti; i dati possono venire in seguito spediti ad un server centrale che immagazzina tutti i dati raccolti. Con questo strumento si può effettuare la misurazione anche in caso di neve: l'imbuto viene munito di resistenza termica, che scioglie l'acqua (in fase solida), riduce il volume misurato ad 1/10 della neve e misura l'equivalente in acqua.
+
+\figuremacro{basculla}{Pluviometro elettronico}{}{}
+
+ 
+% ---------------------------------------------------------------------------
+%: ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------
+
