@@ -1,0 +1,23 @@
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Introduzione}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Delay Tolerant Networks}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}M2MShare}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}ONE - L'ambiente di simulazione}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Configurazione}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Visualizzazione}{9}{section.4.2}
+\contentsline {section}{\numberline {4.3}Reports}{11}{section.4.3}
+\contentsline {section}{\numberline {4.4}Esecuzione}{13}{section.4.4}
+\contentsline {chapter}{\numberline {5}Modelli di movimento}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Random Map-Based Movement}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}Shortest Path Map-Based Movement}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}Routed Map-Based Movement}{16}{section.5.3}
+\contentsline {section}{\numberline {5.4}Working Day Movement Model}{16}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Esempio di giornata}{17}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Home Activity Submodel}{18}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Office Activity Submodel}{18}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}Evening Activity Submodel}{19}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Transport Activity Submodel}{19}{subsection.5.4.5}
+\contentsline {chapter}{\numberline {6}La simulazione}{21}{chapter.6}
+\contentsline {chapter}{\numberline {7}Risultati}{23}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusioni}{25}{chapter.8}
+\contentsline {chapter}{Bibliografia}{27}{chapter.8}

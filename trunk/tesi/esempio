@@ -1,0 +1,31 @@
+Enabling opportunistic storage for mobile DTNs
+http://portal.acm.org/citation.cfm?id=1412764&CFID=20920767&CFTOKEN=69680198
+
+1. Introduction
+2. Related work
+2.1. Mobile DTNs and message-based communication
+2.2. Cooperative content sharing
+3. Application scenarios
+3.1. Opportunistic content retrieval and caching
+3.2. Content storage and retrieval
+3.3. Application protocol considerations
+4. Application-specific storage and retrieval for bundle routers
+4.1. Bundle protocol extensions
+4.2. Bundle router design
+4.3. Compatibility and deployment considerations
+5. Bundle management strategies for mobile DTN routers
+5.1. Bundle-based queuing and caching in mobile community
+5.2. Bundle based routing in mobile DTNs
+6. Simulations
+6.1. Simulation environment
+6.2. Mobile node model and user behavior
+6.3. Real world community: MIT-reality
+6.4. Map-based mobility: Helsinki City scenario
+6.5. Further observations
+7. Conclusions
+
+The state of DTN evaluation
+http://portal.acm.org/citation.cfm?id=1859941
+
+Experimental Evaluation of Delay Tolerant Networking (DTN) Protocols for Long-Delay Cislunar Communications
+http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=5425589
