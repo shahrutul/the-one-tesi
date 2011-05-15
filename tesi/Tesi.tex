@@ -1,0 +1,190 @@
+\documentclass[12pt,a4paper]{book}                                          %grandezza carattere,formato a4 (stile)
+
+\include{Latex/Macros/MacroFile1}
+
+\usepackage[italian]{babel}                                                 %libreria per scrivere in italiano
+\usepackage[latin1]{inputenc}                                               %libreria per accettare i caratteri digitati da tastiera
+\usepackage{fancyhdr}                                                       %libreria per impostare il documento
+\usepackage{indentfirst}                                                    %libreria per avere l'indentazione all'inizio dei capitoli
+\usepackage{graphicx}                                                       %libreria per inserire grafici
+\usepackage{newlfont}
+\usepackage[hang,small,bf]{caption}                                                       %libreria per utilizzare font particolari ad esempio \textsc{}
+\usepackage{amssymb}                                                        %librerie matematiche
+\usepackage{amsmath}                                                        %librerie matematiche
+\usepackage{latexsym}                                                       %librerie matematiche
+\usepackage{amsthm}  
+ %librerie matematiche
+                                                         %libreria per la bibliografia
+
+\oddsidemargin=30pt \evensidemargin=20pt                                    %impostano i margini
+
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}                                 %serve per la sillabazione: tra parentesi vanno inserite come nell'esempio le parole che latex non riesce a tagliare nel modo giusto andando a capo.
+
+\pagestyle{fancy}\addtolength{\headwidth}{20pt}                             %comandi per l'impostazione
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}               %della pagina, vedi il manuale
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}              %della libreria fancyhdr
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %per ulteriori delucidazioni
+\cfoot{}
+
+\linespread{1.0}                                                            %comando per impostare l'interlinea
+
+\usepackage{hyperref}	%comando per i collegamenti e dettagli sui pdf		
+\hypersetup{pdfauthor={Daniele Bonaldo},% autore del documento
+pdftitle={Tesi di laurea magistrale},% titolo del documento
+bookmarks=true,%mostra la barra dei collegamenti quando visualizza
+colorlinks,% colora i links dei colori seguenti
+citecolor=black,%
+filecolor=black,%
+linkcolor=black,%
+urlcolor=black,%
+pdftex}
+												
+
+\begin{document}                                                            %inizio del documento
+
+%%%%%COPERTINA%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{copertina}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%DEDICA%%%%%%%%%%%%%%%%%%%
+%\begin{titlepage}                                                           %crea un ambiente libero da vincoli di margini e grandezza caratteri: si pu\`o modificare quello che si
+%                                                                            %vuole, tanto fuori da questo ambiente tutto viene ristabilito
+%\thispagestyle{empty}                                                       %elimina il numero della pagina
+%\topmargin=6.5cm                                                            %imposta il margina superiore a 6.5cm
+%\raggedleft                                                                 %incolonna la scrittura a destra
+%\large                                                                      %aumenta la grandezza del carattere a 14pt
+%\input{dedica}                                                              %richiama il file in cui c'� la copertina
+%\newpage                                                                    %va in una pagina nuova
+%
+%\end{titlepage}
+
+\clearpage{\pagestyle{empty}\cleardoublepage}                               %apre una nuova pagina iniziando da quella destra ed altro (vedere manuale)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{roman}                                                        %serve per mettere i numeri romani in Introduzione, indice, elenco tabelle e figure
+
+%%%%%%%%%%%%%%%INTRODUZIONE%%%%%%%%%%%%%%%%%%%
+
+%\rhead[\fancyplain{}{\bfseries                                               %imposta l'intestazione di pagina destra
+%INTRODUZIONE}]{\fancyplain{}{\bfseries\thepage}}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries             %imposta l'intestazione di pagina sinistra
+%INTRODUZIONE}}
+%\input{Introduzione}
+%\addcontentsline{toc}{chapter}{Introduzione}                            %aggiunge la voce Introduzione nell'indice
+%\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%Indice, elenco tabelle e figure%%%%%%%%%%%%%%%%%%%%%%%%
+
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+INDICE}}
+\tableofcontents                                                            %crea l'indice
+\cleardoublepage
+
+%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+%ELENCO DELLE FIGURE}}
+%
+%\listoffigures                                                              %crea l'elenco delle figure
+%\addcontentsline{toc}{chapter}{Elenco delle figure}                         %aggiungilo all'indice
+%\cleardoublepage
+
+
+%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+%ELENCO DELLE TABELLE}}
+%\listoftables                                                               %crea l'elenco delle tabelle
+%\addcontentsline{toc}{chapter}{Elenco delle tabelle}                        %aggiungilo all'indice
+%\cleardoublepage                                                            %non numera l'ultima pagina sinistra
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%%%%%%%%%%%%%%%%%%CAPITOLI%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}    %imposta l'intestazione di pagina
+\pagenumbering{arabic}                                                          %mette i numeri arabi
+
+
+\input{1-introduzione/introduzione}
+\input{2-dtn/dtn}
+\input{3-m2mshare/m2mshare}
+\input{4-simulatore/simulatore}
+\input{5-movimento/movimento}
+\input{6-simulazione/simulazione}
+\input{7-risultati/risultati}
+\input{8-conclusioni/conclusioni}
+
+
+\cleardoublepage                                                                %va a pagina nuova iniziando dalla pagina di destra
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%Facoltativi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%CONCLUSIONI%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\rhead[\fancyplain{}{\bfseries                                              %imposta l'intestazione di pagina destra
+%CONCLUSIONI}]{\fancyplain{}{\bfseries\thepage}}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries            %imposta l'intestazione di pagina sinistra
+%CONCLUSIONI}}
+%\addcontentsline{toc}{chapter}{Conclusioni}                                 %aggiunge la voce Conclusioni nell'indice
+%\input{Conclusioni}                                                         %preleva il file in cui ci sono le conclusioni
+%\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%APPENDICE%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%\rhead[\fancyplain{}{\bfseries                                              %imposta l'intestazione di pagina destra
+%APPENDICE}]{\fancyplain{}{\bfseries\thepage}}                               %imposta l'intestazione di pagina
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries            %imposta l'intestazione di pagina (si pu� cambiare la scritta appendice con il suo nome in modo da far apparire nella intestazione della pagina sinistra il nome dell'appendice)
+%APPENDICE}} \addcontentsline{toc}{chapter}{Appendice: Data Sheet}
+%\input{Appendice}
+%\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%BIBLIOGRAFIA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{thebibliography}{90}                                                 %crea l'ambiente bibliografia
+%\rhead[\fancyplain{}{\bfseries                                              %imposta l'intestazione di pagina
+%BIBLIOGRAFIA}]{\fancyplain{}{\bfseries\thepage}}                            %imposta l'intestazione di pagina
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries            %imposta l'intestazione di pagina
+%BIBLIOGRAFIA}}
+%\addcontentsline{toc}{chapter}{Bibliografia}                                %aggiunge la voce Bibliografia nell'indice
+%\input{Bibliografia}
+%\end{thebibliography}
+%\cleardoublepage
+
+\addcontentsline{toc}{chapter}{Bibliografia}
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{bibliografia}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%RINGRAZIAMENTI%%%%%%%%%%%%%%%%%%%%
+
+%\rhead[\fancyplain{}{\bfseries                                              %imposta l'intestazione di pagina
+%RINGRAZIAMENTI}]{\fancyplain{}{\bfseries\thepage}}                          %imposta l'intestazione di pagina
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries            %imposta l'intestazione di pagina
+%RINGRAZIAMENTI}}
+%\chapter*{Ringraziamenti}
+%\thispagestyle{empty}
+%\input{Ringraziamenti}
+%\addcontentsline{toc}{chapter}{Ringraziamenti}                              %aggiunge la voce Ringraziamenti nell'indice
+%\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2010/Arch Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Tesi.aux
+The style file: unsrt.bst
+Database file #1: bibliografia.bib
+Warning--empty journal in articoloONE
+Too many commas in name 1 of "F.Ekman, A.Ker\"{a}nen, J.Karvo, J.Ott" for entry articoloWdm
+while executing---line 944 of file unsrt.bst
+Name 1 in "A. Klemm, C. Lindemann, and O. Waldhorst" has a comma at the end for entry orion
+while executing---line 944 of file unsrt.bst
+Warning--empty journal in orion
+Warning--empty year in orion
+Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
+while executing---line 944 of file unsrt.bst
+Warning--empty journal in humanmobility
+Warning--empty year in humanmobility
+Warning--empty journal in socialNetworks
+Warning--there's a month but no year in increasingReality
+You've used 10 entries,
+            1791 wiz_defined-function locations,
+            494 strings with 4729 characters,
+and the built_in function-call counts, 1377 in all, are:
+= -- 112
+> -- 44
+< -- 0
++ -- 21
+- -- 11
+* -- 45
+:= -- 249
+add.period$ -- 28
+call.type$ -- 10
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 82
+empty$ -- 154
+format.name$ -- 11
+if$ -- 298
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 9
+newline$ -- 51
+num.names$ -- 10
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 0
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 7
+while$ -- 10
+width$ -- 12
+write$ -- 99
+(There were 4 error messages)
