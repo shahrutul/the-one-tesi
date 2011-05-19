@@ -2,19 +2,21 @@
 
 \bibitem{articoloONE}
 T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
-\newblock The one simulator for dtn protocol evaluation.
-\newblock 2009.
+\newblock {The ONE Simulator for DTN Protocol Evaluation}.
+\newblock In {\em SIMUTools '09: Proceedings of the 2nd International
+  Conference on Simulation Tools and Techniques}, New York, NY, USA, 2009.
+  ICST.
 
 \bibitem{articoloWdm}
-J.Karvo~J.Ott F.Ekman, A.Ker\"{a}nen.
+Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
 \newblock Working day movement model.
-\newblock In {\em ACM/SIGMOBILE Workshop on Mobility Models for Networking
-  Research}, Maggio 2008.
+\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
+  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
 
 \bibitem{tesiarmir}
 A.~Bujari.
 \newblock A delay tolerant solution for p2p file sharing in manets.
-\newblock Master's thesis, Università degli Studi di Padova, 2010.
+\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
 
 \bibitem{orion}
 C.~Lindemann A.~Klemm and O.~Waldhorst.
@@ -27,19 +29,21 @@ S.Hong K.Lee~S.Chong I.Rhee, M.Shin.
   mobile network.
 
 \bibitem{computerNetworks}
-A.~Tannenbaum.
+Andrew~S. Tanenbaum.
 \newblock {\em Computer Networks}.
-\newblock Prentice Hall, 2 edition, 2002.
+\newblock Prentice Hall Professional Technical Reference, 4th edition, 2002.
 
 \bibitem{sistemiOperativi}
-A.~Tannenbaum.
+Andrew~S. Tanenbaum.
 \newblock {\em Modern Operating Systems}.
-\newblock Prentice Hall, 4 edition, da verificare anno.
+\newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 3rd edition, 2007.
 
 \bibitem{socialNetworks}
-J.Zhao Y.Zhang.
+Yang Zhang and Jing Zhao.
 \newblock Social network analysis on data diffusion in delay tolerant networks.
-\newblock 2009.
+\newblock In {\em Proceedings of the tenth ACM international symposium on
+  Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
+  York, NY, USA, 2009. ACM.
 
 \bibitem{tesiMobilityModels}
 F.Ekman.
@@ -47,9 +51,15 @@ F.Ekman.
 \newblock Master's thesis, Helsinki University of Technology, 2008.
 
 \bibitem{increasingReality}
-J.Ott A.Ker\"{a}nen.
-\newblock Increasing reality for dtn protocol simulations.
-\newblock Technical report, Helsinki University of Technology, Networking
-  Laboratory, July, Luglio.
+Ari Ker\"{a}nen and J\"{o}rg Ott.
+\newblock {Increasing Reality for DTN Protocol Simulations}.
+\newblock Technical report, Helsinki University of Technology, July 2007.
+
+\bibitem{panelStateDTNEvaluation}
+Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
+  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
+\newblock The state of dtn evaluation.
+\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
+  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
 
 \end{thebibliography}
