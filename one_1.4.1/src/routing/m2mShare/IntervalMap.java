@@ -1,6 +1,7 @@
 
 package routing.m2mShare;
 
+import java.util.Random;
 import java.util.Vector;
 
 /**
@@ -43,6 +44,8 @@ public class IntervalMap{
      *
      */
     private MapEnumerator enumerator = null;
+    
+    private Random rng = new Random(0);
 
     /**
      * Costructor. Empty map with no interval.
@@ -79,6 +82,23 @@ public class IntervalMap{
     	}catch(Exception e){}
 	}
 
+
+	public int[] cut(int type) throws Exception {
+		switch (type) {
+		case 0:
+			 return assignRestofMap();
+		case 2:
+			 Interval randomInterval = intervals.get(rng.nextInt(intervals.size()));
+			 int randomPoint = rng.nextInt(randomInterval.getUpperEnd())+randomInterval.getLowerEnd();
+			 int[] randomStartMap = assignRestofMap();
+			 randomStartMap[0] = randomPoint;
+			 return randomStartMap;
+
+		default:
+			return cut(false);
+		}
+	}
+	
 	/**
      *
      */

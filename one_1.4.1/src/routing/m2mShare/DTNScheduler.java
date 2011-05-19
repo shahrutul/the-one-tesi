@@ -237,12 +237,17 @@ public class DTNScheduler {
 				/* Moved here for performance reasons */
 				if(!otherRouter.containsPendingDownload(myRouter.getHost(), virtualFile.getFileHash())){
 					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
+					int[] newMap = virtualFile.getMapForDelegation(myRouter.getFileDivisionStrategyType());
+					if(newMap == null){
+						queuingCentral.push(virtualFile, QueuingCentral.VIRTUAL_FILE_QUEUE_ID);
+						continue;
+					}
 					Vector<DTNHost> delChain = new Vector<DTNHost>();
 					delChain.add(myRouter.getHost());
 					DTNActivity newActivity = new DTNPendingDownload(
 							myRouter.getHost(), 
 							virtualFile.getFileHash(),
-							new IntervalMap(virtualFile.getRestOfMap()),
+							new IntervalMap(newMap),
 							presenceCollector.getDelegationTTL(),
 							delChain,
 							virtualFile.getID(), 
@@ -263,13 +268,18 @@ public class DTNScheduler {
 				if((!pendingToDelegate.getDelegationChain().contains(otherHost)) && 
 						pendingToDelegate.getHop() < myRouter.getDelegationDepth()){
 					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
+					int[] newMap = pendingToDelegate.getMapForDelegation(myRouter.getFileDivisionStrategyType());
+					if(newMap == null){
+						queuingCentral.push(pendingToDelegate, QueuingCentral.DTN_PENDING_ID);
+						continue;
+					}
 					@SuppressWarnings("unchecked")
 					Vector<DTNHost> newDelChain = (Vector<DTNHost>) pendingToDelegate.getDelegationChain().clone();
 					newDelChain.add(myRouter.getHost());
 					DTNActivity newActivity = new DTNPendingDownload(
 							myRouter.getHost(), 
 							pendingToDelegate.getFilehash(),
-							new IntervalMap(pendingToDelegate.getRestOfMap()),
+							new IntervalMap(newMap),
 							presenceCollector.getDelegationTTL(),
 							//pendingToDelegate.getHop() + 1,
 							newDelChain,

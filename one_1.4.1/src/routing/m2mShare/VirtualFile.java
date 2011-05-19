@@ -47,7 +47,7 @@ public class VirtualFile extends DTNActivity {
 		if(servers != null){
 			for(Pair<DTNHost, Connection> server:servers){
 				try {
-					executor.addCommunicator(server.getSecond(), server.getFirst(), fileHash, map.cut(false));
+					executor.addCommunicator(server.getSecond(), server.getFirst(), fileHash, map.cut(myRouter.getFileDivisionStrategyType()));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
@@ -143,6 +143,14 @@ public class VirtualFile extends DTNActivity {
 	public void setCompleted() {
 		super.setCompleted();
 		myRouter.notifyfileRequestSatisfied(fileHash, selfSatisfied);
+	}
+
+	public int[] getMapForDelegation(int fileDivisionStrategyType) {
+		try {
+			return map.cut(fileDivisionStrategyType);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	

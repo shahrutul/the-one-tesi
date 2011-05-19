@@ -2,7 +2,6 @@ package routing.m2mShare;
 
 import routing.M2MShareRouter;
 
-import core.DTNFile;
 import core.DTNHost;
 
 public class DTNDownloadFwd extends DTNActivity {
