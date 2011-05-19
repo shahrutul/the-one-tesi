@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  15 MAY 2011 12:01
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  18 MAY 2011 23:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -402,7 +402,7 @@ LaTeX Info: Redefining \nameref on input line 43.
 \openout3 = `Tesi.out'.
 
  (./copertina.tex
-<figure/unipd_logo.png, id=87, 376.40625pt x 376.40625pt>
+<figure/unipd_logo.png, id=91, 376.40625pt x 376.40625pt>
 File: figure/unipd_logo.png Graphic file (type png)
 
 <use figure/unipd_logo.png>
@@ -447,12 +447,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ] (./1-introduzione/introduzione.tex
 Capitolo 1.
-) (./2-dtn/dtn.texpdfTeX warning (ext4): destination with the same identifier (
-name{page.1}) has been already used, duplicate ignored
+) (./2-simulatore/simulatore.texpdfTeX warning (ext4): destination with the sam
+e identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.5 \chapter
-            {Delay Tolerant Networks}\label{dtn} % top level followed by sec...
+            {ONE - L'ambiente di simulazione}\label{simulatore} % top level ...
 [1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
@@ -460,19 +460,11 @@ l.5 \chapter
 <to be read again> 
                    \relax 
 l.5 \chapter
-            {Delay Tolerant Networks}\label{dtn} % top level followed by sec...
+            {ONE - L'ambiente di simulazione}\label{simulatore} % top level ...
 [2
 
 ]
 Capitolo 2.
-) (./3-m2mshare/m2mshare.tex [3] [4
-
-]
-Capitolo 3.
-) (./4-simulatore/simulatore.tex [5] [6
-
-]
-Capitolo 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
@@ -496,7 +488,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
@@ -511,52 +503,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
 
-[8]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 47--49
 
  []
 
-<4-simulatore/img/Schermata-ONE.png, id=168, 949.5475pt x 710.655pt>
-File: 4-simulatore/img/Schermata-ONE.png Graphic file (type png)
+<2-simulatore/img/Schermata-ONE.png, id=156, 949.5475pt x 710.655pt>
+File: 2-simulatore/img/Schermata-ONE.png Graphic file (type png)
 
-<use 4-simulatore/img/Schermata-ONE.png>
-<4-simulatore/img/Routing-Info.png, id=170, 295.1025pt x 421.575pt>
-File: 4-simulatore/img/Routing-Info.png Graphic file (type png)
+<use 2-simulatore/img/Schermata-ONE.png>
+<2-simulatore/img/Routing-Info.png, id=158, 295.1025pt x 421.575pt>
+File: 2-simulatore/img/Routing-Info.png Graphic file (type png)
 
-<use 4-simulatore/img/Routing-Info.png>
+<use 2-simulatore/img/Routing-Info.png>
 
-LaTeX Warning: Float too large for page by 2.35614pt on input line 65.
+LaTeX Warning: Float too large for page by 2.35614pt on input line 66.
 
-[9] [10 <./4-simulatore/img/Schermata-ONE.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 68--71
+[5] [6 <./2-simulatore/img/Schermata-ONE.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 69--72
+
+ []
+
+[7] [8 <./2-simulatore/img/Routing-Info.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-[11] [12 <./4-simulatore/img/Routing-Info.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 90--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
-) (./5-movimento/movimento.tex [13] [14
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--99
+
+ []
+
+[9] <2-simulatore/img/connessioni.png, id=189, 531.9875pt x 245.91875pt>
+File: 2-simulatore/img/connessioni.png Graphic file (type png)
+
+<use 2-simulatore/img/connessioni.png>) (./3-movimento/movimento.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./2-simulatore/img/connessioni.png>] [11] [12
 
 ]
-Capitolo 5.
+Capitolo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[15]
+[13]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 36.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -568,7 +571,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--45
 
  []
 
-[16]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
@@ -586,7 +589,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--55
 
 Underfull \vbox (badness 6236) has occurred while \output is active []
 
- [17]
+ [15]
 Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
@@ -601,7 +604,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
-[18]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
@@ -626,51 +629,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
-[19]) (./6-simulazione/simulazione.tex [20]
-Capitolo 6.
-) (./7-risultati/risultati.tex [21
+[17]) (./4-m2mshare/m2mshare.tex [18]
+Capitolo 4.
+) (./5-implementazione/implementazione.tex [19
 
-] [22
+] [20
+
+]
+Capitolo 5.
+) (./6-simulazione/simulazione.tex [21] [22
+
+]
+Capitolo 6.
+) (./7-conclusioni/conclusioni.tex [23] [24
 
 ]
 Capitolo 7.
-) (./8-conclusioni/conclusioni.tex [23] [24
-
-]
-Capitolo 8.
 ) [25] [26
 
-] (./Tesi.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
- [27
+] (./Tesi.bbl [27
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./Tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
-
-
-Package rerunfilecheck Warning: File `Tesi.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Tesi.out':
-(rerunfilecheck)             Before: 2809A8C9C4BDDEDD6483F68BB9BD24C2;1318
-(rerunfilecheck)             After:  1ADA2C66D05A015768871756D456CA93;1372.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
+Package rerunfilecheck Info: File `Tesi.out' has not changed.
+(rerunfilecheck)             Checksum: FC586815B479188356D1C9003CAEB490;1377.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
  ) 
 Here is how much of TeX's memory you used:
- 7584 strings out of 493772
- 111137 string characters out of 3150564
- 202946 words of memory out of 3000000
- 10661 multiletter control sequences out of 15000+200000
+ 7590 strings out of 493772
+ 111405 string characters out of 3150564
+ 202995 words of memory out of 3000000
+ 10667 multiletter control sequences out of 15000+200000
  12589 words of font info for 48 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
- 36i,12n,43p,940b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,43p,1068b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -678,10 +675,10 @@ ic/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Tesi.pdf (31 pages, 287920 bytes).
+Output written on Tesi.pdf (32 pages, 298424 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

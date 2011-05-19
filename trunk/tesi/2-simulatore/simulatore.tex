@@ -8,7 +8,7 @@
 %: ----------------------- paths to graphics ------------------------
 
 % change according to folder and file names
-\graphicspath{{4-simulatore/img/}}
+\graphicspath{{2-simulatore/img/}}
 
 
 %: ----------------------- contents from here ------------------------
@@ -54,6 +54,7 @@ Nei files di configurazione utilizzati da ONE è possibile inoltre impostare arra
 \textit{Namespace.chiave = [valoreEsecuzione1; valoreEsecuzione2; valoreEsecuzione3; ecc]}
 \end{center}
 
+Alcuni parametri, infine, accettano come valore il percorso di un file e in questo caso può essere espresso sia in maniera assoluta che relativa. Un esempio di variabili che necessitano di questo tipo di valori sono le mappe, per cui si impostano i files che le contengono, o gli input per i generatori di eventi, per i quali i files da caricare descrivono gli eventi da creare durante la simulazione.
 
 \section{Visualizzazione}
 La principale modalità di visualizzazione fornita da ONE è quella tramite la GUI, che permette di seguire in tempo reale l'avanzamento della simulazione. Nella finestra principale è possibile osservare i movimenti dei vari nodi e, selezionandone uno specifico, ottenere informazioni riguardo le connessioni attive, i messaggi trasportati e altri dettagli. E' disponibile inoltre un riquadro in cui viene costantemente aggiornato un log di eventi generati durante la simulazione che possono essere filtrati a seconda di ciò che più interessa (ad esempio visualizzare solo le nuove connessioni o gli scambi di messaggi).
@@ -72,13 +73,11 @@ Questa modalità di visualizzazione è particolarmente utile quando non si utilizz
 La modalità batch è indicata nel caso si debbano eseguire più simulazioni in serie senza essere interessati a seguirne l'avanzamento in modalità grafica ma piuttosto valutandone i risultati una volta completate. In questo caso si dimostra molto utile la possibilità di specificare array di valori per i parametri di configurazione, in modo da poter programmare in anticipo le differenze fra le varie simulazioni della serie. Una volta avviato quindi il batch di simulazioni, ONE si occuperà si eseguirle in sequenza e alla massima velocità permessa della macchina in uso e salverà i reports generati in più files impostati durante la configurazione.
 
 \section{Reports}
-Il simulatore può gestire la generazione di più reports relativi alla simulazione in esecuzione. Questi report vengono creati da dei moduli attivati in fase di configurazione e consistono generalmente in files di testo in cui vengono salvati i dati e statistiche che verranno poi analizzati a simulazione terminata.
-\\
-Nella versione 1.4.1 di ONE, il sistema permette di generare reports relativi a
+Il simulatore può gestire la generazione di più reports relativi alla simulazione in esecuzione. Questi report vengono creati da dei moduli attivati in fase di configurazione e consistono generalmente in files di testo in cui vengono salvati i dati e statistiche che verranno poi analizzati a simulazione terminata. Nella versione 1.4.1 di ONE, il sistema permette di generare reports relativi a:
 \begin{description}
-\item[messaggi], che includono numero di messaggi creati, scambiati, scaduti, ecc
-\item[contatti], in cui viene indicato il contact e l'inter-contact time fra i vari nodi, oltre al totale dei contatti durante la simulazione.
-\item[connessioni], che descrivono l'alternarsi di stato delle connessioni 
+\item[messaggi,] che includono numero di messaggi creati, scambiati, scaduti, ecc
+\item[contatti,] in cui viene indicato il contact e l'inter-contact time fra i vari nodi, oltre al totale dei contatti durante la simulazione.
+\item[connessioni,] che descrivono l'alternarsi di stato delle connessioni 
 \end{description}
 
 Come per le altre parti di cui ONE è composto, anche i generatori di reports vengono gestiti come moduli, ed è quindi possibile aggiungerne di nuovi a seconda delle esigenze e dei dati da raccogliere nella singola simulazione.
@@ -95,9 +94,19 @@ Una volta caricate le impostazioni relative alla simulazione, viene creato lo Sc
 \\
 
 Quando tutte le entità necessarie all'esecuzione sono stati create e configurate, si passa all'esecuzione vera e propria.
-Questa consiste nel ripetere l'aggiornamento dello stato del mondo, chiamando un metodo \textit{update()}, e incrementare il valore del tempo simulato fino al raggiungimento di un tempo impostato come fine simulazione. L'incremento temporale che viene effettuato ad ogni aggiornamento è impostato nei files di configurazione (con il parametro \textit{Scenario.updateInterval}), espresso in secondi, ed influenza i vari modelli di movimento dei nodi.
+Questa consiste nel ripetere l'aggiornamento dello stato del mondo, chiamando un metodo \textit{update()}, e incrementare il valore del tempo simulato fino al raggiungimento di un tempo impostato come fine simulazione. L'incremento temporale che viene effettuato ad ogni aggiornamento è impostato nei files di configurazione (con il parametro \textit{Scenario.updateInterval}), espresso in secondi, ed influenza i vari modelli di movimento dei nodi. La prima operazione svolta durante l'\textit{update()} del mondo simulato è lo spostamento dei vari nodi, che avviene a seconda del modello di movimento adottato dal nodo e dell'incremento temporale applicato. Ad esempio un nodo che simula un automobilista si sposterà maggiormente rispetto ad uno che simula un pedone, a parità di intervallo di tempo simulato. Come vedremo nella sezione \ref{movimento} relativa ai modelli di movimento, questi possono essere anche molto complessi e simulare diversi comportamenti a seconda delle configurazioni adottate.
+\\
 
+Una volta effettuato il movimento, per ogni nodo viene aggiornato lo stato delle connessioni e del router simulato. Per ogni interfaccia di rete disponibile viene quindi aggiornato lo stato a seconda che lo spostamento abbia comportato una caduta della connessione o abbia permesso di entrare nel raggio di comunicazione di un interfaccia di rete relativa ad un altro nodo. Ogni qualvolta lo stato di una connessione cambia, vengono avvisati i \textit{listeners} interessati, per la generazione di report, e viene aggiornata la visualizzazione grafica della connessione, se attiva, come si può vedere, ad esempio, in Figura \ref{connessioni}.
+\\
+\figuremacro{connessioni}{connessioni}{Un esempio di connessioni tra nodi tratto dalla finestra principale di ONE. Nella parte sinistra dell'immagine si può notare la connessione attiva, mentre nella parte a destra i due nodi non sono più l'uno nel raggio di comunicazione dell'altro, indicato dal cerchio verde attorno al nodo.}{}
 
+L'ultima parte dell'aggiornamento relativo allo stato di un nodo riguarda l'aggiornamento del router. Questo è fortemente dipendente dal protocollo di routing implementato ed è proprio nell'esecuzione del metodo \textit{update()} relativo al router che si svolgono le azioni caratteristiche di un protocollo rispetto ad un altro.
+
+\section{Limitazioni}
+non più in basso del livello di routing
+simulazione temporale discreta
+mancanza di simulazione di un file system
 
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
