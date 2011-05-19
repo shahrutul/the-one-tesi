@@ -1,6 +1,5 @@
 package routing.m2mShare;
 
-import java.security.KeyStore.Entry;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -37,7 +36,7 @@ public class BroadcastModule {
 		for(DTNHost host: neighbours.keySet()){
 			if(((M2MShareRouter)host.getRouter()).hasRemoteFile(fileHash, visitedHosts)){
 				servers.add(new Pair<DTNHost, Connection>(host, neighbours.get(host)));
-				System.err.println(SimClock.getTime()+" broadcastQuery trovati: "+host+" > "+neighbours.get(host));
+				//System.err.println(SimClock.getTime()+" broadcastQuery trovati: "+host+" > "+neighbours.get(host));
 			}
 		}		
 		
@@ -48,7 +47,7 @@ public class BroadcastModule {
 		//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - host visitati: "+visitedTillNow.size());
 		/* check if I own the searched file */
 		if(myRouter.getHost().getFileSystem().hasFile(fileHash)){
-			System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - possiede "+fileHash);
+			//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - possiede "+fileHash);
 			return true;
 		}
 		
@@ -120,7 +119,7 @@ public class BroadcastModule {
 
 	public void connectionLostWith(DTNHost hostNoMoreConnected) {
 		if(!routingTable.isEmpty()){
-			System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" non più connesso con "+hostNoMoreConnected);
+			//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" non più connesso con "+hostNoMoreConnected);
 			//printMaps();
 		}
 		else{
@@ -131,7 +130,7 @@ public class BroadcastModule {
 		for(Map.Entry routingEntry: routingTable.entrySet()){
 			Vector<DTNHost> serversList = (Vector<DTNHost>) routingEntry.getValue();
 			if(serversList.contains(hostNoMoreConnected)){
-				System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da routing "+hostNoMoreConnected);
+				//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da routing "+hostNoMoreConnected);
 				serversList.remove(hostNoMoreConnected);
 				
 				if(serversList.isEmpty()){
@@ -143,7 +142,7 @@ public class BroadcastModule {
 		for(Map.Entry routingEntry: responseTable.entrySet()){
 			Vector<DTNHost> clientsList = (Vector<DTNHost>) routingEntry.getValue();
 			if(clientsList.contains(hostNoMoreConnected)){
-				System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da response "+hostNoMoreConnected);
+				//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da response "+hostNoMoreConnected);
 				clientsList.remove(hostNoMoreConnected);
 			}
 		}
@@ -152,7 +151,7 @@ public class BroadcastModule {
 			routingTable.remove(fileHash);
 			Vector<DTNHost> clients = responseTable.get(fileHash);
 			for(DTNHost client:clients){
-				System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - connessione persa: avviso"+client);
+				//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - connessione persa: avviso"+client);
 				((M2MShareRouter)client.getRouter()).relayedFileNoMoreAvailable(fileHash, myRouter.getHost());
 			}
 			responseTable.remove(fileHash);
@@ -163,7 +162,7 @@ public class BroadcastModule {
 
 	public void relayedFileNoMoreAvailable(String fileHash, DTNHost relayHost) {
 		if(!routingTable.isEmpty()){
-			System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" file remoto perso da "+relayHost);
+			//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" file remoto perso da "+relayHost);
 			//printMaps();
 		}
 		else{
@@ -173,7 +172,7 @@ public class BroadcastModule {
 		boolean wasLast = false;
 		Vector<DTNHost> serversList = routingTable.get(fileHash);
 		if(serversList != null && serversList.contains(relayHost)){
-			System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da routing "+relayHost);
+			///System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" rimuovo da routing "+relayHost);
 			serversList.remove(relayHost);
 			
 			wasLast = serversList.isEmpty();			
@@ -183,7 +182,7 @@ public class BroadcastModule {
 			routingTable.remove(fileHash);
 			Vector<DTNHost> clients = responseTable.get(fileHash);
 			for(DTNHost client:clients){
-				System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - connessione persa: avviso"+client);
+				//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" - connessione persa: avviso"+client);
 				((M2MShareRouter)client.getRouter()).relayedFileNoMoreAvailable(fileHash, myRouter.getHost());
 			}
 			responseTable.remove(fileHash);

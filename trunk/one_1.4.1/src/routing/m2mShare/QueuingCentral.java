@@ -90,6 +90,31 @@ public class QueuingCentral {
 		}
 		return false;
 	}
+
+
+	public DTNActivity getActivityFromID(int activityID) {
+		try{
+			for(int i=0; i < 6; i++){
+				for(DTNActivity activity: queues.get(i)){
+					if(activity.getID() == activityID){
+						return activity;
+					}
+				}
+			}
+		}catch (Exception e){}
+		return null;	
+	}
+
+
+	public boolean containsPendingDownload(DTNHost requestor, String filehash) {
+		for(DTNActivity activity: queues.get(UPLOAD_QUEUE_ID)){
+			if(((DTNPendingDownload)activity).getFilehash().equals(filehash) &&
+					((DTNPendingDownload)activity).getRequestor().equals(requestor)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	
 	

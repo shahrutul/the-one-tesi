@@ -23,13 +23,11 @@ public class DTNScheduler {
 
 	private boolean[] hasSomethingToDo;
 	
-	
-	
 	public DTNScheduler(DTNPresenceCollector presenceCollector, QueuingCentral queuingCentral, M2MShareRouter myRouter) {
 		this.presenceCollector = presenceCollector;
 		this.queuingCentral = queuingCentral;
 		this.myRouter = myRouter;
-		this.executors = new Executor[4];
+		this.executors = new Executor[4];		
 		this.hasSomethingToDo = new boolean[4];
 		for(int i=0; i<executors.length; i++){
 			this.executors[i] = new Executor(this, i);
@@ -234,19 +232,55 @@ public class DTNScheduler {
 	public void delegate(DTNHost otherHost) {
 		M2MShareRouter otherRouter = (M2MShareRouter) otherHost.getRouter();
 		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID); i++){
-			try{
+			try{				
 				VirtualFile virtualFile = (VirtualFile) queuingCentral.pop(QueuingCentral.VIRTUAL_FILE_QUEUE_ID);
-				//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
-				DTNActivity newActivity = new DTNPendingDownload(
-						myRouter.getHost(), 
-						virtualFile.getFileHash(),
-						new IntervalMap(virtualFile.getRestOfMap()),
-						presenceCollector.getDelegationTTL(),
-						otherRouter
-				);
+				/* Moved here for performance reasons */
+				if(!otherRouter.containsPendingDownload(myRouter.getHost(), virtualFile.getFileHash())){
+					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
+					Vector<DTNHost> delChain = new Vector<DTNHost>();
+					delChain.add(myRouter.getHost());
+					DTNActivity newActivity = new DTNPendingDownload(
+							myRouter.getHost(), 
+							virtualFile.getFileHash(),
+							new IntervalMap(virtualFile.getRestOfMap()),
+							presenceCollector.getDelegationTTL(),
+							delChain,
+							virtualFile.getID(), 
+							otherRouter
+					);
 
-				otherRouter.addPendingDownload(newActivity);
+					otherRouter.addPendingDownload(newActivity);
+				}
 				queuingCentral.push(virtualFile, QueuingCentral.VIRTUAL_FILE_QUEUE_ID);
+
+			}
+			catch(NoActivityInQueueException e){}
+		}
+		//I delegate also pendingDownloads
+		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_ID); i++){
+			try{
+				DTNPendingDownload pendingToDelegate = (DTNPendingDownload) queuingCentral.pop(QueuingCentral.DTN_PENDING_ID);
+				if((!pendingToDelegate.getDelegationChain().contains(otherHost)) && 
+						pendingToDelegate.getHop() < myRouter.getDelegationDepth()){
+					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
+					@SuppressWarnings("unchecked")
+					Vector<DTNHost> newDelChain = (Vector<DTNHost>) pendingToDelegate.getDelegationChain().clone();
+					newDelChain.add(myRouter.getHost());
+					DTNActivity newActivity = new DTNPendingDownload(
+							myRouter.getHost(), 
+							pendingToDelegate.getFilehash(),
+							new IntervalMap(pendingToDelegate.getRestOfMap()),
+							presenceCollector.getDelegationTTL(),
+							//pendingToDelegate.getHop() + 1,
+							newDelChain,
+							pendingToDelegate.getID(), 
+							otherRouter
+					);
+
+					otherRouter.addPendingDownload(newActivity);
+				}
+				
+				queuingCentral.push(pendingToDelegate, QueuingCentral.DTN_PENDING_ID);
 
 			}
 			catch(NoActivityInQueueException e){}

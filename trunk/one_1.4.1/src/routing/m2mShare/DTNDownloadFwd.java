@@ -10,23 +10,25 @@ public class DTNDownloadFwd extends DTNActivity {
 	private DTNHost requestor;
 	private IntervalMap map;
 	private String filehash;
+	private int originalActivityID;
 	private M2MShareRouter myRouter;
 	private double maxEndTime;
 
-	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime,M2MShareRouter myRouter) {
-		super();
+	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, int originalActivityID, M2MShareRouter myRouter) {
 		this.requestor = requestor;
 		this.map = map;
 		this.filehash = filehash;
 		this.myRouter = myRouter;
 		this.maxEndTime = maxEndTime;
+		this.originalActivityID = originalActivityID;
+		setID(myRouter.getNextId());
 	}
 
 	@Override
 	public void execute(Executor executor) {
 		setActive();
 		if(myRouter.getPresenceCollector().isHostInRange(requestor) && executor.moreCommunicatorsAvailable()){
-			int[] missingRestOfMap = ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(filehash);
+			int[] missingRestOfMap = ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID);
 			if(missingRestOfMap == null){
 				setCompleted();
 				return;
@@ -70,15 +72,15 @@ public class DTNDownloadFwd extends DTNActivity {
 	
 	@Override
 	public void addTransferredData(int[] intervals, DTNHost from) {
-		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(filehash, intervals, myRouter.getHost());		
-		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(filehash) == null){
+		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(originalActivityID, intervals, myRouter.getHost());		
+		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID) == null){
 			setCompleted();
 		}
 	}
 
 	@Override
 	public int[] getRestOfMap() {
-		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(filehash);
+		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID);
 	}
 
 	public String getFileHash() {

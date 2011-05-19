@@ -11,6 +11,7 @@ import routing.m2mShare.DTNDownloadFwd;
 import routing.m2mShare.DTNPendingDownload;
 import routing.m2mShare.DTNScheduler;
 import routing.m2mShare.DTNPresenceCollector;
+import routing.m2mShare.IdGenerator;
 import routing.m2mShare.M2MShareQuery;
 import routing.m2mShare.QueuingCentral;
 import routing.m2mShare.VirtualFile;
@@ -38,14 +39,18 @@ public class M2MShareRouter extends ActiveRouter {
 	public static final String FREQUENCY_THRESHOLD_S ="frequencyThreshold";
 	
 	public static final String SCAN_FREQUENCY_S = "scanFrequency";
-	public static final String USE_DELEGATION_S = "useDelegation";
+	public static final String DELEGATION_DEPTH_S = "delegationDepth";
+	public static final String DELEGATION_TYPE_S = "delegationType";
+	public static final String FILE_DIVISION_TYPE_S = "fileDivisionType";
 	private static final String STOP_SIMULATION_S = "stopOnFirstQuerySatisfied";
 	
 	public static final int FREQUENCY_THRESHOLD = 2;
 	public static final int SCAN_FREQUENCY = 10;
 	
+	
 	private int frequencyThreshold;
 	private boolean useDelegation;
+	private boolean delegateToAll;
 
 		
 	private DTNPresenceCollector presenceCollector;
@@ -54,6 +59,9 @@ public class M2MShareRouter extends ActiveRouter {
 	private DTNScheduler scheduler;
 	private QueuingCentral queuingCentral;
 	private BroadcastModule broadcastModule;
+	private int delegationDepth;
+	private IdGenerator idGenerator;
+	private int fileDivisionStrategyType;
 	
 	
 	/**
@@ -80,11 +88,40 @@ public class M2MShareRouter extends ActiveRouter {
 			scanFrequency = SCAN_FREQUENCY;
 		}
 		
-		if (M2MShareSettings.contains(USE_DELEGATION_S)) {
-			useDelegation = M2MShareSettings.getBoolean(USE_DELEGATION_S);
+		int delegationType;
+		if (M2MShareSettings.contains(DELEGATION_TYPE_S)) {
+			delegationType = M2MShareSettings.getInt(DELEGATION_TYPE_S);
 		}
 		else {
+			delegationType = 1;
+		}
+		switch (delegationType) {
+		case 0:
+			useDelegation = false;
+			delegateToAll = false;
+			break;
+			
+		case 1:
 			useDelegation = true;
+			delegateToAll = false;
+			break;
+			
+		case 2:
+			useDelegation = true;
+			delegateToAll = true;
+			break;
+
+		default:
+			useDelegation = true;
+			delegateToAll = false;
+			break;
+		}
+		
+		if (M2MShareSettings.contains(FILE_DIVISION_TYPE_S)) {
+			fileDivisionStrategyType = M2MShareSettings.getInt(FILE_DIVISION_TYPE_S);
+		}
+		else {
+			fileDivisionStrategyType = 1;
 		}
 		
 		if (M2MShareSettings.contains(STOP_SIMULATION_S)) {
@@ -92,6 +129,13 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 		else {
 			stopOnFirstQuerySatisfied = false;
+		}
+		
+		if (M2MShareSettings.contains(DELEGATION_DEPTH_S)) {
+			delegationDepth = M2MShareSettings.getInt(DELEGATION_DEPTH_S);
+		}
+		else {
+			delegationDepth = 1;
 		}
 
 		init();		
@@ -108,7 +152,10 @@ public class M2MShareRouter extends ActiveRouter {
 		this.frequencyThreshold = r.frequencyThreshold;
 		this.scanFrequency = r.scanFrequency;
 		this.useDelegation = r.useDelegation;
+		this.delegateToAll = r.delegateToAll;
 		this.stopOnFirstQuerySatisfied = r.stopOnFirstQuerySatisfied;
+		this.delegationDepth = r.delegationDepth;
+		this.fileDivisionStrategyType = r.fileDivisionStrategyType;
 		init();
 	}
 	
@@ -116,55 +163,19 @@ public class M2MShareRouter extends ActiveRouter {
 	 * Initializes lists and maps
 	 */
 	private void init() {
-		presenceCollector = new DTNPresenceCollector(this, frequencyThreshold);
+		idGenerator = new IdGenerator();
+		presenceCollector = new DTNPresenceCollector(this, frequencyThreshold, useDelegation, delegateToAll);
 		queuingCentral = new QueuingCentral();
 		scheduler = new DTNScheduler(presenceCollector, queuingCentral, this);
-		broadcastModule = new BroadcastModule(this);
+		broadcastModule = new BroadcastModule(this);		
 	}
 	
 		
 	
 	@Override
 	public void update() {
-		super.update();
-		
-		
-		scheduler.runUpdate();
-		/*
-		for(Connection conn: getConnections()){
-			if (conn.isUp()) {
-				DTNHost otherHost = conn.getOtherNode(getHost());
-
-				//M2MShareRouter works only with other M2MShareRouters
-				if(otherHost.getRouter() instanceof M2MShareRouter){
-					
-					// check if otherHost has some file I'm looking for 
-					checkNeededFiles(conn);
-					
-					checkSatisfiedQuesies();
-					
-					
-					// Delegate queries only to hosts encountered multiple times
-					if(getEncountersFor(otherHost) >= frequencyThreshold){
-						addToServants(otherHost);
-						if(useDelegation){
-							delegateMyQueries(otherHost);							
-						}			
-					}
-						
-				}	
-			}
-		}
-		
-		if (!canStartTransfer() ||isTransferring()) {
-			return; // nothing to transfer or is currently transferring 
-		}
-		
-		// try messages that could be delivered to final recipient
-		if (exchangeDeliverableMessages() != null) {
-			return;
-		}*/
-				
+		super.update();		
+		scheduler.runUpdate();						
 	}
 	
 	public Vector<Pair<DTNHost, Connection>> broadcastQuery(String fileHash){
@@ -180,6 +191,10 @@ public class M2MShareRouter extends ActiveRouter {
 
 	public DTNScheduler getScheduler() {
 		return this.scheduler;
+	}
+	
+	public int getNextId(){
+		return idGenerator.getNextId();
 	}
 	
 	
@@ -474,8 +489,14 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
+
+	public boolean containsPendingDownload(DTNHost requestor, String filehash) {
+		return queuingCentral.containsPendingDownload(requestor, filehash);
+	}
+
 	public void addPendingDownload(DTNActivity newActivity) {		
-		if(!queuingCentral.contains(newActivity, QueuingCentral.DTN_PENDING_ID)
+		if(!((DTNPendingDownload)newActivity).getRequestor().equals(getHost()) &&
+				!queuingCentral.contains(newActivity, QueuingCentral.DTN_PENDING_ID)
 				&& !queuingCentral.containsDownloadFwd(((DTNPendingDownload)newActivity).getRequestor(), ((DTNPendingDownload)newActivity).getFilehash())){
 			notifyfileRequestDelegated(
 					((DTNPendingDownload)newActivity).getRequestor(), 
@@ -487,15 +508,10 @@ public class M2MShareRouter extends ActiveRouter {
 		}		
 	}
 
-
-	public boolean isUseDelegation() {
-		return useDelegation;
-	}
-
-
 	public boolean hasSomethingToDelegate() {		
 		return (this.queuingCentral.getQueueSize(QueuingCentral.QUERY_QUEUE_ID) +
-				this.queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID))> 0;
+				this.queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID) +
+				this.queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_ID))> 0;
 	}
 
 
@@ -508,8 +524,8 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
-	public int[] getIntervalsForDownloadFwd(String filehash) {
-		VirtualFile vf = queuingCentral.getVirtualFile(filehash);
+	public int[] getIntervalsForDownloadFwd(int activityID) {
+		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
 		if(vf == null){
 			return null;
 		}
@@ -517,12 +533,14 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
-	public void dataFromDownloadFwd(String filehash, int[] intervals, DTNHost from) {
-		VirtualFile vf = queuingCentral.getVirtualFile(filehash);
+	public void dataFromDownloadFwd(int activityID, int[] intervals, DTNHost from) {
+		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
 		if(vf == null){
 			return;
 		}
-		vf.setSelfSatisfied(false);
+		if(vf instanceof VirtualFile){
+			((VirtualFile) vf).setSelfSatisfied(false);
+		}		
 		vf.addTransferredData(intervals, from);
 	}
 
@@ -547,8 +565,14 @@ public class M2MShareRouter extends ActiveRouter {
 		scheduler.removeCommunicator(fileHash, relayHost);
 	}
 
+
+	public int getDelegationDepth() {
+		return delegationDepth;
+	}
 	
-	
-	
+	public int getFileDivisionStrategyType(){
+		return fileDivisionStrategyType;
+	}
+
 
 }
