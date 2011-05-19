@@ -1,13 +1,11 @@
 package routing.m2mShare;
 
-import java.util.HashMap;
 import java.util.Vector;
 
 import routing.M2MShareRouter;
 import routing.m2mShare.BroadcastModule.Pair;
 
 import core.Connection;
-import core.DTNFile;
 import core.DTNHost;
 import core.SimClock;
 
@@ -46,7 +44,7 @@ public class DTNPendingDownload extends DTNActivity {
 			System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file "+servers.size()+" volte");
 			for(Pair<DTNHost, Connection> server:servers){
 				try {
-					executor.addCommunicator(server.getSecond(), server.getFirst(), filehash, map.cut(false));
+					executor.addCommunicator(server.getSecond(), server.getFirst(), filehash, map.cut(myRouter.getFileDivisionStrategyType()));
 					communicatorActivated++;
 				} catch (Exception e) {
 					//nothing to download
@@ -161,6 +159,15 @@ public class DTNPendingDownload extends DTNActivity {
 	@Override
 	public String toString() {
 		return requestor +"->"+ myRouter.getHost()+" map:"+map;
+	}
+
+
+	public int[] getMapForDelegation(int fileDivisionStrategyType) {
+		try {
+			return map.cut(fileDivisionStrategyType);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	

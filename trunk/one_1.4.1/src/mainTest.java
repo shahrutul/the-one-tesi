@@ -5,18 +5,18 @@ import routing.m2mShare.IntervalMap;
 public class mainTest {
 
 	public static void main(String[] args) {
-		IntervalMap map = new IntervalMap(1000000,1024);
+		IntervalMap map = new IntervalMap(3000000,1024);
 		System.err.println(map);
-		
+		int t = 0;
 		
 		try {
-			int[] outMap = map.cut(false);
+			int[] outMap = map.cut(t);
 			System.err.print("outmap: ");stampa(outMap);
 			stampa(IntervalMap.interestingIntervals(outMap));
 			System.err.println("mapSize di mapout: "+IntervalMap.mapSize(outMap));
 			System.err.println();
 			
-			int[] outMap2 = map.cut(false);
+			int[] outMap2 = map.cut(t);
 			System.err.print("outmap2: ");stampa(outMap2);
 			System.err.print("interest outmap2: ");stampa(IntervalMap.interestingIntervals(outMap2));
 			System.err.println("mapSize di mapout2: "+IntervalMap.mapSize(outMap2));
@@ -28,15 +28,18 @@ public class mainTest {
 			System.err.println(map);
 			
 			map.update(IntervalMap.interestingIntervals(outMap2)[0], IntervalMap.interestingIntervals(outMap2)[1]);
-			System.err.println(map);			
+			System.err.println(map);
 			
+			int[] outMap3 = map.cut(t);
+			System.err.print("outmap2: ");stampa(outMap3);
+			/*
 			int[] outMap3= map.assignRestofMap();
 			System.err.print("outmap3: ");stampa(outMap3);
 			System.err.print("interest outmap3: ");stampa(IntervalMap.interestingIntervals(outMap3));
 			System.err.println("mapSize di mapout3: "+IntervalMap.mapSize(outMap3));
 			System.err.println("mapSize interest di mapout3: "+
 					IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap3)));
-			System.err.println();
+			System.err.println();*/
 			/*
 			outMap = map.cut(false);
 			for(int i:outMap){
