@@ -38,12 +38,12 @@ public class Communicator {
 		int dataToTransfer = IntervalMap.interestingIntervalsSize(intervals);
 		this.endTime = startTime + (dataToTransfer / conn.getSpeed());
 		this.executor = executor;
-		
+		/*
 		System.err.print("communicator created: "+ conn + "(");
 		for(int i:mapOut){
 			System.err.print(i+" ");
 		}
-		System.err.println(") - "+ dataToTransfer+"(end: "+endTime+")");
+		System.err.println(") - "+ dataToTransfer+"(end: "+endTime+")");*/
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Communicator {
 	public void stop(){
 		//avvisa l'activity che hai finito di scaricare
 		int byteTransferred = (int) ((SimClock.getTime() - startTime) * connection.getSpeed());
-		System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
+		//System.err.println(SimClock.getTime() +"-"+startTime+ " - Communicator stopped, "+ (SimClock.getTime() - startTime)+" sec - bytes: "+byteTransferred);
 		activityToExecute.addTransferredData(IntervalMap.updateIntervals(intervals, byteTransferred), otherHost);			
 	}	
 	
@@ -86,7 +86,7 @@ public class Communicator {
 	}
 
 	public void start() {
-		System.err.println("Communicator started..");
+		//System.err.println("Communicator started..");
 	}
 
 	public Executor getExecutor() {

@@ -1,12 +1,10 @@
 package routing.m2mShare;
 
-import java.util.HashMap;
 import java.util.Vector;
 
 import core.Connection;
 import core.DTNFile;
 import core.DTNHost;
-import core.SimClock;
 import core.SimScenario;
 import routing.M2MShareRouter;
 import routing.m2mShare.BroadcastModule.Pair;
@@ -27,7 +25,9 @@ public class VirtualFile extends DTNActivity {
 		this.fromAddr = m2mQuery.getFromAddr();
 		this.creationTime = m2mQuery.getCreationTime();
 		this.myRouter = m2mShareRouter;
+		setID(myRouter.getNextId());
 		this.selfSatisfied = true;
+		
 		DTNFile file = SimScenario.getInstance().getFileGenerator().getFile(fileHash);
 		if(file == null){
 			map = new IntervalMap(1000000, 1024);

@@ -131,7 +131,7 @@ public class DTNFileGenerator {
 				for(int groupIndex=0; i<nrOfGroups;i++){
 					
 				}*/
-				while(nrOfCopies > 0){
+				while(nrOfCopies > 0){					
 					int hostID = rng.nextInt(hosts.size());
 					DTNHost tempHost = hosts.get(hostID);
 					if(tempHost.hasFileCapability() && 

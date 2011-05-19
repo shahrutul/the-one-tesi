@@ -32,10 +32,15 @@ public class DTNPresenceCollector {
 
 	private int servantsThisDay;
 
-	public DTNPresenceCollector(M2MShareRouter m2mShareRouter, int frequencyThreshold) {
+	private boolean useDelegation;
+
+	private boolean delegateToAll;
+
+	public DTNPresenceCollector(M2MShareRouter m2mShareRouter, int frequencyThreshold, boolean useDelegation, boolean delegateToAll) {
 		this.myRouter = m2mShareRouter;
 		this.lastScanTime = new Random(0).nextDouble() * myRouter.getScanFrequency();
-		
+		this.useDelegation = useDelegation;
+		this.delegateToAll = delegateToAll;
 
 		this.lastAdaptTime = SimClock.getTime();
 		this.probationWindow = PROBATION_WINDOW_DEFAULT_SIZE;
@@ -72,8 +77,14 @@ public class DTNPresenceCollector {
 						}*/
 						int newEncountersValue = getEncountersFor(otherHost) +1;
 						
+						if(!useDelegation){
+							continue;
+						}
+						if(delegateToAll && myRouter.hasSomethingToDelegate()){
+							myRouter.getScheduler().delegate(otherHost);
+						}
+						else
 						if(newEncountersValue >= frequencyThreshold && 
-								myRouter.isUseDelegation() && 
 								myRouter.hasSomethingToDelegate()){
 							
 							//System.err.println(SimClock.getIntTime() + " - "+otherHost + " ha superato la soglia in "+myRouter.getHost());
@@ -194,7 +205,7 @@ public class DTNPresenceCollector {
 			return;
 		}
 		DTNHost hostNoMoreConnected = con.getOtherNode(myRouter.getHost());
-		if(hostNoMoreConnected == null){
+		if(hostNoMoreConnected == null || !(hostNoMoreConnected.getRouter() instanceof M2MShareRouter)){
 			return;
 		}
 		myRouter.getBroadcastModule().connectionLostWith(hostNoMoreConnected);

@@ -9,7 +9,8 @@ public abstract class DTNActivity {
 	public static final int STATE_COMPLETED = 2;
 	public static final int STATE_INCOMPLETE = 3;
 	
-	public int state = 0;
+	private int state = 0;
+	private int id;
 
 	/**
 	 * The Activity execution function
@@ -37,6 +38,14 @@ public abstract class DTNActivity {
 	public abstract void addTransferredData(int[] intervals, DTNHost from);
 
 	public abstract int[] getRestOfMap();
+
+	public void setID(int id){
+		this.id = id;
+	}
+	
+	public int getID() {		
+		return id;
+	}
 
 
 	

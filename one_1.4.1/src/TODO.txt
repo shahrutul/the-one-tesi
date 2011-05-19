@@ -1,2 +1,2 @@
-sistemare ttl delega
-reports
+sistemare hop delega
+no delega a requestor

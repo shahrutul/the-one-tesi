@@ -44,7 +44,7 @@ public class DelegationGraphvizReport extends Report implements
 	@Override
 	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor,
 			String filehash) {
-		write(where+"[color = green; shape = diamond]");
+		write(where+"[color = green, shape = diamond]");
 	}
 
 	@Override
