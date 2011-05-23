@@ -2,6 +2,7 @@ package report;
 
 import core.DTNHost;
 import core.FileEventListener;
+import core.SimScenario;
 
 public class FileGatheringLog extends Report implements FileEventListener{
 
@@ -51,7 +52,8 @@ public class FileGatheringLog extends Report implements FileEventListener{
 		if (!isWarmup()) {
 			if(selfSatisfied){
 				write(format(getSimTime()) + " VirtualFile satisfied in " + 
-						where + " without delegation (" + filehash + ")");					
+						where + " without delegation (" + filehash + ")");	
+				SimScenario.getInstance().getWorld().cancelSim();
 			}
 			else{
 				write(format(getSimTime()) + " VirtualFile satisfied in " + 
