@@ -73,6 +73,7 @@ public class BroadcastModule {
 		/* else broadcast a yes/no query for the file */		
 		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();
 		
+		@SuppressWarnings("unchecked")
 		Vector<DTNHost> visitedHosts = (Vector<DTNHost>) visitedTillNow.clone();
 		visitedHosts.add(myRouter.getHost());
 		
@@ -117,6 +118,7 @@ public class BroadcastModule {
 	}
 	
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void connectionLostWith(DTNHost hostNoMoreConnected) {
 		if(!routingTable.isEmpty()){
 			//System.err.println(SimClock.getTime()+ " "+myRouter.getHost()+" non più connesso con "+hostNoMoreConnected);
@@ -191,6 +193,7 @@ public class BroadcastModule {
 	}
 	
 	
+	@SuppressWarnings({ "unused", "rawtypes", "unchecked" })
 	private void printMaps(){
 		System.err.print(SimClock.getTime()+ " "+myRouter.getHost()+" - routingTable: ");
 		for(Map.Entry routingEntry: routingTable.entrySet()){
@@ -237,6 +240,7 @@ public class BroadcastModule {
 		{
 			return hash;
 		}
+		@SuppressWarnings("unchecked")
 		@Override
 		public boolean equals( Object oth )
 		{

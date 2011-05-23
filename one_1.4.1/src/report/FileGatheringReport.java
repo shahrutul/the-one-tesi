@@ -7,7 +7,6 @@ import core.SimScenario;
 
 public class FileGatheringReport extends Report implements FileEventListener{
 
-	public static String HEADER="# time  event";
 	private int created;
 	private int satisfied;
 	private int delegated;
@@ -17,6 +16,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	private double timeSatisfied;
 	private int fwdReturned;
 	private long startTime;
+	private long totalData;
 	
 	/**
 	 * Constructor.
@@ -37,24 +37,23 @@ public class FileGatheringReport extends Report implements FileEventListener{
 		fwdReturned = 0;
 		downCompleted = 0;
 		startTime = System.currentTimeMillis();
-		write(HEADER);
 	}
 	
 	
 	@Override
 	public void done() {
-		write("");
-		write(created + " VirtualFile created");
-		write(delegated + " times a task has been delegated");
-		write(downCompleted + " PendingDownloads completed");
-		write(downExpired + " PendingDownloads expired");
-		write(fwdExpired + " DownloadFWDs expired");
-		write(fwdReturned + " DownloadFWDs returned succesfully");		
-		write(satisfied + " file requests satisfied");
-		write(timeSatisfied + " : time first VirtualFile satisfied (seconds)");
-		write(SimClock.getIntTime() + " : simulated time (seconds)");	
+		write("Total data:\t" + totalData);
+		write("VirtualFile created:\t" + created);
+		write("VirtualFile delegated:\t" + delegated);
+		write("PendingDownloads completed:\t" + downCompleted);
+		write("PendingDownloads expired:\t" + downExpired);
+		write("DownloadFWDs expired:\t" + fwdExpired);
+		write("DownloadFWDs returned:\t" + fwdReturned);		
+		write("VirtualFile completed:\t" + satisfied);
+		write("First VirtualFile satisfied:\t" + timeSatisfied);
+		write("Simulated time:\t" + SimClock.getIntTime());	
 		double duration = (System.currentTimeMillis() - startTime)/1000.0;
-		write(String.format("%.2f", duration) + " : simulation duration (seconds)");
+		write("Simulation time:\t" + String.format("%.2f", duration));
 		super.done();
 	}
 
@@ -62,7 +61,6 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	public void newVirtualFile(DTNHost where, String filehash) {
 		if (!isWarmup()) {
 			created++;
-			write(format(getSimTime()) + " VirtualFile created in " + where + " (" + filehash + ")");
 		}
 	}
 
@@ -70,16 +68,14 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	public void fileRequestDelegated(DTNHost from, DTNHost to, String filehash) {
 		if (!isWarmup()) {
 			delegated++;
-			write(format(getSimTime()) + " PendingDownload " + from + " to " + to);
 		}
 	}
 
 	@Override
 	public void pendingDownloadExpired(DTNHost where, DTNHost requestor,
 			String filehash) {
-		downExpired++;
-		write(format(getSimTime()) + " PendingDownload expired in " + 
-				where + " (" + filehash + " requested by "+requestor + ")");					
+		downExpired++;	
+		checkCompleted();
 	}
 
 	@Override
@@ -88,15 +84,7 @@ public class FileGatheringReport extends Report implements FileEventListener{
 		if (!isWarmup()) {
 			satisfied++;
 			timeSatisfied = getSimTime();
-			if(selfSatisfied){
-				write(format(getSimTime()) + " VirtualFile satisfied in " + 
-						where + " without delegation (" + filehash + ")");					
-			}
-			else{
-				write(format(getSimTime()) + " VirtualFile satisfied in " + 
-						where + " using delegation  (" + filehash + ")");
-			}
-			
+			checkCompleted();
 		}
 	}
 
@@ -104,27 +92,33 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	public void downloadFWDExpired(DTNHost where, DTNHost requestor,
 			String filehash) {
 		fwdExpired++;
-		write(format(getSimTime()) + " DownloadFWD expired in " + 
-				where + " (" + filehash + " requested by "+requestor + ")");	
+		checkCompleted();
 	}
 
 	@Override
-	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {}
+	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {
+		totalData += bytes; 
+	}
 
 	@Override
 	public void downloadFWDReturned(DTNHost from, DTNHost requestor,
 			String filehash) {
 		fwdReturned++;
-		write(format(getSimTime()) + " DownloadFWD returned from " + 
-				from + " to " + requestor + " (" + filehash + ")");	
+		checkCompleted();
 	}
 
 	@Override
 	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor,
 			String filehash) {
-		downCompleted++;
-		write(format(getSimTime()) + " PendingDownload completed in " + 
-				where + " (" + filehash + " requested by "+requestor + ")");	
+		downCompleted++;	
+	}
+	
+	private void checkCompleted(){
+		boolean complete = (satisfied > 0) &&
+			(fwdReturned + fwdExpired + downExpired >= delegated);
+		if(complete){
+			SimScenario.getInstance().getWorld().cancelSim();
+		}
 	}
 	
 }

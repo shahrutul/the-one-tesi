@@ -243,7 +243,7 @@ SprayAndWaitRouter.binaryMode = true
 ## Optimization settings -- these affect the speed of the simulation
 ## see World class for details.
 Optimization.connectionAlg = 2
-Optimization.cellSizeMult = 5
+Optimization.cellSizeMult = 3
 Optimization.randomizeUpdateOrder = true
 
 

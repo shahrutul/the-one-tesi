@@ -81,7 +81,7 @@ public class DTNPresenceCollector {
 							continue;
 						}
 						if(delegateToAll && myRouter.hasSomethingToDelegate()){
-							myRouter.getScheduler().delegate(otherHost);
+							myRouter.delegate(otherHost);
 						}
 						else
 						if(newEncountersValue >= frequencyThreshold && 
@@ -89,7 +89,7 @@ public class DTNPresenceCollector {
 							
 							//System.err.println(SimClock.getIntTime() + " - "+otherHost + " ha superato la soglia in "+myRouter.getHost());
 							servantsThisDay++;
-							myRouter.getScheduler().delegate(otherHost);							
+							myRouter.delegate(otherHost);							
 							encounters.remove(otherHost);
 						}
 						else{
