@@ -13,8 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import routing.m2mShare.M2MShareQuery;
-
 import core.Application;
 import core.Connection;
 import core.DTNFile;
