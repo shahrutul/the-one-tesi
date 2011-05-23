@@ -87,6 +87,8 @@ public class IntervalMap{
 		switch (type) {
 		case 0:
 			 return assignRestofMap();
+		case 1:
+			return cut(false);
 		case 2:
 			 Interval randomInterval = intervals.get(rng.nextInt(intervals.size()));
 			 int randomPoint = rng.nextInt(randomInterval.getUpperEnd())+randomInterval.getLowerEnd();
