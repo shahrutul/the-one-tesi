@@ -46,6 +46,7 @@ public class M2MShareRouter extends ActiveRouter {
 	public static final String DELEGATION_TYPE_S = "delegationType";
 	public static final String FILE_DIVISION_TYPE_S = "fileDivisionType";
 	private static final String STOP_SIMULATION_S = "stopOnFirstQuerySatisfied";
+	private static final String USE_BROADCAST_S = "useBroadcastModule";
 	
 	public static final int FREQUENCY_THRESHOLD = 2;
 	public static final int SCAN_FREQUENCY = 10;
@@ -54,6 +55,7 @@ public class M2MShareRouter extends ActiveRouter {
 	private int frequencyThreshold;
 	private boolean useDelegation;
 	private boolean delegateToAll;
+	private boolean useBroadcastModule;
 
 		
 	private DTNPresenceCollector presenceCollector;
@@ -133,6 +135,13 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 		else {
 			stopOnFirstQuerySatisfied = false;
+		}
+		
+		if (M2MShareSettings.contains(USE_BROADCAST_S)) {
+			setUseBroadcastModule(M2MShareSettings.getBoolean(USE_BROADCAST_S));
+		}
+		else {
+			setUseBroadcastModule(false);
 		}
 		
 		if (M2MShareSettings.contains(DELEGATION_DEPTH_S)) {
@@ -456,6 +465,16 @@ public class M2MShareRouter extends ActiveRouter {
 		top.addMoreInfo(ri);
 		
 		return top;
+	}
+
+
+	public void setUseBroadcastModule(boolean useBroadcastModule) {
+		this.useBroadcastModule = useBroadcastModule;
+	}
+
+
+	public boolean useBroadcastModule() {
+		return useBroadcastModule;
 	}
 
 

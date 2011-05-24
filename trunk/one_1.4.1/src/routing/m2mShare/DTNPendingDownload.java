@@ -1,5 +1,6 @@
 package routing.m2mShare;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 import routing.M2MShareRouter;
@@ -39,41 +40,42 @@ public class DTNPendingDownload extends DTNActivity {
 		setActive();
 		int communicatorActivated = 0;
 		
-		Vector<Pair<DTNHost, Connection>> servers = myRouter.broadcastQuery(filehash);
-		if(servers != null && servers.size()!=0){
-			System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file "+servers.size()+" volte");
-			for(Pair<DTNHost, Connection> server:servers){
-				try {
-					executor.addCommunicator(server.getSecond(), server.getFirst(), filehash, map.cut(myRouter.getFileDivisionStrategyType()));
-					communicatorActivated++;
-				} catch (Exception e) {
-					//nothing to download
+		if(myRouter.useBroadcastModule()){			
+			Vector<Pair<DTNHost, Connection>> servers = myRouter.broadcastQuery(filehash);
+			if(servers != null && servers.size()!=0){
+				System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file "+servers.size()+" volte");
+				for(Pair<DTNHost, Connection> server:servers){
+					try {
+						executor.addCommunicator(server.getSecond(), server.getFirst(), filehash, map.cut(myRouter.getFileDivisionStrategyType()));
+						communicatorActivated++;
+					} catch (Exception e) {
+						//nothing to download
+					}
 				}
 			}
 		}
-		/*
-		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
-		if(neighbours.size() == 0){
-			setIncomplete();
-		}
-		
-		for(DTNHost host: neighbours.keySet()){
+		else{
+			HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
+			for(DTNHost host: neighbours.keySet()){
+				
+				boolean hasFile = host.getFileSystem().hasFile(filehash);
+				if(hasFile && executor.moreCommunicatorsAvailable()){
+					//DTNFile file = host.getFileSystem().getFile(filehash);
+					//myRouter.getHost().getFileSystem().addToFiles(file);
+					System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file");
+
+					try {
+						executor.addCommunicator(neighbours.get(host), host, filehash, map.cut(myRouter.getFileDivisionStrategyType()));
+						communicatorActivated++;
+					} catch (Exception e) {
+						//nothing to download
+					}
+
+				}
+			}
 			
-			boolean hasFile = host.getFileSystem().hasFile(filehash);
-			if(hasFile && executor.moreCommunicatorsAvailable()){
-				//DTNFile file = host.getFileSystem().getFile(filehash);
-				//myRouter.getHost().getFileSystem().addToFiles(file);
-				System.err.println(myRouter.getHost() + " - in pendingDownload.Execute trovato file");
-
-				try {
-					executor.addCommunicator(neighbours.get(host), host, filehash, map.cut(false));
-					communicatorActivated++;
-				} catch (Exception e) {
-					//nothing to download
-				}
-
-			}
-		}*/
+			
+		}
 		if(communicatorActivated == 0){
 			setIncomplete();
 		}
