@@ -13,6 +13,22 @@
 
 %: ----------------------- contents from here ------------------------
 La parte principale: si parla del protocollo
+Differenza di operare in una DTN rispetto ad una rete tradizionale
+importanza del routing e delle deleghe
+
+
+\section{Modulo di ricerca}
+Prima di poter cominciare il recupero di un file interessante per l'utente, è fondamentale che il sistema sappia che file cercare, fra quelli disponibili nella rete. Il modulo incaricato di assolvere questo compito è modulo di ricerca.
+\\
+
+Ogni device mantiene un repository in cui sono contenute informazioni relative ai file condivisi con gli altri utenti che utilizzano M2MShare. Queste informazioni includono nome del file, dimensione, posizione nel file system e un hash che lo identifica unicamente nella rete. Questo ultimo valore è particolarmente utile quando la ricerca ha come oggetto un file specifico, rispetto ad una serie di files, permettendo quindi una efficiente query con una risposta di tipo booleano (file presente / non presente nel repository).
+\\
+Oltre alla ricerca orientata al singolo file, il modulo di ricerca permette anche quella tramite l'uso di keywords specificate dall'utente. Per permettere ciò viene utilizzata anche una strategia di indicizzazione comune nell'Information Retrieval, ossia quella dell'Inverted Index List: ogni file è indicizzato sotto un certo numero di termini contenuti nella sua descrizione e durante la ricerca è fra questi termini che il modulo andrà a cercare nel caso di richiesta
+
+\section{Modulo DTN}
+\section{Modulo di Trasporto}
+\section{Modulo di Routing}
+\section{Modulo MAC}
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
