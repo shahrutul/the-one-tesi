@@ -1,0 +1,34 @@
+1.0000 VirtualFile created in A32 (317200191)
+12098.0000 PendingDownload A32 to A98
+41288.0000 PendingDownload A32 to G745
+41908.0000 PendingDownload A32 to F531
+41908.0000 PendingDownload A32 to F587
+42874.0000 PendingDownload completed in G745 (317200191 requested by A32)
+43038.0000 PendingDownload A32 to A24
+43758.0000 PendingDownload A32 to A84
+44698.0000 PendingDownload A32 to A67
+45508.0000 PendingDownload A32 to F637
+46088.0000 PendingDownload completed in A98 (317200191 requested by A32)
+50238.0000 PendingDownload A32 to G704
+51911.5000 PendingDownload completed in F637 (317200191 requested by A32)
+51968.0000 PendingDownload A32 to A86
+52332.0000 PendingDownload completed in F531 (317200191 requested by A32)
+93173.0000 PendingDownload completed in A67 (317200191 requested by A32)
+96458.0000 PendingDownload A32 to E496
+97350.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+97350.0000 DownloadFWD returned from A98 to A32 (317200191)
+98538.0000 DownloadFWD returned from A98 to A32 (317200191)
+118589.0000 PendingDownload completed in A84 (317200191 requested by A32)
+122991.0000 PendingDownload completed in E496 (317200191 requested by A32)
+127672.0000 PendingDownload completed in F587 (317200191 requested by A32)
+136829.5000 PendingDownload completed in A24 (317200191 requested by A32)
+137470.5000 PendingDownload completed in G704 (317200191 requested by A32)
+182858.0000 DownloadFWD expired in E496 (317200191 requested by A32)
+212668.0000 DownloadFWD returned from F587 to A32 (317200191)
+212668.0000 DownloadFWD returned from F531 to A32 (317200191)
+214088.0000 DownloadFWD expired in G745 (317200191 requested by A32)
+215838.0000 DownloadFWD expired in A24 (317200191 requested by A32)
+216558.0000 DownloadFWD expired in A84 (317200191 requested by A32)
+217498.0000 DownloadFWD expired in A67 (317200191 requested by A32)
+218308.0000 DownloadFWD expired in F637 (317200191 requested by A32)
+223038.0000 DownloadFWD expired in G704 (317200191 requested by A32)
