@@ -59,16 +59,12 @@ public class FileGatheringReport extends Report implements FileEventListener{
 
 	@Override
 	public void newVirtualFile(DTNHost where, String filehash) {
-		if (!isWarmup()) {
-			created++;
-		}
+		created++;
 	}
 
 	@Override
 	public void fileRequestDelegated(DTNHost from, DTNHost to, String filehash) {
-		if (!isWarmup()) {
-			delegated++;
-		}
+		delegated++;
 	}
 
 	@Override
@@ -81,11 +77,9 @@ public class FileGatheringReport extends Report implements FileEventListener{
 	@Override
 	public void fileRequestSatisfied(DTNHost where, String filehash,
 			boolean selfSatisfied) {
-		if (!isWarmup()) {
-			satisfied++;
-			timeSatisfied = getSimTime();
-			checkCompleted();
-		}
+		satisfied++;
+		timeSatisfied = getSimTime();
+		checkCompleted();
 	}
 
 	@Override
