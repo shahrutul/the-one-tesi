@@ -27,16 +27,12 @@ public class FileGatheringLog extends Report implements FileEventListener{
 
 	@Override
 	public void newVirtualFile(DTNHost where, String filehash) {
-		if (!isWarmup()) {
-			write(format(getSimTime()) + " VirtualFile created in " + where + " (" + filehash + ")");
-		}
+			write(format(getSimTime()) + " VirtualFile created in " + where + " (" + filehash + ")");		
 	}
 
 	@Override
 	public void fileRequestDelegated(DTNHost from, DTNHost to, String filehash) {
-		if (!isWarmup()) {
-			write(format(getSimTime()) + " PendingDownload " + from + " to " + to);
-		}
+			write(format(getSimTime()) + " PendingDownload " + from + " to " + to);		
 	}
 
 	@Override
@@ -49,18 +45,15 @@ public class FileGatheringLog extends Report implements FileEventListener{
 	@Override
 	public void fileRequestSatisfied(DTNHost where, String filehash,
 			boolean selfSatisfied) {
-		if (!isWarmup()) {
 			if(selfSatisfied){
 				write(format(getSimTime()) + " VirtualFile satisfied in " + 
 						where + " without delegation (" + filehash + ")");	
-				SimScenario.getInstance().getWorld().cancelSim();
 			}
 			else{
 				write(format(getSimTime()) + " VirtualFile satisfied in " + 
 						where + " using delegation  (" + filehash + ")");
-			}
-			
-		}
+			}			
+		
 	}
 
 	@Override
