@@ -1,5 +1,6 @@
 package routing.m2mShare;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 import core.Connection;
@@ -42,6 +43,7 @@ public class VirtualFile extends DTNActivity {
 	public void execute(Executor executor) {	
 		int communicatorActivated = 0;
 		setActive();
+		if(myRouter.useBroadcastModule()){
 		Vector<Pair<DTNHost, Connection>> servers = myRouter.broadcastQuery(fileHash);
 		
 		if(servers != null){
@@ -54,21 +56,25 @@ public class VirtualFile extends DTNActivity {
 				}
 			}
 		}
+		}
+		else{
+			HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
+			for(DTNHost host: neighbours.keySet()){	
+				if(host.getFileSystem().hasFile(fileHash) && executor.moreCommunicatorsAvailable()){
+					//compatibleHostsConns.add(neighbours.get(host));	
+					try {
+						executor.addCommunicator(neighbours.get(host), host, fileHash, map.cut(myRouter.getFileDivisionStrategyType()));
+						communicatorActivated++;
+					} catch (Exception e) {
+						//nothing to download
+					}
+				}
+			}
+		}
 
 		/*
 		//Vector<Connection> compatibleHostsConns = new Vector<Connection>();
-		HashMap<DTNHost, Connection> neighbours = (HashMap<DTNHost, Connection>) myRouter.getPresenceCollector().getHostsInRange();		
-		for(DTNHost host: neighbours.keySet()){	
-			if(host.getFileSystem().hasFile(fileHash) && executor.moreCommunicatorsAvailable()){
-				//compatibleHostsConns.add(neighbours.get(host));	
-				try {
-					executor.addCommunicator(neighbours.get(host), host, map.cut(false));
-					communicatorActivated++;
-				} catch (Exception e) {
-					//nothing to download
-				}
-			}
-		}	*/
+			*/
 		
 		/*
 		if(compatibleHostsConns.size() == 0 || executor.getAvailableCommunicators()==0){
