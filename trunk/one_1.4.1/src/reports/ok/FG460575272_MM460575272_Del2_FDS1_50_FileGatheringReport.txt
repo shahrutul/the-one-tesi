@@ -6,6 +6,6 @@ PendingDownloads expired:	0
 DownloadFWDs expired:	0
 DownloadFWDs returned:	0
 VirtualFile completed:	1
-First VirtualFile satisfied:	87211.0
-Simulated time:	87211
-Simulation time:	903.39
+First VirtualFile satisfied:	7051.0
+Simulated time:	7051
+Simulation time:	111.10
