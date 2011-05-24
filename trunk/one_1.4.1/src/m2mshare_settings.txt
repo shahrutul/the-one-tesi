@@ -57,7 +57,7 @@ M2MShareRouter.stopOnFirstQuerySatisfied = false
 #			0 = no delegation
 #			1 = delegation after frequencyThreshold
 #			2 = delegation to all
-M2MShareRouter.delegationType = 1
+M2MShareRouter.delegationType = [0;1;2]
 
 # fileDivisionType values: 
 #			0 = all file
