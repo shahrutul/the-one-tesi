@@ -12,20 +12,38 @@
 
 
 %: ----------------------- contents from here ------------------------
-La parte principale: si parla del protocollo
+\textbf{La parte principale: si parla del protocollo
 Differenza di operare in una DTN rispetto ad una rete tradizionale
-importanza del routing e delle deleghe
+importanza del routing e delle deleghe}
+\\
+
+
+\section{Modulo DTN}
+Le DTN sono particolarmente utili nel caso di situazioni in cui la connettività non \`{e} costante e possono esserci degli intervalli di tempo lunghi e soprattutto imprevedibili, fra un contatto e l'altro. Un esempio evidente \`{e} quello dell'ambito mobile, in cui l'utilizzo di DTN si presta particolarmente per il superamento degli ostacoli sopraccitati.
+\\
+
+I protocolli di routing tradizionalmente utilizzati per reti ad-hoc non sono adatti all'utilizzo su reti mobili in cui ogni nodo dispone di una connessione con portata limitata, in quanto spesso non c'\`{e} la possibilità di instaurare una connessione end-to-end fra due nodi comunicanti. Per un'applicazione di file sharing, inoltre, \`{e} fondamentale un'elevata disponibilità di file \`{e} fondamentale per garantire il recupero di un file cercato, e questa disponibilità si traduce nella necessità di un elevato numero di nodi connessi fra loro, cosa che come abbiamo visto non \`{e} affatto scontata in una rete mobile.
+\\
+
+Per ovviare a questo M2MShare utilizza un metodo di comunicazione asincrono i cui un peer \textit{client} (alla ricerca di un file), pu\`{o} delegare ad un altro peer \textit{servant} la ricerca e il successivo recupero di un file. Il principio delle deleghe \`{e} quindi alla base di tutto il sistema di M2MShare, in quanto permette di ampliare enormemente il raggio d'azione di una ricerca, in una rete per definizione non connessa e formata da nodi sparsi.
+\\
+
+E' utile approfondire il concetto di delega: questa consiste nella richiesta da parte di un client verso un server dell'esecuzione di un determinato task; il tipo del task pu\`{o} variare da una query composta da pi\`{u} keywords, per la quale si vuole ricevere una serie di files che soddisfino la query, alla ricerca di un determinato file fra i vari nodi della rete, il cui obiettivo \`{e} ottenere l'intero file o parti del file cercato. Quando un servant riceve una delega, la schedula per eseguirla in seguito e cercare ci\`{o} che viene richiesto. Una volta che una delega ricevuta \`{e} stata soddisfatta, il servant crea un nuovo task di tipo forward, il cui scopo \`{e} ritornare il risultato della delega al client che l'ha delegata. 
+\\
+In questo modo la mobilità dei nodi viene vista come un aspetto positivo della rete, in quanto permette di entrare in contatto, tramite le deleghe, con nodi che altrimenti un peer client potrebbe non incontrare mai.
+\\
+Tutti i task delegati hanno poi un TTL entro cui il risultato deve essere ritornato al client. Se un task simile non viene completato e il suo risultato ritornato entro lo scadere del TTL, la delega viene considerata come scaduta e quindi non più schedulata per l'esecuzione nel servant.
 
 
 \section{Modulo di ricerca}
-Prima di poter cominciare il recupero di un file interessante per l'utente, è fondamentale che il sistema sappia che file cercare, fra quelli disponibili nella rete. Il modulo incaricato di assolvere questo compito è modulo di ricerca.
+Prima di poter cominciare il recupero di un file interessante per l'utente, \`{e} fondamentale che il sistema sappia che file cercare, fra quelli disponibili nella rete. Il modulo incaricato di assolvere questo compito \`{e} modulo di ricerca.
 \\
 
-Ogni device mantiene un repository in cui sono contenute informazioni relative ai file condivisi con gli altri utenti che utilizzano M2MShare. Queste informazioni includono nome del file, dimensione, posizione nel file system e un hash che lo identifica unicamente nella rete. Questo ultimo valore è particolarmente utile quando la ricerca ha come oggetto un file specifico, rispetto ad una serie di files, permettendo quindi una efficiente query con una risposta di tipo booleano (file presente / non presente nel repository).
+Ogni device mantiene un repository in cui sono contenute informazioni relative ai file condivisi con gli altri utenti che utilizzano M2MShare. Queste informazioni includono nome del file, dimensione, posizione nel file system e un hash che lo identifica unicamente nella rete. Questo ultimo valore \`{e} particolarmente utile quando la ricerca ha come oggetto un file specifico, rispetto ad una serie di files, permettendo quindi una efficiente query con una risposta di tipo booleano (file presente \/ non presente nel repository).
 \\
-Oltre alla ricerca orientata al singolo file, il modulo di ricerca permette anche quella tramite l'uso di keywords specificate dall'utente. Per permettere ciò viene utilizzata anche una strategia di indicizzazione comune nell'Information Retrieval, ossia quella dell'Inverted Index List: ogni file è indicizzato sotto un certo numero di termini contenuti nella sua descrizione e durante la ricerca è fra questi termini che il modulo andrà a cercare nel caso di richiesta
+Oltre alla ricerca orientata al singolo file, il modulo di ricerca permette anche quella tramite l'uso di keywords specificate dall'utente. Per permettere ci\`{o} viene utilizzata anche una strategia di indicizzazione comune nell'Information Retrieval, ossia quella dell'\textit{Inverted Index}: ogni file \`{e} indicizzato sotto un certo numero di termini contenuti nella sua descrizione e durante la ricerca \`{e} fra questi termini che il modulo andrà a cercare nel caso di richiesta. 
 
-\section{Modulo DTN}
+
 \section{Modulo di Trasporto}
 \section{Modulo di Routing}
 \section{Modulo MAC}

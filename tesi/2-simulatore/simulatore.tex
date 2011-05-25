@@ -12,26 +12,26 @@
 
 
 %: ----------------------- contents from here ------------------------
-L'ambiente scelto per svolgere le simulazioni Ë The ONE (Opportunistic Network Environment) versione 1.4.1, descritto in \cite{articoloONE}. Questo simulatore scritto in Java Ë completamente configurabile e permette di simulare il movimento dei vari nodi partecipanti alla simulazione, gestire le connessioni e lo scambio di messaggi fra i vari nodi (utilizzando diversi protocolli di routing) e visualizzare sia i movimenti che il traffico dati nell'interfaccia grafica di cui dispone.
+L'ambiente scelto per svolgere le simulazioni √® The ONE (Opportunistic Network Environment) versione 1.4.1, descritto in \cite{articoloONE}. Questo simulatore scritto in Java √® completamente configurabile e permette di simulare il movimento dei vari nodi partecipanti alla simulazione, gestire le connessioni e lo scambio di messaggi fra i vari nodi (utilizzando diversi protocolli di routing) e visualizzare sia i movimenti che il traffico dati nell'interfaccia grafica di cui dispone.
 \\
 
-Per quanto riguarda il movimento, il simulatore puÚ accettare in input tracce provenienti da registrazioni dal mondo reale, dati creati tramite generatori di movimento esterni oppure crearli dinamicamente tramite dei modelli di movimento, alcuni dei quali descritti pi˘ nel dettaglio in [movimento]. Sia i modelli di movimento che i vari protocolli di routing vengono gestiti come moduli indipendenti e vengono caricati a seconda di quanto impostato in fase di configurazione. CiÚ permette una semplice implementazione di nuovi protocolli di routing e modelli di movimento all'interno del simulatore.
+Per quanto riguarda il movimento, il simulatore pu√≤ accettare in input tracce provenienti da registrazioni dal mondo reale, dati creati tramite generatori di movimento esterni oppure crearli dinamicamente tramite dei modelli di movimento, alcuni dei quali descritti pi√π nel dettaglio in [movimento]. Sia i modelli di movimento che i vari protocolli di routing vengono gestiti come moduli indipendenti e vengono caricati a seconda di quanto impostato in fase di configurazione. Ci√≤ permette una semplice implementazione di nuovi protocolli di routing e modelli di movimento all'interno del simulatore.
 \\
 
 Il simulatore permette infine di salvare dati statistici riguardanti le simulazioni svolte tramite la generazione di report, anch'essi gestiti in maniera totalmente modulare e configurabile.
 \\
 
 \section{Configurazione}
-Una determinata simulazione viene impostata creando dei files di configurazione che descrivano i vari aspetti dello scenario, dalla durata della simulazione al numero di nodi che la compongono, fino alle caratteristiche specifiche di ogni gruppo di nodi. Tali files di configurazione sono dei semplici files di testo in cui vengono impostati i parametri relativi allo scenario, ai modelli di movimento e ai protocolli di routing. I valori impostati verranno caricati dinamicamente ed andranno ad attivare e configurare i moduli che si Ë scelto di utilizzare per la simulazione corrente.
+Una determinata simulazione viene impostata creando dei files di configurazione che descrivano i vari aspetti dello scenario, dalla durata della simulazione al numero di nodi che la compongono, fino alle caratteristiche specifiche di ogni gruppo di nodi. Tali files di configurazione sono dei semplici files di testo in cui vengono impostati i parametri relativi allo scenario, ai modelli di movimento e ai protocolli di routing. I valori impostati verranno caricati dinamicamente ed andranno ad attivare e configurare i moduli che si √® scelto di utilizzare per la simulazione corrente.
 \\
 
-All'interno dei files di configurazione, i parametri sono salvati come coppie chiave-valore. La sintassi della maggior parte delle variabili Ë del tipo
+All'interno dei files di configurazione, i parametri sono salvati come coppie chiave-valore. La sintassi della maggior parte delle variabili √® del tipo
 
 \begin{center}
 \textit{Namespace.chiave = valore}
 \end{center}
 
-Il namespace indica generalmente a quale parte dell'ambiente di simulazione la variabile si riferisce. Pi˘ nello specifico il namespace indica (nella quasi totalit‡ dei casi) la classe Java che andr‡ a leggere quel parametro. durante la fase di inizializzazione. Questa convenzione Ë utilizzata soprattutto dai moduli relativi ai modelli di movimento e ai protocolli di routing, quindi Ë bene che venga utilizzata nella realizzazione di nuovi moduli da aggiungere al simulatore.
+Il namespace indica generalmente a quale parte dell'ambiente di simulazione la variabile si riferisce. Pi√π nello specifico il namespace indica (nella quasi totalit√† dei casi) la classe Java che andr√† a leggere quel parametro. durante la fase di inizializzazione. Questa convenzione √® utilizzata soprattutto dai moduli relativi ai modelli di movimento e ai protocolli di routing, quindi √® bene che venga utilizzata nella realizzazione di nuovi moduli da aggiungere al simulatore.
 \\
 
 Per facilitare la lettura e la configurazione, i valori numerici possono utilizzare i suffissi kilo (k), mega (M) o giga (G), assieme al punto \textquotedblleft .\textquotedblright come separatore decimale. I parametri di tipo booleano invece accettano i valori \textquotedblleft true\textquotedblright
@@ -41,70 +41,70 @@ Dei commenti possono essere inseriti nei files di configurazione utilizzando il 
 \#\textquotedblright, che ottiene il risultato di far saltare il resto della riga durante la fase di lettura.
 \\
 
-Per ogni simulazione ci possono essere pi˘ files di configurazione, in modo da poter dividere i parametri in pi˘ categorie, ad esempio in un file inserire i parametri relativi allo scenario, con le strade e i quartieri in cui Ë diviso, in un altro file configurare i nodi con le caratteristiche tipiche di ogni gruppo, in un altro ancora selezionare i report da generare durante l'esecuzione e cosÏ via. Il primo file di configurazione letto, se esiste, Ë sempre il file \textquotedblleft default\_settings.txt\textquotedblright e negli altri files di configurazione Ë possibile definire nuovi parametri o sovrascrivere alcuni di quelli definiti nei files precedenti. CiÚ permette di definire in alcuni files dei parametri generali, validi per tutte le simulazioni, e variarne altri cambiando solo gli ultimi files di configurazione.
+Per ogni simulazione ci possono essere pi√π files di configurazione, in modo da poter dividere i parametri in pi√π categorie, ad esempio in un file inserire i parametri relativi allo scenario, con le strade e i quartieri in cui √® diviso, in un altro file configurare i nodi con le caratteristiche tipiche di ogni gruppo, in un altro ancora selezionare i report da generare durante l'esecuzione e cos√¨ via. Il primo file di configurazione letto, se esiste, √® sempre il file \textquotedblleft default\_settings.txt\textquotedblright e negli altri files di configurazione √® possibile definire nuovi parametri o sovrascrivere alcuni di quelli definiti nei files precedenti. Ci√≤ permette di definire in alcuni files dei parametri generali, validi per tutte le simulazioni, e variarne altri cambiando solo gli ultimi files di configurazione.
 \\
 
-All'interno dello stesso scenario, i nodi sono divisi in pi˘ gruppi, composti da un numero variabile di nodi. All'interno di un gruppo, tutti i nodi condividono delle caratteristiche comuni, dal protocollo di routing utilizzato, al modello di movimento, ai tipi di interfacce disponibili per la comunicazione. E' possibile impostare inoltre delle caratteristiche comuni a tutti i gruppi in modo da non dover ripetere la definizione di alcuni parametri per tutti i gruppi. La variazione di caratteristiche fra un gruppo e l'altro permette di ottenere dell'eterogeneit‡ fra i comportamenti simulati all'interno dello scenario.
+All'interno dello stesso scenario, i nodi sono divisi in pi√π gruppi, composti da un numero variabile di nodi. All'interno di un gruppo, tutti i nodi condividono delle caratteristiche comuni, dal protocollo di routing utilizzato, al modello di movimento, ai tipi di interfacce disponibili per la comunicazione. E' possibile impostare inoltre delle caratteristiche comuni a tutti i gruppi in modo da non dover ripetere la definizione di alcuni parametri per tutti i gruppi. La variazione di caratteristiche fra un gruppo e l'altro permette di ottenere dell'eterogeneit√† fra i comportamenti simulati all'interno dello scenario.
 \\
 
-Nei files di configurazione utilizzati da ONE Ë possibile inoltre impostare array di valori per ogni parametro: ciÚ permette, durante una serie di esecuzioni batch, di ottenere automaticamente una serie di simulazioni che differiscono l'una dall'altra per alcune impostazioni di parametri, automatizzando notevolmente la raccolta di dati con configurazioni differenti dello stesso scenario.
-\\ In questo caso la sintassi sar‡ del tipo
+Nei files di configurazione utilizzati da ONE √® possibile inoltre impostare array di valori per ogni parametro: ci√≤ permette, durante una serie di esecuzioni batch, di ottenere automaticamente una serie di simulazioni che differiscono l'una dall'altra per alcune impostazioni di parametri, automatizzando notevolmente la raccolta di dati con configurazioni differenti dello stesso scenario.
+\\ In questo caso la sintassi sar√† del tipo
 
 \begin{center}
 \textit{Namespace.chiave = [valoreEsecuzione1; valoreEsecuzione2; valoreEsecuzione3; ecc]}
 \end{center}
 
-Alcuni parametri, infine, accettano come valore il percorso di un file e in questo caso puÚ essere espresso sia in maniera assoluta che relativa. Un esempio di variabili che necessitano di questo tipo di valori sono le mappe, per cui si impostano i files che le contengono, o gli input per i generatori di eventi, per i quali i files da caricare descrivono gli eventi da creare durante la simulazione.
+Alcuni parametri, infine, accettano come valore il percorso di un file e in questo caso pu√≤ essere espresso sia in maniera assoluta che relativa. Un esempio di variabili che necessitano di questo tipo di valori sono le mappe, per cui si impostano i files che le contengono, o gli input per i generatori di eventi, per i quali i files da caricare descrivono gli eventi da creare durante la simulazione.
 
 \section{Visualizzazione}
-La principale modalit‡ di visualizzazione fornita da ONE Ë quella tramite la GUI, che permette di seguire in tempo reale l'avanzamento della simulazione. Nella finestra principale Ë possibile osservare i movimenti dei vari nodi e, selezionandone uno specifico, ottenere informazioni riguardo le connessioni attive, i messaggi trasportati e altri dettagli. E' disponibile inoltre un riquadro in cui viene costantemente aggiornato un log di eventi generati durante la simulazione che possono essere filtrati a seconda di ciÚ che pi˘ interessa (ad esempio visualizzare solo le nuove connessioni o gli scambi di messaggi).
+La principale modalit√† di visualizzazione fornita da ONE √® quella tramite la GUI, che permette di seguire in tempo reale l'avanzamento della simulazione. Nella finestra principale √® possibile osservare i movimenti dei vari nodi e, selezionandone uno specifico, ottenere informazioni riguardo le connessioni attive, i messaggi trasportati e altri dettagli. E' disponibile inoltre un riquadro in cui viene costantemente aggiornato un log di eventi generati durante la simulazione che possono essere filtrati a seconda di ci√≤ che pi√π interessa (ad esempio visualizzare solo le nuove connessioni o gli scambi di messaggi).
 \\
 \figuremacro{Schermata-ONE}{Schermata Principale}{La schermata principale del simulatore ONE}{}
 
-Nel caso di modelli di movimento basati su una mappa, selezionando un nodo sar‡ possibile vedere il percorso seguito, la destinazione da raggiungere e ottenere informazioni avanzate riguardanti lo stato di quel nodo (connessioni, messaggi trasportati, ecc), come si puÚ vedere in Figura \ref{Routing-Info}. La visualizzazione Ë personalizzabile zoomando, modificando la velocit‡ di avanzamento e anche inserendo nello sfondo un'immagine, come ad esempio una carta stradale o una fotografia satellitare della zona interessata.
+Nel caso di modelli di movimento basati su una mappa, selezionando un nodo sar√† possibile vedere il percorso seguito, la destinazione da raggiungere e ottenere informazioni avanzate riguardanti lo stato di quel nodo (connessioni, messaggi trasportati, ecc), come si pu√≤ vedere in Figura \ref{Routing-Info}. La visualizzazione √® personalizzabile zoomando, modificando la velocit√† di avanzamento e anche inserendo nello sfondo un'immagine, come ad esempio una carta stradale o una fotografia satellitare della zona interessata.
 \\
 \figuremacro{Routing-Info}{Routing Info}{Un esempio di finestra in cui sono presenti i dettagli relativi allo stato di un nodo}{}
 
 
-L'altra modalit‡ di seguire l'avanzamento di una simulazione Ë la lettura dei reports generati dai vari moduli durante l'esecuzione. Come i modelli di movimento e i protocolli di routing, i generatori di reports sono caricati dinamicamente all'avvio della simulazione, a seconda di ciÚ che Ë stato impostato nei files di configurazione.
-Questa modalit‡ di visualizzazione Ë particolarmente utile quando non si utilizza la GUI, ma si eseguono pi˘ simulazioni in batch, ottenendo quindi alla fine i report con i dati raccolti durante le varie simulazioni.
+L'altra modalit√† di seguire l'avanzamento di una simulazione √® la lettura dei reports generati dai vari moduli durante l'esecuzione. Come i modelli di movimento e i protocolli di routing, i generatori di reports sono caricati dinamicamente all'avvio della simulazione, a seconda di ci√≤ che √® stato impostato nei files di configurazione.
+Questa modalit√† di visualizzazione √® particolarmente utile quando non si utilizza la GUI, ma si eseguono pi√π simulazioni in batch, ottenendo quindi alla fine i report con i dati raccolti durante le varie simulazioni.
 \\
 
-La modalit‡ batch Ë indicata nel caso si debbano eseguire pi˘ simulazioni in serie senza essere interessati a seguirne l'avanzamento in modalit‡ grafica ma piuttosto valutandone i risultati una volta completate. In questo caso si dimostra molto utile la possibilit‡ di specificare array di valori per i parametri di configurazione, in modo da poter programmare in anticipo le differenze fra le varie simulazioni della serie. Una volta avviato quindi il batch di simulazioni, ONE si occuper‡ si eseguirle in sequenza e alla massima velocit‡ permessa della macchina in uso e salver‡ i reports generati in pi˘ files impostati durante la configurazione.
+La modalit√† batch √® indicata nel caso si debbano eseguire pi√π simulazioni in serie senza essere interessati a seguirne l'avanzamento in modalit√† grafica ma piuttosto valutandone i risultati una volta completate. In questo caso si dimostra molto utile la possibilit√† di specificare array di valori per i parametri di configurazione, in modo da poter programmare in anticipo le differenze fra le varie simulazioni della serie. Una volta avviato quindi il batch di simulazioni, ONE si occuper√† si eseguirle in sequenza e alla massima velocit√† permessa della macchina in uso e salver√† i reports generati in pi√π files impostati durante la configurazione.
 
 \section{Reports}
-Il simulatore puÚ gestire la generazione di pi˘ reports relativi alla simulazione in esecuzione. Questi report vengono creati da dei moduli attivati in fase di configurazione e consistono generalmente in files di testo in cui vengono salvati i dati e statistiche che verranno poi analizzati a simulazione terminata. Nella versione 1.4.1 di ONE, il sistema permette di generare reports relativi a:
+Il simulatore pu√≤ gestire la generazione di pi√π reports relativi alla simulazione in esecuzione. Questi report vengono creati da dei moduli attivati in fase di configurazione e consistono generalmente in files di testo in cui vengono salvati i dati e statistiche che verranno poi analizzati a simulazione terminata. Nella versione 1.4.1 di ONE, il sistema permette di generare reports relativi a:
 \begin{description}
 \item[messaggi,] che includono numero di messaggi creati, scambiati, scaduti, ecc
 \item[contatti,] in cui viene indicato il contact e l'inter-contact time fra i vari nodi, oltre al totale dei contatti durante la simulazione.
 \item[connessioni,] che descrivono l'alternarsi di stato delle connessioni 
 \end{description}
 
-Come per le altre parti di cui ONE Ë composto, anche i generatori di reports vengono gestiti come moduli, ed Ë quindi possibile aggiungerne di nuovi a seconda delle esigenze e dei dati da raccogliere nella singola simulazione.
+Come per le altre parti di cui ONE √® composto, anche i generatori di reports vengono gestiti come moduli, ed √® quindi possibile aggiungerne di nuovi a seconda delle esigenze e dei dati da raccogliere nella singola simulazione.
 
 
 \section{Esecuzione}
 Vale la pena di soffermarsi sull'esecuzione di una singola simulazione, vedendo quindi quali sono i vari passi che vengono eseguiti.
 \\
 
-La prima azione svolta dal simulatore Ë quella di caricare le impostazioni dai vari files di configurazione, la cui posizione viene passata per parametro al momento dell'esecuzione del simulatore. Man mano che un nuovo file di configurazione viene letto, i valori dei parametri in esso contenuto vanno ad impostare il valore di alcune variabili dell'ambiente di simulazione, sovrascrivendone anche il valore nel caso fossero gi‡ state impostate.
+La prima azione svolta dal simulatore √® quella di caricare le impostazioni dai vari files di configurazione, la cui posizione viene passata per parametro al momento dell'esecuzione del simulatore. Man mano che un nuovo file di configurazione viene letto, i valori dei parametri in esso contenuto vanno ad impostare il valore di alcune variabili dell'ambiente di simulazione, sovrascrivendone anche il valore nel caso fossero gi√† state impostate.
 \\
 
-Una volta caricate le impostazioni relative alla simulazione, viene creato lo Scenario. Questo contiene al suo interno tutti gli elementi attivi durante la simulazione (come i nodi, i generatori di reports e quelli di messaggi), cosÏ come quelli passivi (ad esempio le mappe che compongono il mondo simulato). In questa fase vengono quindi creati tutti i nodi partecipanti alla simulazione, ognuno dotato di un proprio modello di movimento, un router configurato secondo le caratteristiche del gruppo di nodi e una serie di \textit{listener} per la cattura di eventi e la successiva generazione di reports.
+Una volta caricate le impostazioni relative alla simulazione, viene creato lo Scenario. Questo contiene al suo interno tutti gli elementi attivi durante la simulazione (come i nodi, i generatori di reports e quelli di messaggi), cos√¨ come quelli passivi (ad esempio le mappe che compongono il mondo simulato). In questa fase vengono quindi creati tutti i nodi partecipanti alla simulazione, ognuno dotato di un proprio modello di movimento, un router configurato secondo le caratteristiche del gruppo di nodi e una serie di \textit{listener} per la cattura di eventi e la successiva generazione di reports.
 \\
 
-Quando tutte le entit‡ necessarie all'esecuzione sono stati create e configurate, si passa all'esecuzione vera e propria.
-Questa consiste nel ripetere l'aggiornamento dello stato del mondo, chiamando un metodo \textit{update()}, e incrementare il valore del tempo simulato fino al raggiungimento di un tempo impostato come fine simulazione. L'incremento temporale che viene effettuato ad ogni aggiornamento Ë impostato nei files di configurazione (con il parametro \textit{Scenario.updateInterval}), espresso in secondi, ed influenza i vari modelli di movimento dei nodi. La prima operazione svolta durante l'\textit{update()} del mondo simulato Ë lo spostamento dei vari nodi, che avviene a seconda del modello di movimento adottato dal nodo e dell'incremento temporale applicato. Ad esempio un nodo che simula un automobilista si sposter‡ maggiormente rispetto ad uno che simula un pedone, a parit‡ di intervallo di tempo simulato. Come vedremo nella sezione \ref{movimento} relativa ai modelli di movimento, questi possono essere anche molto complessi e simulare diversi comportamenti a seconda delle configurazioni adottate.
+Quando tutte le entit√† necessarie all'esecuzione sono stati create e configurate, si passa all'esecuzione vera e propria.
+Questa consiste nel ripetere l'aggiornamento dello stato del mondo, chiamando un metodo \textit{update()}, e incrementare il valore del tempo simulato fino al raggiungimento di un tempo impostato come fine simulazione. L'incremento temporale che viene effettuato ad ogni aggiornamento √® impostato nei files di configurazione (con il parametro \textit{Scenario.updateInterval}), espresso in secondi, ed influenza i vari modelli di movimento dei nodi. La prima operazione svolta durante l'\textit{update()} del mondo simulato √® lo spostamento dei vari nodi, che avviene a seconda del modello di movimento adottato dal nodo e dell'incremento temporale applicato. Ad esempio un nodo che simula un automobilista si sposter√† maggiormente rispetto ad uno che simula un pedone, a parit√† di intervallo di tempo simulato. Come vedremo nella sezione \ref{movimento} relativa ai modelli di movimento, questi possono essere anche molto complessi e simulare diversi comportamenti a seconda delle configurazioni adottate.
 \\
 
-Una volta effettuato il movimento, per ogni nodo viene aggiornato lo stato delle connessioni e del router simulato. Per ogni interfaccia di rete disponibile viene quindi aggiornato lo stato a seconda che lo spostamento abbia comportato una caduta della connessione o abbia permesso di entrare nel raggio di comunicazione di un interfaccia di rete relativa ad un altro nodo. Ogni qualvolta lo stato di una connessione cambia, vengono avvisati i \textit{listeners} interessati, per la generazione di report, e viene aggiornata la visualizzazione grafica della connessione, se attiva, come si puÚ vedere, ad esempio, in Figura \ref{connessioni}.
+Una volta effettuato il movimento, per ogni nodo viene aggiornato lo stato delle connessioni e del router simulato. Per ogni interfaccia di rete disponibile viene quindi aggiornato lo stato a seconda che lo spostamento abbia comportato una caduta della connessione o abbia permesso di entrare nel raggio di comunicazione di un interfaccia di rete relativa ad un altro nodo. Ogni qualvolta lo stato di una connessione cambia, vengono avvisati i \textit{listeners} interessati, per la generazione di report, e viene aggiornata la visualizzazione grafica della connessione, se attiva, come si pu√≤ vedere, ad esempio, in Figura \ref{connessioni}.
 \\
-\figuremacro{connessioni}{connessioni}{Un esempio di connessioni tra nodi tratto dalla finestra principale di ONE. Nella parte sinistra dell'immagine si puÚ notare la connessione attiva, mentre nella parte a destra i due nodi non sono pi˘ l'uno nel raggio di comunicazione dell'altro, indicato dal cerchio verde attorno al nodo.}{}
+\figuremacro{connessioni}{connessioni}{Un esempio di connessioni tra nodi tratto dalla finestra principale di ONE. Nella parte sinistra dell'immagine si pu√≤ notare la connessione attiva, mentre nella parte a destra i due nodi non sono pi√π l'uno nel raggio di comunicazione dell'altro, indicato dal cerchio verde attorno al nodo.}{}
 
-L'ultima parte dell'aggiornamento relativo allo stato di un nodo riguarda l'aggiornamento del router. Questo Ë fortemente dipendente dal protocollo di routing implementato ed Ë proprio nell'esecuzione del metodo \textit{update()} relativo al router che si svolgono le azioni caratteristiche di un protocollo rispetto ad un altro.
+L'ultima parte dell'aggiornamento relativo allo stato di un nodo riguarda l'aggiornamento del router. Questo √® fortemente dipendente dal protocollo di routing implementato ed √® proprio nell'esecuzione del metodo \textit{update()} relativo al router che si svolgono le azioni caratteristiche di un protocollo rispetto ad un altro.
 
 \section{Limitazioni}
-non pi˘ in basso del livello di routing
+non pi√π in basso del livello di routing
 simulazione temporale discreta
 mancanza di simulazione di un file system
 

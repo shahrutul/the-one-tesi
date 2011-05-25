@@ -12,93 +12,93 @@
 
 
 %: ----------------------- contents from here ------------------------
-Uno degli aspetti pi˘ importante per garantire la realisticit‡ di una simulazione riguarda il comportamento dei nodi, in particolare il loro movimento. Come Ë facile intuire, in una DTN i cambiamenti di posizione dei vari nodi influiscono pesantemente la connettivit‡ e quindi le prestazioni dell'intera rete. Proprio per questo motivo Ë fondamentale simulare il pi˘ realisticamente possibile il comportamento dei nodi all'interno della simulazione.
+Uno degli aspetti pi√π importante per garantire la realisticit√† di una simulazione riguarda il comportamento dei nodi, in particolare il loro movimento. Come √® facile intuire, in una DTN i cambiamenti di posizione dei vari nodi influiscono pesantemente la connettivit√† e quindi le prestazioni dell'intera rete. Proprio per questo motivo √® fondamentale simulare il pi√π realisticamente possibile il comportamento dei nodi all'interno della simulazione.
 \\
 
-Il simulatore TheONE contiene al suo interno diversi modelli di movimento che possono essere assegnati ai vari gruppi di nodi. PresenterÚ ora un breve riassunto dei modelli a disposizione, soffermandomi in particolare su quello scelto per le simulazioni svolte, ossia il Working Day Movement Model (WDM)
+Il simulatore TheONE contiene al suo interno diversi modelli di movimento che possono essere assegnati ai vari gruppi di nodi. Presenter√≤ ora un breve riassunto dei modelli a disposizione, soffermandomi in particolare su quello scelto per le simulazioni svolte, ossia il Working Day Movement Model (WDM)
 
 \section{Random Map-Based Movement}
-Il modello pi˘ semplice fra quelli disponibili Ë il Random Map-Based Movement (MBM). I nodi che adottano questo modello si muovono in maniera casuale ma sempre seguendo le strade descritte dalla mappa della simulazione. Il risultato di questa modalit‡ Ë un movimento troppo casuale per simulare accuratamente il comportamento umano per quanto riguarda la mobilit‡.
+Il modello pi√π semplice fra quelli disponibili √® il Random Map-Based Movement (MBM). I nodi che adottano questo modello si muovono in maniera casuale ma sempre seguendo le strade descritte dalla mappa della simulazione. Il risultato di questa modalit√† √® un movimento troppo casuale per simulare accuratamente il comportamento umano per quanto riguarda la mobilit√†.
 
 \section{Shortest Path Map-Based Movement}
-Lo Shortest Path Map-Based Movement (SPMBM) Ë un modello leggermente pi˘ realistico rispetto a MBM. In questo modello i nodi scelgono casualmente un punto di destinazione all'interno della mappa e seguono la via pi˘ breve per raggiungerlo dalla posizione attuale, sempre seguendo le strade descritte dalla mappa della simulazione. Le destinazioni possono essere scelte in maniera completamente casuale o da un insieme di Punti di Interesse, in modo da simulare l'attrazione delle persone per luoghi come punti di ristoro, negozi o attrazioni turistiche.
+Lo Shortest Path Map-Based Movement (SPMBM) √® un modello leggermente pi√π realistico rispetto a MBM. In questo modello i nodi scelgono casualmente un punto di destinazione all'interno della mappa e seguono la via pi√π breve per raggiungerlo dalla posizione attuale, sempre seguendo le strade descritte dalla mappa della simulazione. Le destinazioni possono essere scelte in maniera completamente casuale o da un insieme di Punti di Interesse, in modo da simulare l'attrazione delle persone per luoghi come punti di ristoro, negozi o attrazioni turistiche.
 
 \section{Routed Map-Based Movement}
-Un modello che invece della casualit‡ nel movimento utilizza dei percorsi predeterminati Ë il Routed Map-Based Movement (RMBM). I nodi che adottano questo modello si muovono lungo rotte predefinite, per tutta la durata della simulazione, rendendo RMBM utile per rappresentare degli spostamenti ripetitivi, come ad esempio quelli di autobus, tram o treni.
+Un modello che invece della casualit√† nel movimento utilizza dei percorsi predeterminati √® il Routed Map-Based Movement (RMBM). I nodi che adottano questo modello si muovono lungo rotte predefinite, per tutta la durata della simulazione, rendendo RMBM utile per rappresentare degli spostamenti ripetitivi, come ad esempio quelli di autobus, tram o treni.
 
 \section{Working Day Movement Model}
 I modelli finora descritti sono senz'altro di semplice comprensione e realizzazione, oltre ad essere molto efficienti per quanto riguarda le prestazioni, ma non forniscono una realistica rappresentazione del movimento umano, soprattutto per quanto riguarda i valori di inter-contact e contact time.
 \\
-Un modello che genera dei valori pi˘ realistici per questi parametri, rappresentando pi˘ realisticamente quindi il movimento umano, Ë il Working Day Movement Model (WDM). Come il nome puÚ fare intuire, questo modello simula gli spostamenti compiuti da una persona durante una tipica giornata lavorativa e in \cite{articoloWdm}, dove Ë descritto il modello, Ë evidenziato anche come i valori generati seguano realisticamente quelli trovati utilizzando dati di spostamento provenienti da tracce reali. 
+Un modello che genera dei valori pi√π realistici per questi parametri, rappresentando pi√π realisticamente quindi il movimento umano, √® il Working Day Movement Model (WDM). Come il nome pu√≤ fare intuire, questo modello simula gli spostamenti compiuti da una persona durante una tipica giornata lavorativa e in \cite{articoloWdm}, dove √® descritto il modello, √® evidenziato anche come i valori generati seguano realisticamente quelli trovati utilizzando dati di spostamento provenienti da tracce reali. 
 \\
-Una giornata simulata comprende le seguenti attivit‡ principali svolte dai vari nodi:
+Una giornata simulata comprende le seguenti attivit√† principali svolte dai vari nodi:
 \begin{itemize}
 \item dormire a casa
 \item lavorare in ufficio
 \item uscire alla sera con gli amici
 \end{itemize}
 
-Ovviamente le attivit‡ potrebbero cambiare enormemente a seconda dello stile di vita e del lavoro svolto dalle singole persone, ma queste tre attivit‡ sono le pi˘ comuni e possono essere associate alla tipica giornata di una gran quantit‡ di persone.
-La ripetitivit‡ giornaliera delle azioni e il fatto di svolgerle in luoghi comuni a pi˘ persone permette la formazione spontanea di comunit‡: persone che vivono e dormono nella stessa casa formeranno una famiglia, pi˘ persone che lavorano nello stesso ufficio agli stessi orari saranno colleghi di lavoro, mentre degli amici si possono trovare ad orari comuni alla sera per uscire assieme.
-La creazione di queste comunit‡ non viene mostrata da modelli pi˘ semplici quali RMBM o SPMBM.
+Ovviamente le attivit√† potrebbero cambiare enormemente a seconda dello stile di vita e del lavoro svolto dalle singole persone, ma queste tre attivit√† sono le pi√π comuni e possono essere associate alla tipica giornata di una gran quantit√† di persone.
+La ripetitivit√† giornaliera delle azioni e il fatto di svolgerle in luoghi comuni a pi√π persone permette la formazione spontanea di comunit√†: persone che vivono e dormono nella stessa casa formeranno una famiglia, pi√π persone che lavorano nello stesso ufficio agli stessi orari saranno colleghi di lavoro, mentre degli amici si possono trovare ad orari comuni alla sera per uscire assieme.
+La creazione di queste comunit√† non viene mostrata da modelli pi√π semplici quali RMBM o SPMBM.
 \\
 
-Per la simulazione delle attivit‡ giornaliere, WDM utilizza dei sottomodelli dedicati, oltre a dei sottomodelli preposti a simulare gli spostamenti fra un'attivit‡ e l'altra. Una persona si potr‡ quindi spostare a piedi, in auto o utilizzando i mezzi pubblici, a seconda della propria disponibilit‡ e convenienza. Il fatto di muoversi da soli o in gruppo (prendendo lo stesso bus o camminando assieme la sera) permette di avere dei comportamenti eterogenei e quindi migliorare ulteriormente la realisticit‡ degli spostamenti compiuti dai vari nodi.
+Per la simulazione delle attivit√† giornaliere, WDM utilizza dei sottomodelli dedicati, oltre a dei sottomodelli preposti a simulare gli spostamenti fra un'attivit√† e l'altra. Una persona si potr√† quindi spostare a piedi, in auto o utilizzando i mezzi pubblici, a seconda della propria disponibilit√† e convenienza. Il fatto di muoversi da soli o in gruppo (prendendo lo stesso bus o camminando assieme la sera) permette di avere dei comportamenti eterogenei e quindi migliorare ulteriormente la realisticit√† degli spostamenti compiuti dai vari nodi.
 \\
 
 \subsection{Esempio di giornata}
-Durante una tipica giornata il punto di partenza per ogni nodo Ë la propria abitazione. Ogni nodo ha un orario di sveglia assegnato, generato utilizzando una distribuzione normale con media pari a 0 e deviazione standard impostabile in fase di configurazione, che indica l'orario in cui la persona uscir‡ di casa. Il valore viene generato per ogni ad inizio simulazione, rimarr‡ lo stesso per tutti i giorni successivi e la differenza fra i valori di vari nodi sta ad indicare la differenza fra i diversi stili di vita nella vita reale (ad esempio una persona che impiega pochi minuti a prepararsi la mattina rispetto a chi impiega ore anche solo per fare colazione).
+Durante una tipica giornata il punto di partenza per ogni nodo √® la propria abitazione. Ogni nodo ha un orario di sveglia assegnato, generato utilizzando una distribuzione normale con media pari a 0 e deviazione standard impostabile in fase di configurazione, che indica l'orario in cui la persona uscir√† di casa. Il valore viene generato per ogni ad inizio simulazione, rimarr√† lo stesso per tutti i giorni successivi e la differenza fra i valori di vari nodi sta ad indicare la differenza fra i diversi stili di vita nella vita reale (ad esempio una persona che impiega pochi minuti a prepararsi la mattina rispetto a chi impiega ore anche solo per fare colazione).
 \\ 
 
-Una volta usciti di casa, i vari nodi si dirigono al lavoro utilizzando l'auto (se disponibile) o a piedi oppure utilizzando i mezzi pubblici, a seconda di quale sia il metodo pi˘ conveniente. Conseguentemente alla scelta del mezzo di trasporto viene utilizzato il corrispondente sottomodello.
+Una volta usciti di casa, i vari nodi si dirigono al lavoro utilizzando l'auto (se disponibile) o a piedi oppure utilizzando i mezzi pubblici, a seconda di quale sia il metodo pi√π conveniente. Conseguentemente alla scelta del mezzo di trasporto viene utilizzato il corrispondente sottomodello.
 \\
 
-Una volta raggiunto il luogo di lavoro, la persona ci resta per la durata della sua giornata lavorativa e quindi decide, con una determinata probabilit‡, se tornare direttamente a casa o spostarsi per un'attivit‡ serale. Anche in questo caso gli spostamenti vengono gestiti utilizzando i corrispondenti sottomodelli.
+Una volta raggiunto il luogo di lavoro, la persona ci resta per la durata della sua giornata lavorativa e quindi decide, con una determinata probabilit√†, se tornare direttamente a casa o spostarsi per un'attivit√† serale. Anche in questo caso gli spostamenti vengono gestiti utilizzando i corrispondenti sottomodelli.
 
 
 \subsection{Home Activity Submodel}
-Ogni nodo ha una posizione impostata come Home Location, che viene utilizzata come punto di partenza alla mattina e punto di ritorno alla sera: una volta tornata a casa una persona si muove per una breve distanza e poi resta ferma fino all'orario di risveglio, la mattina successiva. Questo comportamento non Ë un errore, ma simula il fatto di lasciare il telefono su di un tavolo o in carica fino al momento di uscire nuovamente di casa, mentre la persona svolge le normali attivit‡ domestiche come mangiare, guardare la TV o dormire.
+Ogni nodo ha una posizione impostata come Home Location, che viene utilizzata come punto di partenza alla mattina e punto di ritorno alla sera: una volta tornata a casa una persona si muove per una breve distanza e poi resta ferma fino all'orario di risveglio, la mattina successiva. Questo comportamento non √® un errore, ma simula il fatto di lasciare il telefono su di un tavolo o in carica fino al momento di uscire nuovamente di casa, mentre la persona svolge le normali attivit√† domestiche come mangiare, guardare la TV o dormire.
 
 \subsection{Office Activity Submodel}
-Il sottomodello relativo all'attivit‡ lavorativa Ë un modello bidimensionale che simula il comportamento di una persona all'interno di un ufficio, in cui Ë posizionata la propria scrivania e dalla quale ogni tanto si alza per partecipare ad una riunione, parlare con un collega o, perchÈ no, per una pausa caffË. Durante tutti questi momenti, come Ë facile intuire, Ë possibile che il nodo entri in contatto con nodi relativi ad altri colleghi di lavoro.
+Il sottomodello relativo all'attivit√† lavorativa √® un modello bidimensionale che simula il comportamento di una persona all'interno di un ufficio, in cui √® posizionata la propria scrivania e dalla quale ogni tanto si alza per partecipare ad una riunione, parlare con un collega o, perch√© no, per una pausa caff√®. Durante tutti questi momenti, come √® facile intuire, √® possibile che il nodo entri in contatto con nodi relativi ad altri colleghi di lavoro.
 \\
 
-L'ufficio Ë descritto come un'unica stanza con pianta rettangolare, in cui l'unico punto di ingresso, la porta, Ë l'angolo in alto a sinistra e ogni persona che vi lavora ha una scrivania posizionata in un determinato punto. Non viene simulata la presenza di muri all'interno della stanza, che quindi verr‡ descritta come un luogo pi˘ grande del normale, in modo da simulare il tempo impiegato per superare ostacoli, nel movimento dalla scrivania ad una destinazione interna all'ufficio.
+L'ufficio √® descritto come un'unica stanza con pianta rettangolare, in cui l'unico punto di ingresso, la porta, √® l'angolo in alto a sinistra e ogni persona che vi lavora ha una scrivania posizionata in un determinato punto. Non viene simulata la presenza di muri all'interno della stanza, che quindi verr√† descritta come un luogo pi√π grande del normale, in modo da simulare il tempo impiegato per superare ostacoli, nel movimento dalla scrivania ad una destinazione interna all'ufficio.
 \\
 
 Una volta entrato, l'impiegato si muove subito camminando verso la propria scrivania, dove rimane per un periodo di tempo casuale, generato utilizzando una distribuzione di Pareto. Passato questo tempo il nodo sceglie una destinazione casuale all'interno dell'ufficio, cammina fino a raggiungerla e quindi attende per un periodo di tempo casuale generato utilizzando la stessa distribuzione di Pareto prima di tornare alla propria scrivania. La ripetizione del movimento dalla scrivania ad una posizione casuale interna all'ufficio continua fino al termine della giornata lavorativa, che ha una durata impostabile in fase di configurazione.
 \\
 
-I parametri della distribuzione possono essere impostati per ogni gruppo di nodi, in modo da simulare diversi tipi di attivit‡ all'interno del luogo di lavoro, dall'insegnante che ogni ora si deve spostare in un'aula diversa, ad un commesso che non lascia mai la propria postazione per tutto l'orario lavorativo.
+I parametri della distribuzione possono essere impostati per ogni gruppo di nodi, in modo da simulare diversi tipi di attivit√† all'interno del luogo di lavoro, dall'insegnante che ogni ora si deve spostare in un'aula diversa, ad un commesso che non lascia mai la propria postazione per tutto l'orario lavorativo.
 
 
 \subsection{Evening Activity Submodel}
-Il sottomodello Evening Activity simula attivit‡ che possono essere svolte dopo lavoro, nel tardo pomeriggio - sera, come andare a fare shopping, in un bar o a mangiare in una pizzeria o ristorante. Tali attivit‡ vengono svolte in gruppo e con una probabilit‡ configurabile, che determina se la persona torna o meno subito a casa dopo il lavoro.
+Il sottomodello Evening Activity simula attivit√† che possono essere svolte dopo lavoro, nel tardo pomeriggio - sera, come andare a fare shopping, in un bar o a mangiare in una pizzeria o ristorante. Tali attivit√† vengono svolte in gruppo e con una probabilit√† configurabile, che determina se la persona torna o meno subito a casa dopo il lavoro.
 \\
 
-Al termine della giornata lavorativa, il nodo si sposta verso il proprio luogo d'incontro preferito, che Ë una posizione impostata all'inizio della simulazione. Una volta arrivato attende che lo raggiungano un numero di persone sufficientemente elevato per formare un gruppo e cominciare quindi l'attivit‡. Il numero massimo e minimo di persone che possono formare un gruppo Ë configurabile e quando tutti i gruppi per un determinato punto di ritrovo sono al completo ne viene creato un altro.
+Al termine della giornata lavorativa, il nodo si sposta verso il proprio luogo d'incontro preferito, che √® una posizione impostata all'inizio della simulazione. Una volta arrivato attende che lo raggiungano un numero di persone sufficientemente elevato per formare un gruppo e cominciare quindi l'attivit√†. Il numero massimo e minimo di persone che possono formare un gruppo √® configurabile e quando tutti i gruppi per un determinato punto di ritrovo sono al completo ne viene creato un altro.
 \\
 
-Una volta che tutti i componenti del gruppo legato all'attivit‡ sono arrivati, camminano assieme per una breve distanza verso una destinazione scelta casualmente e quindi si fermano per un tempo pi˘ lungo, generato casualmente all'interno di valori preimpostati. Una volta terminata questa pausa (finita la cena, lo shopping o la visione di un film al cinema), le varie persone si separano e tornano verso casa.
+Una volta che tutti i componenti del gruppo legato all'attivit√† sono arrivati, camminano assieme per una breve distanza verso una destinazione scelta casualmente e quindi si fermano per un tempo pi√π lungo, generato casualmente all'interno di valori preimpostati. Una volta terminata questa pausa (finita la cena, lo shopping o la visione di un film al cinema), le varie persone si separano e tornano verso casa.
 
 \subsection{Transport Activity Submodel}
-Il Transport Activity Submodel Ë il sottomodello incaricato di gestire gli spostamenti dei nodi fra le diverse attivit‡.
+Il Transport Activity Submodel √® il sottomodello incaricato di gestire gli spostamenti dei nodi fra le diverse attivit√†.
 \\
 
-All'inizio della simulazione ad ogni nodo viene assegnata un'auto con una probabilit‡ configurabile. Le persone che la possiedono la utilizzeranno per tutti gli spostamenti, mentre chi ne Ë sprovvisto si muover‡ a piedi o utilizzando un mezzo pubblico. L'eterogeneit‡ di mezzi di trasporto utilizzati permette di simulare realisticamente i movimenti di diverse tipologie di persone ed inoltre ha impatto anche sul protocollo di routing utilizzato, in quanto nodi che si muovono utilizzando mezzi propri si sposteranno pi˘ velocemente, permettendo cosÏ il trasporto pi˘ rapido di pacchetti per lunghe distanze.
+All'inizio della simulazione ad ogni nodo viene assegnata un'auto con una probabilit√† configurabile. Le persone che la possiedono la utilizzeranno per tutti gli spostamenti, mentre chi ne √® sprovvisto si muover√† a piedi o utilizzando un mezzo pubblico. L'eterogeneit√† di mezzi di trasporto utilizzati permette di simulare realisticamente i movimenti di diverse tipologie di persone ed inoltre ha impatto anche sul protocollo di routing utilizzato, in quanto nodi che si muovono utilizzando mezzi propri si sposteranno pi√π velocemente, permettendo cos√¨ il trasporto pi√π rapido di pacchetti per lunghe distanze.
 \\
 
-A seconda del mezzo di trasporto utilizzato, quindi, il Transport Activity Submodel si rif‡ a tre sottomodelli distinti:
+A seconda del mezzo di trasporto utilizzato, quindi, il Transport Activity Submodel si rif√† a tre sottomodelli distinti:
 \\
 
 \begin{description}
-\item [Walking Submodel]: i nodi che non possiedono un'auto si muovono camminando lungo le strade ad una velocit‡ costante, utilizzando l'algoritmo di Dijkstra per provare il percorso pi˘ breve dalla posizione corrente alla destinazione.
-\item [Car Submodel]: i nodi che possiedono un'auto muovono pi˘ velocemente dei pedoni, durante le transizioni fra attivit‡, ma si muovono come gli altri nodi all'interno di una singola attivit‡. Non vengono considerati traffico e semafori durante la guida e ogni auto puÚ portare una sola persona (il car sharing non ha ancora avuto successo nel mondo simulato).
-\item [Bus Submodel]: nella citt‡ possono essere presenti pi˘ linee di trasporti pubblici (tram, autobus, funivie), ognuna delle quali viene percorsa da pi˘ mezzi ad orari predefiniti. Ogni mezzo pubblico puÚ trasportare pi˘ persone.
+\item [Walking Submodel]: i nodi che non possiedono un'auto si muovono camminando lungo le strade ad una velocit√† costante, utilizzando l'algoritmo di Dijkstra per provare il percorso pi√π breve dalla posizione corrente alla destinazione.
+\item [Car Submodel]: i nodi che possiedono un'auto muovono pi√π velocemente dei pedoni, durante le transizioni fra attivit√†, ma si muovono come gli altri nodi all'interno di una singola attivit√†. Non vengono considerati traffico e semafori durante la guida e ogni auto pu√≤ portare una sola persona (il car sharing non ha ancora avuto successo nel mondo simulato).
+\item [Bus Submodel]: nella citt√† possono essere presenti pi√π linee di trasporti pubblici (tram, autobus, funivie), ognuna delle quali viene percorsa da pi√π mezzi ad orari predefiniti. Ogni mezzo pubblico pu√≤ trasportare pi√π persone.
 \end{description}
 
 
-Ogni persona che non possiede un'auto conosce una linea di mezzi pubblici e puÚ utilizzare qualunque mezzo appartenente a quella linea. Il fatto di prendere il mezzo pubblico o di camminare dipende da un confronto di distanze euclidee: la distanza fra il luogo di partenza e quello di destinazione oppure quella fra il luogo di partenza e la fermata pi˘ vicina sommata alla distanza fra la destinazione e la fermata pi˘ vicina alla destinazione. Nel caso sia minore la prima allora il nodo camminer‡ fino alla destinazione, altrimenti utilizzer‡ i mezzi pubblici. Per fare ciÚ camminer‡ fino alla fermata pi˘ vicina, utilizzando il Walking Submodel, attender‡ il primo mezzo che passer‡ per quella linea nella direzione corretta, utilizzer‡ il Bus Submodel fino alla fermata pi˘ vicina alla destinazione e quindi torner‡ ad utilizzare il Walking Submodel camminando fino al punto di arrivo.
+Ogni persona che non possiede un'auto conosce una linea di mezzi pubblici e pu√≤ utilizzare qualunque mezzo appartenente a quella linea. Il fatto di prendere il mezzo pubblico o di camminare dipende da un confronto di distanze euclidee: la distanza fra il luogo di partenza e quello di destinazione oppure quella fra il luogo di partenza e la fermata pi√π vicina sommata alla distanza fra la destinazione e la fermata pi√π vicina alla destinazione. Nel caso sia minore la prima allora il nodo camminer√† fino alla destinazione, altrimenti utilizzer√† i mezzi pubblici. Per fare ci√≤ camminer√† fino alla fermata pi√π vicina, utilizzando il Walking Submodel, attender√† il primo mezzo che passer√† per quella linea nella direzione corretta, utilizzer√† il Bus Submodel fino alla fermata pi√π vicina alla destinazione e quindi torner√† ad utilizzare il Walking Submodel camminando fino al punto di arrivo.
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
