@@ -1,0 +1,62 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->G664;
+	A32->H1012;
+	A32->A61;
+	H1012[color = green, shape = diamond]
+	A32->A145;
+	A32->E506;
+	A32->A31;
+	A32->A8;
+	A32->E509;
+	A32->F588;
+	A32->A18;
+	A32->A116;
+	A32->H820;
+	A32->G794;
+	A32->G708;
+	A32->F642;
+	A32->A38;
+	A32->A82;
+	A61[color = green, shape = diamond]
+	G708[color = green, shape = diamond]
+	A116[color = green, shape = diamond]
+	E509[color = green, shape = diamond]
+	F642[color = green, shape = diamond]
+	A32->F569;
+	A32->A115;
+	A32->G800;
+	A32->A29;
+	A32->A14;
+	A32->A60;
+	A32->A81;
+	G800[color = green, shape = diamond]
+	G800->A32[color = green];
+	G800->A32[color = green];
+	A82[color = green, shape = diamond]
+	A115[color = green, shape = diamond]
+	A115->A32[color = green];
+	A82->A32[color = green];
+	A60[color = green, shape = diamond]
+	A61->A32[color = green];
+	A31[color = green, shape = diamond]
+	A31->A32[color = green];
+	F588[color = green, shape = diamond]
+	F588->A32[color = green];
+	A116->A32[color = green];
+	G794[color = green, shape = diamond]
+	A81[color = green, shape = diamond]
+	E506[color = green, shape = diamond]
+	A8[color = green, shape = diamond]
+	E509->A32[color = green];
+	A18[color = green, shape = diamond]
+	A29[color = green, shape = diamond]
+	A8->A32[color = green];
+	G664[color = green, shape = diamond]
+	A14[color = green, shape = diamond]
+	F569[color = green, shape = diamond]
+	F569->A32[color = green];
+	A38[color = green, shape = diamond]
+	G794->A32[color = green];
+	A38->A32[color = green];
+}

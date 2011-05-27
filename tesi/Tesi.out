@@ -21,9 +21,12 @@
 \BOOKMARK [2][-]{subsection.4.1.1}{Elezione del Servant}{section.4.1}% 21
 \BOOKMARK [1][-]{section.4.2}{Modulo di ricerca}{chapter.4}% 22
 \BOOKMARK [1][-]{section.4.3}{Modulo di Trasporto}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.4}{Modulo di Routing}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.5}{Modulo MAC}{chapter.4}% 25
-\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 26
-\BOOKMARK [0][-]{chapter.6}{La simulazione}{}% 27
-\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 28
-\BOOKMARK [0][-]{chapter.7}{Bibliografia}{}% 29
+\BOOKMARK [2][-]{subsection.4.3.1}{Sistema di accodamento}{section.4.3}% 24
+\BOOKMARK [2][-]{subsection.4.3.2}{Scheduler}{section.4.3}% 25
+\BOOKMARK [1][-]{section.4.4}{Modulo di Routing}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{Modulo MAC}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.5.1}{Presence Collector}{section.4.5}% 28
+\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 29
+\BOOKMARK [0][-]{chapter.6}{La simulazione}{}% 30
+\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 31
+\BOOKMARK [0][-]{chapter.7}{Bibliografia}{}% 32

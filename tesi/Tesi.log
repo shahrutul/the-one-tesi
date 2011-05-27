@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  27 MAY 2011 11:31
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  27 MAY 2011 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,7 +649,7 @@ LaTeX Info: Redefining \nameref on input line 47.
 \openout3 = `Tesi.out'.
 
  (./copertina.tex
-<figure/unipd_logo.png, id=115, 376.40625pt x 376.40625pt>
+<figure/unipd_logo.png, id=131, 376.40625pt x 376.40625pt>
 File: figure/unipd_logo.png Graphic file (type png)
 
 <use figure/unipd_logo.png>
@@ -751,11 +751,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--49
 
  []
 
-[4] <2-simulatore/img/Schermata-ONE.png, id=190, 949.5475pt x 710.655pt>
+[4] <2-simulatore/img/Schermata-ONE.png, id=210, 949.5475pt x 710.655pt>
 File: 2-simulatore/img/Schermata-ONE.png Graphic file (type png)
 
 <use 2-simulatore/img/Schermata-ONE.png>
-<2-simulatore/img/Routing-Info.png, id=192, 295.1025pt x 421.575pt>
+<2-simulatore/img/Routing-Info.png, id=212, 295.1025pt x 421.575pt>
 File: 2-simulatore/img/Routing-Info.png Graphic file (type png)
 
 <use 2-simulatore/img/Routing-Info.png>
@@ -787,7 +787,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--99
 
  []
 
-<2-simulatore/img/connessioni.png, id=217, 531.9875pt x 245.91875pt>
+<2-simulatore/img/connessioni.png, id=237, 531.9875pt x 245.91875pt>
 File: 2-simulatore/img/connessioni.png Graphic file (type png)
 
 <use 2-simulatore/img/connessioni.png> [9]) (./3-movimento/movimento.tex
@@ -905,56 +905,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--45
  []
 
 
-LaTeX Warning: Reference `Working Day Movement Model' on page 18 undefined on i
-nput line 46.
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+
+ []
 
 [18]
 Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
  []
 
-) (./5-implementazione/implementazione.tex [19] [20
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
+
+ []
+
+[21]) (./5-implementazione/implementazione.tex [22]
 Capitolo 5.
-) (./6-simulazione/simulazione.tex [21] [22
+) (./6-simulazione/simulazione.tex [23
+
+] [24
 
 ]
 Capitolo 6.
-) (./7-conclusioni/conclusioni.tex [23] [24
+) (./7-conclusioni/conclusioni.tex [25] [26
 
 ]
 Capitolo 7.
-) [25] [26
+) [27] [28
 
-] (./Tesi.bbl [27
+] (./Tesi.bbl [29
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 193.
- [28]
+ [30]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 193.
  (./Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 193.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 193.
-
-
-Package rerunfilecheck Warning: File `Tesi.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Tesi.out':
-(rerunfilecheck)             Before: F3BFDBAE189F7280186C33701FAE7410;1759
-(rerunfilecheck)             After:  9A1F0FF30360074188507983596B28E0;1818.
-
-LaTeX Warning: There were undefined references.
-
+Package rerunfilecheck Info: File `Tesi.out' has not changed.
+(rerunfilecheck)             Checksum: 4FB5859B34A6A041CBEE66F87AA8EFEC;2029.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 193.
  ) 
 Here is how much of TeX's memory you used:
- 9287 strings out of 493772
- 132871 string characters out of 3150564
- 225537 words of memory out of 3000000
- 12321 multiletter control sequences out of 15000+200000
+ 9297 strings out of 493772
+ 133006 string characters out of 3150564
+ 225646 words of memory out of 3000000
+ 12326 multiletter control sequences out of 15000+200000
  19237 words of font info for 49 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
  36i,11n,43p,1072b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -969,10 +990,10 @@ lic/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
 rm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></us
 r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-d
 ist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Tesi.pdf (32 pages, 397433 bytes).
+Output written on Tesi.pdf (34 pages, 409318 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 75 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 351 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 277 words of extra memory for PDF output out of 10000 (max. 10000000)
 
