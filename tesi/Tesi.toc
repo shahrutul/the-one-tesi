@@ -23,11 +23,38 @@
 \contentsline {section}{\numberline {4.2}Modulo di ricerca}{20}{section.4.2}
 \contentsline {section}{\numberline {4.3}Modulo di Trasporto}{21}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Sistema di accodamento}{21}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Scheduler}{22}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Modulo di Routing}{22}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modulo MAC}{22}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Presence Collector}{22}{subsection.4.5.1}
-\contentsline {chapter}{\numberline {5}Implementazione}{23}{chapter.5}
-\contentsline {chapter}{\numberline {6}La simulazione}{25}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{27}{chapter.7}
-\contentsline {chapter}{Bibliografia}{29}{chapter.7}
+\contentsline {subsection}{\numberline {4.3.2}Scheduler ed esecuzione di un task}{22}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Tipi di task}{23}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Modulo di Routing}{23}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modulo MAC}{23}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Presence Collector}{23}{subsection.4.5.1}
+\contentsline {chapter}{\numberline {5}Implementazione}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modifiche a ONE}{25}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Gestione File}{25}{subsection.5.1.1}
+\contentsline {paragraph}{DTNFile}{25}{section*.5}
+\contentsline {paragraph}{DTNFileSystem}{26}{section*.6}
+\contentsline {paragraph}{DTNFileGenerator}{27}{section*.7}
+\contentsline {paragraph}{FileRequest}{29}{section*.8}
+\contentsline {subsection}{\numberline {5.1.2}GUI}{29}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Reports}{29}{subsection.5.1.3}
+\contentsline {paragraph}{FileEventListener}{29}{section*.9}
+\contentsline {paragraph}{FileGatheringReport}{29}{section*.10}
+\contentsline {paragraph}{FileGatheringLog}{29}{section*.11}
+\contentsline {paragraph}{DataTransferLog}{29}{section*.12}
+\contentsline {paragraph}{DelegationGraphvizReport}{29}{section*.13}
+\contentsline {section}{\numberline {5.2}Implementazione di M2MShare}{30}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}M2MShareRouter}{30}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}PresenceCollector}{30}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}QueuingCentral}{30}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Activity}{30}{subsection.5.2.4}
+\contentsline {paragraph}{VirtualFile}{30}{section*.14}
+\contentsline {paragraph}{DTNPendingDownload}{30}{section*.15}
+\contentsline {paragraph}{DTNDownloadFwd}{30}{section*.16}
+\contentsline {subsection}{\numberline {5.2.5}Scheduler}{30}{subsection.5.2.5}
+\contentsline {paragraph}{Executor}{30}{section*.17}
+\contentsline {paragraph}{Communicator}{30}{section*.18}
+\contentsline {subsection}{\numberline {5.2.6}BroadcastModule}{30}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}IntervalMap}{30}{subsection.5.2.7}
+\contentsline {chapter}{\numberline {6}La simulazione}{31}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{33}{chapter.7}
+\contentsline {chapter}{Bibliografia}{35}{chapter.7}

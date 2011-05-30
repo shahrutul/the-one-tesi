@@ -22,11 +22,24 @@
 \BOOKMARK [1][-]{section.4.2}{Modulo di ricerca}{chapter.4}% 22
 \BOOKMARK [1][-]{section.4.3}{Modulo di Trasporto}{chapter.4}% 23
 \BOOKMARK [2][-]{subsection.4.3.1}{Sistema di accodamento}{section.4.3}% 24
-\BOOKMARK [2][-]{subsection.4.3.2}{Scheduler}{section.4.3}% 25
-\BOOKMARK [1][-]{section.4.4}{Modulo di Routing}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.5}{Modulo MAC}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.5.1}{Presence Collector}{section.4.5}% 28
-\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 29
-\BOOKMARK [0][-]{chapter.6}{La simulazione}{}% 30
-\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 31
-\BOOKMARK [0][-]{chapter.7}{Bibliografia}{}% 32
+\BOOKMARK [2][-]{subsection.4.3.2}{Scheduler ed esecuzione di un task}{section.4.3}% 25
+\BOOKMARK [2][-]{subsection.4.3.3}{Tipi di task}{section.4.3}% 26
+\BOOKMARK [1][-]{section.4.4}{Modulo di Routing}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.5}{Modulo MAC}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.5.1}{Presence Collector}{section.4.5}% 29
+\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Modifiche a ONE}{chapter.5}% 31
+\BOOKMARK [2][-]{subsection.5.1.1}{Gestione File}{section.5.1}% 32
+\BOOKMARK [2][-]{subsection.5.1.2}{GUI}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.3}{Reports}{section.5.1}% 34
+\BOOKMARK [1][-]{section.5.2}{Implementazione di M2MShare}{chapter.5}% 35
+\BOOKMARK [2][-]{subsection.5.2.1}{M2MShareRouter}{section.5.2}% 36
+\BOOKMARK [2][-]{subsection.5.2.2}{PresenceCollector}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.3}{QueuingCentral}{section.5.2}% 38
+\BOOKMARK [2][-]{subsection.5.2.4}{Activity}{section.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.2.5}{Scheduler}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.6}{BroadcastModule}{section.5.2}% 41
+\BOOKMARK [2][-]{subsection.5.2.7}{IntervalMap}{section.5.2}% 42
+\BOOKMARK [0][-]{chapter.6}{La simulazione}{}% 43
+\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 44
+\BOOKMARK [0][-]{chapter.7}{Bibliografia}{}% 45
