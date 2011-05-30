@@ -92,7 +92,7 @@ Il componente dedicato alla gestione delle code di attività è il \textit{Queui
 
 Il \textit{QueuingCentral} è anche responsabile di definire delle policy riguardanti la memoria da assegnare alla memorizzazione dei task nelle code, definendo quindi un limite alle deleghe ricevute e al numero massimo di trasferimenti da effettuare.
 
-\subsection{Scheduler}
+\subsection{Scheduler ed esecuzione di un task}
 Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce il nome, l'esecuzione delle varie attività contenute nelle code del \textit{QueuingCentral}. I vari task vengono smistati fra quattro \textit{execution flows}:
 
 \begin{description}
@@ -102,7 +102,10 @@ Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce
 \item[upload\_activity\_flow,] che interessa le attività contenute nella \textit{uploadQueue}.
 \end{description}
 
+Una volta che un task pronto per essere eseguito viene estratto dalla coda in cui si trova, la sua esecuzione è gestita da un'entità detta \textit{Executor}. Questa è un demone attivo presente nel sistema, che è incaricato fra l'altro di gestire anche il numero di esecuzioni parallele di un singolo task: può infatti capitare, per alcuni tipi di attività come i VirtualFile, che l'esecuzione consista nel download simultaneo di parti di file da diverse fonti presenti nel raggio di comunicazione. In questo caso ogni trasferimento è gestito da una distinta entità detta \textit{Communicator}, entità presenti in numero limitato all'interno di ogni nodo.
 
+\subsection{Tipi di task}
+\textbf{vale la pena descriverli?}
 
 \section{Modulo di Routing}
 \section{Modulo MAC}
