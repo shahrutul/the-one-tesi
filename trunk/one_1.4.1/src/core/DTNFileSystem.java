@@ -3,7 +3,7 @@ package core;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class FileSystem {
+public class DTNFileSystem {
 	
 	private HashMap<String, DTNFile> files;
 	
