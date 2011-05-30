@@ -20,11 +20,11 @@ public class VirtualFile extends DTNActivity {
 	private IntervalMap map;
 	private boolean selfSatisfied;
 	
-	public VirtualFile(M2MShareQuery m2mQuery, M2MShareRouter m2mShareRouter) {
-		this.filename = m2mQuery.getFilename();
-		this.fileHash = DTNFile.hashFromFilename(m2mQuery.getFilename());
-		this.fromAddr = m2mQuery.getFromAddr();
-		this.creationTime = m2mQuery.getCreationTime();
+	public VirtualFile(FileRequest request, M2MShareRouter m2mShareRouter) {
+		this.filename = request.getFilename();
+		this.fileHash = DTNFile.hashFromFilename(request.getFilename());
+		this.fromAddr = request.getFromAddr();
+		this.creationTime = request.getCreationTime();
 		this.myRouter = m2mShareRouter;
 		setID(myRouter.getNextId());
 		this.selfSatisfied = true;

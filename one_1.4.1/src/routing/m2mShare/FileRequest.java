@@ -1,6 +1,6 @@
 package routing.m2mShare;
 
-public class M2MShareQuery {	
+public class FileRequest {	
 	
 	private static int idCounter = 0;
 
@@ -9,7 +9,7 @@ public class M2MShareQuery {
 	private double creationTime;
 	private int id;
 
-	public M2MShareQuery(int fromAddr, String filename, double creationTime) {
+	public FileRequest(int fromAddr, String filename, double creationTime) {
 		this.fromAddr = fromAddr;
 		this.filename = filename;
 		this.creationTime = creationTime;
@@ -35,10 +35,10 @@ public class M2MShareQuery {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof M2MShareQuery)){
+		if(!(obj instanceof FileRequest)){
 			return false;
 		}
-		M2MShareQuery otherQuery = (M2MShareQuery) obj;
+		FileRequest otherQuery = (FileRequest) obj;
 		if(otherQuery.getCreationTime() == this.getCreationTime() &&
 				otherQuery.getFilename() == this.getFilename() &&
 				otherQuery.getFromAddr() == this.getFromAddr()){
@@ -49,7 +49,7 @@ public class M2MShareQuery {
 
 	@Override
 	public String toString() {
-		return "M2MShareQuery [fromAddr=" + fromAddr + ", filename=" + filename
+		return "FileRequest [fromAddr=" + fromAddr + ", filename=" + filename
 				+ ", creationTime=" + creationTime + "]";
 	}
 	

@@ -1,7 +1,7 @@
 package input;
 
 import routing.M2MShareRouter;
-import routing.m2mShare.M2MShareQuery;
+import routing.m2mShare.FileRequest;
 import core.DTNHost;
 import core.Message;
 import core.World;
@@ -33,7 +33,7 @@ public class M2MShareQueryCreationEvent extends ExternalEvent {
 			return;
 		}
 		
-		M2MShareQuery query = new M2MShareQuery(fromAddr, filename, time);
+		FileRequest query = new FileRequest(fromAddr, filename, time);
 		((M2MShareRouter)host.getRouter()).addM2MQuery(query);		
 		
 	}

@@ -15,7 +15,7 @@ import routing.m2mShare.DTNScheduler;
 import routing.m2mShare.DTNPresenceCollector;
 import routing.m2mShare.IdGenerator;
 import routing.m2mShare.IntervalMap;
-import routing.m2mShare.M2MShareQuery;
+import routing.m2mShare.FileRequest;
 import routing.m2mShare.QueuingCentral;
 import routing.m2mShare.VirtualFile;
 
@@ -329,7 +329,7 @@ public class M2MShareRouter extends ActiveRouter {
 	 * Add a query to the list of my queries
 	 * @param query the query to be added
 	 */
-	public void addM2MQuery(M2MShareQuery query) {
+	public void addM2MQuery(FileRequest query) {
 		queuingCentral.addFileRequest(query, this);	
 		scheduler.setSomethingToDo(1, true);
 		notifyfileRequestCreated(getHost(), DTNFile.hashFromFilename(query.getFilename()));

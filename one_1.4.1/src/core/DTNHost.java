@@ -35,7 +35,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	private List<NetworkInterface> net;
 	private ModuleCommunicationBus comBus;
 	
-	private FileSystem fileSystem;
+	private DTNFileSystem fileSystem;
 	private boolean hasFileCapability;
 
 	static {
@@ -84,7 +84,7 @@ public class DTNHost implements Comparable<DTNHost> {
 		this.movement = mmProto.replicate();
 		this.movement.setComBus(comBus);
 		setRouter(mRouterProto.replicate());
-		setFileSystem(new FileSystem());
+		setFileSystem(new DTNFileSystem());
 
 		this.location = movement.getInitialLocation();
 
@@ -143,7 +143,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	 * Set a file system for this host
 	 * @param file system The router to set
 	 */
-	private void setFileSystem(FileSystem fileSystem) {
+	private void setFileSystem(DTNFileSystem fileSystem) {
 		fileSystem.init(this);
 		this.fileSystem = fileSystem;
 	}
@@ -152,7 +152,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	 * Returns the file system of this host
 	 * @return the file system of this host
 	 */
-	public FileSystem getFileSystem() {
+	public DTNFileSystem getFileSystem() {
 		return this.fileSystem;
 	}
 

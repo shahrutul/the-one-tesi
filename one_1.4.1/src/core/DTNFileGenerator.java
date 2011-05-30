@@ -156,19 +156,23 @@ public class DTNFileGenerator {
 					}				
 				}
 			}
-			
+
 			if(mode.equals("H")){
 				for(Integer addr: request.hostsAddress){
 					DTNHost tempHost = hosts.get(addr);
-					if(tempHost.hasFileCapability() && 
-							!tempHost.getFileSystem().hasFile(tempFile.getHash())){
+					if(!tempHost.hasFileCapability()){
+						throw new SimError("DTNHost " + tempHost + " has not fileCapability, requested by" +
+								" file generation request");
+					}
+					if(!tempHost.getFileSystem().hasFile(tempFile.getHash())){
 						tempHost.getFileSystem().addToFiles(tempFile);
 					}
 				}
+
 			}
-			
+
 		}			
-		
+
 	}
 	
 	

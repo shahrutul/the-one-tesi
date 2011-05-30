@@ -50,8 +50,8 @@ public class QueuingCentral {
 	}
 	
 
-	public void addFileRequest(M2MShareQuery m2mQuery, M2MShareRouter m2mShareRouter) {
-		VirtualFile vfActivity = new VirtualFile(m2mQuery, m2mShareRouter);
+	public void addFileRequest(FileRequest request, M2MShareRouter m2mShareRouter) {
+		VirtualFile vfActivity = new VirtualFile(request, m2mShareRouter);
 		push(vfActivity, VIRTUAL_FILE_QUEUE_ID);		
 	}
 
