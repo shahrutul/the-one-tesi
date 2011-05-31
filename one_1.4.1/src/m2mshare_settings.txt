@@ -1,5 +1,5 @@
 
-Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_50G
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_
 Scenario.simulateConnections = true
 Scenario.simulateFiles = true
 Scenario.updateInterval = 0.5
@@ -8,7 +8,7 @@ Scenario.updateInterval = 0.5
 # 86k ~= 24h
 # 172k ~= 48h
 # 602k ~= 1 week
-Scenario.endTime = 602k
+Scenario.endTime = 172k
 
 ###################################
 ### common settings for all groups
@@ -20,7 +20,7 @@ Group.transmitSpeed = 100k
 
 ###################################
 # path to files generation input files
-FilesGenerator.filepath = filesInput/50copie_group.txt
+FilesGenerator.filepath = filesInput/100copie_uniform.txt
 #FilesGenerator.filepath = filesInput/25copie_group.txt
 #FilesGenerator.filepath = filesInput/1copia_a_60.txt
 
@@ -39,7 +39,7 @@ Events1.queryFile = queries/single_query.txt
 Report.nrofReports = 4
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/ricerca/
+Report.reportDir = reports/100files/
 # Report classes to load
 Report.report1 = FileGatheringReport
 Report.report2 = FileGatheringLog
@@ -49,6 +49,7 @@ Report.report4 = DelegationGraphvizReport
 
 ###################################
 # M2MShare settings
+M2MShareRouter.useBroadcastModule = true
 M2MShareRouter.frequencyThreshold = 2
 M2MShareRouter.delegationDepth = 1
 M2MShareRouter.stopOnFirstQuerySatisfied = false
