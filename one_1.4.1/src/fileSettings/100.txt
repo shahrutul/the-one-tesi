@@ -1,0 +1,4 @@
+
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_100
+FilesGenerator.filepath = filesInput/100copie_uniform.txt
+Report.reportDir = reports/100files/
