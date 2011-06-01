@@ -8,6 +8,22 @@ use warnings;
 use Getopt::Long;
 use FileHandle;
 
+# path to the gnuplot program
+my $gnuplot = "gnuplot";
+my (
+	$outfile, $constTotalSum, $hitCountIndex,
+	$labelRe, $term,          $range,
+	$params, $comp, $logscale, $help
+);
+$hitCountIndex = 1               unless defined $hitCountIndex;
+$term          = "emf"           unless defined $term;
+$params        = "smooth unique" unless defined $params;
+$labelRe       = '([^_]*)_'      unless defined $labelRe;
+
+my $plotfile = "prova.gnuplot";
+
+
+
 my $error;
 my $help;
 
@@ -37,6 +53,8 @@ error  Add minimum and maximum values to the output (for error bars)
 ';
     exit();
 }
+
+
 
 my $fileCount = @ARGV;
 
@@ -89,7 +107,7 @@ while($cont) {
   my $oldKey = undef;
   
   # read one line from each file and count average
-  for (my $i=0; $i < $fileCount; $i++) {
+  for (my $i=0; $i < $count0; $i++) {
     my $fh = $fileHandles0[$i];
     $_ = <$fh>;
     if (not $_) { # no more input
@@ -125,18 +143,25 @@ while($cont) {
     }
   }
 
-  if ($cont) {
-    my $avg = $sum/$fileCount;
-    print "$key $avg";
-  
-    if ($error) {
-      print " $min $max";
-    }
-    print "\n";
-   }
    
 }
 
 my $sumOre = $sum / 3600;
-   print "tempo totale di simulazione: $sum secondi ($sumOre ore)";
+   print "tempo totale di simulazione: $sum secondi ($sumOre ore)
+";
+
+open( PLOT, ">$plotfile" ) or die "Can't open plot output file $plotfile : $!";
+print PLOT "plot ";
+print PLOT "10, 15";
+print PLOT " title \"Titolo1\"";
+
+print PLOT " $params";
+
+
+print PLOT "\n";
+close(PLOT);
+
+if ( not $term eq "na" ) {
+	system("$gnuplot $plotfile") == 0 or die "Can't run gnuplot: $?";
+}
 
