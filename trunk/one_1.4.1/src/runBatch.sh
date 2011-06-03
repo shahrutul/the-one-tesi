@@ -3,11 +3,6 @@
 
 #./one.sh -b 3 WDM_settings_pendolari.txt m2mshare_test_fileDivision.txt
 #./one.sh -b 3 WDM_settings_pendolari.txt m2mshare_test_delega.txt
-./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/100.txt
-./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/150.txt
-./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/200.txt
-./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/250.txt
-./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/300.txt
 ./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/350.txt
 ./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt seedSettings.txt fileSettings/400.txt
 svn add reports/100files/* reports/150files/* reports/200files/* reports/250files/* reports/300files/* reports/350files/* reports/400files/*
