@@ -8,4 +8,4 @@ DownloadFWDs returned:	0
 VirtualFile completed:	1
 First VirtualFile satisfied:	32187.0
 Simulated time:	32187
-Simulation time:	339.20
+Simulation time:	332.09
