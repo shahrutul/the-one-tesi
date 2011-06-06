@@ -3,7 +3,7 @@
 #set terminal jpeg medium
 #set output "histo.jpg"
 
-set style fill   solid 1.00 border -1
+set style fill pattern 4 border
 #set style histogram clustered gap 2 title  offset character 0, 0, 0
 set style histogram gap 2
 set yrange [0:1]
@@ -19,6 +19,6 @@ set ytics 0.1
 
 #plot 'dati.dat' using 3 t "Server", '' using 4 t "Client", '' using 5:xtic(1) t "Network"
 #plot 'dati.dat' u 2 ti col, '' u 3 ti col, '' u 4 ti col
-plot 'reports/datiDeleghe.dat' using 2:xtic(1) ti col, '' u 3 ti col
+plot 'reports/datiDeleghe.dat' using 2:xtic(1) ti col fs pattern 2, '' u 3 ti col fs pattern 5
 
 pause -1 "Hit any key to continue"
