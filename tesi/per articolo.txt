@@ -1,0 +1,66 @@
+B. Evaluation of delegation efficiency
+
+We compare the efficiency of our system, which employs
+delegations, against two other systemsthe system where there are no delegations
+and file exchange is initiated only when a peer holding the
+requested data is found directly by the file requester. The
+metric we study is the average found time (Ftavg) for a specific
+multimedia file. The found time (Ft) is the time interval
+between the first delegation made and the time an output return
+for that specific file is received. If no delegation is made and
+the first file request is satisfied directly between a file owner
+and the file requester, the Ftavg is equal to zero.
+To this purpose we implemented the two protocols in
+THE_ONE [14], a DTN simulation environment for delay
+tolerant networks. For sake of simplicity, delegations are one
+hop only, i.e., a servant peer cannot further delegate the task to
+other frequently encountered peers of its own. Also the
+software is always operational, there is only one active session
+configured that covers all day user activity.
+We stated before that synthetic mobility models are not
+realistic and to this purpose we try to simulate a more realistic
+scenario provided by the Working Day Movement model [15]
+implemented for THE_ONE. In our scenario we have a
+population of nodes (N) which emulate people operating
+M2MShare and are involved in their daily activities according
+to the cycle, home-work-event-home. A node at home is
+inactive, thus the software is not operative. Nodes are
+uniformly distributed between the available districts in the
+default map available in THE_ONE and the simulation time is
+set to two days, during which there are two full cycles home-
+work-event-home; each cycle home-work-event amounts at
+12 h. Therefore, the maximum simulation time during which a
+node can be active amounts to 24 h.
+The file population (Fp) parameter denotes the percentage
+of nodes that posses the required file. The node requesting the
+file is randomly chosen between the population and we repeat
+the experiment 40 times in order to achieve more accurate
+results, independent from the initial user starting point.
+In the first scenario (Fig. 1) we consider Fp = 20%. The
+protocol not employing delegations (purple line in the chart) is
+not able to find any piece of the file during the simulation time
+when the considered nodes in the scenario are equal or less
+than 50. We have indicated this in the chart by assigning to
+Ftavg a value of 24 h. This is due to the trivial strategy
+employed by the protocol and to the sparse environment. Even
+when able to find some node possessing the file (with N ≥ 100),
+the time needed results bigger than when employing our
+solution for task delegation (blue line in the chart). Clearly,
+when increasing the file population (Fp), even the number of
+nodes in the population that posses the data file increases; as a
+result, the time to retrieve the file decreases for both solutions.
+A similar result is achieved also when considering a wider
+popularity for the required multimedia file (Fp = 50%, in
+Fig. 2). However, in this case, the higher popularity of the
+requested file helps both solutions in finding the file possessor
+with a smaller Ftavg than in the previous scenario.
+Finally, in Fig. 3, the performances of the two compared
+solutions are very similar. This is due to the high file popularity
+among nodes (Fp = 80%): the chances of eventually finding a
+file possessor in a short time are clearly much higher.
+The results are intuitive and conclusive; delegations extend
+the requestor nodes search area, giving them the possibility to
+reach the data file outside their environment.
+
+
+
