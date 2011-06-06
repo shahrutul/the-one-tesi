@@ -1,36 +1,17 @@
-B. Evaluation of delegation efficiency
+Evaluation of delegation efficiency
 
-We compare the efficiency of our system, which employs
-delegations, against two other systemsthe system where there are no delegations
-and file exchange is initiated only when a peer holding the
-requested data is found directly by the file requester. The
-metric we study is the average found time (Ftavg) for a specific
-multimedia file. The found time (Ft) is the time interval
-between the first delegation made and the time an output return
-for that specific file is received. If no delegation is made and
-the first file request is satisfied directly between a file owner
-and the file requester, the Ftavg is equal to zero.
-To this purpose we implemented the two protocols in
-THE_ONE [14], a DTN simulation environment for delay
-tolerant networks. For sake of simplicity, delegations are one
-hop only, i.e., a servant peer cannot further delegate the task to
-other frequently encountered peers of its own. Also the
-software is always operational, there is only one active session
-configured that covers all day user activity.
-We stated before that synthetic mobility models are not
-realistic and to this purpose we try to simulate a more realistic
-scenario provided by the Working Day Movement model [15]
-implemented for THE_ONE. In our scenario we have a
-population of nodes (N) which emulate people operating
-M2MShare and are involved in their daily activities according
-to the cycle, home-work-event-home. A node at home is
-inactive, thus the software is not operative. Nodes are
-uniformly distributed between the available districts in the
-default map available in THE_ONE and the simulation time is
-set to two days, during which there are two full cycles home-
-work-event-home; each cycle home-work-event amounts at
-12 h. Therefore, the maximum simulation time during which a
-node can be active amounts to 24 h.
+We compare the efficiency of our system, which employs delegations, against two other systems using different strategies: the first system is the one which don't use delegations and file exchange is initiated only when a peer holding the requested data is found directly by the file requester; the second one uses delegation but, instead of delegate a task only to peers which exceed the Frequency Threshold, this system delegate to all the met peers.
+The metric we study is the average found time (Ftavg) for a specific multimedia file. The found time (Ft) is the time interval between the user request for and the retrieve of the file. In case of delegation is the the time an output return for that specific file is received.
+To this purpose we implemented the two protocols in THE_ONE [14], a DTN simulation environment for delay tolerant networks. For sake of simplicity, delegations are one hop only, i.e., a servant peer cannot further delegate the task to other frequently encountered peers of its own. Also the software is always operational, there is only one active session configured that covers all day user activity. Synthetic mobility models are not realistic and to this purpose we try to simulate a more realistic scenario provided by the Working Day Movement model [15] implemented for THE_ONE. In our scenario we have a
+population of 1000 nodes which emulate people operating M2MShare and are involved in their daily activities according to the cycle, home-work-event-home. Nodes are uniformly distributed between the available districts in the default map of Helsinki available in THE_ONE and the simulation time is set to one week, during which there are seven full cycles home-work-event-home. 
+The multimedia file the user is looking for has a size of 3.0 MB and it is, at the beginning of every simulation, in possess of 50 nodes randomly chosen between the popopulation and we repeat the simulation several times to achieve more accurate results.
+In Fig. 1 it's possible to see the advantage, in terms of found time, using delegation instead of don't use it: systems using it retrieve the searched file in less time in every case, also considering the worst case scenario. The third system, which uses delegation to all peers met, get a better result on average, but at the cost of a higher number of task delegated, which implies more bandwidth used for search, retrieve and forward the file. In Fig. 2 it's possible to see how many delegations are used, by the two system using it, for retrieve the multimedia file searched. It's easy to see that M2MShare uses less delegations, but it is also true that in M2MShare an higher percents of delegated task is completed, (Fig. 3) i.e. more elected peers found the files and forward the result to the client node. This is due to the use delegation only with frequently encountered nodes, i.e. nodes which exceed Frequency Threshold value and have more possibilities to be met again and so forward the output of a delegated task before it expires. Indeed every delegated task has a TTL value and when that value has exceeded whitout the task result being forwarded, the task is considered expired and removed from servant peer. 
+In Fig. 4 is compared bandwidth use of M2MShare and the system using delegation to all nodes. It's easy to see the higher use of bandwidth due to delegation without the use of Frequency Threshold compared whith the one achieved by M2MShare. For this result we considered data excanged between nodes elected as servants when downloading the requested file and forwarding the result to the client node.
+
+The results are intuitive and conclusive; delegations extend
+the requestor nodes search area, giving them the possibility to
+reach the data file outside their environment.
+
 The file population (Fp) parameter denotes the percentage
 of nodes that posses the required file. The node requesting the
 file is randomly chosen between the population and we repeat
