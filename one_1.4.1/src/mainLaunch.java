@@ -41,7 +41,7 @@ public class mainLaunch {
 
 		/* Start generating configuration seeds */
 		while(!validSeeds){
-			final String matchString = seeds.get(fileGenIndex)+"_"+seeds.get(movementIndex);
+			final String matchString = "FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
