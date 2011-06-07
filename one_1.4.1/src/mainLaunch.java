@@ -10,8 +10,8 @@ import java.util.Vector;
 
 public class mainLaunch {
 	
-	private static final String REPORTS_DIR = "reports/finals";
-	private static final String SEED_FILE = "seeds.txt";
+	private static final String REPORTS_DIR = "reports/cluster";
+	private static final String SEED_FILE = "seedsCluster.txt";
 	private static final String SEED_SETTING_FILE = "seedSettings.txt";
 
 	/**
@@ -62,9 +62,6 @@ public class mainLaunch {
 
 				if(movementIndex <  seeds.size()){
 					movementIndex++;
-				}
-				else{
-					movementIndex=0;
 					fileGenIndex++;
 				}
 			}
