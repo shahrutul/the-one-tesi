@@ -1,5 +1,5 @@
 
-Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_50_FT%%M2MShareRouter.frequencyThreshold%%
 Scenario.simulateConnections = true
 Scenario.simulateFiles = true
 Scenario.updateInterval = 0.5
@@ -8,7 +8,7 @@ Scenario.updateInterval = 0.5
 # 86k ~= 24h
 # 172k ~= 48h
 # 602k ~= 1 week
-Scenario.endTime = 172k
+Scenario.endTime = 602k
 
 ###################################
 ### common settings for all groups
@@ -20,7 +20,7 @@ Group.transmitSpeed = 100k
 
 ###################################
 # path to files generation input files
-FilesGenerator.filepath = filesInput/100copie_uniform.txt
+FilesGenerator.filepath = filesInput/50copie_uniform.txt
 #FilesGenerator.filepath = filesInput/25copie_group.txt
 #FilesGenerator.filepath = filesInput/1copia_a_60.txt
 
@@ -33,13 +33,12 @@ Events1.queryFile = queries/single_query.txt
 # seed for movement models' pseudo random number generator (default = 0)
 #MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
 
-
 ## Reports - all report names have to be valid report classes
 # how many reports to load
 Report.nrofReports = 4
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/100files/
+Report.reportDir = reports/cluster/
 # Report classes to load
 Report.report1 = FileGatheringReport
 Report.report2 = FileGatheringLog

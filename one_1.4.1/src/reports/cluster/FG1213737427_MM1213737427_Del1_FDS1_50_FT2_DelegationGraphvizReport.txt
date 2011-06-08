@@ -1,0 +1,105 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->G785;
+	A32->G668;
+	A32->G700;
+	G785[color = green, shape = diamond]
+	G700[color = green, shape = diamond]
+	G668[color = green, shape = diamond]
+	A32->A110;
+	A32->F585;
+	A32->H828;
+	A32->A132;
+	A32->F594;
+	A32->F627;
+	A32->E461;
+	A32->G768;
+	A32->A111;
+	A32->E438;
+	A32->F589;
+	A32->E432;
+	A32->A90;
+	A32->F590;
+	A32->H921;
+	H921[color = green, shape = diamond]
+	A32->A107;
+	A32->A117;
+	A32->F602;
+	A32->F603;
+	A32->A101;
+	A32->E431;
+	A32->G798;
+	A32->E417;
+	A32->E440;
+	A132[color = green, shape = diamond]
+	A32->G701;
+	A32->F648;
+	F585[color = green, shape = diamond]
+	A32->H882;
+	A32->A103;
+	A32->F525;
+	A32->A70;
+	A32->G788;
+	F594[color = green, shape = diamond]
+	F627[color = green, shape = diamond]
+	A32->F546;
+	A32->F656;
+	A32->F571;
+	A32->F643;
+	E440[color = green, shape = diamond]
+	A32->A34;
+	A32->G762;
+	G762[color = green, shape = diamond]
+	H828[color = green, shape = diamond]
+	A32->E480;
+	F525[color = green, shape = diamond]
+	F648[color = green, shape = diamond]
+	F648[color = green, shape = diamond]
+	A101[color = green, shape = diamond]
+	G768[color = green, shape = diamond]
+	F590[color = green, shape = diamond]
+	F546[color = green, shape = diamond]
+	E432[color = green, shape = diamond]
+	F589[color = green, shape = diamond]
+	A90[color = green, shape = diamond]
+	A110[color = green, shape = diamond]
+	F656[color = green, shape = diamond]
+	G798[color = green, shape = diamond]
+	E417[color = green, shape = diamond]
+	F603[color = green, shape = diamond]
+	A70[color = green, shape = diamond]
+	A32->F565;
+	A32->G709;
+	A32->A55;
+	A32->A108;
+	A32->G677;
+	A32->E418;
+	A108[color = green, shape = diamond]
+	H882[color = green, shape = diamond]
+	G701[color = green, shape = diamond]
+	F627->A32[color = green];
+	E461[color = green, shape = diamond]
+	A103[color = green, shape = diamond]
+	E461->A32[color = green];
+	G768->A32[color = green];
+	A101->A32[color = green];
+	A111[color = green, shape = diamond]
+	F589->A32[color = green];
+	F590->A32[color = green];
+	E432->A32[color = green];
+	A90->A32[color = green];
+	F594->A32[color = green];
+	A117[color = green, shape = diamond]
+	F603->A32[color = green];
+	G798->A32[color = green];
+	E417->A32[color = green];
+	E440->A32[color = green];
+	G677[color = green, shape = diamond]
+	G788[color = green, shape = diamond]
+	G788->A32[color = green];
+	E418[color = green, shape = diamond]
+	G709[color = green, shape = diamond]
+	A55[color = green, shape = diamond]
+	F565[color = green, shape = diamond]
+	A55->A32[color = green];
+}
