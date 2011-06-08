@@ -11,8 +11,10 @@ import java.util.Vector;
 public class mainLaunch {
 	
 	private static final String REPORTS_DIR = "reports/cluster";
+	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsCluster.txt";
-	private static final String SEED_SETTING_FILE = "seedSettings.txt";
+	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
+	private static final String JOBFILE = "../sim";
 
 	/**
 	 * @param args
@@ -31,32 +33,43 @@ public class mainLaunch {
 				seeds.add(scanner.nextInt());
 			}catch (Exception e){}
 		}
-		System.err.println("Read "+seeds.size()+" seeds.");
+		System.out.println("Read "+seeds.size()+" seeds.");
 		
 		int fileGenIndex = 0, movementIndex = 0;
 		boolean validSeeds = false;
+		boolean validSeedsFreq = false;
 		
 		/* Read the file list of reports */
 		File folder = new File(REPORTS_DIR);
+		File folderRunning = new File(RUNNING_DIR);
 
 		/* Start generating configuration seeds */
-		while(!validSeeds){
+		while(!validSeeds && !validSeedsFreq){
 			final String matchString = "FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
 			FilenameFilter filter = new FilenameFilter() {
+				@Override
+				public boolean accept(File dir, String name) {
+					return name.contains(matchString);
+				}
+			};
+			FilenameFilter filterFreq = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
 					return name.contains(matchString) && name.contains("FT3");
 				}
 			};
 
-			if(folder.list(filter).length == 0){
+			if(folder.list(filter).length == 0 && folderRunning.list(filter).length == 0){
 				validSeeds = true;
 			}
-			else{
+			if(folder.list(filterFreq).length == 0 && folderRunning.list(filterFreq).length == 0){
+				validSeedsFreq = true;
+			}
+			if(!validSeeds && !validSeedsFreq){
 				/* next combination of seeds */
-				System.err.println("Combination "+matchString+" already used");
+				//System.err.println("Combination "+matchString+" already used");
 				if(fileGenIndex == movementIndex && movementIndex == seeds.size()){
-					System.err.println("All seed combinations tested!");
+					System.out.println("All seed combinations tested!");
 					return;
 				}
 
@@ -64,16 +77,72 @@ public class mainLaunch {
 					movementIndex++;
 					fileGenIndex++;
 				}
-			}
+			}			
 		}
 		/* Found a valid seeds combination */
-		System.err.println("Valid combination: "+seeds.get(fileGenIndex)+"_"+seeds.get(movementIndex));
+		System.out.println("Valid combination: "+seeds.get(fileGenIndex)+"_"+seeds.get(movementIndex));
+		if(validSeedsFreq){
+			System.out.println("Valid for different frequency");
+		}
 
 		try {
-			PrintWriter out = new PrintWriter(new FileWriter(SEED_SETTING_FILE));
-			out.println("FilesGenerator.rngSeed = "+seeds.get(fileGenIndex));
-			out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
-			out.close();
+			String settingFileName = SEED_SETTING_FILE_PREFIX+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
+			String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".job";
+			
+			Runtime run = Runtime.getRuntime();
+			
+			Process pr = null;
+			try {
+				pr = run.exec("cp "+JOBFILE+".job "+jobFileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				pr.waitFor();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
+			jobFile.println("#PBS -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex));
+			jobFile.println("#PBS -e localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".err");
+			jobFile.println("#PBS -o localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".out");
+			jobFile.println();
+			if(validSeeds){
+				PrintWriter out = new PrintWriter(new FileWriter(settingFileName));
+				out.println("FilesGenerator.rngSeed = "+seeds.get(fileGenIndex));
+				out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
+				out.close();						
+				
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
+			}
+			if(validSeedsFreq){
+				settingFileName = settingFileName+"_FT3";
+				PrintWriter out = new PrintWriter(new FileWriter(settingFileName));
+				out.println("FilesGenerator.rngSeed = "+seeds.get(fileGenIndex));
+				out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
+				out.close();
+				
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_freq3.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
+			}
+			
+			jobFile.println("rm "+jobFileName);
+			jobFile.close();
+			
+			try {
+				pr = run.exec("sh -c 'cd .. && qsub "+jobFileName+"'");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				pr.waitFor();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
