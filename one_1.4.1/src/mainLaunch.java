@@ -45,7 +45,7 @@ public class mainLaunch {
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					return name.contains(matchString);
+					return name.contains(matchString) && name.contains("FT3");
 				}
 			};
 
