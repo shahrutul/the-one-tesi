@@ -1,8 +1,10 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
@@ -132,7 +134,9 @@ public class mainLaunch {
 			jobFile.close();
 			
 			try {
+				System.err.println("eseguo "+"sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
 				pr = run.exec("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -141,7 +145,16 @@ public class mainLaunch {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+			BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+			String line = "";
+			try {
+				while ((line=buf.readLine())!=null) {
+					System.out.println(line);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+
 			
 		} catch (IOException e) {
 			e.printStackTrace();
