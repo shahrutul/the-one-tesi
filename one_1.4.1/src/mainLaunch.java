@@ -128,11 +128,11 @@ public class mainLaunch {
 				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 			}
 			
-			jobFile.println("rm "+jobFileName);
+			jobFile.println("rm "+jobFileName.substring(3));
 			jobFile.close();
 			
 			try {
-				pr = run.exec("sh -c 'cd .. && qsub "+jobFileName+"'");
+				pr = run.exec("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
