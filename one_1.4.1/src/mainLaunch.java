@@ -134,8 +134,8 @@ public class mainLaunch {
 			jobFile.close();
 			
 			try {
-				System.err.println("eseguo "+"sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-				pr = run.exec("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
+				System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
+				pr = run.exec("qsub "+jobFileName.substring(3), null, new File("../"));
 
 			} catch (IOException e) {
 				e.printStackTrace();
