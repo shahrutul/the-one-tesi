@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class mainNumFilesLaunch {
 	
-	private static final String REPORTS_DIR = "reports/freqDiversa/100files";
+	private static final String REPORTS_DIR = "reports/freqDiversa/50files";
 	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
