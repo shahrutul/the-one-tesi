@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class mainAnalisys {
-	private static final String REPORTS_DIR = "reports/cluster/delega";
+	private static final String REPORTS_DIR = "reports/perGraficiPaper";
 	private static final String OUTPUT_FILE_TEMPI_VF = "reports/datiTempiVF.dat";
 	private static final String OUTPUT_FILE_DATA = "reports/datiTotalData.dat";
 	private static final String OUTPUT_FILE_DELEGHE = "reports/datiDeleghe.dat";

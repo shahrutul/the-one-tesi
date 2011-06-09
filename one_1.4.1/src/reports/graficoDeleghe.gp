@@ -2,7 +2,8 @@
 #set output 'histograms.3.png'
 #set terminal jpeg medium
 #set output "histo.jpg"
-
+#set term post eps noenhanced monochrome dashed
+#set output 'reports/percDeleghe.eps'
 set style fill pattern 4 border
 #set style histogram clustered gap 2 title  offset character 0, 0, 0
 set style histogram gap 2

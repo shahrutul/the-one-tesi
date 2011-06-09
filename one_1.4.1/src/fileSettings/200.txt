@@ -1,4 +1,4 @@
 
 Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_200
 FilesGenerator.filepath = filesInput/200copie_uniform.txt
-Report.reportDir = reports/200files/
+Report.reportDir = reports/freqDiversa/200files/
