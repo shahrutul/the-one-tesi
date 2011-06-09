@@ -106,9 +106,9 @@ public class mainLaunch {
 			}
 			
 			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
-			jobFile.println("#PBS -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex));
-			jobFile.println("#PBS -e localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".err");
-			jobFile.println("#PBS -o localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".out");
+			//jobFile.println("#PBS -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex));
+			//jobFile.println("#PBS -e localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".err");
+			//jobFile.println("#PBS -o localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".out");
 			jobFile.println();
 			if(validSeeds){
 				PrintWriter out = new PrintWriter(new FileWriter(settingFileName));
@@ -135,7 +135,7 @@ public class mainLaunch {
 			
 			try {
 				System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-				pr = run.exec("qsub "+jobFileName.substring(3), null, new File("../"));
+				pr = run.exec("qsub -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+" "+jobFileName.substring(3), null, new File("../"));
 
 			} catch (IOException e) {
 				e.printStackTrace();
