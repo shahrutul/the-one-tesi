@@ -54,7 +54,7 @@ public class mainNumFilesLaunch {
 				}
 			};
 
-			if(folder.list(filter).length == 0 && folderRunning.list(filter).length == 0){
+			if(folder.list(filter) == null || (folder.list(filter).length == 0 && folderRunning.list(filter).length == 0)){
 				validSeeds = true;
 			}
 			if(!validSeeds){
