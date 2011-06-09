@@ -1,0 +1,94 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->A21;
+	A32->A68;
+	A32->H1001;
+	A32->H892;
+	A32->K1025;
+	A32->E422;
+	A32->E417;
+	A32->E451;
+	A32->E464;
+	A32->E448;
+	A32->K1024;
+	A32->H874;
+	A32->E498;
+	K1025[color = green, shape = diamond]
+	A32->A84;
+	H1001[color = green, shape = diamond]
+	E451[color = green, shape = diamond]
+	E498[color = green, shape = diamond]
+	A32->K1019;
+	A32->A59;
+	A32->A118;
+	A32->A63;
+	A32->A27;
+	A21[color = green, shape = diamond]
+	A32->E507;
+	E507[color = green, shape = diamond]
+	A32->A54;
+	E448[color = green, shape = diamond]
+	A32->A145;
+	A32->A137;
+	A32->G768;
+	A32->A133;
+	A32->A93;
+	H874[color = green, shape = diamond]
+	A32->F634;
+	A32->F590;
+	A32->G741;
+	A32->G677;
+	A68[color = green, shape = diamond]
+	F590[color = green, shape = diamond]
+	F634[color = green, shape = diamond]
+	A133[color = green, shape = diamond]
+	A93[color = green, shape = diamond]
+	G768[color = green, shape = diamond]
+	A54[color = green, shape = diamond]
+	A84[color = green, shape = diamond]
+	G677[color = green, shape = diamond]
+	G741[color = green, shape = diamond]
+	E464[color = green, shape = diamond]
+	A32->A69;
+	A69[color = green, shape = diamond]
+	A59[color = green, shape = diamond]
+	A32->H864;
+	A32->E426;
+	K1019[color = green, shape = diamond]
+	A32->E428;
+	A118[color = green, shape = diamond]
+	A32->H822;
+	E417[color = green, shape = diamond]
+	A32->E478;
+	A32->K1027;
+	E417->A32[color = green];
+	E451->A32[color = green];
+	E422[color = green, shape = diamond]
+	A137[color = green, shape = diamond]
+	K1024[color = green, shape = diamond]
+	H822[color = green, shape = diamond]
+	H864[color = green, shape = diamond]
+	A84->A32[color = green];
+	K1019->A32[color = green];
+	E478[color = green, shape = diamond]
+	E426[color = green, shape = diamond]
+	K1027[color = green, shape = diamond]
+	A27[color = green, shape = diamond]
+	E478->A32[color = green];
+	E417->A32[color = green];
+	E464->A32[color = green];
+	E448->A32[color = green];
+	H874->A32[color = green];
+	E498->A32[color = green];
+	A59->A32[color = green];
+	A63[color = green, shape = diamond]
+	A145[color = green, shape = diamond]
+	K1027->A32[color = green];
+	A118->A32[color = green];
+	A133->A32[color = green];
+	A93->A32[color = green];
+	A63->A32[color = green];
+	E428[color = green, shape = diamond]
+	A69->A32[color = green];
+	H864->A32[color = green];
+}

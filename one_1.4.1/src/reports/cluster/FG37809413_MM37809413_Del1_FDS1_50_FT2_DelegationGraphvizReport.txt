@@ -1,0 +1,21 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->A115;
+	A32->H986;
+	A32->G804;
+	A32->A84;
+	A32->E426;
+	A32->G678;
+	G804[color = green, shape = diamond]
+	A84[color = green, shape = diamond]
+	A32->G685;
+	A115[color = green, shape = diamond]
+	H986[color = green, shape = diamond]
+	A115->A32[color = green];
+	H986->A32[color = green];
+	A84->A32[color = green];
+	G678[color = green, shape = diamond]
+	G685[color = green, shape = diamond]
+	G685->A32[color = green];
+	E426[color = green, shape = diamond]
+}

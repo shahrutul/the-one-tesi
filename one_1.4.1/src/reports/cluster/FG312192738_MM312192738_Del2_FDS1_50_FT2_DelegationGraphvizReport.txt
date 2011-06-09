@@ -1,0 +1,84 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->F605;
+	A32->K1018;
+	A32->G734;
+	A32->E456;
+	A32->G685;
+	A32->F539;
+	A32->F567;
+	F605[color = green, shape = diamond]
+	G685[color = green, shape = diamond]
+	G734[color = green, shape = diamond]
+	A32->K1022;
+	A32->H981;
+	F567[color = green, shape = diamond]
+	A32->A29;
+	A32->G801;
+	A32->A146;
+	A32->A34;
+	A32->A42;
+	A32->E422;
+	A32->F535;
+	A32->A23;
+	A32->A83;
+	A32->A118;
+	A32->A7;
+	A32->H968;
+	F535[color = green, shape = diamond]
+	A32->H864;
+	H968[color = green, shape = diamond]
+	E422[color = green, shape = diamond]
+	A32->A28;
+	A28[color = green, shape = diamond]
+	A23[color = green, shape = diamond]
+	H864[color = green, shape = diamond]
+	E456[color = green, shape = diamond]
+	A83[color = green, shape = diamond]
+	A32->A41;
+	A32->A39;
+	A32->A4;
+	A32->A22;
+	A32->A144;
+	A32->F628;
+	A32->G746;
+	A144[color = green, shape = diamond]
+	A32->A16;
+	A16[color = green, shape = diamond]
+	A16->A32[color = green];
+	F628[color = green, shape = diamond]
+	K1018[color = green, shape = diamond]
+	A42[color = green, shape = diamond]
+	A7[color = green, shape = diamond]
+	G801[color = green, shape = diamond]
+	A22[color = green, shape = diamond]
+	G734->A32[color = green];
+	A146[color = green, shape = diamond]
+	A39[color = green, shape = diamond]
+	A41[color = green, shape = diamond]
+	F539[color = green, shape = diamond]
+	F605->A32[color = green];
+	H981[color = green, shape = diamond]
+	K1022[color = green, shape = diamond]
+	K1018->A32[color = green];
+	H981->A32[color = green];
+	A29[color = green, shape = diamond]
+	A29->A32[color = green];
+	A23->A32[color = green];
+	A83->A32[color = green];
+	A41->A32[color = green];
+	A4[color = green, shape = diamond]
+	G746[color = green, shape = diamond]
+	A118[color = green, shape = diamond]
+	A39->A32[color = green];
+	A34[color = green, shape = diamond]
+	F535->A32[color = green];
+	H864->A32[color = green];
+	H968->A32[color = green];
+	A118->A32[color = green];
+	A7->A32[color = green];
+	A144->A32[color = green];
+	G746->A32[color = green];
+	A28->A32[color = green];
+	A22->A32[color = green];
+}

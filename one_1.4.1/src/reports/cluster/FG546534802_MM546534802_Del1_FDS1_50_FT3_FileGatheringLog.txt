@@ -1,0 +1,20 @@
+1.0000 VirtualFile created in A32 (317200191)
+73468.0000 PendingDownload A32 to A137
+73928.0000 PendingDownload A32 to A139
+75708.0000 PendingDownload A32 to G710
+75831.0000 PendingDownload completed in G710 (317200191 requested by A32)
+75981.0000 PendingDownload completed in A139 (317200191 requested by A32)
+84458.0000 PendingDownload A32 to A120
+94798.0000 PendingDownload A32 to A70
+100198.0000 PendingDownload A32 to A63
+103050.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+103050.0000 DownloadFWD returned from A139 to A32 (317200191)
+103058.0000 DownloadFWD returned from A139 to A32 (317200191)
+115100.5000 PendingDownload completed in A120 (317200191 requested by A32)
+121777.0000 PendingDownload completed in A63 (317200191 requested by A32)
+159898.0000 DownloadFWD returned from G710 to A32 (317200191)
+170448.0000 DownloadFWD returned from A120 to A32 (317200191)
+185068.0000 DownloadFWD returned from A63 to A32 (317200191)
+195465.0000 PendingDownload completed in A137 (317200191 requested by A32)
+209886.0000 PendingDownload completed in A70 (317200191 requested by A32)
+245378.0000 DownloadFWD returned from A137 to A32 (317200191)
