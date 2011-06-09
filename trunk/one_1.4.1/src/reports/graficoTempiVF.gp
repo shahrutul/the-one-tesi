@@ -2,11 +2,12 @@
 #set output 'histograms.3.png'
 #set terminal latex
 #set output "histo.jpg"
-
+#set term post eps noenhanced monochrome dashed
+#set output 'reports/tempi.eps'
 set boxwidth 0.9 absolute
 #set style fill   solid 1.00 border -1
-set style fill pattern 3 border
-set samples 11, 11
+#set style fill pattern 4 border
+#set samples 11, 11
 
 set style histogram clustered gap 2 title  offset character 0, 0, 0
 set datafile missing '-'
