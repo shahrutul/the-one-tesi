@@ -1,0 +1,55 @@
+1.0000 VirtualFile created in A32 (317200191)
+8428.0000 PendingDownload A32 to A144
+8608.0000 PendingDownload A32 to E485
+8988.0000 PendingDownload A32 to A58
+9558.0000 PendingDownload A32 to F538
+9588.0000 PendingDownload A32 to A88
+10338.0000 PendingDownload A32 to A121
+10548.0000 PendingDownload A32 to A80
+12058.0000 PendingDownload A32 to E414
+12378.0000 PendingDownload A32 to G673
+15158.0000 PendingDownload A32 to A99
+15601.0000 PendingDownload completed in F538 (317200191 requested by A32)
+15668.0000 PendingDownload A32 to E468
+17828.0000 PendingDownload A32 to G690
+18991.0000 PendingDownload completed in A58 (317200191 requested by A32)
+37891.0000 PendingDownload completed in A99 (317200191 requested by A32)
+39228.0000 PendingDownload A32 to G669
+40021.0000 PendingDownload completed in A121 (317200191 requested by A32)
+49430.0000 PendingDownload completed in G690 (317200191 requested by A32)
+78869.5000 PendingDownload completed in A144 (317200191 requested by A32)
+93528.0000 PendingDownload A32 to A41
+93548.0000 PendingDownload A32 to E474
+94478.0000 PendingDownload A32 to E482
+94508.0000 PendingDownload A32 to A38
+94578.0000 PendingDownload A32 to A137
+94869.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+96218.0000 DownloadFWD returned from A99 to A32 (317200191)
+99721.0000 PendingDownload completed in E468 (317200191 requested by A32)
+102528.0000 DownloadFWD returned from G690 to A32 (317200191)
+106691.5000 PendingDownload completed in A80 (317200191 requested by A32)
+106698.0000 DownloadFWD returned from A80 to A32 (317200191)
+109685.0000 PendingDownload completed in G673 (317200191 requested by A32)
+109688.0000 DownloadFWD returned from E468 to A32 (317200191)
+109688.0000 DownloadFWD returned from G673 to A32 (317200191)
+109880.5000 PendingDownload completed in A38 (317200191 requested by A32)
+109920.5000 PendingDownload completed in E482 (317200191 requested by A32)
+123938.0000 DownloadFWD returned from A121 to A32 (317200191)
+130197.5000 PendingDownload completed in A88 (317200191 requested by A32)
+130711.0000 PendingDownload completed in G669 (317200191 requested by A32)
+132550.5000 PendingDownload completed in A41 (317200191 requested by A32)
+170630.0000 PendingDownload completed in A137 (317200191 requested by A32)
+179720.5000 PendingDownload completed in E485 (317200191 requested by A32)
+179928.0000 DownloadFWD expired in A41 (317200191 requested by A32)
+179949.0000 PendingDownload expired in E474 (317200191 requested by A32)
+180418.0000 DownloadFWD returned from A38 to A32 (317200191)
+180698.0000 DownloadFWD returned from A58 to A32 (317200191)
+180878.0000 DownloadFWD expired in E482 (317200191 requested by A32)
+180978.0000 DownloadFWD expired in A137 (317200191 requested by A32)
+181228.0000 DownloadFWD expired in A144 (317200191 requested by A32)
+181408.0000 DownloadFWD expired in E485 (317200191 requested by A32)
+181788.0000 DownloadFWD expired in A58 (317200191 requested by A32)
+182358.0000 DownloadFWD expired in F538 (317200191 requested by A32)
+182388.0000 DownloadFWD expired in A88 (317200191 requested by A32)
+183300.0000 PendingDownload completed in E414 (317200191 requested by A32)
+184858.0000 DownloadFWD expired in E414 (317200191 requested by A32)

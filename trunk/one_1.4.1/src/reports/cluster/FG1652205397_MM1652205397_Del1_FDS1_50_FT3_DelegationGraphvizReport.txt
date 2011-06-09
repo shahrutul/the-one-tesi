@@ -1,0 +1,6 @@
+digraph delegationGraph {
+rankdir = LR
+	A32->H952;
+	H952[color = green, shape = diamond]
+	H952->A32[color = green];
+}
