@@ -19,6 +19,6 @@ set ytics 0.1
 
 #plot 'dati.dat' using 3 t "Server", '' using 4 t "Client", '' using 5:xtic(1) t "Network"
 #plot 'dati.dat' u 2 ti col, '' u 3 ti col, '' u 4 ti col
-plot 'reports/datiDeleghe.dat' using 2:xtic(1) ti col fs pattern 2, '' u 3 ti col fs pattern 5
+plot 'reports/datiDeleghe.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fs pattern 5
 
 pause -1 "Hit any key to continue"

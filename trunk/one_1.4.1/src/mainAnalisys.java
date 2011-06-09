@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 
 public class mainAnalisys {
-	private static final String REPORTS_DIR = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/perGraficiPaper";
-	private static final String OUTPUT_FILE_TEMPI_VF = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiTempiVF.dat";
-	private static final String OUTPUT_FILE_DATA = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiTotalData.dat";
-	private static final String OUTPUT_FILE_DELEGHE = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiDeleghe.dat";
-	private static final String OUTPUT_FILE_DELEGHE_TOTALI = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiDelegheTotali.dat";
+	private static final String REPORTS_DIR = "reports/cluster/delega";
+	private static final String OUTPUT_FILE_TEMPI_VF = "reports/datiTempiVF.dat";
+	private static final String OUTPUT_FILE_DATA = "reports/datiTotalData.dat";
+	private static final String OUTPUT_FILE_DELEGHE = "reports/datiDeleghe.dat";
+	private static final String OUTPUT_FILE_DELEGHE_TOTALI = "reports/datiDelegheTotali.dat";
 	private static final String KEY_VIRTUALFILE = "First VirtualFile satisfied:\t";
 	private static final String KEY_DATA = "Total data:\t";
 	private static final String KEY_DELEGHE = "VirtualFile delegated:\t";
@@ -35,7 +35,7 @@ public class mainAnalisys {
 			case 0:
 				return name.contains("Del0") && name.contains("FileGatheringReport");
 			case 1:
-				return name.contains("Del1_FDS1") && name.contains("FileGatheringReport");
+				return name.contains("Del1_FDS1") && name.contains("FT3") && name.contains("FileGatheringReport");
 			case 2:
 				return name.contains("Del2") && name.contains("FileGatheringReport");
 
@@ -259,3 +259,6 @@ public class mainAnalisys {
 	}
 	
 }
+
+
+
