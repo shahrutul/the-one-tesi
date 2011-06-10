@@ -1,0 +1,11 @@
+1.0000 VirtualFile created in A32 (317200191)
+81398.0000 PendingDownload A32 to A72
+81428.0000 PendingDownload A32 to G779
+82758.0000 PendingDownload A32 to F652
+83408.0000 PendingDownload A32 to A93
+85408.0000 PendingDownload A32 to A67
+85515.0000 PendingDownload completed in F652 (317200191 requested by A32)
+85827.0000 PendingDownload completed in A93 (317200191 requested by A32)
+86287.0000 PendingDownload completed in A72 (317200191 requested by A32)
+86816.0000 VirtualFile satisfied in A32 using delegation  (317200191)
+86816.0000 DownloadFWD returned from A72 to A32 (317200191)
