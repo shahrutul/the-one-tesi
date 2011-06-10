@@ -1,5 +1,0 @@
-1.0000 VirtualFile created in A32 (317200191)
-6028.0000 PendingDownload A32 to F570
-6041.0000 PendingDownload completed in F570 (317200191 requested by A32)
-6060.0000 VirtualFile satisfied in A32 using delegation  (317200191)
-6060.0000 DownloadFWD returned from F570 to A32 (317200191)
