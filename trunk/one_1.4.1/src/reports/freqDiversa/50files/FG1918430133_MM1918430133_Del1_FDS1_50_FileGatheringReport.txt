@@ -1,0 +1,11 @@
+Total data:	41750001
+VirtualFile created:	1
+VirtualFile delegated:	14
+PendingDownloads completed:	12
+PendingDownloads expired:	0
+DownloadFWDs expired:	0
+DownloadFWDs returned:	5
+VirtualFile completed:	1
+First VirtualFile satisfied:	108841.0
+Simulated time:	172000
+Simulation time:	2395.27
