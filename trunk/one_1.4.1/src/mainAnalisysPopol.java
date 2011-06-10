@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class mainAnalisysPopol {
-	private static final String REPORTS_DIR = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/perDiversaPopolarita";
+	private static final String REPORTS_DIR = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/freqDiversa";
 	private static final String OUTPUT_FILE_TEMPI_VF = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiTempiVFDiversaPop.dat";
 	/*
 	private static final String OUTPUT_FILE_DATA = "/home/daniele/the-one-tesi/one_1.4.1/src/reports/datiTotalData.dat";
@@ -22,7 +22,7 @@ public class mainAnalisysPopol {
 	private static final String KEY_DELEGHE = "VirtualFile delegated:\t";
 	private static final String KEY_RITORNATE = "DownloadFWDs returned:\t";
 	*/
-	private static File[][][] files = new File[8][3][];
+	private static File[][][] files = new File[8][2][];
 	 
 	
 	private static class ParamFilenameFilter implements FilenameFilter{
@@ -58,7 +58,7 @@ public class mainAnalisysPopol {
 			int numCopie = 50 + (50*pop);
 			File subdir = new File(REPORTS_DIR + File.separatorChar+ numCopie+"files");
 			System.err.println(subdir.getAbsolutePath());
-			for(int strat=0; strat<3; strat++){
+			for(int strat=0; strat<2; strat++){
 				files[pop][strat] = subdir.listFiles(new ParamFilenameFilter(strat));
 				System.out.println(files[pop][strat].length+ " files read with strategy " + strat+":");
 				for(int j=0;j<files[pop][strat].length; j++){
@@ -69,10 +69,10 @@ public class mainAnalisysPopol {
 			
 		}				
 		
-		double[][] tAvgs = new double[8][3];
+		double[][] tAvgs = new double[8][2];
 
 		for(int pop=0; pop<8; pop++){
-			for(int strat = 0; strat<3; strat++){
+			for(int strat = 0; strat<2; strat++){
 				int tFilesLetti = 0;
 				double tSum = 0;
 
@@ -114,11 +114,11 @@ public class mainAnalisysPopol {
 		
 		try {
 			PrintWriter out = new PrintWriter(new FileWriter(OUTPUT_FILE_TEMPI_VF));
-			out.println("NrCopies\tNo_delegation\tM2MShare\tDelegation_To_all");
+			out.println("NrCopies\tNo_delegation\tM2MShare");
 			for(int pop = 0; pop<8; pop++){
 				int numCopie = 50 + (50 * pop);
 				out.print(numCopie);
-				for(int i=0; i<3; i++){	
+				for(int i=0; i<2; i++){	
 					out.print("\t" + (tAvgs[pop][i]/3600));
 				}
 				out.println();

@@ -10,9 +10,9 @@ import java.util.Scanner;
 import java.util.Vector;
 
 
-public class mainNumFilesLaunch {
+public class mainPopLaunch {
 	
-	private static final String REPORTS_DIR = "reports/freqDiversa/50files";
+	private static final String REPORTS_DIR = "reports/diversoNePop/FP20/N100";
 	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
@@ -92,20 +92,24 @@ public class mainNumFilesLaunch {
 				e.printStackTrace();
 			}
 			
-			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
-			//jobFile.println("#PBS -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex));
-			//jobFile.println("#PBS -e localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".err");
-			//jobFile.println("#PBS -o localhost:${HOME}/out/"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".out");
-			jobFile.println();
-			
+						
 			PrintWriter out = new PrintWriter(new FileWriter(settingFileName));
 			out.println("FilesGenerator.rngSeed = "+seeds.get(fileGenIndex));
 			out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
 			out.close();						
 
-			for(int i=0; i<8; i++){
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_numFiles.txt "+settingFileName+" fileSettings/"+ (50+i*50) +".txt'");
+			
+			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
+			jobFile.println();
+			int[] pops = {20,50,80};
+			int[] nodesNr = {100,200,400,600,800,1000};
+			
+			for(int pop = 0; pop< pops.length; pop++){
+				for(int n=0; n<nodesNr.length; n++){
+					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 wdm_settings/Density"+nodesNr[n]+".txt m2mshare_settings_numFiles.txt "+settingFileName+" n_settings/"+ pops[pop] +"-"+ nodesNr[n] +".txt'");
+				}
 			}
+			
 			jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 
 			
@@ -113,7 +117,7 @@ public class mainNumFilesLaunch {
 			jobFile.close();
 			
 			try {
-				System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
+				//System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
 				pr = run.exec("qsub -N simMultiFiles"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+" "+jobFileName.substring(3), null, new File("../"));
 
 			} catch (IOException e) {

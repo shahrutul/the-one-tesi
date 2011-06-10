@@ -1,0 +1,4 @@
+
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_FP50_N200
+FilesGenerator.filepath = filesInput/50perc.txt
+Report.reportDir = reports/diversoNePop/FP50/N200/
