@@ -76,7 +76,7 @@ public class mainPopLaunch {
 		
 		try {
 			String settingFileName = SEED_SETTING_FILE_PREFIX+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
-			String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".job";
+			String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_diffNePop.job";
 			
 			Runtime run = Runtime.getRuntime();
 			
