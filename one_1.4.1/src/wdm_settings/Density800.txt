@@ -46,7 +46,7 @@ Group.maxAfterShoppingStopTime = 7200
 Group1.groupID = b
 Group1.speed = 7, 10
 Group1.waitTime = 10, 30
-Group1.nrofHosts = 5
+Group1.nrofHosts = 20
 Group1.movementModel = BusMovement
 Group1.router = PassiveRouter
 Group1.routeFile = data/HelsinkiMedium/H_bus.wkt
@@ -55,7 +55,7 @@ Group1.busControlSystemNr = 8
 
 Group2.groupID = P
 Group2.waitTime = 0, 0 
-Group2.nrofHosts = 100
+Group2.nrofHosts = 800
 Group2.movementModel = WorkingDayMovement
 Group2.fileCapability = true
 Group2.busControlSystemNr = 8
@@ -69,13 +69,13 @@ Group3.groupID = T
 Group3.movementModel = ShortestPathMapBasedMovement
 Group3.waitTime = 100, 300
 Group3.speed = 7, 10
-Group3.nrofHosts = 0
+Group3.nrofHosts = 10
 
 
 # max number of external events to preload (default = 500) 
 ExternalEvents.nrofPreload = 500
 # path to external events file
-ExternalEvents.filePath = ee/70_events_100_nodes_700ks.txt
+ExternalEvents.filePath = ee/350_events_500_nodes_700ks.txt
 
 # seed for movement models' pseudo random number generator (default = 0)
 MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]

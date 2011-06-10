@@ -64,7 +64,6 @@ public class DTNFileGenerator {
 				mode = lineScan.next();
 				fileName = lineScan.next();
 				fileSize = parseInt(lineScan.next());
-				
 				if(mode.equals("H")){
 					request = new DTNFileCreationRequest(fileName, fileSize, 0, mode);
 					while(lineScan.hasNext()){
@@ -115,7 +114,7 @@ public class DTNFileGenerator {
 			String fileName = request.fileName;
 			int fileSize = request.fileSize;
 			int nrOfCopies = request.nrOfCopies;
-			if(nrOfCopies > nrOfHostsWithFile){
+			if(nrOfCopies > nrOfHostsWithFile && !request.mode.equals("P")){
 				nrOfCopies = nrOfHostsWithFile;
 			}
 			
@@ -168,7 +167,24 @@ public class DTNFileGenerator {
 						tempHost.getFileSystem().addToFiles(tempFile);
 					}
 				}
-
+			}
+			
+			if(mode.equals("P")){
+				/* in this case nrOfCopies is the percentage of hosts which have the file */
+				if(nrOfCopies > 100){
+					nrOfCopies = 100;
+				}
+				nrOfCopies = nrOfHostsWithFile / 100 * nrOfCopies;
+				System.err.println(nrOfCopies);
+				while(nrOfCopies > 0){					
+					int hostID = rng.nextInt(hosts.size());
+					DTNHost tempHost = hosts.get(hostID);
+					if(tempHost.hasFileCapability() && 
+							!tempHost.getFileSystem().hasFile(tempFile.getHash())){
+						tempHost.getFileSystem().addToFiles(tempFile);
+						nrOfCopies--;
+					}				
+				}
 			}
 
 		}			

@@ -8,7 +8,7 @@ Scenario.updateInterval = 0.5
 # 86k ~= 24h
 # 172k ~= 48h
 # 602k ~= 1 week
-Scenario.endTime = 172k
+Scenario.endTime = 602k
 
 ###################################
 ### common settings for all groups
@@ -52,7 +52,7 @@ Report.report4 = DelegationGraphvizReport
 M2MShareRouter.useBroadcastModule = true
 M2MShareRouter.frequencyThreshold = 2
 M2MShareRouter.delegationDepth = 1
-M2MShareRouter.stopOnFirstQuerySatisfied = false
+M2MShareRouter.stopOnFirstQuerySatisfied = true
 
 # delegationType values: 
 #			0 = no delegation

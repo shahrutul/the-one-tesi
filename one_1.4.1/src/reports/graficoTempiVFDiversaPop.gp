@@ -19,8 +19,8 @@ set style data linespoints
 
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set ylabel "Time (h)"
-set xlabel "File copies"
+set xlabel "File population (Fp)"
 
-plot 'reports/datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2 , '' u 4 ti col lt 3
+plot 'reports/datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2# , '' u 4 ti col lt 3
 
 pause -1 "Hit any key to continue"
