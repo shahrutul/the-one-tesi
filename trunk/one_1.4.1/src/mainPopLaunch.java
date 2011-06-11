@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class mainPopLaunch {
 	
-	private static final String REPORTS_DIR = "reports/diversoNePop/FP20/N100";
+	private static final String REPORTS_DIR = "reports/diversoNePop/FP5/N100";
 	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
@@ -101,7 +101,7 @@ public class mainPopLaunch {
 			
 			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
 			jobFile.println();
-			int[] pops = {20,50,80};
+			int[] pops = {5,10,30};
 			int[] nodesNr = {100,200,400,600,800,1000};
 			
 			for(int pop = 0; pop< pops.length; pop++){
@@ -118,7 +118,7 @@ public class mainPopLaunch {
 			
 			try {
 				//System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-				pr = run.exec("qsub -N simMultiFiles"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+" "+jobFileName.substring(3), null, new File("../"));
+				pr = run.exec("qsub -N simMulti5-10-30-"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+" "+jobFileName.substring(3), null, new File("../"));
 
 			} catch (IOException e) {
 				e.printStackTrace();
