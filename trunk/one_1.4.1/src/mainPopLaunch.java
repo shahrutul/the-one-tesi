@@ -50,7 +50,7 @@ public class mainPopLaunch {
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					return name.contains(matchString);
+					return name.contains(matchString) && name.contains("Del2");
 				}
 			};
 
@@ -101,12 +101,12 @@ public class mainPopLaunch {
 			
 			PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
 			jobFile.println();
-			int[] pops = {5,10,30};
+			int[] pops = {5,10,20,30,50,80};
 			int[] nodesNr = {100,200,400,600,800,1000};
 			
 			for(int pop = 0; pop< pops.length; pop++){
 				for(int n=0; n<nodesNr.length; n++){
-					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 wdm_settings/Density"+nodesNr[n]+".txt m2mshare_settings_numFiles.txt "+settingFileName+" n_settings/"+ pops[pop] +"-"+ nodesNr[n] +".txt'");
+					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 wdm_settings/Density"+nodesNr[n]+".txt m2mshare_settings_numFiles.txt "+settingFileName+" n_settings/"+ pops[pop] +"-"+ nodesNr[n] +".txt'");
 				}
 			}
 			
