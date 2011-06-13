@@ -42,7 +42,7 @@ public class mainPopLaunch {
 		
 		/* Read the file list of reports */
 		File folder = new File(REPORTS_DIR);
-		File folderRunning = new File(RUNNING_DIR);
+		final File folderRunning = new File(RUNNING_DIR);
 
 		/* Start generating configuration seeds */
 		while(!validSeeds){
@@ -50,6 +50,9 @@ public class mainPopLaunch {
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
+					if(dir.equals(folderRunning)){
+						return name.contains(matchString);
+					}
 					return name.contains(matchString) && name.contains("Del2");
 				}
 			};
