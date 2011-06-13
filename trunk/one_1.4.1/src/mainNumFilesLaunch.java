@@ -42,7 +42,7 @@ public class mainNumFilesLaunch {
 		
 		/* Read the file list of reports */
 		File folder = new File(REPORTS_DIR);
-		File folderRunning = new File(RUNNING_DIR);
+		final File folderRunning = new File(RUNNING_DIR);
 
 		/* Start generating configuration seeds */
 		while(!validSeeds){
@@ -50,7 +50,10 @@ public class mainNumFilesLaunch {
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					return name.contains(matchString);
+					if(dir.equals(folderRunning)){
+						return name.contains(matchString);
+					}
+					return name.contains(matchString) && name.contains("Del2");
 				}
 			};
 
@@ -104,7 +107,7 @@ public class mainNumFilesLaunch {
 			out.close();						
 
 			for(int i=0; i<8; i++){
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_numFiles.txt "+settingFileName+" fileSettings/"+ (50+i*50) +".txt'");
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_numFiles.txt "+settingFileName+" fileSettings/"+ (50+i*50) +".txt'");
 			}
 			jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 
@@ -114,7 +117,7 @@ public class mainNumFilesLaunch {
 			
 			try {
 				System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-				pr = run.exec("qsub -N simMultiFiles"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+" "+jobFileName.substring(3), null, new File("../"));
+				pr = run.exec("qsub -N simMultiFiles"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_del2 "+jobFileName.substring(3), null, new File("../"));
 
 			} catch (IOException e) {
 				e.printStackTrace();
