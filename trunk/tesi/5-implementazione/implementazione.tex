@@ -1,0 +1,154 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+%: ----------------------- name of chapter  -------------------------
+\chapter{Implementazione}\label{implementazione} % top level followed by section, subsection
+
+
+%: ----------------------- paths to graphics ------------------------
+
+% change according to folder and file names
+%\graphicspath{{2-Consorzi/images/}}
+
+
+%: ----------------------- contents from here ------------------------
+In questa sezione verrà descritta l'implementazione del protocollo realizzata utilizzando come base il simulatore ONE (descritto nel Capitolo \ref{simulatore}). Come prima cosa è però necessario soffermarsi su alcune modifiche che è stato necessario eseguire sul simulatore stesso, in modo da poter poi simulare appieno il comportamento di M2MShare.
+
+\section{Modifiche a ONE}
+Come già ampiamente descritto, M2MShare è un protocollo di peer-to-peer, adibito alla condivisione di file fra dispositivi mobili. ONE è allo stato dell'arte per quanto riguarda la simulazione del movimento e delle connessioni fra dispositivi mobili (come analizzato in \cite{panelStateDTNEvaluation}), ma abbiamo visto che possiede comunque delle limitazioni, le principali elencate nella sezione \ref{limitazioniONE}. Prima di poter realizzare un'implementazione completa di M2MShare è stato quindi necessario effettuare delle modifiche a ONE, introducendo alcune caratteristiche indispensabili a simulare il comportamento di un protocollo di peer-to-peer per lo scambio di files.
+
+\subsection{Gestione File}
+Il primo passo è stato quindi quello di dotare i vari nodi che compongono la simulazione, descritti dalla classe \textit{DTNHost}, di un file system al cui interno salvare i files oggetto delle ricerche e trasferimenti tipici di un protocollo di file sharing.
+
+\paragraph{DTNFile}
+Ogni file simulato è un'istanza della classe \textit{DTNFile}, che al suo interno contiene i campi necessari a descrivere il file stesso:
+
+\begin{itemize}
+\item Nome del file
+\item Hash che lo identifica univocamente
+\item Grandezza in bytes del file
+\end{itemize}
+
+Si è scelto di non inserire fra i campi anche le keywords che potrebbero descrivere il file e permettere una ricerca tramite parole chiave. Questo perchè lo scopo delle simulazioni era quello di cercare e recuperare un determinato file già noto a priori, saltando quindi la prima parte di ricerca in cui l'utente può specificare più keywords secondo effettuarla.
+
+\paragraph{DTNFileSystem}
+I vari \textit{DTNFile} in possesso di un nodo sono contenuti all'interno di un'entità chiamata \textit{DTNFileSystem}. Come suggerisce il nome, il suo compito è quello di simulare ad alto livello il file system del device rappresentato dal nodo. La realizzazione è basilare, con i files condivisi contenuti in un'unica directory e delle funzioni che permettono le operazioni di:
+\begin{itemize}
+\item ottenere il numero di files contenuti
+\item verificare la presenza di un determinato DTNFile, utilizzando il suo hash come criterio di ricerca
+\item recuperare il riferimento di un determinato DTNFile
+\item recuperare una \textit{Collection} contenente tutti i riferimenti ai files presenti nel file system
+\item inserire un nuovo \textit{DTNFile} nel file system
+\end{itemize}
+
+Lo presenza del file system simulato, rappresentato da un'istanza della classe DTNFileSystem, all'interno di un determinato nodo è dipendente dalla configurazione adottata per la simulazione, come descritto nella sezione \ref{configurazioneONE}. Per aumentare la flessibilità a seconda della simulazione desiderata, sono stati quindi aggiunti due parametri di configurazione:
+\begin{description}
+\item[Scenario.simulateFiles] è un parametro booleano che indica se simulare o meno la presenza di un file system nei nodi e la seguente distribuzione di files contenuti.
+\item[Group.fileCapability] è un parametro booleano che indica se un determinato gruppo di nodi ha la possibilità o meno di utilizzare un file system per contenere dei files. Un gruppo di nodi rappresentante dei mezzi di trasporto pubblici, ad esempio, non avrà necessità di gestire la presenza di files al proprio interno.
+\end{description}
+
+\paragraph{DTNFileGenerator}
+Per simulare la distribuzione di files fra i vari nodi, all'inizio della simulazione, è stato creato un generatore che, a partire da uno o più files di input, crea i vari \textit{DTNFiles} e li distribuisce fra i nodi, a seconda di quanto configurato.
+\\
+Ogni file di input può contenere più \textit{DTNFileCreationRequest}, ognuna delle quali descrive il \textit{DTNFile} da creare e come distribuirlo fra i nodi della simulazione. Una \textit{DTNFileCreationRequest} contiene al proprio interno:
+\begin{itemize}
+\item tipo di distribuzione fra i nodi
+\item nome del \textit{DTNFile} da creare
+\item dimensione in bytes del \textit{DTNFile} da creare
+\item numero di copie da creare e distribuire
+\item nodi (singoli) a cui distribuire il \textit{DTNFile}
+\item gruppi di nodi a cui distribuire il \textit{DTNFile}
+\end{itemize}
+
+Gli ultimi tre parametri vengono utilizzati a seconda del tipo di distribuzione che dovrà essere applicata al file. I nodi interessati sono solamente quelli in cui è abilitata la simulazione del file system, cioè quelli appartenenti a gruppi in cui il parametro \textit{fileCapability} ha valore \textit{true}. I tipi di distribuzione possibili sono:
+\begin{description}
+\item[A] (all): il file viene copiato per il numero di volte specificato e distribuito casualmente fra tutti i nodi
+\item[G] (groups): il file viene copiato per il numero di volte specificato e distribuito casualmente solo fra i nodi appartenenti ai gruppi specificati
+\item[P] (percent): il file viene copiato per la percentuale indicata relativa al totale dei nodi e distribuito casualmente fra tutti i nodi
+\item[H] (hosts): il file viene copiato e distribuito solo fra i nodi selezionati. Se uno dei nodi indicati non ha attiva la simulazione del file system (\textit{fileCapability = false}), viene lanciata un'eccezione gestita dal simulatore che provvede a terminare subito la simulazione informando l'utente dell'errore di configurazione.
+\end{description}
+
+Di seguito sono presentati alcuni esempi di configurazione, per la creazione e distribuzione di \textit{DTNFiles}, che possono venire caricati dal \textit{DTNFileGenerator}.
+
+\begin{center}
+\textbf{A	mySong.mp3	3.5M	50}
+\end{center}
+Indica di creare un \textit{DTNFile}, di dimensione 3,5 MB e nome "mySong.mp3", e di distribuirlo casualmente in 50 copie fra tutti i nodi con \textit{fileCapability = true}.
+\\
+
+\begin{center}
+\textbf{P	aPhoto.jpg	5M	25}
+\end{center}
+Indica di creare un \textit{DTNFile}, di dimensione 5.0 MB e nome "aPhoto.jpg", e di distribuirlo casualmente fra il 25\% dei nodi con \textit{fileCapability = true}.
+\\
+
+\begin{center}
+\textbf{G	aPhoto.jpg	2.4M	25	6	8	10}
+\end{center}
+Indica di creare un \textit{DTNFile}, di dimensione 2,4 MB e nome "aPhoto.jpg", e di distribuirlo casualmente in 25 copie fra tutti i nodi appartenenti ai soli gruppi 6, 8 e 10
+\\
+
+\begin{center}
+\textbf{H	ebook.pdf	650k	42	43	44}
+\end{center}
+Indica di creare un \textit{DTNFile}, di dimensione 650 kB e nome "ebook.pdf", e di distribuirlo fra i nodi con indirizzo pari a 42, 43 e 44, una copia per nodo.
+\\
+
+Come già accennato, è fondamentale che l'esecuzione di una simulazione sia riproducibile, sia per verificare i dati e i risultati ottenuti, sia per poterne variare un parametro, mantenendo però costante il comportamento del resto del sistema simulato. Questo ragionamento si applica anche alla casualità presente all'interno del \textit{DTNFileGenerator}, ossia alla distribuzione delle varie copie dei \textit{DTNFile} fra i nodi.
+\\
+Per garantire che, effettuando più simulazioni utilizzando la medesima configurazione, i files vengano distribuiti agli stessi nodi, è stata adottata la stessa tecnica utilizzata dai modelli di movimento che estendono la classe \textit{MovementModel}. In quel caso i moduli relativi al movimento vengono inizializzati utilizzando un parametro di configurazione relativo al seed per il \textit{random number generator}. Nel caso di valori di configurazione e seed iniziale mantenuti immutati, i nodi si muovono nello stesso modo anche ripetendo più volte la simulazione: vengono infatti generati gli stessi valori relativi a destinazioni, velocità e tempi di attesa per i nodi.
+\\
+If the seed and all the movement model related settings are kept the same, all nodes should 
+move the same way in different simulations (same destinations, speed and wait time values are used).
+
+Creates a new random number generator using a single long seed. The seed is the initial value of the internal state of the pseudorandom number generator which is maintained by method \textit{next}. In details, if two instances of Random are created with the same seed, and the same sequence of method calls is made for each, they will generate and return identical sequences of numbers.
+
+
+
+\paragraph{FileRequest}
+A \textit{FileRequest} represents the user request for a particular file. In every instance of this class are included:
+\begin{itemize}
+\item \textbf{fromAddr}: the address of the node operated by the user looking for the file
+\item \textbf{filename}: the name of the file searched
+\item \textbf{creationTime}: the simulated time when the request s submitted by the user 
+\end{itemize}
+All \textit{FileRequests} are read by the \textit{M2MShareFileRequestReader} at the beginning of every simulation, then during the simulation, when simulated time become equal to the \textit{creationTime} of the \textit{FileRequests}, that is inserted into the correct queue of the node corresponding to the address included in the request.
+
+\paragraph{M2MShareFileRequestReader}
+It is the entity responsible for reading the \textit{FileRequests} at the beginning and to dispatch the requests during the simulation, when the correct time comes. It implements the interface \textit{EventQueue}, and so it provides the method \textit{nextEventsTime()}, which returns when the next request will be ready to be inserted in the corresponding node, and the method \textit{nextEvent()}, which returns the next request that will become active.
+
+
+\subsection{GUI}
+
+\subsection{Reports}
+\paragraph{FileEventListener}
+\paragraph{FileGatheringReport}
+\paragraph{FileGatheringLog}
+\paragraph{DataTransferLog}
+\paragraph{DelegationGraphvizReport}
+
+\section{Implementazione di M2MShare}
+
+\subsection{M2MShareRouter}
+
+\subsection{PresenceCollector}
+
+\subsection{QueuingCentral}
+
+\subsection{Activity}
+\paragraph{VirtualFile}
+\paragraph{DTNPendingDownload}
+\paragraph{DTNDownloadFwd}
+
+\subsection{Scheduler}
+\paragraph{Executor}
+\paragraph{Communicator}
+
+\subsection{BroadcastModule}
+
+\subsection{IntervalMap}
+ 
+% ---------------------------------------------------------------------------
+%: ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------
+
