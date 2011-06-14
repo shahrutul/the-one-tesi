@@ -1,0 +1,151 @@
+1.0000 VirtualFile created in A32 (317200191)
+4668.0000 PendingDownload A32 to G785
+8788.0000 PendingDownload A32 to G668
+12678.0000 PendingDownload A32 to G700
+38963.0000 PendingDownload completed in G785 (317200191 requested by A32)
+39971.0000 PendingDownload completed in G700 (317200191 requested by A32)
+48590.5000 PendingDownload completed in G668 (317200191 requested by A32)
+82668.0000 PendingDownload A32 to G711
+83418.0000 PendingDownload A32 to A55
+83508.0000 PendingDownload A32 to G709
+83588.0000 PendingDownload A32 to F565
+84998.0000 PendingDownload A32 to A110
+85578.0000 PendingDownload A32 to H912
+85578.0000 PendingDownload A32 to H945
+85578.0000 PendingDownload A32 to H828
+85578.0000 PendingDownload A32 to K1026
+85688.0000 PendingDownload A32 to F585
+85918.0000 PendingDownload A32 to A132
+86038.0000 PendingDownload A32 to A61
+86248.0000 PendingDownload A32 to F594
+86971.0000 PendingDownload completed in H912 (317200191 requested by A32)
+87338.0000 PendingDownload A32 to F627
+88438.0000 PendingDownload A32 to A71
+88908.0000 PendingDownload A32 to E461
+89608.0000 PendingDownload A32 to G768
+90088.0000 PendingDownload A32 to A111
+90218.0000 PendingDownload A32 to E479
+90228.0000 PendingDownload A32 to G720
+90318.0000 PendingDownload A32 to E438
+90458.0000 PendingDownload A32 to A101
+90678.0000 PendingDownload A32 to F589
+91078.0000 PendingDownload A32 to E432
+91338.0000 PendingDownload A32 to A90
+91478.0000 PendingDownload A32 to H921
+91548.0000 PendingDownload A32 to F590
+91663.0000 PendingDownload completed in G711 (317200191 requested by A32)
+91678.0000 PendingDownload A32 to E473
+92761.0000 PendingDownload completed in H921 (317200191 requested by A32)
+95028.0000 PendingDownload A32 to A107
+95358.0000 PendingDownload A32 to A117
+95368.0000 PendingDownload A32 to F602
+95638.0000 PendingDownload A32 to F603
+98698.0000 PendingDownload A32 to E431
+99138.0000 PendingDownload A32 to E466
+99898.0000 PendingDownload A32 to K1022
+100408.0000 PendingDownload A32 to G798
+100538.0000 PendingDownload A32 to F573
+100788.0000 PendingDownload A32 to H852
+101498.0000 PendingDownload A32 to E417
+103428.0000 PendingDownload A32 to H838
+103743.0000 PendingDownload completed in H852 (317200191 requested by A32)
+105018.0000 PendingDownload A32 to E440
+107178.0000 PendingDownload A32 to K1019
+108028.0000 PendingDownload A32 to G788
+108788.0000 PendingDownload A32 to H922
+109721.0000 PendingDownload completed in A132 (317200191 requested by A32)
+109888.0000 PendingDownload A32 to H897
+114288.0000 PendingDownload A32 to H923
+114288.0000 PendingDownload A32 to H860
+114468.0000 PendingDownload A32 to H983
+114468.0000 PendingDownload A32 to H1016
+114468.0000 PendingDownload A32 to H995
+114468.0000 PendingDownload A32 to H877
+114651.0000 PendingDownload completed in A55 (317200191 requested by A32)
+115485.0000 PendingDownload completed in H860 (317200191 requested by A32)
+115518.0000 PendingDownload A32 to G676
+115558.0000 PendingDownload A32 to G701
+115608.0000 PendingDownload A32 to F648
+115647.5000 PendingDownload completed in F585 (317200191 requested by A32)
+115741.0000 PendingDownload completed in G709 (317200191 requested by A32)
+115758.0000 PendingDownload A32 to H882
+115908.0000 PendingDownload A32 to H868
+115938.0000 PendingDownload A32 to A103
+115968.0000 PendingDownload A32 to A6
+116038.0000 PendingDownload A32 to G780
+116644.5000 PendingDownload completed in H1016 (317200191 requested by A32)
+116908.0000 PendingDownload A32 to H900
+116908.0000 PendingDownload A32 to H883
+116948.0000 PendingDownload A32 to F525
+117158.0000 PendingDownload A32 to A70
+117481.0000 PendingDownload completed in F594 (317200191 requested by A32)
+117758.5000 PendingDownload completed in F627 (317200191 requested by A32)
+117918.0000 PendingDownload A32 to F546
+117918.0000 PendingDownload A32 to F656
+117918.0000 PendingDownload A32 to F571
+117918.0000 PendingDownload A32 to F643
+117928.0000 PendingDownload A32 to H976
+118068.0000 PendingDownload A32 to G689
+118108.0000 PendingDownload A32 to F587
+118108.0000 PendingDownload A32 to G790
+118108.0000 PendingDownload A32 to G728
+118128.0000 PendingDownload A32 to G813
+118308.0000 PendingDownload A32 to G797
+118341.0000 PendingDownload completed in E440 (317200191 requested by A32)
+118428.0000 PendingDownload A32 to A34
+118528.0000 PendingDownload A32 to G762
+118531.0000 PendingDownload completed in G813 (317200191 requested by A32)
+118601.0000 PendingDownload completed in H900 (317200191 requested by A32)
+118747.5000 PendingDownload completed in G762 (317200191 requested by A32)
+118855.0000 PendingDownload completed in A103 (317200191 requested by A32)
+119048.5000 PendingDownload completed in F546 (317200191 requested by A32)
+119348.0000 PendingDownload A32 to A24
+119431.0000 PendingDownload completed in H828 (317200191 requested by A32)
+119588.0000 PendingDownload A32 to E480
+119961.5000 PendingDownload completed in H976 (317200191 requested by A32)
+120308.0000 PendingDownload A32 to A78
+120522.5000 PendingDownload completed in F525 (317200191 requested by A32)
+120845.0000 PendingDownload completed in H923 (317200191 requested by A32)
+121565.0000 PendingDownload completed in F648 (317200191 requested by A32)
+121831.0000 PendingDownload completed in A101 (317200191 requested by A32)
+122271.0000 PendingDownload completed in A71 (317200191 requested by A32)
+122391.0000 PendingDownload completed in G768 (317200191 requested by A32)
+122611.0000 PendingDownload completed in F590 (317200191 requested by A32)
+122645.0000 PendingDownload completed in H868 (317200191 requested by A32)
+122801.0000 PendingDownload completed in A61 (317200191 requested by A32)
+123001.0000 PendingDownload completed in G780 (317200191 requested by A32)
+123052.0000 PendingDownload completed in E479 (317200191 requested by A32)
+123291.0000 PendingDownload completed in E432 (317200191 requested by A32)
+123767.5000 PendingDownload completed in G797 (317200191 requested by A32)
+123820.5000 PendingDownload completed in H945 (317200191 requested by A32)
+123841.0000 PendingDownload completed in A70 (317200191 requested by A32)
+123991.0000 PendingDownload completed in H883 (317200191 requested by A32)
+125522.0000 PendingDownload completed in F589 (317200191 requested by A32)
+126171.0000 PendingDownload completed in F587 (317200191 requested by A32)
+126364.0000 PendingDownload completed in H922 (317200191 requested by A32)
+126671.0000 PendingDownload completed in A90 (317200191 requested by A32)
+128110.5000 PendingDownload completed in A110 (317200191 requested by A32)
+128435.0000 PendingDownload completed in H877 (317200191 requested by A32)
+129722.0000 PendingDownload completed in F656 (317200191 requested by A32)
+131082.5000 PendingDownload completed in F573 (317200191 requested by A32)
+131141.0000 PendingDownload completed in G798 (317200191 requested by A32)
+131802.5000 PendingDownload completed in E417 (317200191 requested by A32)
+132245.0000 PendingDownload completed in G676 (317200191 requested by A32)
+132354.5000 PendingDownload completed in E466 (317200191 requested by A32)
+133020.0000 PendingDownload completed in F603 (317200191 requested by A32)
+163755.0000 PendingDownload completed in H897 (317200191 requested by A32)
+168498.0000 PendingDownload A32 to A94
+169105.0000 PendingDownload completed in H983 (317200191 requested by A32)
+169468.0000 PendingDownload A32 to H939
+169888.0000 PendingDownload A32 to A108
+170188.0000 PendingDownload A32 to G677
+170224.0000 PendingDownload completed in A78 (317200191 requested by A32)
+170338.0000 PendingDownload A32 to F518
+170338.0000 PendingDownload A32 to E418
+170590.5000 PendingDownload completed in A108 (317200191 requested by A32)
+170645.0000 PendingDownload completed in H882 (317200191 requested by A32)
+171141.0000 PendingDownload completed in G790 (317200191 requested by A32)
+171141.0000 PendingDownload completed in G689 (317200191 requested by A32)
+171141.0000 PendingDownload completed in G728 (317200191 requested by A32)
+171188.0000 PendingDownload A32 to G739
+171190.5000 VirtualFile satisfied in A32 using delegation  (317200191)

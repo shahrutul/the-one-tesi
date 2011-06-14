@@ -1,0 +1,10 @@
+1.0000 VirtualFile created in A32 (317200191)
+81948.0000 PendingDownload A32 to H847
+82018.0000 PendingDownload A32 to G715
+82668.0000 PendingDownload A32 to A146
+83348.0000 PendingDownload A32 to A143
+83368.0000 PendingDownload A32 to A59
+83778.0000 PendingDownload A32 to G733
+83848.0000 PendingDownload A32 to A4
+85768.0000 PendingDownload A32 to E442
+85781.0000 VirtualFile satisfied in A32 without delegation (317200191)
