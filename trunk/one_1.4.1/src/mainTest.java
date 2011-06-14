@@ -1,31 +1,46 @@
 
+import routing.m2mShare.Communicator;
 import routing.m2mShare.IntervalMap;
 
 
 public class mainTest {
 
 	public static void main(String[] args) {
-		IntervalMap map = new IntervalMap(3000000,1024);
+		int fileServersN = 6;
+		
+		IntervalMap map = new IntervalMap(25000000,1024);
 		System.err.println(map);
 		int t = 1;
-		
+
 		try {
+			for(int strat = 0; strat < 3; strat++){
+				int sommaT = 0;
+				for(int i=0; i< fileServersN; i++){
+					int[] outMap = map.cut(strat);
+					//stampa(outMap);
+					sommaT += IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap));
+				}
+				System.err.println("Dati con strategia "+strat+" = "+sommaT);
+				//System.err.println();
+			}
+
+			/*
 			map.cut(t);
-			
-				int[] outMap = map.cut(t);
-				IntervalMap delegatedMap = new IntervalMap(outMap);
-				System.err.print(map+"\toutmap: ");stampa(outMap);
-				stampa(IntervalMap.interestingIntervals(outMap));
-				System.err.println("mapSize di mapout: "+IntervalMap.mapSize(outMap));
-				System.err.println("interestSize di mapout: "+ IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap)));
-				System.err.println();
-				System.err.println("delegatedMap: "+delegatedMap);
-				int[] delegatedMapoutMap = delegatedMap.cut(t);
-				stampa(IntervalMap.interestingIntervals(delegatedMapoutMap));
-				System.err.println("mapSize di mapout: "+IntervalMap.mapSize(delegatedMapoutMap));
-				System.err.println("interestSize di mapout: "+ IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(delegatedMapoutMap)));
-				
-			
+
+			int[] outMap = map.cut(t);
+			IntervalMap delegatedMap = new IntervalMap(outMap);
+			System.err.print(map+"\toutmap: ");stampa(outMap);
+			stampa(IntervalMap.interestingIntervals(outMap));
+			System.err.println("mapSize di mapout: "+IntervalMap.mapSize(outMap));
+			System.err.println("interestSize di mapout: "+ IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap)));
+			System.err.println();
+			System.err.println("delegatedMap: "+delegatedMap);
+			int[] delegatedMapoutMap = delegatedMap.cut(t);
+			stampa(IntervalMap.interestingIntervals(delegatedMapoutMap));
+			System.err.println("mapSize di mapout: "+IntervalMap.mapSize(delegatedMapoutMap));
+			System.err.println("interestSize di mapout: "+ IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(delegatedMapoutMap)));
+
+
 			/*
 			int[] outMap = map.cut(t);
 			System.err.print("outmap: ");stampa(outMap);

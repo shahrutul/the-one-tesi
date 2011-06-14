@@ -151,6 +151,7 @@ public class mainAnalisys {
 					delegheSum += temp;
 					//System.err.println("ritornate "+ ritornate+" su "+ deleghe+ ": " + temp);
 				}
+				scanner.close();
 			}
 			
 			tMins[strat] = tMin;
