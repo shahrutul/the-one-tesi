@@ -1,0 +1,5 @@
+1.0000 VirtualFile created in A32 (317200191)
+82428.0000 PendingDownload A32 to A79
+82518.0000 PendingDownload A32 to G716
+82531.0000 PendingDownload completed in G716 (317200191 requested by A32)
+82531.0000 VirtualFile satisfied in A32 without delegation (317200191)
