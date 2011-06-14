@@ -11,17 +11,17 @@ import core.Settings;
 import core.SimError;
 
 
-public class M2MShareQueryReader implements EventQueue {
+public class M2MShareFileRequestReader implements EventQueue {
 
 	private static final String FILE_PATH_S = "queryFile";
 	private String filePath;
-	private List<M2MShareQueryCreationEvent> queries;
+	private List<M2MShareFileRequestEvent> queries;
 	private Scanner scanner;
 	private int nextEventIndex;
 	
 	
 
-	public M2MShareQueryReader(Settings s){
+	public M2MShareFileRequestReader(Settings s){
 		this.filePath = s.getSetting(FILE_PATH_S);
 		
 		try {
@@ -65,8 +65,8 @@ public class M2MShareQueryReader implements EventQueue {
 		}
 	}
 	
-	public List<M2MShareQueryCreationEvent> readQueries() {
-		ArrayList<M2MShareQueryCreationEvent> queriesList = new ArrayList<M2MShareQueryCreationEvent>();
+	public List<M2MShareFileRequestEvent> readQueries() {
+		ArrayList<M2MShareFileRequestEvent> queriesList = new ArrayList<M2MShareFileRequestEvent>();
 		int queriesRead = 0;
 		// skip empty and comment lines
 		Pattern skipPattern = Pattern.compile("(#.*)|(^\\s*$)");
@@ -88,7 +88,7 @@ public class M2MShareQueryReader implements EventQueue {
 				fromAddr = lineScan.nextInt();	
 				filename = lineScan.next();
 				
-				queriesList.add(new M2MShareQueryCreationEvent
+				queriesList.add(new M2MShareFileRequestEvent
 						(time, fromAddr, filename));
 
 

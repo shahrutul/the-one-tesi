@@ -326,13 +326,13 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 	
 	/**
-	 * Add a query to the list of my queries
-	 * @param query the query to be added
+	 * Add a FileRequest to the list of my queries
+	 * @param request the FileRequest to be added
 	 */
-	public void addM2MQuery(FileRequest query) {
-		queuingCentral.addFileRequest(query, this);	
+	public void addFileRequest(FileRequest request) {
+		queuingCentral.addFileRequest(request, this);	
 		scheduler.setSomethingToDo(1, true);
-		notifyfileRequestCreated(getHost(), DTNFile.hashFromFilename(query.getFilename()));
+		notifyfileRequestCreated(getHost(), DTNFile.hashFromFilename(request.getFilename()));
 	}
 	
 	@Override

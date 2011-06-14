@@ -3,10 +3,9 @@ package input;
 import routing.M2MShareRouter;
 import routing.m2mShare.FileRequest;
 import core.DTNHost;
-import core.Message;
 import core.World;
 
-public class M2MShareQueryCreationEvent extends ExternalEvent {
+public class M2MShareFileRequestEvent extends ExternalEvent {
 	
 	
 	private static final long serialVersionUID = -5314237059901818199L;
@@ -15,7 +14,7 @@ public class M2MShareQueryCreationEvent extends ExternalEvent {
 	/** name of the file the query refers to */
 	protected String filename;
 	
-	public M2MShareQueryCreationEvent(double time, int fromAddr, String filename) {
+	public M2MShareFileRequestEvent(double time, int fromAddr, String filename) {
 		super(time);
 		this.fromAddr = fromAddr;
 		this.filename = filename;
@@ -26,15 +25,15 @@ public class M2MShareQueryCreationEvent extends ExternalEvent {
 	 */
 	@Override
 	public void processEvent(World world) {
-		System.err.println("Sto processanto la query");
+		//System.err.println("Sto processanto la query");
 		DTNHost host = world.getNodeByAddress(this.fromAddr);
 		if(!(host.getRouter() instanceof M2MShareRouter)){
 			/* M2MShareQuery works only with M2MShareRouter */
 			return;
 		}
 		
-		FileRequest query = new FileRequest(fromAddr, filename, time);
-		((M2MShareRouter)host.getRouter()).addM2MQuery(query);		
+		FileRequest request = new FileRequest(fromAddr, filename, time);
+		((M2MShareRouter)host.getRouter()).addFileRequest(request);		
 		
 	}
 

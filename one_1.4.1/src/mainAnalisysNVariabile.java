@@ -14,7 +14,7 @@ public class mainAnalisysNVariabile {
 	private static final String KEY_VIRTUALFILE = "First VirtualFile satisfied:\t";
 	private static final int[] FPs = {5,10,20,30,50,80};
 	private static final int[] Ns = {100,200,400,600,800,1000};
-	private static File[][][] files = new File[Ns.length][2][];
+	private static File[][][] files = new File[Ns.length][3][];
 	 
 	
 	private static class ParamFilenameFilter implements FilenameFilter{
@@ -56,7 +56,7 @@ public class mainAnalisysNVariabile {
 			for(int Ni = 0; Ni < Ns.length; Ni++){
 				File subdir = new File(popDirName + File.separatorChar+ "N"+Ns[Ni]);
 				System.err.println(subdir.getAbsolutePath());
-				for(int strat=0; strat<2; strat++){
+				for(int strat=0; strat<3; strat++){
 					files[Ni][strat] = subdir.listFiles(new ParamFilenameFilter(strat));
 					System.out.println(files[Ni][strat].length+ " files read with strategy " + strat+":");
 					/*
@@ -68,16 +68,16 @@ public class mainAnalisysNVariabile {
 
 			}				
 
-			double[][] tAvgs = new double[Ns.length][2];
-
+			double[][] tAvgs = new double[Ns.length][3];
+			Scanner scanner = null;
 			for(int Ni=0; Ni<Ns.length; Ni++){
-				for(int strat = 0; strat<2; strat++){
+				for(int strat = 0; strat<3; strat++){
 					int tFilesLetti = 0;
 					double tSum = 0;
 
 					for(int ifile=0; ifile< files[Ni][strat].length; ifile++){
 						File currentFile = files[Ni][strat][ifile];
-						Scanner scanner = null;
+						
 						try {
 							scanner = new Scanner(currentFile);
 						} catch (FileNotFoundException e) {
@@ -97,6 +97,7 @@ public class mainAnalisysNVariabile {
 								tSum += tempValue;
 							}
 						}
+						scanner.close();
 					}
 
 					tAvgs[Ni][strat] = tSum / tFilesLetti;
@@ -111,11 +112,11 @@ public class mainAnalisysNVariabile {
 			try {
 				String outputFileName = OUTPUT_FILE_TEMPI_VF + FPs[FPi];
 				PrintWriter out = new PrintWriter(new FileWriter(outputFileName));
-				out.println("N\tNo_delegation\tM2MShare");
+				out.println("N\tNo_delegation\tM2MShare\tDelegation_to_all");
 				for(int Ni = 0; Ni<Ns.length; Ni++){
 					
 					out.print(Ns[Ni]);
-					for(int i=0; i<2; i++){	
+					for(int i=0; i<3; i++){	
 						out.print("\t" + (tAvgs[Ni][i]/3600));
 					}
 					out.println();
