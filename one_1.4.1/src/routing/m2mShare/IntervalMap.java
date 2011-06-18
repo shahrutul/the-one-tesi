@@ -45,7 +45,7 @@ public class IntervalMap{
      */
     private MapEnumerator enumerator = null;
     
-    private Random rng = new Random(0);
+    private static Random rng = new Random(0);
 
     /**
      * Costructor. Empty map with no interval.
