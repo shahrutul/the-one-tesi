@@ -27,7 +27,7 @@ FilesGenerator.filepath = filesInput/50copie25MB.txt
 ###################################
 # How many event generators
 Events.nrof = 1
-Events1.class = M2MShareQueryReader
+Events1.class = M2MShareFileRequestReader
 Events1.queryFile = queries/single_query.txt
 
 # seed for movement models' pseudo random number generator (default = 0)
