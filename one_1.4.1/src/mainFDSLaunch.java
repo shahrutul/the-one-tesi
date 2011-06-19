@@ -50,10 +50,7 @@ public class mainFDSLaunch {
 			FilenameFilter filter = new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					if(dir.equals(folderRunning)){
-						return name.contains(matchString);
-					}
-					return name.contains(matchString) && name.contains("Del2");
+					return name.contains(matchString);
 				}
 			};
 
