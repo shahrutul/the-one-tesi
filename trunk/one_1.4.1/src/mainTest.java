@@ -11,18 +11,18 @@ public class mainTest {
 		
 		
 
-		try {
+		try {/*
 			IntervalMap map = new IntervalMap(25000000,1024);
 			System.err.println(map);
-			map.update(0, 4000000);
+			map.update(20000000, 24000000);
 			System.err.println(map);
-			map.update(0, 5000000);
+			map.update(1500000, 5000000);
 			System.err.println(map);
-			map.update(0, 25000000);
+			map.update(2000000, 7000000);
 			System.err.println(map);
-			map.update(0, 23000000);
-			System.err.println(map);
-			/*
+			map.update(1000000, 23000000);
+			System.err.println(map);*/
+			
 			for(int strat = 0; strat < 3; strat++){
 				IntervalMap map = new IntervalMap(25000000,1024);
 				int[][] outmapS = new int[fileServersN][];
@@ -30,25 +30,25 @@ public class mainTest {
 				for(int i=0; i< fileServersN; i++){
 					int[] outMap = map.cut(strat);
 					outmapS[i] = outMap;
-					stampa(IntervalMap.interestingIntervals(outMap));
+					//stampa(IntervalMap.interestingIntervals(outMap));
 					sommaT += IntervalMap.interestingIntervalsSize(IntervalMap.interestingIntervals(outMap));
 				}
 				for(int i=0; i< fileServersN; i++){
-					stampa(map.assignRestofMap());
-					System.err.println("aggiungo da "+IntervalMap.interestingIntervals(outmapS[i])[0]+
-							" a "+IntervalMap.interestingIntervals(outmapS[i])[1]);
+					//stampa(map.assignRestofMap());
+					//System.err.println("aggiungo da "+IntervalMap.interestingIntervals(outmapS[i])[0]+
+					//		" a "+IntervalMap.interestingIntervals(outmapS[i])[1]);
 					map.update(IntervalMap.interestingIntervals(outmapS[i])[0], IntervalMap.interestingIntervals(outmapS[i])[1]);
-					System.err.println("mapsize="+map.mapSize());
+					//System.err.println("mapsize="+map.mapSize());
 				}
 				
-				System.err.println("mapsize="+map.mapSize());
+				//System.err.println("mapsize="+map.mapSize());
 				if(map.mapSize() != 0){
-					System.err.println("mancano "+IntervalMap.mapSize(map.assignRestofMap()));
+					//System.err.println("mancano "+IntervalMap.mapSize(map.assignRestofMap()));
 					sommaT += IntervalMap.mapSize(map.assignRestofMap());
 				}
 				System.err.println("Dati con strategia "+strat+" = "+sommaT);
 				System.err.println();
-			}*/
+			}
 
 			/*
 			map.cut(t);

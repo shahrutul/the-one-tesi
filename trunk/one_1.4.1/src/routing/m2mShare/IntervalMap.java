@@ -193,7 +193,7 @@ public class IntervalMap{
      *              Case3.2.2 e!=e': [b', bi.end] to mark !!
      *
      */
-    public synchronized Interval[] update(int b, int e) throws Exception {
+    public synchronized Interval[] update_old(int b, int e) throws Exception {
 
         if(intervals.size() == 0) return null;
         /** b' and his interval (bi) */
@@ -341,6 +341,132 @@ public class IntervalMap{
         marked.removeAllElements();
         mergesort(i, 0, i.length);
         return i;
+    }
+    
+    /**
+     * Possible cases:
+     *      Case1. bi = ei = -1 all interval was downloaded
+     *      Case1.1 b1 > e
+     *      Case2. bi = ei != -1:
+     *          Case2.1. b=b' and e=e' [b,e] to mark
+     *          Case2.2 b!=b' and e=e' [b', e] to mark
+     *      Case3. bi != ei:
+     *          Case3.1 ei=-1 [b',bi.end] ... interval.size() to mark
+     *          Case3.2 ei!=-1 []:
+     *              Case3.2.1 e=e': [b', bi.end] ... [ei.init, e] to mark (different intervals to mark) !
+     *              Case3.2.2 e!=e': [b', bi.end] to mark !!
+     *
+     */
+    public synchronized void update(int b, int e) throws Exception {
+
+    	if(intervals.size() == 0) return;
+    	/** b' and his interval (bi) */
+    	int[] iAb1 = skipFull(b);
+    	int b1 = iAb1[0];
+    	int bi = iAb1[1];
+    	/** e' and his interval (ei) */
+    	int[] iAe1 = skipFull(e);
+    	int e1 = iAe1[0];
+    	int ei = iAe1[1];
+
+    	/**
+    	 * Interval already downloaded
+    	 */
+    	if(bi == ei && ei == -1) return;//Case1
+    	if(b1 > e) return;//Case1.1
+
+    	Interval current = (Interval)intervals.elementAt(bi);
+
+    	if(b==b1 && b==e) {
+    		markInterval(current, bi, b, b);
+    		return;
+    	}
+    	/**
+    	 * Pointing on the same interval
+    	 */
+    	if(bi == ei && ei != -1) {//Case2
+    		if(b==b1 && e==e1) {//Case2.1
+
+    			markInterval(current, bi, b-1, e+1);
+
+    		}else if(b!=b1 && e==e1) {//Case2.2
+
+    			markInterval(current, bi, b1-1, e+1);
+
+    		}
+    		/**
+    		 * Pointing on different intervals
+    		 */
+    	}else if(bi != ei) {//Case3
+
+    		if(ei==-1) {//Case3.1
+
+    			/**
+    			 * mark interval
+    			 */
+    			markInterval(current,
+    					bi,
+    					b1-1,
+    					current.getUpperEnd()+1);
+    			
+    			/**
+    			 * Now we can delete them
+    			 */
+    			for(int i=bi+1; i<intervals.size(); i++) {
+    				//if(intervals.elementAt(i).getUpperEnd()<e){
+        				intervals.removeElementAt((i==bi+1)? i:i-1);
+    				//}
+    			}
+    		}else {//Case3.2
+    			if(e==e1) {//Case3.2.1
+
+    				/**
+    				 * split first interval, mark second downloaded
+    				 */
+    				Interval[] a = current.split(b1-1);
+
+    				intervals.removeElementAt(bi);
+
+    				if(a!=null && a[0]!=null)//current.size() == 1
+    					intervals.insertElementAt(a[0], bi);
+    				
+    				/**
+    				 * split second interval, mark first downloaded.
+    				 * since removeElementAt if done before changes
+    				 * indexes inside the vector, recalculate index.
+    				 */
+    				int ei1 = (a!=null && a[0]!=null)? ei:ei-1;
+
+    				Interval current_ = (Interval)intervals.elementAt(ei1);
+
+    				Interval[] c = current_.split(e1+1);
+
+    				intervals.removeElementAt(ei1);
+
+    				if(c!=null && c[1]!=null)
+    					intervals.insertElementAt(c[1], ei1);
+
+    				/**
+    				 * mark in between intervals
+    				 */
+    				 for(int i=bi+1; i<ei; i++)
+    					 intervals.removeElementAt((i==bi+1)? i:i-1);
+
+    			}else {//Case3.2.2
+    				markInterval(current,
+    						bi,
+    						b1-1,
+    						current.getUpperEnd()+1);
+    				
+    				for(int i=bi+1; i<intervals.size(); i++) {
+        				if(intervals.elementAt(i).getUpperEnd()<e){
+            				intervals.removeElementAt((i==bi+1)? i:i-1);
+        				}
+        			}
+    			}
+    		}
+    	}
+
     }
 
     //precondition: intervals never overlap
