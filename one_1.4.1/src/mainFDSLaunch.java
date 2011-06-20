@@ -102,7 +102,7 @@ public class mainFDSLaunch {
 			
 			int[] filesSize = {3,10,25};
 			for(int i=0; i< filesSize.length; i++){
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_diversaFDS_"+filesSize[i]+".txt "+settingFileName);
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_diversaFDS_"+filesSize[i]+".txt "+settingFileName+"'");
 			}
 			//jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_diversaFDS_upd0.1.txt "+settingFileName);
 			
