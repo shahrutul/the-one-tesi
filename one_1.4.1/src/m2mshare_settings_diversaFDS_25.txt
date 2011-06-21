@@ -39,7 +39,7 @@ Events1.queryFile = queries/single_query.txt
 Report.nrofReports = 4
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/diversaFDS/25MB/
+Report.reportDir = reports/diversaFDS-2/25MB/
 # Report classes to load
 Report.report1 = FileGatheringReport
 Report.report2 = FileGatheringLog

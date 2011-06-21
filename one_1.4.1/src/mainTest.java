@@ -9,20 +9,23 @@ public class mainTest {
 	public static void main(String[] args) {
 		int fileServersN = 6;
 		
-		
 
-		try {/*
+		try {
 			IntervalMap map = new IntervalMap(25000000,1024);
 			System.err.println(map);
-			map.update(20000000, 24000000);
+			map.update(0, 5000000);
 			System.err.println(map);
-			map.update(1500000, 5000000);
+			map.update(0, 8000000);
 			System.err.println(map);
-			map.update(2000000, 7000000);
+			map.update(0, 4000000);
 			System.err.println(map);
-			map.update(1000000, 23000000);
-			System.err.println(map);*/
-			
+			map.update(0, 15000000);
+			System.err.println(map);
+			map.update(0, 18000000);
+			System.err.println(map);
+			map.update(0, 24000000);
+			System.err.println(map);
+			/*
 			for(int strat = 0; strat < 3; strat++){
 				IntervalMap map = new IntervalMap(25000000,1024);
 				int[][] outmapS = new int[fileServersN][];
@@ -48,7 +51,7 @@ public class mainTest {
 				}
 				System.err.println("Dati con strategia "+strat+" = "+sommaT);
 				System.err.println();
-			}
+			}*/
 
 			/*
 			map.cut(t);
