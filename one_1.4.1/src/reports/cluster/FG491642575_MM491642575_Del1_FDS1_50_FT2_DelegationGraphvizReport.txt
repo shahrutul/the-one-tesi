@@ -1,6 +1,0 @@
-digraph delegationGraph {
-rankdir = LR
-	A32->A105;
-	A105[color = green, shape = diamond]
-	A105->A32[color = green];
-}

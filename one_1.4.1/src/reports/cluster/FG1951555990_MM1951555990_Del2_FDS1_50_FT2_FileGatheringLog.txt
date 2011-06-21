@@ -1,8 +1,0 @@
-1.0000 VirtualFile created in A32 (317200191)
-40878.0000 PendingDownload A32 to G776
-40878.0000 PendingDownload A32 to G756
-40891.0000 PendingDownload completed in G756 (317200191 requested by A32)
-40891.0000 VirtualFile satisfied in A32 without delegation (317200191)
-111107.5000 PendingDownload completed in G776 (317200191 requested by A32)
-213678.0000 DownloadFWD expired in G776 (317200191 requested by A32)
-213678.0000 DownloadFWD expired in G756 (317200191 requested by A32)
