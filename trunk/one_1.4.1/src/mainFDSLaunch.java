@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class mainFDSLaunch {
 	
-	private static final String REPORTS_DIR = "reports/diversaFDS/3MB";
+	private static final String REPORTS_DIR = "reports/diversaFDS-2/3MB";
 	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";

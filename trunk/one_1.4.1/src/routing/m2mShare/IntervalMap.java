@@ -4,10 +4,6 @@ package routing.m2mShare;
 import java.util.Random;
 import java.util.Vector;
 
-/**
- *
- * @author Armir Bujari
- */
 public class IntervalMap{
 
     /**
@@ -86,15 +82,18 @@ public class IntervalMap{
 	public int[] cut(int type) throws Exception {
 		switch (type) {
 		case 0:
-			 return assignRestofMap();
+			 return new int[]{0,0,endInterval};
 		case 1:
 			return cut(false);
 		case 2:
+			/*
 			 Interval randomInterval = intervals.get(rng.nextInt(intervals.size()));
 			 int randomPoint = rng.nextInt(randomInterval.getUpperEnd())+randomInterval.getLowerEnd();
 			 int[] randomStartMap = assignRestofMap();
 			 randomStartMap[0] = randomPoint;
-			 return randomStartMap;
+			 return randomStartMap;*/
+			 int randomPoint = rng.nextInt(endInterval);
+			 return new int[]{randomPoint,0,endInterval};
 
 		default:
 			return cut(false);
@@ -331,6 +330,7 @@ public class IntervalMap{
                                                     bi,
                                                     b1-1,
                                                     current.getUpperEnd()+1));
+                    
                 }
             }
         }
@@ -458,10 +458,8 @@ public class IntervalMap{
     						b1-1,
     						current.getUpperEnd()+1);
     				
-    				for(int i=bi+1; i<intervals.size(); i++) {
-        				if(intervals.elementAt(i).getUpperEnd()<e){
-            				intervals.removeElementAt((i==bi+1)? i:i-1);
-        				}
+    				while(intervals.elementAt(bi+1).getUpperEnd() <= e1){        					
+            			intervals.removeElementAt(bi+1);        				
         			}
     			}
     		}
