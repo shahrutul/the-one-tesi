@@ -1,3 +1,0 @@
-digraph delegationGraph {
-rankdir = LR
-	}
