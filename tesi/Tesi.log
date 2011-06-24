@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  16 JUN 2011 19:42
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  23 JUN 2011 10:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -772,22 +772,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--73
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
 [7] [8 <./2-simulatore/img/Routing-Info.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--100
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
 
  []
 
@@ -1008,23 +1008,52 @@ mo-du-le im-ple-men-ted for our
 <5-implementazione/img/graph-example.jpg, id=439, 642.4pt x 401.5pt>
 File: 5-implementazione/img/graph-example.jpg Graphic file (type jpg)
 
-<use 5-implementazione/img/graph-example.jpg> [34])
-(./6-simulazione/simulazione.tex [35 <./5-implementazione/img/graph-example.jpg
->] [36
+<use 5-implementazione/img/graph-example.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 212--214
+
+ []
+
+[34]
+Overfull \hbox (1.61382pt too wide) in paragraph at lines 220--221
+[]\T1/cmr/bx/n/12 M2MShareRouter.frequencyThreshold [2] \T1/cmr/m/n/12 in-di-ca
+-tes the mi-ni-mum
+ []
+
+
+Overfull \hbox (2.53584pt too wide) in paragraph at lines 221--222
+[]\T1/cmr/bx/n/12 M2MShareRouter.scanFrequency [10] \T1/cmr/m/n/12 in-di-ca-tes
+ how ma-ny se-conds
+ []
+
+[35 <./5-implementazione/img/graph-example.jpg>]
+Overfull \hbox (1.89293pt too wide) in paragraph at lines 236--237
+[]\T1/cmr/bx/n/12 M2MShareRouter.stopOnFirstFileRequestSatisfied [fal-se] \T1/c
+mr/m/n/12 used
+ []
+
+
+LaTeX Warning: Reference `esecuzioneONE' on page 36 undefined on input line 239
+.
+
+
+LaTeX Warning: Reference `schedulerImplementazione' on page 36 undefined on inp
+ut line 239.
+
+[36]) (./6-simulazione/simulazione.tex [37] [38
 
 ]
 Capitolo 6.
-) (./7-conclusioni/conclusioni.tex [37] [38
+) (./7-conclusioni/conclusioni.tex [39] [40
 
 ]
 Capitolo 7.
-) [39] [40
+) [41] [42
 
-] (./Tesi.bbl [41
+] (./Tesi.bbl [43
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 193.
- [42]
+ [44]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 193.
  (./Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 193.
@@ -1033,15 +1062,18 @@ Package rerunfilecheck Info: File `Tesi.out' has not changed.
 (rerunfilecheck)             Checksum: 3A3C89612171E2102C452C17A211BF94;2903.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 193.
  ) 
 Here is how much of TeX's memory you used:
- 9390 strings out of 493772
- 134392 string characters out of 3150564
- 226865 words of memory out of 3000000
- 12367 multiletter control sequences out of 15000+200000
+ 9394 strings out of 493772
+ 134447 string characters out of 3150564
+ 225865 words of memory out of 3000000
+ 12369 multiletter control sequences out of 15000+200000
  23549 words of font info for 63 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
  36i,11n,43p,1072b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1059,10 +1091,10 @@ ist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1
 /public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
 r/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
 
-Output written on Tesi.pdf (46 pages, 488737 bytes).
+Output written on Tesi.pdf (48 pages, 493387 bytes).
 PDF statistics:
- 576 PDF objects out of 1000 (max. 8388607)
- 497 compressed objects within 5 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 587 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 124 named destinations out of 1000 (max. 500000)
  391 words of extra memory for PDF output out of 10000 (max. 10000000)
 
