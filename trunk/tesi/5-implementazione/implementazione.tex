@@ -209,10 +209,37 @@ In figure \ref{graph-example}
 
 
 \section{M2MShare Implementation}
+In this section will be described the implementation of the modules composing M2MShare into THE\_ONE. As said earlier in Section \ref{simulatore}, every routing protocol is an extension of a common superclass named \textit{MessageRouter} and, according to the THE\_ONE philosophy, every new routing module can be inserted extending that class and it can be consequently used in configuration time to set the routing behaviour of nodes.
+\\
+
+M2MShare implementation consists in the main class extending \textit{MessageRouter}, named \textit{M2MShareRouter}, and several other classes contained into the package \textit{routing.m2mShare}.
 
 \subsection{M2MShareRouter}
+As earlier said, this is the main class of M2MShare implementation. Its first responsibility is to load the related settings as set in configuration files (see Section \ref{configurazioneONE}) and initializes all the modules needed to the execution of the protocol. These are the entities which will be later described and are responsible of the different aspects of the protocol. Values used to initialize the settings are read from configuration files and are all included in the settings namespace \textit{M2MShareRouter}. Every parameter have a default value, used in case it is not specified in any configuration file. Here are shown the available parameters and, shown in brackets, the relative default value:
+\begin{itemize}
+\item \textbf{M2MShareRouter.frequencyThreshold [2]} indicates the minimum number of encounter times needed for elect as servant a peer and consequently delegate to him a task
+\item \textbf{M2MShareRouter.scanFrequency [10]} indicates how many seconds the \textit{PresenceCollector} have to wait between a scan and the next one
+\item \textbf{M2MShareRouter.delegationType [1]} indicates the type of delegation strategy used. It accept three values:
+\begin{itemize}
+\item \textbf{0:} do not use delegation and file exchange is initiated only when a peer holding the requested data file is found in reach area 
+\item \textbf{1:} use the M2MShare technique where missing tasks are delegated only to peers which exceed the \textit{frequencyThreshold} value
+\item \textbf{2:} use the trivial technique where missing tasks are delegated to each encountered peer
+\end{itemize}
+\item \textbf{M2MShareRouter.fileDivisionType [1]} indicates the type of file division strategy used. It accept three values:
+\begin{itemize}
+\item \textbf{0:} for every file transfer is requested the entire file
+\item \textbf{1:} use the M2MShare technique to choose the initial download point in the requested file
+\item \textbf{2:} randomly choose the initial download point in the requested file
+\end{itemize}
+\item \textbf{M2MShareRouter.useBroadcastModule [true]} used to enable/disable the broadcast module. Could be useful to speed-up simulations, at the cost of a loss of precision
+\item \textbf{M2MShareRouter.delegationDepth [1]} indicates the maximum times a task can be delegated, starting from the initial requester
+\item \textbf{M2MShareRouter.stopOnFirstFileRequestSatisfied [false]} used to make the simulation stop when the first File Request has been satisfied. Can be useful in simulations in which we are not interested in what happens after the File Request satisfaction
+\end{itemize}
+
+The class \textit{M2MShareRouter} also extends the superclass \textit{MessageRouter} and doing so it override the main method of this class: \textit{update()}. As said in Section \ref{esecuzioneONE}, that method is called one time for every simulated time interval, after the update of movement and connections of the node. In \textit{M2MShareRouter} the only action executed in \textit{update()} is to call the method \textit{runUpdate()} in module \textit{Scheduler}, described in section \ref{schedulerImplementazione}.
 
 \subsection{PresenceCollector}
+The module \textit{PresenceCollector} is responsible of gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation.
 
 \subsection{QueuingCentral}
 
@@ -222,6 +249,7 @@ In figure \ref{graph-example}
 \paragraph{DTNDownloadFwd}
 
 \subsection{Scheduler}
+\label{schedulerImplementazione}
 \paragraph{Executor}
 \paragraph{Communicator}
 
