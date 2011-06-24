@@ -64,6 +64,8 @@ public class mainAnalisysRidondanzaData {
 			double sum = 0;
 			
 			for(int ifile=0; ifile< files[strat].length; ifile++){
+				double[] dataThisFile = new double[72];
+				
 				File currentFile = files[strat][ifile];
 				Scanner scanner = null;
 				try {
@@ -85,13 +87,27 @@ public class mainAnalisysRidondanzaData {
 					line = line.substring(line.indexOf('\t')+1);
 					String dest = line.substring(0, line.indexOf('\t'));
 					line = line.substring(line.indexOf('\t')+1);
-					long data = Long.parseLong(line);
+					//data in MB
+					double data =  Double.parseDouble(line) / 1000000;				
+					
 					//System.err.println(""+time+"-"+source+"-"+dest+"-"+data);
 					if(dest.equals(REQUESTER_NODE) || source.equals(REQUESTER_NODE)){
 						continue;
 					}
+					int ora = (int) (time / 3600);
+					if(ora > dataThisFile.length){
+						continue;
+					}
+					for(int i=ora; i<dataThisFile.length; i++){
+						dataThisFile[i] += data;
+					}
 				}
 				scanner.close();
+				
+				for(int i=0; i<dataThisFile.length; i++){
+					System.err.print(dataThisFile[i]+" ");
+				}
+				System.err.println();
 			}
 		}
 		
