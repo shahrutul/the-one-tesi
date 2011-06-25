@@ -693,5 +693,11 @@ public abstract class MessageRouter {
 		}
 	}
 	
+	public void notifyDataRedundancyUpdated(DTNHost where, int bytes) {
+		for (FileEventListener ql : this.qListeners) {
+			ql.dataRedundancyUpdated(where, bytes);
+		}
+	}
+	
 	
 }

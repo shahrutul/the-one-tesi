@@ -96,6 +96,7 @@ public class DTNScheduler {
 			if(((DTNDownloadFwd)activity).getMaxEndTime() <= SimClock.getTime()){
 				myRouter.notifyDownloadFWDExpired(myRouter.getHost(),
 						((DTNDownloadFwd)activity).getRequestor(), ((DTNDownloadFwd)activity).getFileHash());
+				myRouter.notifyDataRedundancyUpdated(myRouter.getHost(), ((DTNDownloadFwd)activity).getMap().mapBytesSize() * -1);
 				return;
 			}
 			//execute(activity, QueuingCentral.DTN_PENDING_UPLOAD_ID);
@@ -138,6 +139,8 @@ public class DTNScheduler {
 			if(((DTNPendingDownload)activity).getMaxEndTime() <= SimClock.getTime()){
 				myRouter.notifyPendingDownloadExpired(myRouter.getHost(),
 						((DTNPendingDownload)activity).getRequestor(), ((DTNPendingDownload)activity).getFilehash());
+				myRouter.notifyDataRedundancyUpdated(myRouter.getHost(), ((DTNPendingDownload)activity).getDataDownloaded() * -1);
+				
 				return;
 			}
 			if(executors[2].isReady()){			

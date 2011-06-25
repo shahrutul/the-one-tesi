@@ -901,6 +901,14 @@ public class IntervalMap{
 		return s;
 	}
 
+	public int mapBytesSize() {
+		int total=0;
+    	for(Interval interval: intervals){
+    		total += interval.size();
+    	}
+    	return total;
+	}
+
 	
 
 }

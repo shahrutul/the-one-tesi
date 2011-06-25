@@ -1,0 +1,67 @@
+
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_50_FT%%M2MShareRouter.frequencyThreshold%%
+Scenario.simulateConnections = true
+Scenario.simulateFiles = true
+Scenario.updateInterval = 0.5
+
+# 43k ~= 12h
+# 86k ~= 24h
+# 172k ~= 48h
+# 602k ~= 1 week
+Scenario.endTime = 602k
+
+###################################
+### common settings for all groups
+Group.movementModel = MapBasedMovement
+Group.router = M2MShareRouter
+Group.transmitRange = 10
+# transmit speed of 2 Mbps = 250kBps
+Group.transmitSpeed = 100k
+
+###################################
+# path to files generation input files
+FilesGenerator.filepath = filesInput/50copie_uniform.txt
+#FilesGenerator.filepath = filesInput/25copie_group.txt
+#FilesGenerator.filepath = filesInput/1copia_a_60.txt
+
+###################################
+# How many event generators
+Events.nrof = 1
+Events1.class = M2MShareFileRequestReader
+Events1.queryFile = queries/single_query.txt
+
+# seed for movement models' pseudo random number generator (default = 0)
+#MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
+
+## Reports - all report names have to be valid report classes
+# how many reports to load
+Report.nrofReports = 4
+# default directory of reports (can be overriden per Report with output setting)
+#Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
+Report.reportDir = reports/redundancy/
+# Report classes to load
+Report.report1 = DataRedundancyLog
+Report.report2 = FileGatheringLog
+Report.report3 = DataTransferLog
+Report.report4 = FileGatheringReport
+
+###################################
+# M2MShare settings
+M2MShareRouter.useBroadcastModule = true
+M2MShareRouter.frequencyThreshold = 3
+M2MShareRouter.delegationDepth = 1
+M2MShareRouter.stopOnFirstQuerySatisfied = false
+
+# delegationType values: 
+#			0 = no delegation
+#			1 = delegation after frequencyThreshold
+#			2 = delegation to all
+M2MShareRouter.delegationType = [0;1;2]
+
+# fileDivisionType values: 
+#			0 = all file
+#			1 = m2mshare file division
+#			2 = random starting point
+M2MShareRouter.fileDivisionType = 1
+
+

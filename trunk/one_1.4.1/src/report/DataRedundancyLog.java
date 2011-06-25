@@ -3,14 +3,14 @@ package report;
 import core.DTNHost;
 import core.FileEventListener;
 
-public class DataTransferLog extends Report implements FileEventListener {
+public class DataRedundancyLog extends Report implements FileEventListener {
 	
 	
 	
 	/**
 	 * Constructor.
 	 */
-	public DataTransferLog() {
+	public DataRedundancyLog() {
 		init();
 	}
 	
@@ -25,10 +25,14 @@ public class DataTransferLog extends Report implements FileEventListener {
 		super.done();
 	}	
 
+
 	@Override
-	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {
-		write(format(getSimTime()) + "\t" + from + "\t" + to + "\t" + bytes);			
+	public void dataRedundancyUpdated(DTNHost where, int bytes) {
+		write(format(getSimTime()) + "\t" + where + "\t" + bytes);
 	}
+
+	@Override
+	public void dataTransferred(DTNHost from, DTNHost to, int bytes) {}
 
 	@Override
 	public void newVirtualFile(DTNHost where, String filehash) {}
@@ -55,8 +59,5 @@ public class DataTransferLog extends Report implements FileEventListener {
 	@Override
 	public void pendingDownloadCompleted(DTNHost where, DTNHost requestor,
 			String filehash) {}
-
-	@Override
-	public void dataRedundancyUpdated(DTNHost where, int bytes) {}
 
 }
