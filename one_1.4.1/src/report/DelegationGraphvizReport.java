@@ -64,4 +64,7 @@ public class DelegationGraphvizReport extends Report implements
 	public void fileRequestSatisfied(DTNHost where, String filehash,
 			boolean selfSatisfied) {}
 
+	@Override
+	public void dataRedundancyUpdated(DTNHost where, int bytes) {}
+
 }

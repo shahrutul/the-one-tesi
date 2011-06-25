@@ -15,6 +15,7 @@ public class DTNPendingDownload extends DTNActivity {
 	private DTNHost requestor;
 	private String filehash;
 	private IntervalMap map;
+	private IntervalMap originalMap;
 	private double maxEndTime;
 	private M2MShareRouter myRouter;
 	//private int hop;
@@ -26,6 +27,7 @@ public class DTNPendingDownload extends DTNActivity {
 		this.requestor = requestor;
 		this.filehash = filehash;
 		this.map = map;
+		this.originalMap = new IntervalMap(map.assignRestofMap());
 		this.maxEndTime = SimClock.getTime()+ttl;
 		this.myRouter = m2mShareRouter;
 		setID(myRouter.getNextId());
@@ -118,7 +120,7 @@ public class DTNPendingDownload extends DTNActivity {
 	public void setCompleted() {
 		super.setCompleted();
 		myRouter.notifyPendingDownloadCompleted(myRouter.getHost(), requestor, filehash);
-		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, map, filehash, maxEndTime, originalActivityId, myRouter);
+		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, originalMap, filehash, maxEndTime, originalActivityId, myRouter);
 		myRouter.addDownloadFwd(newActivity);		
 	}
 
@@ -135,6 +137,7 @@ public class DTNPendingDownload extends DTNActivity {
 	@Override
 	public void addTransferredData(int[] intervals, DTNHost from) {
 		int bytesTrasferred = 0;
+		int initialMapSize = map.mapBytesSize();
 
 		try {
 			for(int i=0; i<intervals.length-1; i+=2){
@@ -145,9 +148,10 @@ public class DTNPendingDownload extends DTNActivity {
 
 		} catch (Exception e) {
 		}
-
+		int finalMapSize = map.mapBytesSize();
 
 		myRouter.notifyDataTransferred(from, myRouter.getHost(), bytesTrasferred);
+		myRouter.notifyDataRedundancyUpdated(myRouter.getHost(), initialMapSize-finalMapSize);
 		if(map.mapSize() == 0){
 			setCompleted();
 			System.err.println(SimClock.getTime() + " - "+ myRouter.getHost() + "PENDING completa");
@@ -173,6 +177,11 @@ public class DTNPendingDownload extends DTNActivity {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	
+	public int getDataDownloaded(){
+		return originalMap.mapBytesSize() - map.mapBytesSize();
 	}
 	
 	

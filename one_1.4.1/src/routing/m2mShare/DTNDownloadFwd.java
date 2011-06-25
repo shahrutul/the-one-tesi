@@ -90,6 +90,7 @@ public class DTNDownloadFwd extends DTNActivity {
 	public void setCompleted() {		
 		super.setCompleted();
 		myRouter.notifyDownloadFWDReturned(myRouter.getHost(), requestor, filehash);
+		myRouter.notifyDataRedundancyUpdated(myRouter.getHost(), map.mapBytesSize() * -1);
 		((M2MShareRouter)requestor.getRouter()).notifyDownloadFwdCompleted(myRouter.getHost());
 	}
 	

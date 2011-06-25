@@ -114,5 +114,8 @@ public class FileGatheringReport extends Report implements FileEventListener{
 			SimScenario.getInstance().getWorld().cancelSim();
 		}
 	}
+
+	@Override
+	public void dataRedundancyUpdated(DTNHost where, int bytes) {}
 	
 }

@@ -80,5 +80,8 @@ public class FileGatheringLog extends Report implements FileEventListener{
 		write(format(getSimTime()) + " PendingDownload completed in " + 
 				where + " (" + filehash + " requested by "+requestor + ")");	
 	}
+
+	@Override
+	public void dataRedundancyUpdated(DTNHost where, int bytes) {}
 	
 }
