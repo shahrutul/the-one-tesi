@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class mainAnalisysRidondanzaData {
-	private static final String REPORTS_DIR = "reports/testNuovissimi";
+	private static final String REPORTS_DIR = "reports/redundancy";
 	private static final String OUTPUT_FILE = "reports/datiRidondanzaDati.dat";
 	private static final String DATA_LOG_SUFFIX = "DataRedundancyLog.txt";
 	
@@ -104,9 +104,7 @@ public class mainAnalisysRidondanzaData {
 					
 					for(int i=ora; i<HOURS_ANALIZED; i++){
 						dataThisStratSum[i] += data;
-						if(dataThisStratSum[i]<0){
-							dataThisStratSum[i] = 0;
-						}
+						
 					}
 					
 				}
@@ -128,46 +126,32 @@ public class mainAnalisysRidondanzaData {
 				
 			}
 			
-			System.err.println(tFilesLetti);
 			for (int i = 0; i < dataThisStratSum.length; i++) {
 				totAvgs[strat][i] = dataThisStratSum[i] / tFilesLetti;
+				if(totAvgs[strat][i]<0){
+					totAvgs[strat][i] = 0;
+				}
 				System.out.print(totAvgs[strat][i] + " ");
 			}
 			System.out.println();
 		}
 
-		/*
-		 * FIles dei dati x i tempi del virtual file try { PrintWriter out = new
-		 * PrintWriter(new FileWriter(OUTPUT_FILE));
-		 * out.println("Strat\tM2MShare\tDelegation_To_all");
-		 * out.print(labels[0]); for(int i=1; i<3; i++){ out.print("\t" +
-		 * totAvgs[i]); } out.println(); out.print(labels[1]); for(int i=1; i<3;
-		 * i++){ out.print("\t" + totMins[i]); } out.println();
-		 * out.print(labels[2]); for(int i=1; i<3; i++){ out.print("\t" +
-		 * totMaxs[i]); } out.println(); out.close(); } catch (IOException e) {
-		 * e.printStackTrace(); }
-		 */
-	}
-
-	private static void aggiornaMap(HashMap<String, double[]> dataInNode,
-			String dest, double data, int ora) {
-		
-		double[] datas = dataInNode.get(dest);
-		if(datas == null){
-			datas = new double[HOURS_ANALIZED];
-		}
-		if(data == -1){
-			double temp = datas[ora];
-			for (int i = ora; i < HOURS_ANALIZED; i++) {
-				datas[i] -= temp;
+		try {
+			PrintWriter out = new PrintWriter(new FileWriter(OUTPUT_FILE));
+			out.println("Time\tNo_delegation\tM2MShare\tDelegation_to_all");
+			for(int h = 0; h<HOURS_ANALIZED; h++){				
+				out.print(h);
+				for(int strat=0; strat<3; strat++){	
+					out.print("\t" + (totAvgs[strat][h]));
+				}
+				out.println();
 			}
+			
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		else{
-			for (int i = ora; i < HOURS_ANALIZED; i++) {
-				datas[i] += data;
-			}
-		}
-		dataInNode.put(dest, datas);
+		 
 	}
 
 }

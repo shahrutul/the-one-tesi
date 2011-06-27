@@ -38,7 +38,7 @@ Events1.queryFile = queries/single_query.txt
 Report.nrofReports = 4
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
-Report.reportDir = reports/redundancy/
+Report.reportDir = reports/redundancy2/
 # Report classes to load
 Report.report1 = DataRedundancyLog
 Report.report2 = FileGatheringLog
@@ -48,7 +48,7 @@ Report.report4 = FileGatheringReport
 ###################################
 # M2MShare settings
 M2MShareRouter.useBroadcastModule = true
-M2MShareRouter.frequencyThreshold = 3
+M2MShareRouter.frequencyThreshold = 2
 M2MShareRouter.delegationDepth = 1
 M2MShareRouter.stopOnFirstQuerySatisfied = false
 
