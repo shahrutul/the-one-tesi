@@ -229,7 +229,7 @@ public class M2MShareRouter extends ActiveRouter {
 
 			}
 			catch(NoActivityInQueueException e){}
-		}/*
+		}
 		//I delegate also pendingDownloads
 		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_ID); i++){
 			try{
@@ -265,7 +265,7 @@ public class M2MShareRouter extends ActiveRouter {
 
 			}
 			catch(NoActivityInQueueException e){}
-		}*/
+		}
 	}
 	
 
