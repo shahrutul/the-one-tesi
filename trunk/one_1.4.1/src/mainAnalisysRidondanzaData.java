@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class mainAnalisysRidondanzaData {
-	private static final String REPORTS_DIR = "reports/redundancy";
+	private static final String REPORTS_DIR = "reports/redundancy2";
 	private static final String OUTPUT_FILE = "reports/datiRidondanzaDati.dat";
 	private static final String DATA_LOG_SUFFIX = "DataRedundancyLog.txt";
 	

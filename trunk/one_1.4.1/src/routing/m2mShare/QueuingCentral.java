@@ -92,11 +92,11 @@ public class QueuingCentral {
 	}
 
 
-	public DTNActivity getActivityFromID(int activityID) {
+	public DTNActivity getActivityFromID(String activityID) {
 		try{
 			for(int i=0; i < 6; i++){
 				for(DTNActivity activity: queues.get(i)){
-					if(activity.getID() == activityID){
+					if(activity.getID().equals(activityID)){
 						return activity;
 					}
 				}
