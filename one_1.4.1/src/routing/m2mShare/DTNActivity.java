@@ -10,7 +10,7 @@ public abstract class DTNActivity {
 	public static final int STATE_INCOMPLETE = 3;
 	
 	private int state = 0;
-	private int id;
+	private String id;
 
 	/**
 	 * The Activity execution function
@@ -39,11 +39,11 @@ public abstract class DTNActivity {
 
 	public abstract int[] getRestOfMap();
 
-	public void setID(int id){
+	public void setID(String id){
 		this.id = id;
 	}
 	
-	public int getID() {		
+	public String getID() {		
 		return id;
 	}
 

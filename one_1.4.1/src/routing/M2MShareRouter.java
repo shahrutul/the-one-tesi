@@ -51,7 +51,9 @@ public class M2MShareRouter extends ActiveRouter {
 	public static final int FREQUENCY_THRESHOLD = 2;
 	public static final int SCAN_FREQUENCY = 10;
 	
-	
+	/* wait one day before redelegate a pending task */
+	private static final int WAIT_BEFORE_REDELEGATE = 86400;
+		
 	private int frequencyThreshold;
 	private boolean useDelegation;
 	private boolean delegateToAll;
@@ -194,15 +196,17 @@ public class M2MShareRouter extends ActiveRouter {
 	
 
 	public void delegate(DTNHost otherHost) {
+		/*
 		if(alreadyDelegated(otherHost)){
 			return;
-		}		
+		}		*/
 		M2MShareRouter otherRouter = (M2MShareRouter) otherHost.getRouter();
 		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.VIRTUAL_FILE_QUEUE_ID); i++){
 			try{				
 				VirtualFile virtualFile = (VirtualFile) queuingCentral.pop(QueuingCentral.VIRTUAL_FILE_QUEUE_ID);
 				/* Moved here for performance reasons */
-				if(!otherRouter.containsPendingDownload(getHost(), virtualFile.getFileHash())){
+				//if(!otherRouter.containsPendingDownload(getHost(), virtualFile.getFileHash())){
+				if(!otherRouter.hasPendingTask(virtualFile.getID())){
 					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
 					int[] newMap = virtualFile.getMapForDelegation(fileDivisionStrategyType);
 					if(newMap == null){
@@ -216,9 +220,9 @@ public class M2MShareRouter extends ActiveRouter {
 							virtualFile.getFileHash(),
 							new IntervalMap(newMap),
 							presenceCollector.getDelegationTTL(),
-							delChain,
-							virtualFile.getID(), 
-							otherRouter
+							delChain,							 
+							otherRouter,
+							virtualFile.getID()
 					);
 
 					if(otherRouter.addPendingDownload(newActivity)){
@@ -229,12 +233,15 @@ public class M2MShareRouter extends ActiveRouter {
 
 			}
 			catch(NoActivityInQueueException e){}
-		}/*
+		}
 		//I delegate also pendingDownloads
 		for(int i=0; i < queuingCentral.getQueueSize(QueuingCentral.DTN_PENDING_ID); i++){
 			try{
 				DTNPendingDownload pendingToDelegate = (DTNPendingDownload) queuingCentral.pop(QueuingCentral.DTN_PENDING_ID);
-				if((!pendingToDelegate.getDelegationChain().contains(otherHost)) && 
+				
+				if((SimClock.getTime() >= (pendingToDelegate.getReceivingTime() + WAIT_BEFORE_REDELEGATE)) &&
+						!otherRouter.hasPendingTask(pendingToDelegate.getID()) &&
+						(!pendingToDelegate.getDelegationChain().contains(otherHost)) && 
 						pendingToDelegate.getHop() < getDelegationDepth()){
 					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
 					int[] newMap = pendingToDelegate.getMapForDelegation(fileDivisionStrategyType);
@@ -251,9 +258,9 @@ public class M2MShareRouter extends ActiveRouter {
 							new IntervalMap(newMap),
 							presenceCollector.getDelegationTTL(),
 							//pendingToDelegate.getHop() + 1,
-							newDelChain,
-							pendingToDelegate.getID(), 
-							otherRouter
+							newDelChain,							
+							otherRouter,
+							pendingToDelegate.getID()
 					);
 
 					if(otherRouter.addPendingDownload(newActivity)){
@@ -265,9 +272,15 @@ public class M2MShareRouter extends ActiveRouter {
 
 			}
 			catch(NoActivityInQueueException e){}
-		}*/
+		}
 	}
 	
+
+	private boolean hasPendingTask(String activityID) {
+		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
+		return vf != null;
+	}
+
 
 	private void putServant(DTNHost otherHost){
 		if(servants.containsKey(otherHost)){
@@ -313,8 +326,8 @@ public class M2MShareRouter extends ActiveRouter {
 		return this.scheduler;
 	}
 	
-	public int getNextId(){
-		return idGenerator.getNextId();
+	public String getNextId(){
+		return getHost().toString()+"_"+idGenerator.getNextId();
 	}
 	
 	
@@ -359,8 +372,6 @@ public class M2MShareRouter extends ActiveRouter {
 
 
 
-
-
 	public boolean containsPendingDownload(DTNHost requestor, String filehash) {
 		return queuingCentral.containsPendingDownload(requestor, filehash);
 	}
@@ -399,7 +410,7 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
-	public int[] getIntervalsForDownloadFwd(int activityID) {
+	public int[] getIntervalsForDownloadFwd(String activityID) {
 		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
 		if(vf == null){
 			return null;
@@ -408,7 +419,7 @@ public class M2MShareRouter extends ActiveRouter {
 	}
 
 
-	public void dataFromDownloadFwd(int activityID, int[] intervals, DTNHost from) {
+	public void dataFromDownloadFwd(String activityID, int[] intervals, DTNHost from) {
 		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
 		if(vf == null){
 			return;

@@ -9,25 +9,23 @@ public class DTNDownloadFwd extends DTNActivity {
 	private DTNHost requestor;
 	private IntervalMap map;
 	private String filehash;
-	private int originalActivityID;
 	private M2MShareRouter myRouter;
 	private double maxEndTime;
 
-	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, int originalActivityID, M2MShareRouter myRouter) {
+	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, M2MShareRouter myRouter, String taskID) {
 		this.requestor = requestor;
 		this.map = map;
 		this.filehash = filehash;
 		this.myRouter = myRouter;
 		this.maxEndTime = maxEndTime;
-		this.originalActivityID = originalActivityID;
-		setID(myRouter.getNextId());
+		setID(taskID);
 	}
 
 	@Override
 	public void execute(Executor executor) {
 		setActive();
 		if(myRouter.getPresenceCollector().isHostInRange(requestor) && executor.moreCommunicatorsAvailable()){
-			int[] missingRestOfMap = ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID);
+			int[] missingRestOfMap = ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID());
 			if(missingRestOfMap == null){
 				setCompleted();
 				return;
@@ -71,15 +69,15 @@ public class DTNDownloadFwd extends DTNActivity {
 	
 	@Override
 	public void addTransferredData(int[] intervals, DTNHost from) {
-		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(originalActivityID, intervals, myRouter.getHost());		
-		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID) == null){
+		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(getID(), intervals, myRouter.getHost());		
+		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID()) == null){
 			setCompleted();
 		}
 	}
 
 	@Override
 	public int[] getRestOfMap() {
-		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(originalActivityID);
+		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID());
 	}
 
 	public String getFileHash() {

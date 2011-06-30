@@ -3,7 +3,9 @@ package input;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -14,11 +16,14 @@ import core.SimError;
 public class M2MShareFileRequestReader implements EventQueue {
 
 	private static final String FILE_PATH_S = "queryFile";
+
+	/** file request generator's rng seed -setting id ({@value})*/
+	public static final String RNG_SEED = "rngSeed";
 	private String filePath;
 	private List<M2MShareFileRequestEvent> queries;
 	private Scanner scanner;
 	private int nextEventIndex;
-	
+	private Random rng; 
 	
 
 	public M2MShareFileRequestReader(Settings s){
@@ -30,9 +35,16 @@ public class M2MShareFileRequestReader implements EventQueue {
 			throw new SimError(e.getMessage(),e);
 		}
 		
+		if (s.contains(RNG_SEED)) {
+			int seed = s.getInt(RNG_SEED);
+			rng = new Random(seed);
+		}
+		else {
+			rng = new Random(0);
+		}
+		
 		queries = readQueries();
 		this.nextEventIndex = 0;
-
 		System.out.println("Queries to generate: "+queries.size());
 	}
 
@@ -79,17 +91,40 @@ public class M2MShareFileRequestReader implements EventQueue {
 				continue;
 			}
 			
-			double time;
+			double time=0;
 			int fromAddr;
 			String filename;			
 					
 			try {
 				time = lineScan.nextDouble();
+				
+				
 				fromAddr = lineScan.nextInt();	
 				filename = lineScan.next();
 				
 				queriesList.add(new M2MShareFileRequestEvent
 						(time, fromAddr, filename));
+
+
+				// discard the newline in the end
+				if (lineScan.hasNextLine()) {
+					lineScan.nextLine(); // TODO: test
+				}
+				queriesRead++;				
+			} catch(InputMismatchException e){
+				@SuppressWarnings("unused")
+				String type = lineScan.next();
+				
+				time = lineScan.nextDouble();
+				int group = lineScan.nextInt();
+				int hostID = rng.nextInt(1024);
+				//System.err.println(hostID + " in group "+group+" - "+(hostID % 50));
+				
+					
+				filename = lineScan.next();
+
+				queriesList.add(new M2MShareFileRequestEvent
+						(time, hostID, filename, group));
 
 
 				// discard the newline in the end

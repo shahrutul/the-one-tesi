@@ -3,6 +3,7 @@ package routing.m2mShare;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Vector;
 
 import routing.M2MShareRouter;
 
@@ -14,6 +15,8 @@ public class DTNPresenceCollector {
 	
 	/** default probation window value = 2 days */
 	private static final int PROBATION_WINDOW_DEFAULT_SIZE = 2;
+
+	private static final int MAX_ENCOUNTERS_SIZE = 100;
 	
 	private M2MShareRouter myRouter;	
 	
@@ -25,6 +28,7 @@ public class DTNPresenceCollector {
 	
 	/** encounters list */
 	private Map<DTNHost, Integer> encounters;
+	private Map<DTNHost, Double> encountersTimes;
 	
 	private Map<DTNHost, Connection> hostsInRange;
 	private Map<Connection, DTNHost> connections;
@@ -48,6 +52,7 @@ public class DTNPresenceCollector {
 		this.encounters = new HashMap<DTNHost, Integer>();
 		this.hostsInRange = new HashMap<DTNHost, Connection>();
 		this.connections = new HashMap<Connection, DTNHost>();
+		this.encountersTimes = new HashMap<DTNHost, Double>();
 		//this.connectionsDuration = new HashMap<DTNHost, Double>();
 		this.servantsThisDay = 0;
 	}
@@ -56,6 +61,7 @@ public class DTNPresenceCollector {
 		/* tune parameters every day */
 		if(SimClock.getTime() >= lastAdaptTime + 86400){
 			pw_adapt();
+			removeOldEncounters();
 			lastAdaptTime = SimClock.getTime();
 			servantsThisDay = 0;
 		}
@@ -92,8 +98,8 @@ public class DTNPresenceCollector {
 							myRouter.delegate(otherHost);							
 							encounters.remove(otherHost);
 						}
-						else{
-							encounters.put(otherHost, newEncountersValue);
+						else{							
+							insertEncounter(otherHost, newEncountersValue);
 						}
 					}
 					
@@ -105,6 +111,30 @@ public class DTNPresenceCollector {
 		}		
 	}
 	
+	private void removeOldEncounters() {
+		Vector<DTNHost> markedHosts = new Vector<DTNHost>();
+		for(DTNHost otherHost: encountersTimes.keySet()){
+			if(encountersTimes.get(otherHost) <= (SimClock.getTime()-probationWindow*86400)){
+				markedHosts.remove(otherHost);
+			}
+		}
+		for(DTNHost hostToRemove: markedHosts){
+			encountersTimes.remove(hostToRemove);
+		}
+	}
+
+	private void insertEncounter(DTNHost otherHost, int newEncountersValue) {
+		if(encounters.values().size() >= MAX_ENCOUNTERS_SIZE){
+			/* no more space for insert the encounter */
+			return;
+		}
+		if(getEncountersFor(otherHost) == 0){
+			/* first insert */
+			encountersTimes.put(otherHost, SimClock.getTime());
+		}
+		encounters.put(otherHost, newEncountersValue);
+	}
+
 	/**
 	 * Checks if the PresenceCollector is currently in the scanning mode
 	 * @return True if the PresenceCollector is scanning; false if not
@@ -126,7 +156,7 @@ public class DTNPresenceCollector {
 	
 	
 	private void pw_adapt(){
-		int L = 100;
+		int L = MAX_ENCOUNTERS_SIZE;
 		expectedRatio = L / probationWindow;
 		int activeRatio = this.servantsThisDay;
 		

@@ -385,6 +385,14 @@ public class SimScenario implements Serializable {
 	}
 	
 	/**
+	 * Returns sizes of the various groups in the simulated world
+	 * @return sizes of the various groups in the simulated world
+	 */
+	public int[] getGroupSizes(){
+		return groupSizes;
+	}
+	
+	/**
 	 * Creates hosts for the scenario
 	 */
 	protected void createHosts() {

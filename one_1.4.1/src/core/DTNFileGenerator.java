@@ -15,7 +15,7 @@ public class DTNFileGenerator {
 	private static final String FILES_NS = "FilesGenerator";
 	/** file containing files definition ({@value})*/
 	public static final String FILES_FILE_S = "filepath";
-	/** dile generator's rng seed -setting id ({@value})*/
+	/** file generator's rng seed -setting id ({@value})*/
 	public static final String RNG_SEED = "rngSeed";
 
 	private SimScenario simScenario;
