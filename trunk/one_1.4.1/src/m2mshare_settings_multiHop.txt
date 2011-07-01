@@ -1,5 +1,5 @@
 
-Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_multiHop
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_Del%%M2MShareRouter.delegationType%%_FDS%%M2MShareRouter.fileDivisionType%%_multiHop_%%M2MShareRouter.delegationDepth%%
 Scenario.simulateConnections = true
 Scenario.simulateFiles = true
 Scenario.updateInterval = 0.5
