@@ -1,5 +1,7 @@
 package routing.m2mShare;
 
+import java.util.Vector;
+
 import routing.M2MShareRouter;
 
 import core.DTNHost;
@@ -11,14 +13,16 @@ public class DTNDownloadFwd extends DTNActivity {
 	private String filehash;
 	private M2MShareRouter myRouter;
 	private double maxEndTime;
+	private Vector<DTNHost> delegationChain;
 
-	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, M2MShareRouter myRouter, String taskID) {
+	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, M2MShareRouter myRouter, String taskID, Vector<DTNHost> delegationChain) {
 		this.requestor = requestor;
 		this.map = map;
 		this.filehash = filehash;
 		this.myRouter = myRouter;
 		this.maxEndTime = maxEndTime;
 		setID(taskID);
+		this.delegationChain = delegationChain;
 	}
 
 	@Override

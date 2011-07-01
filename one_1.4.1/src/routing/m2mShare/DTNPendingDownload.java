@@ -125,7 +125,7 @@ public class DTNPendingDownload extends DTNActivity {
 	public void setCompleted() {
 		super.setCompleted();
 		myRouter.notifyPendingDownloadCompleted(myRouter.getHost(), requestor, filehash);
-		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, originalMap, filehash, maxEndTime, myRouter, getID());
+		DTNDownloadFwd newActivity = new DTNDownloadFwd(requestor, originalMap, filehash, maxEndTime, myRouter, getID(), delegationChain);
 		myRouter.addDownloadFwd(newActivity);		
 	}
 
