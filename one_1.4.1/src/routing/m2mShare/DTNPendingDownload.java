@@ -18,6 +18,7 @@ public class DTNPendingDownload extends DTNActivity {
 	private IntervalMap originalMap;
 	private double maxEndTime;
 	private double receivingTime;
+	private long requestorTTL;
 	private M2MShareRouter myRouter;
 	//private int hop;
 	private Vector<DTNHost> delegationChain;
@@ -28,12 +29,13 @@ public class DTNPendingDownload extends DTNActivity {
 		this.filehash = filehash;
 		this.map = map;
 		this.originalMap = new IntervalMap(map.assignRestofMap());
-		this.maxEndTime = SimClock.getTime()+ttl;
 		this.myRouter = m2mShareRouter;
 		setID(taskID);
 		//this.hop = hop;
 		this.delegationChain = delegationChain;
+		this.requestorTTL = ttl;
 		this.receivingTime = SimClock.getTime();
+		this.maxEndTime = receivingTime + requestorTTL;
 	}
 
 
@@ -187,6 +189,12 @@ public class DTNPendingDownload extends DTNActivity {
 	
 	public int getDataDownloaded(){
 		return originalMap.mapBytesSize() - map.mapBytesSize();
+	}
+
+
+	public void updateTTL() {
+		int hopLeft = myRouter.getDelegationDepth() - getHop();
+		maxEndTime = receivingTime + requestorTTL + (myRouter.getPresenceCollector().getDelegationTTL() * hopLeft);
 	}
 	
 	
