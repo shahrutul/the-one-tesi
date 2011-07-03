@@ -21,7 +21,7 @@ Group.transmitSpeed = 100k
 ###################################
 # path to files generation input files
 #FilesGenerator.filepath = filesInput/50copie_uniform.txt
-FilesGenerator.filepath = filesInput/25copie_group.txt
+FilesGenerator.filepath = filesInput/50copie_group.txt
 #FilesGenerator.filepath = filesInput/1copia_a_60.txt
 
 ###################################

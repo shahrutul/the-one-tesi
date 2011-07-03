@@ -264,6 +264,8 @@ public class M2MShareRouter extends ActiveRouter {
 					);
 
 					if(otherRouter.addPendingDownload(newActivity)){
+						//update original Activity's TTL
+						pendingToDelegate.updateTTL();
 						putServant(otherHost);
 					}
 				}
