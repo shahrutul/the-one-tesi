@@ -48,6 +48,7 @@ Lo presenza del file system simulato, rappresentato da un'istanza della classe D
 \end{description}
 
 \paragraph{DTNFileGenerator}
+\label{fileGeneratorImplementazione}
 Per simulare la distribuzione di files fra i vari nodi, all'inizio della simulazione, è stato creato un generatore che, a partire da uno o più files di input, crea i vari \textit{DTNFiles} e li distribuisce fra i nodi, a seconda di quanto configurato.
 \\
 Ogni file di input può contenere più \textit{DTNFileCreationRequest}, ognuna delle quali descrive il \textit{DTNFile} da creare e come distribuirlo fra i nodi della simulazione. Una \textit{DTNFileCreationRequest} contiene al proprio interno:
