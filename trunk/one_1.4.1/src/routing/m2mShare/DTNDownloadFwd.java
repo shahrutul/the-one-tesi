@@ -14,6 +14,8 @@ public class DTNDownloadFwd extends DTNActivity {
 	private M2MShareRouter myRouter;
 	private double maxEndTime;
 	private Vector<DTNHost> delegationChain;
+	
+	private DTNHost currentRequestor;
 
 	public DTNDownloadFwd(DTNHost requestor, IntervalMap map, String filehash, double maxEndTime, M2MShareRouter myRouter, String taskID, Vector<DTNHost> delegationChain) {
 		this.requestor = requestor;
@@ -28,22 +30,25 @@ public class DTNDownloadFwd extends DTNActivity {
 	@Override
 	public void execute(Executor executor) {
 		setActive();
-		if(myRouter.getPresenceCollector().isHostInRange(requestor) && executor.moreCommunicatorsAvailable()){
-			int[] missingRestOfMap = ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID());
+		currentRequestor = null;
+		/* Check if there is a valid host to which return the task output */
+		for(int i=0; i<delegationChain.size() && currentRequestor == null; i++){
+			if(myRouter.getPresenceCollector().isHostInRange(delegationChain.get(i))){
+				currentRequestor = delegationChain.get(i);
+			}
+		}
+		
+		if(currentRequestor != null && executor.moreCommunicatorsAvailable()){
+			int[] missingRestOfMap = ((M2MShareRouter)currentRequestor.getRouter()).getIntervalsForDownloadFwd(getID());
 			if(missingRestOfMap == null){
 				setCompleted();
 				return;
 			}
-			System.err.println(myRouter.getHost() + " - in DTNDownloadFwd.execute comincio a trasferire a "+requestor);
-			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(requestor), myRouter.getHost(), filehash, missingRestOfMap);
+			System.err.println(myRouter.getHost() + " - in DTNDownloadFwd.execute comincio a trasferire a "+currentRequestor);
+			executor.addCommunicator(myRouter.getPresenceCollector().getConnectionFor(currentRequestor), myRouter.getHost(), filehash, missingRestOfMap);
+			/* keep state = ACTIVE */
+			return;
 			
-			/*
-			manca da creare il file x trasferirlo
-			DTNFile file = myRouter.getHost().getFileSystem().getFile(filehash);
-			requestor.getFileSystem().addToFiles(file);			
-			((M2MShareRouter)requestor.getRouter()).notifyQuerySatisfied(filehash, false);
-			setCompleted();
-			*/
 		}		
 		//no communicator started
 		setIncomplete();		
@@ -73,15 +78,15 @@ public class DTNDownloadFwd extends DTNActivity {
 	
 	@Override
 	public void addTransferredData(int[] intervals, DTNHost from) {
-		((M2MShareRouter)requestor.getRouter()).dataFromDownloadFwd(getID(), intervals, myRouter.getHost());		
-		if(((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID()) == null){
+		((M2MShareRouter)currentRequestor.getRouter()).dataFromDownloadFwd(getID(), intervals, myRouter.getHost());		
+		if(((M2MShareRouter)currentRequestor.getRouter()).getIntervalsForDownloadFwd(getID()) == null){
 			setCompleted();
 		}
 	}
 
 	@Override
 	public int[] getRestOfMap() {
-		return ((M2MShareRouter)requestor.getRouter()).getIntervalsForDownloadFwd(getID());
+		return ((M2MShareRouter)currentRequestor.getRouter()).getIntervalsForDownloadFwd(getID());
 	}
 
 	public String getFileHash() {
@@ -91,9 +96,9 @@ public class DTNDownloadFwd extends DTNActivity {
 	@Override
 	public void setCompleted() {		
 		super.setCompleted();
-		myRouter.notifyDownloadFWDReturned(myRouter.getHost(), requestor, filehash);
+		myRouter.notifyDownloadFWDReturned(myRouter.getHost(), currentRequestor, filehash);
 		myRouter.notifyDataRedundancyUpdated(myRouter.getHost(), map.mapBytesSize() * -1);
-		((M2MShareRouter)requestor.getRouter()).notifyDownloadFwdCompleted(myRouter.getHost());
+		//((M2MShareRouter)requestor.getRouter()).notifyDownloadFwdCompleted(myRouter.getHost());
 	}
 	
 	
