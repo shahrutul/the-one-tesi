@@ -54,7 +54,7 @@ public class mainHopLaunch {
 				}
 			};
 
-			if(folder.list(filter) == null || (folder.list(filter).length == 0 && folderRunning.list(filter).length == 0)){
+			if(folderRunning.list(filter) == null || folderRunning.list(filter).length == 0){
 				validSeeds = true;
 			}
 			if(!validSeeds){
@@ -102,7 +102,7 @@ public class mainHopLaunch {
 			jobFile.println();
 			
 			
-			jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
+			jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
 						
 			jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 
