@@ -142,6 +142,9 @@ public class VirtualFile extends DTNActivity {
 
 	@Override
 	public int[] getRestOfMap() {
+		if(map == null){
+			return null;
+		}
 		return map.assignRestofMap();
 	}
 
