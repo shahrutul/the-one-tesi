@@ -1,0 +1,12 @@
+gnuplot graficoTempiVF.gp
+gnuplot graficoDeleghe.gp
+gnuplot graficoDelegheTotali.gp
+gnuplot graficoData.gp
+gnuplot graficoDataDiversaFDS_3.gp
+gnuplot graficoDataDiversaFDS_10.gp
+gnuplot graficoDataDiversaFDS_25.gp
+gnuplot graficoRidondanza.gp
+gnuplot graficoTempiRitornoDeleghe.gp
+gnuplot graficoTempiVFDiversaPop.gp
+gnuplot graficoDelegheAttive.gp
+
