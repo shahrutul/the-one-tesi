@@ -1,36 +1,37 @@
-\documentclass[12pt,a4paper]{book}                                          %grandezza carattere,formato a4 (stile)
+\documentclass[11pt,a4paper]{book}		%grandezza carattere,formato a4 (stile)
 
 \include{Latex/Macros/MacroFile1}
 
-\usepackage[italian]{babel}                                                 %libreria per scrivere in italiano
+%\usepackage[italian]{babel}			%libreria per scrivere in italiano
+\usepackage[english]{babel}				%libreria per scrivere in inglese
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
-%\usepackage[latin1]{inputenc}                                         %libreria per accettare i caratteri digitati da tastiera
-\usepackage{fancyhdr}                                                       %libreria per impostare il documento
-\usepackage{indentfirst}                                                    %libreria per avere l'indentazione all'inizio dei capitoli
-\usepackage{graphicx}                                                       %libreria per inserire grafici
+%\usepackage[latin1]{inputenc}			%libreria per accettare i caratteri digitati da tastiera
+\usepackage{fancyhdr}					%libreria per impostare il documento
+\usepackage{indentfirst}				%indentazione all'inizio dei capitoli
+\usepackage{graphicx}					%libreria per inserire grafici
 \usepackage{newlfont}
-\usepackage[hang,small,bf]{caption}                                                       %libreria per utilizzare font particolari ad esempio \textsc{}
-\usepackage{amssymb}                                                        %librerie matematiche
-\usepackage{amsmath}                                                        %librerie matematiche
-\usepackage{latexsym}                                                       %librerie matematiche
-\usepackage{amsthm}  
- %librerie matematiche
-                                                         %libreria per la bibliografia
+\usepackage[hang,small,bf]{caption}		%font particolari ad esempio \textsc{}
+\usepackage{amssymb}					%librerie matematiche
+\usepackage{amsmath}					%librerie matematiche
+\usepackage{latexsym}					%librerie matematiche
+\usepackage{amsthm}						%librerie matematiche
+                               			%libreria per la bibliografia
 
-\oddsidemargin=30pt \evensidemargin=20pt                                    %impostano i margini
+\oddsidemargin=30pt \evensidemargin=20pt	%impostano i margini
 
-\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}                                 %serve per la sillabazione: tra parentesi vanno inserite come nell'esempio le parole che latex non riesce a tagliare nel modo giusto andando a capo.
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}        
+%serve per la sillabazione: tra parentesi vanno inserite come nell'esempio le parole che latex non riesce a tagliare nel modo giusto andando a capo.
 
-\pagestyle{fancy}\addtolength{\headwidth}{20pt}                             %comandi per l'impostazione
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}               %della pagina, vedi il manuale
-\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}              %della libreria fancyhdr
+\pagestyle{fancy}\addtolength{\headwidth}{20pt}		%comandi per l'impostazione
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}	%della pagina, vedi il manuale
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}	%della libreria fancyhdr
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %per ulteriori delucidazioni
 \cfoot{}
 
-\linespread{1.0}                                                            %comando per impostare l'interlinea
+\linespread{1.0}		%comando per impostare l'interlinea
 
 \usepackage{hyperref}	%comando per i collegamenti e dettagli sui pdf		
 \hypersetup{pdfauthor={Daniele Bonaldo},% autore del documento
@@ -44,7 +45,7 @@ urlcolor=black,%
 pdftex}
 												
 
-\begin{document}                                                            %inizio del documento
+\begin{document} 	%inizio del documento
 
 %%%%%COPERTINA%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -53,22 +54,22 @@ pdftex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%DEDICA%%%%%%%%%%%%%%%%%%%
-%\begin{titlepage}                                                           %crea un ambiente libero da vincoli di margini e grandezza caratteri: si pu\`o modificare quello che si
-%                                                                            %vuole, tanto fuori da questo ambiente tutto viene ristabilito
-%\thispagestyle{empty}                                                       %elimina il numero della pagina
-%\topmargin=6.5cm                                                            %imposta il margina superiore a 6.5cm
-%\raggedleft                                                                 %incolonna la scrittura a destra
-%\large                                                                      %aumenta la grandezza del carattere a 14pt
-%\input{dedica}                                                              %richiama il file in cui c'è la copertina
-%\newpage                                                                    %va in una pagina nuova
+%\begin{titlepage} 	%crea un ambiente libero da vincoli di margini e grandezza caratteri: si pu\`o modificare quello che si
+%                 	%vuole, tanto fuori da questo ambiente tutto viene ristabilito
+%\thispagestyle{empty} 		%elimina il numero della pagina
+%\topmargin=6.5cm  			%imposta il margina superiore a 6.5cm
+%\raggedleft               	%incolonna la scrittura a destra
+%\large           			%aumenta la grandezza del carattere a 14pt
+%\input{dedica}   			%richiama il file in cui c'è la copertina
+%\newpage      				%va in una pagina nuova
 %
 %\end{titlepage}
 
-\clearpage{\pagestyle{empty}\cleardoublepage}                               %apre una nuova pagina iniziando da quella destra ed altro (vedere manuale)
+\clearpage{\pagestyle{empty}\cleardoublepage} 	%apre una nuova pagina iniziando da quella destra ed altro (vedere manuale)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagenumbering{roman}                                                        %serve per mettere i numeri romani in Introduzione, indice, elenco tabelle e figure
+\pagenumbering{roman}  		%serve per mettere i numeri romani in Introduzione, indice, elenco tabelle e figure
 
 %%%%%%%%%%%%%%%INTRODUZIONE%%%%%%%%%%%%%%%%%%%
 
@@ -123,7 +124,7 @@ INDICE}}
 \input{7-conclusioni/conclusioni}
 
 
-\cleardoublepage                                                                %va a pagina nuova iniziando dalla pagina di destra
+\cleardoublepage 	 %va a pagina nuova iniziando dalla pagina di destra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
