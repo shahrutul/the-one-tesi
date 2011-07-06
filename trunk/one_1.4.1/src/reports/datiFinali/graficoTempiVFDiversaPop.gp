@@ -23,6 +23,6 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2# , '' u 4 ti col lt 3
+plot 'datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2, '' u 4 ti col lt 3
 
 #pause -1 "Hit any key to continue"

@@ -47,6 +47,14 @@ Before proceeding further, we introduce the reader to the adopted terminology an
 
 \end{itemize}
 
+To increase the trustworthiness of the experimental outcome we have included realistic day-by-day node movements through the Working Day Movement (WDM) model, described in Section \ref{descrWDM}. As anticipated, this model is able to represent both the unpredictability of certain movements of users and the routine of other movements such as, for instance, the daily trip from home to work. This provides a good approximation of inter-contact times and contact durations, providing the flexibility for configuring real life test scenarios.
+\\
+
+We use the same configuration parameters described in \cite{articoloWdm}, to initialize the movement model: the map is the one described in Section \ref{mappaONE}, in which half of all the nodes were set to travel by car. When a node is walking, the speed is set between 0.8 and 1.4 m/s and for buses between 7 and 10 m/s, with a 10 - 30 s waiting at each stop. Every node has a probability of 0.5 to do some evening activity after work, with groups size variable between 1 and 3 nodes. The working day length is set to 28800 s (8 hours) and the pause times inside the office is drawn from a Pareto distribution with coefficient 0.5 and minimum value 10 s. The
+office size is set to a $100 m x 100 m$ square, to compensate for the lack of floors, walls and other furniture.
+
+
+
 \newpage
 \section{Delegation efficiency}
 \label{analisiDelegationEfficiency}
@@ -106,11 +114,21 @@ received. If no delegations are made and the first file request is satisfied by 
 \end{figure}
 
 
-In Fig.\ref{graficoTempiVF} it is possible to see the advantage, in terms of found time, in using the delegation technique instead of not using it. The two systems employing delegations find the required file in less time in each simulation run at the expense of higher overhead in terms of bandwidth due to delegations. The system employing delegations to all encountered peers gets a better result on average, but at a cost of a higher number of delegated tasks (Fig.\ref{graficoNumeroDeleghe}). A higher number of delegated tasks imply more bandwidth used for searching the data file and potentially retrieving (if found) and forwarding it toward the requester.
+In Fig. \ref{graficoTempiVF} it is possible to see the advantage, in terms of found time, in using the delegation technique instead of not using it. The two systems employing delegations find the required file in less time in each simulation run at the expense of higher overhead in terms of bandwidth due to delegations. The system employing delegations to all encountered peers gets a better result on average, but at a cost of a higher number of delegated tasks (Fig. \ref{graficoNumeroDeleghe}). A higher number of delegated tasks imply more bandwidth used for searching the data file and potentially retrieving (if found) and forwarding it toward the requester.
 \\
 
-Fig.\ref{graficoNumeroDeleghe} makes a comparison between the two systems employing delegations by showing the number of overall employed task delegations till file download or simulation time expires. It is easy to see that M2MShare uses fewer delegations while achieving a higher percentage of completed delegated tasks (Fig. \ref{graficoPercDelegheRitornate}). This outcome is due to a conservative delegation strategy employed by M2MShare in delegating unsatisfied, unaccomplished tasks only to frequently encountered peers
-(servants). Since we do not have any means to evaluate the ability of one servant to satisfy a file request what we do is delegate to encountered peers whom is expected to be encountered again in the future. The Delegation\_to\_all strategy contributes to higher overhead also due to completed tasks, ready to be returned toward the requester that unfortunately expire and are discarded before having the chance of encountering the data file requester.
+\begin{figure}[ht]
+\begin{minipage}[b]{1\linewidth}
+\centering
+\includegraphics[scale=0.5]{grafici/tempiRitornoDeleghe.eps}
+\caption{Average, min, max output return time for systems using task delegations.}
+\label{graficoRitornoMedioDeleghe}
+\end{minipage}
+\end{figure}
+
+Fig. \ref{graficoNumeroDeleghe} makes a comparison between the two systems employing delegations by showing the number of overall employed task delegations till file download or simulation time expires. It is easy to see that M2MShare uses fewer delegations while achieving a higher percentage of completed delegated tasks (Fig. \ref{graficoPercDelegheRitornate}). This outcome is due to a conservative delegation strategy employed by M2MShare in delegating unsatisfied, unaccomplished tasks only to frequently encountered peers
+(servants). Since we do not have any means to evaluate the ability of one servant to satisfy a file request what we do is delegate to encountered peers whom is expected to be encountered again in the future. The Delegation\_to\_all strategy contributes to higher overhead also due to completed tasks, ready to be returned toward the requester that unfortunately expire and are discarded before having the chance of encountering the data file requester. \\
+It is also possible to see in Fig. \ref{graficoRitornoMedioDeleghe} that in M2MShare it takes less time, on average, for a servant to return the output of a delegated task which has been completed, i.e. not expired, to the requester node.
 \\
 
 \begin{figure}[ht]
@@ -130,7 +148,7 @@ Fig.\ref{graficoNumeroDeleghe} makes a comparison between the two systems employ
 \end{figure}
 
 
-In Fig.\ref{graficoDataDiverseDel} is shown the comparison between M2MShare and Delegation\_to\_all strategies in terms of transferred data quantities till file download or simulation time ends. It is straightforward to notice the higher overhead in terms of data transmissions introduced by delegating to all encountered peers whether M2MShare reduces the exchanged data quantity while still achieving the goal of acquiring the requested file. From the above results it is obvious that the delegation strategy serves its purpose by extending a peer reach area to other mobile disconnected networks where data content might be available therefore reducing the found time of a desired content.
+In Fig. \ref{graficoDataDiverseDel} is shown the comparison between M2MShare and Delegation\_to\_all strategies in terms of transferred data quantities till file download or simulation time ends. It is straightforward to notice the higher overhead in terms of data transmissions introduced by delegating to all encountered peers whether M2MShare reduces the exchanged data quantity while still achieving the goal of acquiring the requested file. From the above results it is obvious that the delegation strategy serves its purpose by extending a peer reach area to other mobile disconnected networks where data content might be available therefore reducing the found time of a desired content.
 Although this strategy introduces an overhead in terms of bandwidth usage, computation and power consumption we control these side effects by delegating only to frequently encountered peers whom are expected to be encountered again in the future.
 
 
@@ -165,7 +183,7 @@ These are the settings used for the simulations:
 We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copies). When the Fp is low (with Fp £ 5\%) the system which don't use delegation is not able to find any piece of the file during the simulation time. We have indicated this in the chart by assigning to Ftavg a value of 48 h. With higher values of Fp, the first protocol is able to find the file thanks to the higher popularity of the requested file, but it takes more time than M2MShare and Delegation\_to\_all. Finally, with the highest values of Fp the performances of the three compared systems became very similar. 
 \begin{figure}[ht]
   \begin{center}
-    \includegraphics[scale=0.5]{grafici/percDeleghe.eps}
+    \includegraphics[scale=0.5]{grafici/tempiVFDiversaPop.eps}
     \caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
     \label{graficoPopVariabile}
   \end{center}
@@ -199,7 +217,7 @@ In previous analysis we considered as constant the number of nodes emulating peo
 \end{center}
 \end{table}
 
-In the first scenario (Fig.\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with $N \geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in Fig.\ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in Fig.\ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
+In the first scenario (Fig. \ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with $N \geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in Fig. \ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in Fig. \ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{0.5\linewidth}
@@ -229,7 +247,7 @@ In the first scenario (Fig.\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The p
 
 \newpage
 \section{Data redundancy}
-In analysis in Section \ref{analisiDelegationEfficiency}, especially in Fig. \ref{graficoDataDiverseDel}, we show that our system is the most efficient with respect to data transmissions. Although using delegations introduces an overhead in terms of bandwidth usage we control this side effects by delegating only to frequently encountered peers whom are expected to be encountered again in the future. Another side effect caused by delegating tasks is the increasing of data redundancy in the whole network. For \textit{redundancy}, in this case, we mean storage space used in nodes involved in delegation system. \\ These are the settings used in simulations related to the study of this metric:
+In analysis in Section \ref{analisiDelegationEfficiency}, especially in Fig.  \ref{graficoDataDiverseDel}, we show that our system is the most efficient with respect to data transmissions. Although using delegations introduces an overhead in terms of bandwidth usage we control this side effects by delegating only to frequently encountered peers whom are expected to be encountered again in the future. Another side effect caused by delegating tasks is the increasing of data redundancy in the whole network. For \textit{redundancy}, in this case, we mean storage space used in nodes involved in delegation system. \\ These are the settings used in simulations related to the study of this metric:
 
 \begin{table}[h]
 \begin{center}
@@ -255,20 +273,22 @@ In analysis in Section \ref{analisiDelegationEfficiency}, especially in Fig. \re
 \end{center}
 \end{table}
 
-Of course redundancy in a network composed only by nodes which don't use delegation is always zero. For this reason we compared for this study only the two systems which use task delegations. In Fig.\ref{graficoRidondanzaData} we show how change the average data redundancy during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in Fig.\ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes.
+Of course redundancy in a network composed only by nodes which don't use delegation is always zero. For this reason we compared for this study only the two systems which use task delegations. In Fig. \ref{graficoRidondanzaData} we show how change the average data redundancy during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in Fig. \ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes. 
+\\
+The trend of this graph is related to the number of simultaneously active delegated tasks, shown in Fig. \ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in it's own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{0.5\linewidth}
 \centering
-\includegraphics[scale=0.5]{grafici/percDeleghe.eps}
-\caption{Average found time with $Fp = 5\%$}
+\includegraphics[scale=0.5]{grafici/ridondanza.eps}
+\caption{Average data redundancy in the network}
 \label{graficoRidondanzaData}
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.5\linewidth}
 \centering
-\includegraphics[scale=0.5]{grafici/data.eps}
-\caption{Average found time with $Fp = 10\%$}
+\includegraphics[scale=0.5]{grafici/delegheAttive.eps}
+\caption{Average number of simultaneously active delegated tasks}
 \label{graficoDelegheAttive}
 \end{minipage}
 \end{figure}
