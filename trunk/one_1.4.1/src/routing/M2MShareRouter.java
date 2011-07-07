@@ -69,6 +69,8 @@ public class M2MShareRouter extends ActiveRouter {
 	private int delegationDepth;
 	private IdGenerator idGenerator;
 	private int fileDivisionStrategyType;
+	
+	private int maxDelegationValueCarried;
 
 	private Map<DTNHost, Double> servants;
 	
@@ -183,7 +185,8 @@ public class M2MShareRouter extends ActiveRouter {
 		presenceCollector = new DTNPresenceCollector(this, frequencyThreshold, useDelegation, delegateToAll);
 		queuingCentral = new QueuingCentral();
 		scheduler = new DTNScheduler(presenceCollector, queuingCentral, this);
-		broadcastModule = new BroadcastModule(this);		
+		broadcastModule = new BroadcastModule(this);
+		maxDelegationValueCarried = -1;
 	}
 	
 		
@@ -348,6 +351,9 @@ public class M2MShareRouter extends ActiveRouter {
 		queuingCentral.addFileRequest(request, this);	
 		scheduler.setSomethingToDo(1, true);
 		notifyfileRequestCreated(getHost(), DTNFile.hashFromFilename(request.getFilename()));
+		if(maxDelegationValueCarried < 0){
+			maxDelegationValueCarried = 0;
+		}
 	}
 	
 	@Override
@@ -389,6 +395,11 @@ public class M2MShareRouter extends ActiveRouter {
 			System.err.println(SimClock.getIntTime() + " - "+getHost() + " - ricevuta PendingDownload "+(DTNPendingDownload)newActivity);
 			queuingCentral.push(newActivity, QueuingCentral.DTN_PENDING_ID);
 			scheduler.setSomethingToDo(2, true);
+			
+			if(maxDelegationValueCarried < ((DTNPendingDownload)newActivity).getHop()){
+				maxDelegationValueCarried = ((DTNPendingDownload)newActivity).getHop();
+			}
+			
 			return true;
 		}		
 		else{
@@ -490,6 +501,35 @@ public class M2MShareRouter extends ActiveRouter {
 		return useBroadcastModule;
 	}
 
+	public int getMaxDelegationValueCarried(){
+		return maxDelegationValueCarried;
+	}
+
+
+	@Override
+	public void notifyPendingDownloadExpired(DTNHost where, DTNHost requestor,
+			String filehash) {
+		maxDelegationValueCarried = -1;
+		super.notifyPendingDownloadExpired(where, requestor, filehash);
+	}
+
+
+	@Override
+	public void notifyDownloadFWDExpired(DTNHost where, DTNHost requestor,
+			String filehash) {
+		maxDelegationValueCarried = -1;
+		super.notifyDownloadFWDExpired(where, requestor, filehash);
+	}
+
+
+	@Override
+	public void notifyDownloadFWDReturned(DTNHost from, DTNHost requestor,
+			String filehash) {
+		maxDelegationValueCarried = -1;
+		super.notifyDownloadFWDReturned(from, requestor, filehash);
+	}
+	
+	
 
 
 }
