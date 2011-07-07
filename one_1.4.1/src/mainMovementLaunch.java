@@ -10,14 +10,14 @@ import java.util.Scanner;
 import java.util.Vector;
 
 
-public class mainHopLaunch {
+public class mainMovementLaunch {
 	
-	private static final String REPORTS_DIR = "reports/multiHop";
-	private static final String RUNNING_DIR = "../runningSettings";
-	private static final String SEED_FILE = "seedsNumFiles.txt";
+	private static final String REPORTS_DIR = "reports/Movement";
+	private static final String RUNNING_DIR = "../runningSettings2";
+	private static final String SEED_FILE = "seedsCluster.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
 	private static final String JOBFILE = "../sim";
-	private static final int NUM_RUN = 35;
+	private static final int NUM_RUN = 5;
 
 	/**
 	 * @param args
@@ -106,8 +106,8 @@ public class mainHopLaunch {
 				jobFile.println();
 
 
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
 
 				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 

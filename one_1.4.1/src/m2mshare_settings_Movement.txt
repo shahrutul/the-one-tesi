@@ -1,0 +1,4 @@
+
+Report.nrofReports = 1
+Report.reportDir = reports/movement/
+Report.report1 = M2MShareMovementReport
