@@ -15,7 +15,7 @@ public class mainMovementLaunch {
 	private static final String REPORTS_DIR = "reports/Movement";
 	private static final String RUNNING_DIR = "../runningSettings2";
 	private static final String SEED_FILE = "seedsCluster.txt";
-	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
+	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings2/seedSettings";
 	private static final String JOBFILE = "../sim";
 	private static final int NUM_RUN = 5;
 
@@ -79,14 +79,14 @@ public class mainMovementLaunch {
 			System.out.println("Valid combination: "+seeds.get(fileGenIndex)+"_"+seeds.get(movementIndex));
 
 			try {
-				String settingFileName = SEED_SETTING_FILE_PREFIX+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
+				String settingFileName = SEED_SETTING_FILE_PREFIX+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"mov";
 				PrintWriter out = new PrintWriter(new FileWriter(settingFileName));
 				out.println("FilesGenerator.rngSeed = "+seeds.get(fileGenIndex));
 				out.println("Events1.rngSeed = "+seeds.get(fileGenIndex));
 				out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
 				out.close();
 
-				String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"Mov.job";
+				String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_Mov.job";
 
 				Runtime run = Runtime.getRuntime();
 
