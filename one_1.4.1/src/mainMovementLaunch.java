@@ -86,7 +86,7 @@ public class mainMovementLaunch {
 				out.println("MovementModel.rngSeed = "+seeds.get(movementIndex));
 				out.close();
 
-				String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+".job";
+				String jobFileName = JOBFILE +"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"Mov.job";
 
 				Runtime run = Runtime.getRuntime();
 
@@ -117,7 +117,7 @@ public class mainMovementLaunch {
 
 				try {
 					//System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-					pr = run.exec("qsub -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_FDS "+jobFileName.substring(3), null, new File("../"));
+					pr = run.exec("qsub -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_Mov "+jobFileName.substring(3), null, new File("../"));
 
 				} catch (IOException e) {
 					e.printStackTrace();
