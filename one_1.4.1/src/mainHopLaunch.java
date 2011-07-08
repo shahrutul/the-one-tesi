@@ -117,7 +117,7 @@ public class mainHopLaunch {
 
 				try {
 					//System.err.println("sh -c 'cd .. && qsub "+jobFileName.substring(3)+"'");
-					pr = run.exec("qsub -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_FDS "+jobFileName.substring(3), null, new File("../"));
+					pr = run.exec("qsub -N sim"+"FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex)+"_Hop "+jobFileName.substring(3), null, new File("../"));
 
 				} catch (IOException e) {
 					e.printStackTrace();

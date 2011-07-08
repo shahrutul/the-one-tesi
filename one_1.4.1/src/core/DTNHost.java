@@ -425,6 +425,14 @@ public class DTNHost implements Comparable<DTNHost> {
 
 		return true;
 	}
+	
+	public void notifyM2MShareScan(){
+		if (this.movListeners != null) {
+			for (MovementListener l : this.movListeners) {
+				l.newDestination(this, this.location, this.speed);
+			}
+		}
+	}
 
 	/**
 	 * Sends a message from this host to another host
