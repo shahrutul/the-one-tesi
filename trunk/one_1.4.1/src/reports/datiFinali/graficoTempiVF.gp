@@ -2,7 +2,7 @@
 #set output 'histograms.3.png'
 #set terminal latex
 #set output "histo.jpg"
-set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'tempi.eps'
 set boxwidth 0.9 absolute
 #set style fill   solid 1.00 border -1

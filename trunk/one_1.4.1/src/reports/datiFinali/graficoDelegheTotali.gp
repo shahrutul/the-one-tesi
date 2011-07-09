@@ -1,4 +1,4 @@
-set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'delegheFatte.eps'
 
 set boxwidth 0.9 absolute
