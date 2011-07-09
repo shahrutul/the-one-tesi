@@ -2,10 +2,10 @@
 #set output 'histograms.3.png'
 #set terminal jpeg medium
 #set output "histo.jpg"
-set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'data.eps'
 set boxwidth 0.9 absolute
-set style fill pattern 4 border
+set style fill pattern 5 border
 set style histogram clustered gap 2 title  offset character 0, 0, 0
 set datafile missing '-'
 set style data histograms
