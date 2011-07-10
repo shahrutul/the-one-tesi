@@ -2,7 +2,7 @@
 % content in this file will be fed into the main document
 
 %: ----------------------- name of chapter  -------------------------
-\chapter{ONE - L'ambiente di simulazione}\label{simulatore} % top level followed by section, subsection
+\chapter{The ONE simulator}\label{simulatore} % top level followed by section, subsection
 
 
 %: ----------------------- paths to graphics ------------------------
@@ -12,52 +12,64 @@
 
 
 %: ----------------------- contents from here ------------------------
-L'ambiente scelto per svolgere le simulazioni è The ONE (Opportunistic Network Environment) versione 1.4.1, descritto in \cite{articoloONE}. Questo simulatore scritto in Java è completamente configurabile e permette di simulare il movimento dei vari nodi partecipanti alla simulazione, gestire le connessioni e lo scambio di messaggi fra i vari nodi (utilizzando diversi protocolli di routing) e visualizzare sia i movimenti che il traffico dati nell'interfaccia grafica di cui dispone.
+The simulation environment chosen for our simulations is The ONE (Opportunistic Network Environment) version 1.4.1\footnote{The ONE simulator \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}}, described in \cite{articoloONE}. This simulation environment written in Java is completely configurable and is able to simulate completely the behaviour of nodes in the simulations, including movement, connections and to give a visual feedback about all these factors using its GUI. A more interesting feature, for our purposes, is the capability of emulate message routing using different routing protocols.
 \\
 
-Per quanto riguarda il movimento, il simulatore può accettare in input tracce provenienti da registrazioni dal mondo reale, dati creati tramite generatori di movimento esterni oppure crearli dinamicamente tramite dei modelli di movimento, alcuni dei quali descritti più nel dettaglio in [movimento]. Sia i modelli di movimento che i vari protocolli di routing vengono gestiti come moduli indipendenti e vengono caricati a seconda di quanto impostato in fase di configurazione. Ciò permette una semplice implementazione di nuovi protocolli di routing e modelli di movimento all'interno del simulatore.
+To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility are explained in Section \ref{movimento}. Either mobility models that routing protocols are managed like independent modules, which are dynamically loaded depending on what set in configuration files. This allow a relatively easy implementation of new mobility models and routing protocols in the simulator.
 \\
 
-Il simulatore permette infine di salvare dati statistici riguardanti le simulazioni svolte tramite la generazione di report, anch'essi gestiti in maniera totalmente modulare e configurabile.
+The simulator finally allow to save data of interest from the completed simulations into report files. This reports are created using modules dynamically loaded in the same way to what happens with movement and routing modules.
 \\
 
-\section{Configurazione}
+\section{Configuration}
 \label{configurazioneONE}
-Una determinata simulazione viene impostata creando dei files di configurazione che descrivano i vari aspetti dello scenario, dalla durata della simulazione al numero di nodi che la compongono, fino alle caratteristiche specifiche di ogni gruppo di nodi. Tali files di configurazione sono dei semplici files di testo in cui vengono impostati i parametri relativi allo scenario, ai modelli di movimento e ai protocolli di routing. I valori impostati verranno caricati dinamicamente ed andranno ad attivare e configurare i moduli che si è scelto di utilizzare per la simulazione corrente.
+A single simulation is set, before running, using configuration files which describe the simulated environment, from the simulation length to number of nodes emulating people in the simulated environment. Configuration files are text-based files that contain parameters about the simulation, user interface, event generation, and reporting modules. All these parameters are loaded before the beginning of simulations and are used to adjust details about the behaviour of loaded modules.
 \\
 
-All'interno dei files di configurazione, i parametri sono salvati come coppie chiave-valore. La sintassi della maggior parte delle variabili è del tipo
+Many of the simulation parameters are configurable sepa-
+rately for each node group but groups can also share a set of param-
+eters and only alter the parameters that are specific for the group.
+The configuration system also allows defining of an array of val-
+ues for each parameter hence enabling easy sensitivity analysis: in
+batch runs, a different value is chosen for each run so that large
+amounts of permutations are explored.
+
+Inside configuration files, parameters are saved as key-value pairs and syntax for most of the
+variables is:
 
 \begin{center}
-\textit{Namespace.chiave = valore}
+\textit{Namespace.key = value}
 \end{center}
 
-Il namespace indica generalmente a quale parte dell'ambiente di simulazione la variabile si riferisce. Più nello specifico il namespace indica (nella quasi totalità dei casi) la classe Java che andrà a leggere quel parametro. durante la fase di inizializzazione. Questa convenzione è utilizzata soprattutto dai moduli relativi ai modelli di movimento e ai protocolli di routing, quindi è bene che venga utilizzata nella realizzazione di nuovi moduli da aggiungere al simulatore.
+Namespace defines the part of the simulation environment where the setting has effect on. Many, but not all, namespaces are equal to the class name where they are read. This convention is especially followed by movement models, report modules and routing modules, so also created new modules should follow it.
 \\
 
-Per facilitare la lettura e la configurazione, i valori numerici possono utilizzare i suffissi kilo (k), mega (M) o giga (G), assieme al punto \textquotedblleft .\textquotedblright come separatore decimale. I parametri di tipo booleano invece accettano i valori \textquotedblleft true\textquotedblright
- o \textquotedblleft 1\textquotedblright , \textquotedblleft false\textquotedblright o \textquotedblleft 0 \textquotedblright .
- \\
-Dei commenti possono essere inseriti nei files di configurazione utilizzando il carattere \textquotedblleft
-\#\textquotedblright, che ottiene il risultato di far saltare il resto della riga durante la fase di lettura.
+To make human-readability and configuration easier, numerical values can use suffixes kilo (k), mega (M) o giga (G), with \textquotedblleft .\textquotedblright as decimal separator. Boolean parameters accept \textquotedblleft true\textquotedblright
+ or \textquotedblleft 1\textquotedblright , \textquotedblleft false\textquotedblright or \textquotedblleft 0 \textquotedblright .
+\\
+ 
+Comments can be inserted in setting files can contain comments too with \textquotedblleft
+\#\textquotedblright character. Rest of the line is skipped when the settings are read.
 \\
 
-Per ogni simulazione ci possono essere più files di configurazione, in modo da poter dividere i parametri in più categorie, ad esempio in un file inserire i parametri relativi allo scenario, con le strade e i quartieri in cui è diviso, in un altro file configurare i nodi con le caratteristiche tipiche di ogni gruppo, in un altro ancora selezionare i report da generare durante l'esecuzione e così via. Il primo file di configurazione letto, se esiste, è sempre il file \textquotedblleft default\_settings.txt\textquotedblright e negli altri files di configurazione è possibile definire nuovi parametri o sovrascrivere alcuni di quelli definiti nei files precedenti. Ciò permette di definire in alcuni files dei parametri generali, validi per tutte le simulazioni, e variarne altri cambiando solo gli ultimi files di configurazione.
+Every simulation can be set using several configuration files, to divide parameters into different categories, e.g. a file can contain scenario parameters, like maps, streets and districts, another file can contain parameters used to configure nodes, another file can contain reports configuration and so on. First configuration file read, if exists, is always \textquotedblleft default\_settings.txt\textquotedblright. Other configuration files given as parameter can define more settings or override some (or even all) settings in the previous files. The idea is that you can define in the earlier files all the settings that are common for
+all the simulations and run different simulations changing parameters only in latests configuration files.
 \\
 
-All'interno dello stesso scenario, i nodi sono divisi in più gruppi, composti da un numero variabile di nodi. All'interno di un gruppo, tutti i nodi condividono delle caratteristiche comuni, dal protocollo di routing utilizzato, al modello di movimento, ai tipi di interfacce disponibili per la comunicazione. E' possibile impostare inoltre delle caratteristiche comuni a tutti i gruppi in modo da non dover ripetere la definizione di alcuni parametri per tutti i gruppi. La variazione di caratteristiche fra un gruppo e l'altro permette di ottenere dell'eterogeneità fra i comportamenti simulati all'interno dello scenario.
+The basic agents in the simulator are called nodes. A node models a mobile endpoint capable of acting as a store-carry-forward router (e.g., a pedestrian, car or tram with the required hardware). Nodes in the simulation world are divided into groups, each one configured with different capabilities. Inside a group, every node has the same characteristics, which are radio interface, persistent storage, movement, energy consumption and message routing protocol. It is possible to configure some of these capabilities as common for all groups, avoiding to set them individually for each group. Changing some configuration value between a group and another, allow to get heterogeneity between the behaviour of nodes in simulated scenario.
 \\
 
-Nei files di configurazione utilizzati da ONE è possibile inoltre impostare array di valori per ogni parametro: ciò permette, durante una serie di esecuzioni batch, di ottenere automaticamente una serie di simulazioni che differiscono l'una dall'altra per alcune impostazioni di parametri, automatizzando notevolmente la raccolta di dati con configurazioni differenti dello stesso scenario.
-\\ In questo caso la sintassi sarà del tipo
+In configuration files is also possible to provide array of settings for every parameter. This allows to run large amounts of different simulations using only single configuration file. Every simulation will be different from the previous and this is very useful to gather reports about different aspects in a common scenario.
+\\ Syntax for these configuration parameters is
 
 \begin{center}
-\textit{Namespace.chiave = [valoreEsecuzione1; valoreEsecuzione2; valoreEsecuzione3; ecc]}
+\textit{Namespace.key = [run1_value; run2_value; run3_value; etc]}
 \end{center}
 
-Alcuni parametri, infine, accettano come valore il percorso di un file e in questo caso può essere espresso sia in maniera assoluta che relativa. Un esempio di variabili che necessitano di questo tipo di valori sono le mappe, per cui si impostano i files che le contengono, o gli input per i generatori di eventi, per i quali i files da caricare descrivono gli eventi da creare durante la simulazione.
+Some parameters, finally, accept a file path as value and this can be either an absolute or relative path. These parameters are used for maps, nodes paths or events to be loaded by event generators modules.
 
-\section{Visualizzazione}
+\section{Visualization}
+
 La principale modalità di visualizzazione fornita da ONE è quella tramite la GUI, che permette di seguire in tempo reale l'avanzamento della simulazione. Nella finestra principale è possibile osservare i movimenti dei vari nodi e, selezionandone uno specifico, ottenere informazioni riguardo le connessioni attive, i messaggi trasportati e altri dettagli. E' disponibile inoltre un riquadro in cui viene costantemente aggiornato un log di eventi generati durante la simulazione che possono essere filtrati a seconda di ciò che più interessa (ad esempio visualizzare solo le nuove connessioni o gli scambi di messaggi).
 \\
 \figuremacro{Schermata-ONE}{Schermata Principale}{La schermata principale del simulatore ONE}{}
