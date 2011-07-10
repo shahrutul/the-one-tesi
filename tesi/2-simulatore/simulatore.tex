@@ -111,14 +111,13 @@ Report modules are handled by the simulator like other modules and this allow to
 
 \section{Simulation execution}
 \label{esecuzioneONE}
-It can be interesting to explain in detail how a single simulation is run 
-Vale la pena di soffermarsi sull'esecuzione di una singola simulazione, vedendo quindi quali sono i vari passi che vengono eseguiti.
+It can be interesting to explain in detail how a single simulation is run by the simulator. Let's see what steps are performed for each run.
 \\
 
-La prima azione svolta dal simulatore è quella di caricare le impostazioni dai vari files di configurazione, la cui posizione viene passata per parametro al momento dell'esecuzione del simulatore. Man mano che un nuovo file di configurazione viene letto, i valori dei parametri in esso contenuto vanno ad impostare il valore di alcune variabili dell'ambiente di simulazione, sovrascrivendone anche il valore nel caso fossero già state impostate.
+The first step done is configuration loading. The simulator read from configuration files values assigned to simulation parameters. Configuration files path are passed as arguments to the ONE launch command. When a configuration file is read, values contained are used to initialize or overwrite the value of some variables in simulation environment. If some parameters value is not set in configuration files, default values are used and an exception is thrown if a default value was not present for that parameter.
 \\
 
-Una volta caricate le impostazioni relative alla simulazione, viene creato lo Scenario. Questo contiene al suo interno tutti gli elementi attivi durante la simulazione (come i nodi, i generatori di reports e quelli di messaggi), così come quelli passivi (ad esempio le mappe che compongono il mondo simulato). In questa fase vengono quindi creati tutti i nodi partecipanti alla simulazione, ognuno dotato di un proprio modello di movimento, un router configurato secondo le caratteristiche del gruppo di nodi e una serie di \textit{listener} per la cattura di eventi e la successiva generazione di reports.
+When the simulation is configured, the creation of the simulated scenario begins. The scenario contains all active entities in the simulation, i.e. nodes, report generators or event generators, and passive entities, i.e. maps which composes the simulated world. In this phase all nodes are created and initialized according to the configuration loaded. Every node contains a router implementing one routing protocol, uses one movement model and has some \textit{listener} associated used to catch events and generate reports.
 \\
 
 Quando tutte le entità necessarie all'esecuzione sono stati create e configurate, si passa all'esecuzione vera e propria.
