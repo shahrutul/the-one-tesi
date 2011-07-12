@@ -44,26 +44,26 @@ variables is:
 Namespace defines the part of the simulation environment where the setting has effect on. Many, but not all, namespaces are equal to the class name where they are read. This convention is especially followed by movement models, report modules and routing modules, so also created new modules should follow it.
 \\
 
-To make human-readability and configuration easier, numerical values can use suffixes kilo (k), mega (M) o giga (G), with \textquotedblleft .\textquotedblright as decimal separator. Boolean parameters accept \textquotedblleft true\textquotedblright
- or \textquotedblleft 1\textquotedblright , \textquotedblleft false\textquotedblright or \textquotedblleft 0 \textquotedblright .
+To make human-readability and configuration easier, numerical values can use suffixes kilo (k), mega (M) o giga (G), with \textquotedblleft .\textquotedblright \ as decimal separator. Boolean parameters accept \textquotedblleft true\textquotedblright \
+ or \textquotedblleft 1\textquotedblright , \textquotedblleft false\textquotedblright \ or \textquotedblleft 0 \textquotedblright .
 \\
  
 Comments can be inserted in setting files can contain comments too with \textquotedblleft
-\#\textquotedblright character. Rest of the line is skipped when the settings are read.
+\#\textquotedblright \ character. Rest of the line is skipped when the settings are read.
 \\
 
 Every simulation can be set using several configuration files, to divide parameters into different categories, e.g. a file can contain scenario parameters, like maps, streets and districts, another file can contain parameters used to configure nodes, another file can contain reports configuration and so on. First configuration file read, if exists, is always \textquotedblleft default\_settings.txt\textquotedblright. Other configuration files given as parameter can define more settings or override some (or even all) settings in the previous files. The idea is that you can define in the earlier files all the settings that are common for
 all the simulations and run different simulations changing parameters only in latests configuration files.
 \\
 
-The basic agents in the simulator are called nodes. A node models a mobile endpoint capable of acting as a store-carry-forward router (e.g., a pedestrian, car or tram with the required hardware). Nodes in the simulation world are divided into groups, each one configured with different capabilities. Inside a group, every node has the same characteristics, which are radio interface, persistent storage, movement, energy consumption and message routing protocol. It is possible to configure some of these capabilities as common for all groups, avoiding to set them individually for each group. Changing some configuration value between a group and another, allow to get heterogeneity between the behaviour of nodes in simulated scenario.
+The basic agents in the simulator are called nodes. A node models a mobile endpoint capable of acting as a store-carry-forward router (e.g., a pedestrian, car or tram with the required hardware). Nodes in the simulation world are divided into groups, each one configured with different capabilities. Inside a group, every node has the same characteristics, i.e. are radio interface, persistent storage, movement, energy consumption and message routing protocol. It is possible to configure some of these capabilities as common for all groups, avoiding to set them individually for each group. Changing some configuration value between a group and another, allow to get heterogeneity between the behaviour of nodes in simulated scenario.
 \\
 
-In configuration files is also possible to provide array of settings for every parameter. This allows to run large amounts of different simulations using only single configuration file. Every simulation will be different from the previous and this is very useful to gather reports about different aspects in a common scenario.
+In configuration files is also possible to provide array of settings for every parameter. This allows to run large amounts of different simulations using only one  single configuration file. Every simulation will be different from the previous and this is very useful to gather reports about different aspects in a common scenario.
 \\ Syntax for these configuration parameters is
 
 \begin{center}
-\textit{Namespace.key = [run1_value; run2_value; run3_value; etc]}
+\textit{Namespace.key = [run1\_value; run2\_value; run3\_value; etc]}
 \end{center}
 
 Some parameters, finally, accept a file path as value and this can be either an absolute or relative path. These parameters are used for maps, nodes paths or events to be loaded by event generators modules.
@@ -86,7 +86,7 @@ Selecting a node is also possible to follow its movements inside the simulated w
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=0.6]{2-simulatore/img/Routing-Info.png}
-    \caption[Routing Info]{Main Window of the ONE}    
+    \caption[Routing Info]{Example of detail window related to a node state}    
     \label{Routing-Info}
   \end{center}
 \end{figure}
@@ -95,10 +95,10 @@ Selecting a node is also possible to follow its movements inside the simulated w
 The map representation is configurable and the user can adjust the zoom level, simulation speed and it's possible to add an image as background, e.g. using a road map or a satellite photo of the interested area.
 \\
 
-The other way to follow the progress of simulations is to read generated reports, at the end of the simulation. Each report is generated by its related module and these modules, like movement and routing modules, are dynamically loaded at the beginning of the simulation according to what set in configuration files. To use report files is particularly useful when doing simulations in batch, without using the GUI and analysing resulting reports when all the set of simulations is complete. In batch mode is useful the possibility of define arrays of values for parameters in configuration files. These allow to set differences in configuration between the different runs of the batch. When the batch is executed, the ONE would run all the simulations, reading for each of them the correct configuration parameters, and saving the generated reports into different files for each simulation run.
+The other way to follow the progress of simulations is to read generated reports, at the end of every simulation. Each report is generated by its related module and these modules, like movement and routing modules, are dynamically loaded at the beginning of the simulation according to what set in configuration files. To use report files is particularly useful when doing simulations in batch, without using the GUI and analysing resulting reports when all the set of simulations is complete. In batch mode is useful the possibility of define arrays of values for parameters in configuration files. These allow to set differences in configuration between the different runs of the batch. When the batch is executed, the ONE would run all the simulations, reading for each of them the correct configuration parameters, and saving the generated reports into different files for each simulation run.
 \\
 
-Several report modules can be active during one single simulation. Output of these modules are report files, which typically are text-based files in which are saved statistical and log data gathered during the simulation. These data can be further analysed when the simulation has ended. In the ONE version 1.4.1, the simulator has some ready to use report modules which allow to create reports related to:
+Several report modules can be active during one single simulation. Output of these modules are report files, which typically are text-based files in which are saved statistical and log data gathered during the simulation. These data can be further analysed when the simulation has ended. In the ONE version 1.4.1, the simulator has some ready-to-use report modules which allow to create reports related to:
 
 \begin{description}
 \item[messages,] e.g. number of created messages, delivery times, expired messages, etc..
@@ -120,20 +120,34 @@ The first step done is configuration loading. The simulator read from configurat
 When the simulation is configured, the creation of the simulated scenario begins. The scenario contains all active entities in the simulation, i.e. nodes, report generators or event generators, and passive entities, i.e. maps which composes the simulated world. In this phase all nodes are created and initialized according to the configuration loaded. Every node contains a router implementing one routing protocol, uses one movement model and has some \textit{listener} associated used to catch events and generate reports.
 \\
 
-Quando tutte le entità necessarie all'esecuzione sono stati create e configurate, si passa all'esecuzione vera e propria.
-Questa consiste nel ripetere l'aggiornamento dello stato del mondo, chiamando un metodo \textit{update()}, e incrementare il valore del tempo simulato fino al raggiungimento di un tempo impostato come fine simulazione. L'incremento temporale che viene effettuato ad ogni aggiornamento è impostato nei files di configurazione (con il parametro \textit{Scenario.updateInterval}), espresso in secondi, ed influenza i vari modelli di movimento dei nodi. La prima operazione svolta durante l'\textit{update()} del mondo simulato è lo spostamento dei vari nodi, che avviene a seconda del modello di movimento adottato dal nodo e dell'incremento temporale applicato. Ad esempio un nodo che simula un automobilista si sposterà maggiormente rispetto ad uno che simula un pedone, a parità di intervallo di tempo simulato. Come vedremo nella sezione \ref{movimento} relativa ai modelli di movimento, questi possono essere anche molto complessi e simulare diversi comportamenti a seconda delle configurazioni adottate.
+When all entities operating in the simulation are created an configured, the main phase of the simulation begins. This consist in an iterative update of the status of simulated world, obtained by calling a method \textit{update()}, and increasing simulation clock value. This clock measure how much time is passed from the beginning of the simulation and incremental step value is configurable in configuration files, using the parameter \textit{Scenario.updateInterval}. This accept a double value and it indicates how many seconds wait between an update of the world and the next one. This value have a big influence over results of the simulation. This because a simulation with a small \textit{updateInterval} would be more accurate than one with a big value of update, having a more frequent update of the status of simulate world, but it also need more computational time to complete the simulation.
 \\
 
-Una volta effettuato il movimento, per ogni nodo viene aggiornato lo stato delle connessioni e del router simulato. Per ogni interfaccia di rete disponibile viene quindi aggiornato lo stato a seconda che lo spostamento abbia comportato una caduta della connessione o abbia permesso di entrare nel raggio di comunicazione di un interfaccia di rete relativa ad un altro nodo. Ogni qualvolta lo stato di una connessione cambia, vengono avvisati i \textit{listeners} interessati, per la generazione di report, e viene aggiornata la visualizzazione grafica della connessione, se attiva, come si può vedere, ad esempio, in Figura \ref{connessioni}.
+The first action executed in simulated world \textit{update()} is to move nodes inside the simulation map. This is done according to every node's movement model and to \textit{Scenario.updateInterval} value. E.g. a node simulating a car driver will move farther than a node simulating a pedestrian, considering the same \textit{updateInterval} time value. As we will see in Section \ref{movimento}, related to movement models, these models can be very complex and can simulate several different movement behaviours, according configuration values used.
 \\
-\figuremacro{connessioni}{connessioni}{Un esempio di connessioni tra nodi tratto dalla finestra principale di ONE. Nella parte sinistra dell'immagine si può notare la connessione attiva, mentre nella parte a destra i due nodi non sono più l'uno nel raggio di comunicazione dell'altro, indicato dal cerchio verde attorno al nodo.}{}
 
-L'ultima parte dell'aggiornamento relativo allo stato di un nodo riguarda l'aggiornamento del router. Questo è fortemente dipendente dal protocollo di routing implementato ed è proprio nell'esecuzione del metodo \textit{update()} relativo al router che si svolgono le azioni caratteristiche di un protocollo rispetto ad un altro.
+When it has been moved, for every node are updated connections and simulated router status. For every network interface is checked if the movement just occurred has changed its status, i.e. some connection has been closed because the two end points are now out of range or some new connection has been established. When the status of a connection changes, related \textit{listeners} are informed, report module are informed too, if enabled, and GUI is updated showing changes in connection status, as shown in Figure \ref{connessioni}.
+\\
+\figuremacro{connessioni}{Connections}{An example of graphical representation of connection between nodes. In the left side is shown an active connection, while in the right side nodes are no more in communication range, represented by the green circle around them.}{}
 
-\section{Casualità}
-come viene introdotta della casualità nelle varie simulazioni
+Last action performed during simulated world \textit{update()} is to update router status for every node. This part is strongly dependent on routing protocol simulated and, by overriding router module \textit{update()} method, is the way to implement a new routing protocol in the ONE.
 
-\section{Limitazioni}
+\section{Randomness}
+One basic characteristic of a simulation done with a network simulator like the ONE is repeatability, i.e. running several simulations with the same configuration, results of these simulations will be the same, as will be the same the behaviour of acting nodes in the simulations. This is fundamental to verify correctness of data and results of completed simulations, or to repeat the simulation changing only few parameters over the total configuration, leaving constant the simulated world description.
+\\
+
+To achieve a
+
+Come già  accennato, è fondamentale che l'esecuzione di una simulazione sia riproducibile, sia per verificare i dati e i risultati ottenuti, sia per poterne variare un parametro, mantenendo però costante il comportamento del resto del sistema simulato. Questo ragionamento si applica anche alla casualità  presente all'interno del \textit{DTNFileGenerator}, ossia alla distribuzione delle varie copie dei \textit{DTNFile} fra i nodi.
+\\
+Per garantire che, effettuando più simulazioni utilizzando la medesima configurazione, i files vengano distribuiti agli stessi nodi, è stata adottata la stessa tecnica utilizzata dai modelli di movimento che estendono la classe \textit{MovementModel}. In quel caso i moduli relativi al movimento vengono inizializzati utilizzando un parametro di configurazione relativo al seed per il \textit{random number generator}. Nel caso di valori di configurazione e seed iniziale mantenuti immutati, i nodi si muovono nello stesso modo anche ripetendo più volte la simulazione: vengono infatti generati gli stessi valori relativi a destinazioni, velocità  e tempi di attesa per i nodi.
+\\
+If the seed and all the movement model related settings are kept the same, all nodes should 
+move the same way in different simulations (same destinations, speed and wait time values are used).
+
+Creates a new random number generator using a single long seed. The seed is the initial value of the internal state of the pseudorandom number generator which is maintained by method \textit{next}. In details, if two instances of Random are created with the same seed, and the same sequence of method calls is made for each, they will generate and return identical sequences of numbers.
+
+\section{Limitations}
 \label{limitazioniONE}
 non più in basso del livello di routing
 simulazione temporale discreta
