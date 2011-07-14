@@ -1,0 +1,2 @@
+M2MShareRouter.multiHopProbability = 10
+Report.reportDir = reports/multiHop/10perc/

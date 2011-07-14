@@ -35,7 +35,7 @@ Events1.queryFile = queries/random_query.txt
 
 ## Reports - all report names have to be valid report classes
 # how many reports to load
-Report.nrofReports = 5
+Report.nrofReports = 6
 # default directory of reports (can be overriden per Report with output setting)
 #Report.reportDir = [reports/ORIGINAL/1; reports/ORIGINAL/2; reports/ORIGINAL/3; reports/ORIGINAL/4; reports/ORIGINAL/5]
 Report.reportDir = reports/multiHop/
@@ -45,6 +45,7 @@ Report.report2 = FileGatheringLog
 Report.report3 = DataTransferLog
 Report.report4 = FileGatheringReport
 Report.report5 = DelegationGraphvizReport
+Report.report6 = M2MShareMapCoverageReport
 
 ###################################
 # M2MShare settings

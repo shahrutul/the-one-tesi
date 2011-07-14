@@ -12,12 +12,13 @@ import java.util.Vector;
 
 public class mainHopLaunch {
 	
-	private static final String REPORTS_DIR = "reports/multiHop";
+	private static final String REPORTS_DIR = "reports/multiHop/10perc";
 	private static final String RUNNING_DIR = "../runningSettings";
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
 	private static final String JOBFILE = "../sim";
 	private static final int NUM_RUN = 30;
+	private static final int[] probs = {10,25,50,75,100};
 
 	/**
 	 * @param args
@@ -105,10 +106,11 @@ public class mainHopLaunch {
 				PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
 				jobFile.println();
 
-
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt "+settingFileName+"'");
-
+				for(int p=0; p<probs.length; p++){
+					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_multiHop.txt multiHopSettings/multiHopProb_"+probs[p]+".txt "+settingFileName+"'");
+					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt multiHopSettings/multiHopProb_"+probs[p]+".txt "+settingFileName+"'");
+				}
+				
 				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 
 
