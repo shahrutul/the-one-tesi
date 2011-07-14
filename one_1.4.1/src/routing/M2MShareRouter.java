@@ -200,7 +200,15 @@ public class M2MShareRouter extends ActiveRouter {
 		scheduler = new DTNScheduler(presenceCollector, queuingCentral, this);
 		broadcastModule = new BroadcastModule(this);
 		maxDelegationValueCarried = -1;
-		rng = new Random(getHost().getAddress());
+		Settings settings = new Settings("MovementModel");
+		int rngSeed;
+		if (settings.contains("rngSeed")) {
+			rngSeed = settings.getInt("rngSeed");
+		}
+		else {
+			rngSeed = 0;
+		}
+		rng = new Random(rngSeed);
 	}
 	
 		
