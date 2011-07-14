@@ -67,7 +67,7 @@ public class DTNPresenceCollector {
 		}
 		
 		if(isScanning()){	
-			myRouter.getHost().notifyM2MShareScan();
+			//myRouter.getHost().notifyM2MShareScan();
 			this.hostsInRange.clear();
 			this.connections.clear();
 			

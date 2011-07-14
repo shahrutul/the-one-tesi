@@ -1,30 +1,31 @@
 
+import java.util.Random;
+
 import routing.m2mShare.Communicator;
 import routing.m2mShare.Interval;
 import routing.m2mShare.IntervalMap;
 
 
 public class mainTest {
+	
+	private static Random rng = new Random();
+	private static boolean isProbableToDelegate() {
+		return rng.nextInt(100) <= 60;
+	}
 
 	public static void main(String[] args) {
 		int fileServersN = 6;
 		
 
 		try {
-			IntervalMap map = new IntervalMap(25000000,1024);
-			System.err.println(map);
-			map.update(0, 5000000);
-			System.err.println(map);
-			map.update(0, 8000000);
-			System.err.println(map);
-			map.update(0, 4000000);
-			System.err.println(map);
-			map.update(0, 15000000);
-			System.err.println(map);
-			map.update(0, 18000000);
-			System.err.println(map);
-			map.update(0, 24000000);
-			System.err.println(map);
+			for(int i=0; i<10; i++){
+				if(isProbableToDelegate()){
+					System.err.println("true");
+				}
+				else{
+					System.err.println(false);
+				}
+			}
 			/*
 			for(int strat = 0; strat < 3; strat++){
 				IntervalMap map = new IntervalMap(25000000,1024);

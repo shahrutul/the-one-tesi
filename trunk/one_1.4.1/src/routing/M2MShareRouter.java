@@ -3,6 +3,7 @@ package routing;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Vector;
 
 import routing.m2mShare.BroadcastModule;
@@ -47,6 +48,7 @@ public class M2MShareRouter extends ActiveRouter {
 	public static final String FILE_DIVISION_TYPE_S = "fileDivisionType";
 	private static final String STOP_SIMULATION_S = "stopOnFirstQuerySatisfied";
 	private static final String USE_BROADCAST_S = "useBroadcastModule";
+	private static final String MULTI_HOP_PROBABILITY_S = "multiHopProbability";
 	
 	public static final int FREQUENCY_THRESHOLD = 2;
 	public static final int SCAN_FREQUENCY = 10;
@@ -66,9 +68,12 @@ public class M2MShareRouter extends ActiveRouter {
 	private DTNScheduler scheduler;
 	private QueuingCentral queuingCentral;
 	private BroadcastModule broadcastModule;
-	private int delegationDepth;
 	private IdGenerator idGenerator;
+	private Random rng;
 	private int fileDivisionStrategyType;
+	private int multiHopProbability;
+	private int delegationDepth;
+	
 	
 	private int maxDelegationValueCarried;
 
@@ -96,6 +101,13 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 		else {
 			scanFrequency = SCAN_FREQUENCY;
+		}
+		
+		if (M2MShareSettings.contains(MULTI_HOP_PROBABILITY_S)) {
+			multiHopProbability = M2MShareSettings.getInt(MULTI_HOP_PROBABILITY_S);
+		}
+		else {
+			multiHopProbability = 100;
 		}
 		
 		int delegationType;
@@ -173,6 +185,7 @@ public class M2MShareRouter extends ActiveRouter {
 		this.stopOnFirstQuerySatisfied = r.stopOnFirstQuerySatisfied;
 		this.delegationDepth = r.delegationDepth;
 		this.fileDivisionStrategyType = r.fileDivisionStrategyType;
+		this.multiHopProbability = r.multiHopProbability;
 		init();
 	}
 	
@@ -187,6 +200,7 @@ public class M2MShareRouter extends ActiveRouter {
 		scheduler = new DTNScheduler(presenceCollector, queuingCentral, this);
 		broadcastModule = new BroadcastModule(this);
 		maxDelegationValueCarried = -1;
+		rng = new Random(getHost().getAddress());
 	}
 	
 		
@@ -245,7 +259,8 @@ public class M2MShareRouter extends ActiveRouter {
 				if((SimClock.getTime() >= (pendingToDelegate.getReceivingTime() + WAIT_BEFORE_REDELEGATE)) &&
 						!otherRouter.hasPendingTask(pendingToDelegate.getID()) &&
 						(!pendingToDelegate.getDelegationChain().contains(otherHost)) && 
-						pendingToDelegate.getHop() < getDelegationDepth()){
+						pendingToDelegate.getHop() < getDelegationDepth() &&
+						isProbableToDelegate()){
 					//System.err.println(SimClock.getTime()+ " - "+ myRouter.getHost()+" delega virtuaFile a "+otherHost);
 					int[] newMap = pendingToDelegate.getMapForDelegation(fileDivisionStrategyType);
 					if(newMap == null){
@@ -280,6 +295,11 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 	}
 	
+
+	private boolean isProbableToDelegate() {
+		return rng.nextInt(100) <= multiHopProbability;
+	}
+
 
 	private boolean hasPendingTask(String activityID) {
 		DTNActivity vf = queuingCentral.getActivityFromID(activityID);
