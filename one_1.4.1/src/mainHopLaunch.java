@@ -17,7 +17,7 @@ public class mainHopLaunch {
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
 	private static final String JOBFILE = "../sim";
-	private static final int NUM_RUN = 35;
+	private static final int NUM_RUN = 30;
 
 	/**
 	 * @param args
@@ -106,7 +106,7 @@ public class mainHopLaunch {
 				jobFile.println();
 
 
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_multiHop.txt "+settingFileName+"'");
 				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt "+settingFileName+"'");
 
 				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");

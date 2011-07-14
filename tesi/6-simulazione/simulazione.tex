@@ -12,7 +12,7 @@
 
 
 %: ----------------------- contents from here ------------------------
-In previous chapters we focused on the concepts, related technologies and implementation realized of the protocol, M2MShare, subject of the study of this thesis. In this section we'll describe the simulations executed and analysis with relative results. For every type of analysis we'll describe the related simulations, the configuration of the simulated world and the other protocols compared to our M2MShare. Finally, for every analysis, we'll show the results in a graphical way with a textual interpretation.
+In previous chapters we focused on the concepts, related technologies and implementation realized of the protocol, M2MShare, subject of the study of this thesis. In this section we describe the simulations executed and analysis with relative results. For every type of analysis we describe the related simulations, the configuration of the simulated world and the other protocols compared to our M2MShare. Finally, for every analysis, we show the results in a graphical way with a textual interpretation.
 \\
 
 We repeat each of the simulation scenarios several times in order to achieve more accurate results, independent of the initial positioning of the requester peer in search for that particular data file and independent of the initial positioning of the searched file copies. Each scenario is run using a different random seeds to initialize the movement model and for every seed the simulation is repeated using the three compared protocols.
@@ -272,7 +272,7 @@ In the first scenario (Fig. \ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The 
 In previous analysis we considered only delegation strategies using single-hop delegation, i.e. once a servant peer receive a task, delegated from another node, it will not delegate it again to a further-lever servant. 
 \\
 
-There are some situations in which single-hop delegations are not enough, due to other factors, like a low popularity of the searched file or its high distance from the searching peer. It's also possible that all the peers holding the searched file have different behaviours from those of the client and his direct servants. In these cases, we extended M2MShare giving to a peer the capability to delegate again a pending task. To avoid creating an excessively large number of delegations, we allow to delegate again only after a trial period, i.e. one day, in which the servant try to complete the task by itself. If at the end of this period the task is still incomplete, it is delegate again to a new set of upper-level servants.
+There are some situations in which single-hop delegations are not enough, due to other factors, like a low popularity of the searched file or its high distance from the searching peer. It is also possible that all the peers holding the searched file have different behaviours from those of the client and his direct servants. In these cases, we extended M2MShare giving to a peer the capability to delegate again a pending task. To avoid creating an excessively large number of delegations, we allow to delegate again only after a trial period, i.e. one day, in which the servant try to complete the task by itself. If at the end of this period the task is still incomplete, it is delegate again to a new set of upper-level servants.
 \\
 
 We simulate the behaviour of our protocol in a similar situation by tuning the distribution of the searched file at the beginning of the simulation: we distribute the 25 initial copies only between nodes in a map district on the other side of town from the searching node. As usually we repeated the simulations several times to get more accurate results, independently from the initial location of the searching node. In every simulation we compare then the effectiveness of three different strategies:
@@ -282,7 +282,7 @@ We simulate the behaviour of our protocol in a similar situation by tuning the d
 \item M2MShare with up to 3-hop delegations
 \end{itemize}
 
-In Fig. \ref{graficoPercCompletedMultiHop} it's possible no see the average percent value of simulations where nodes employing the three compared strategies successfully found the searched file and bring it back to the requester node. M2MShare with 1-hop delegations can achieve some success, but it is not comparable with results of M2MShare employing multi-hop delegations. Finally, the strategy not employing delegations is not able to find the file a single time.
+In Fig. \ref{graficoPercCompletedMultiHop} it is possible no see the average percent value of simulations where nodes employing the three compared strategies successfully found the searched file and bring it back to the requester node. M2MShare with 1-hop delegations can achieve some success, but it is not comparable with results of M2MShare employing multi-hop delegations. Finally, the strategy not employing delegations is not able to find the file a single time.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{1\linewidth}
@@ -351,7 +351,7 @@ In analysis in Section \ref{analisiDelegationEfficiency}, especially in Fig.  \r
 
 Of course redundancy in a network composed only by nodes which don't use delegation is always zero. For this reason we compared for this study only the two systems which use task delegations. In Fig. \ref{graficoRidondanzaData} we show how change the average data redundancy during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in Fig. \ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes. 
 \\
-The trend of this graph is related to the number of simultaneously active delegated tasks, shown in Fig. \ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in it's own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
+The trend of this graph is related to the number of simultaneously active delegated tasks, shown in Fig. \ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in its own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{1\linewidth}

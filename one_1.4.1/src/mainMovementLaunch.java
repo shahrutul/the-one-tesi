@@ -17,7 +17,7 @@ public class mainMovementLaunch {
 	private static final String SEED_FILE = "seedsCluster.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings2/seedSettings";
 	private static final String JOBFILE = "../sim";
-	private static final int NUM_RUN = 1;
+	private static final int NUM_RUN = 5;
 
 	/**
 	 * @param args
@@ -106,7 +106,7 @@ public class mainMovementLaunch {
 				jobFile.println();
 
 
-				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 3 WDM_settings.txt m2mshare_settings_multiHop.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
 				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 2 WDM_settings.txt m2mshare_settings_multiHop2.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
 				//jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_multiHop.txt m2mshare_settings_Movement.txt "+settingFileName+"'");
 				
