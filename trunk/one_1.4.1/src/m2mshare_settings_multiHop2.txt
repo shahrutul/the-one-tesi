@@ -49,7 +49,7 @@ Report.report5 = DelegationGraphvizReport
 ###################################
 # M2MShare settings
 M2MShareRouter.useBroadcastModule = true
-M2MShareRouter.frequencyThreshold = 2
+M2MShareRouter.frequencyThreshold = 3
 M2MShareRouter.delegationDepth = 1
 M2MShareRouter.stopOnFirstQuerySatisfied = false
 

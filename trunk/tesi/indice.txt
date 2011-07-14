@@ -1,0 +1,89 @@
+                                         
+-- TITOLO DELLA TESI --
+
+ . Abstract (1 pagina)
+
+1. Introduzione (~5 pp)
+   - Descrizione progetto
+   - Scopo del progetto 
+contributi lista
+   - Composizione della tesi (outline)
+
+2. Background su DTN (~10 pp)
+   - Caratteristiche di una DTN 
+   - Esempi di cause di Delay and Disruption
+   - Inefficienza di protocolli classici su DTN ion caratteristiche
+related work dtn mobile
+
+
+3. M2MShare (~20 pp)
+   - Descrizione del protocollo
+   - Modulo DTN
+      - Elezione del Servant
+   - Modulo di ricerca
+   - Modulo di Trasporto
+      - Sistema di accodamento
+      - Scheduler ed esecuzione di un task
+      - Tipi di task
+   - Modulo di Routing
+   - Modulo MAC
+      - Presence Collector
+   - File Division Strategy
+
+5. Modelli di movimento (~10 pp)
+   - Modelli di movimento sintetici vs real user traces
+   - Importanza della scelta del modello di movimento 
+   - Descrizione della mappa usata
+   - Random Map-Based Movement
+   - Shortest Path Map-Based Movement
+   - Routed Map-Based Movement
+   - Working Day Movement Model
+      - Esempio di giornata
+      - Home Activity Submodel
+      - Office Activity Submodel
+      - Evening Activity Submodel
+      - Transport Activity Submodel
+
+4. The ONE (~15 pp)
+   - Descrizione del simulatore
+   - Configurazione
+   - Visualizzazione dei risultati (GUI & reports)
+   - Come viene implementata la casualità
+   - Esempio di esecuzione
+
+
+6. Implementazione del protocollo (~25 pp)
+   - Modifiche a the ONE
+      - Gestione File
+      - GUI
+      - Reports
+   - M2MShare Implementation
+      - M2MShareRouter
+      - PresenceCollector
+      - QueuingCentral
+      - Activity
+      - Scheduler
+      - BroadcastModule
+      - IntervalMap 
+   - Classi per l'analisi dei reports
+
+
+7. Descrizione simulazioni (~15 pp)
+   - Parametri generali (citazioni per giustificarli)
+   - Specifica dei singoli test (topologia, parametri, obiettivi)
+   - Metriche di valutazione performance
+
+8. Risultati (~10 pp)
+   - Interpretazione, considerazioni, confronto con testbed
+
+9. Conclusioni (~5 pp)
+   - Risultati ottenuti, obiettivi futuri
+   - Contributo
+
+10. Bibliografia
+
+
+
+------------------------------
+
+Totale = ~110 pp

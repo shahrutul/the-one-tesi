@@ -136,26 +136,25 @@ Last action performed during simulated world \textit{update()} is to update rout
 One basic characteristic of a simulation done with a network simulator like the ONE is repeatability, i.e. running several simulations with the same configuration, results of these simulations will be the same, as will be the same the behaviour of acting nodes in the simulations. This is fundamental to verify correctness of data and results of completed simulations, or to repeat the simulation changing only few parameters over the total configuration, leaving constant the simulated world description.
 \\
 
-To achieve a
-
-Come già  accennato, è fondamentale che l'esecuzione di una simulazione sia riproducibile, sia per verificare i dati e i risultati ottenuti, sia per poterne variare un parametro, mantenendo però costante il comportamento del resto del sistema simulato. Questo ragionamento si applica anche alla casualità  presente all'interno del \textit{DTNFileGenerator}, ossia alla distribuzione delle varie copie dei \textit{DTNFile} fra i nodi.
+To achieve a statistical correctness in analysis, we need to repeat a simulation several times, to get results independent from initial position and movement of nodes. Doing average analysis over simulations results, allow to study statistical trend of analysed variables, without focusing to best or worst cases that can happen during several simulations. 
 \\
-Per garantire che, effettuando più simulazioni utilizzando la medesima configurazione, i files vengano distribuiti agli stessi nodi, è stata adottata la stessa tecnica utilizzata dai modelli di movimento che estendono la classe \textit{MovementModel}. In quel caso i moduli relativi al movimento vengono inizializzati utilizzando un parametro di configurazione relativo al seed per il \textit{random number generator}. Nel caso di valori di configurazione e seed iniziale mantenuti immutati, i nodi si muovono nello stesso modo anche ripetendo più volte la simulazione: vengono infatti generati gli stessi valori relativi a destinazioni, velocità  e tempi di attesa per i nodi.
+
+To achieve that result, each movement models modules uses a \textit{random number generator}. This generator is initialized with a long seed, read from configuration files as value for the parameter \textit{MovementModel.rngSeed}. The seed is the initial value of the internal state of the pseudorandom number generator which is maintained by method \textit{next}. In details, if two instances of random generator are created with the same seed, and the same sequence of method calls is made for each, they will generate and return identical sequences of numbers. This means that if the seed and all the movement model related settings are kept the same, all nodes should move the same way in different simulations (same destinations, speed and wait time values are used).
 \\
-If the seed and all the movement model related settings are kept the same, all nodes should 
-move the same way in different simulations (same destinations, speed and wait time values are used).
 
-Creates a new random number generator using a single long seed. The seed is the initial value of the internal state of the pseudorandom number generator which is maintained by method \textit{next}. In details, if two instances of Random are created with the same seed, and the same sequence of method calls is made for each, they will generate and return identical sequences of numbers.
+This is the strategy we used to get an high number of related simulations, from which we got results later analysed: we keep constant all simulation settings, specified by one configuration file and we change, for every run, \textit{MovementModel.rngSeed} value. Doing so we got data to analyse, from reports, independent from initial position and movements of nodes. 
 
-\section{Limitations}
-\label{limitazioniONE}
-non più in basso del livello di routing
-simulazione temporale discreta
-mancanza di simulazione di un file system
 
-\section{The map}
-\label{mappaONE}
-qua ci va la descrizione della mappa con la divisione in distretti e magari un'immagine delle rotte dei bus e del modello di movimento
+%
+%\section{Limitations}
+%\label{limitazioniONE}
+%non più in basso del livello di routing
+%simulazione temporale discreta
+%mancanza di simulazione di un file system
+
+
+
+
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
 % ---------------------------------------------------------------------------
