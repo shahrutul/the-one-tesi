@@ -145,6 +145,55 @@ To achieve that result, each movement models modules uses a \textit{random numbe
 This is the strategy we used to get an high number of related simulations, from which we got results later analysed: we keep constant all simulation settings, specified by one configuration file and we change, for every run, \textit{MovementModel.rngSeed} value. Doing so we got data to analyse, from reports, independent from initial position and movements of nodes. 
 
 
+\section{The map}
+\label{mappaONE}
+The map defines the space and routes in which the nodes can move inside the simulated world. The design of the map is an important part of the mobility model because it contains all the information of the locations of the houses, offices and meeting spots, as well as bus routes with bus stops. Since all the movement of the nodes is determined by activities with specific locations, the placement of these locations define how nodes are moving on a larger scale. Locations can be node group specific, i.e. some offices are used only by nodes in one group, nodes in different groups live in different houses locations, etc.. This makes it possible to create small districts within the map. In Fig. \ref{imgMappaABCD} is shown the default map included in the ONE simulator and used for our simulations and described in \cite{articoloWDM}.
+
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics[scale=0.6]{figure/mappa_ABCD.png}
+    \caption[Helsinky map]{The map of the Helsinki centre area used in our simulations}    
+    \label{imgMappaABCD}
+  \end{center}
+\end{figure}
+
+It is possible to see the four main district in which the map is divided. 
+\\
+
+In this implementation, every node group belongs to a district i.e. all nodes in one group will have their home location, office and meeting spot inside the related district. This is useful to limit node movement to small areas. Doing this we increased locality and it is not possible that nodes belonging to different groups (and so different districts) can meet each others. To decrease locality it is possible to spread houses, offices and meeting spots on the map, having nodes meeting easily.
+\\
+
+It is also possible to combine low and high locality: in Helsinki map used for our simulations there are four main districts, with different sizes, overlapped by other districts. This allows to have high locality but also some movement between districts, which corresponds to nodes coming to some district to work or meet friends, while others are leaving their district for similar reasons. Nodes moving between districts, not located next to each other, will have to pass through other districts. In Table \ref{tabellaDistrettiMappa} is shown distribution of nodes, offices and meeting spots in the districts of the map.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{District} & \textbf{Nodes} & \textbf{Offices} & \textbf{Meeting spots}\\
+\hline
+\hline
+\bfseries A & 150 & 30 & 4 \\
+\hline
+\bfseries B & 50 & 10 & 1 \\
+\hline
+\bfseries C & 100 & 20 & 2 \\
+\hline
+\bfseries D & 100 & 20 & 2 \\
+\hline
+\bfseries E (A + B) & 100 & 20 & 2 \\
+\hline
+\bfseries F (A + C) & 150 & 30 & 4 \\
+\hline
+\bfseries G (A + D) & 150 & 30 & 4 \\
+\hline
+\bfseries H (Whole map) & 200 & 40 & 5 \\
+\hline
+\end{tabular}
+\end{center}
+\caption[Helsinky map districts]{Table showing assignment of nodes, offices and meeting spots between districts in Helsinky map}    
+\label{tabellaDistrettiMappa}
+\end{table}
+
 %
 %\section{Limitations}
 %\label{limitazioniONE}
