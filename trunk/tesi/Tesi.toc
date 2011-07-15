@@ -5,62 +5,63 @@
 \contentsline {section}{\numberline {2.2}Simulation outputs}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Simulation execution}{8}{section.2.3}
 \contentsline {section}{\numberline {2.4}Randomness}{9}{section.2.4}
-\contentsline {chapter}{\numberline {3}Modelli di movimento}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}The map}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Random Map-Based Movement}{13}{section.3.2}
-\contentsline {section}{\numberline {3.3}Shortest Path Map-Based Movement}{13}{section.3.3}
-\contentsline {section}{\numberline {3.4}Routed Map-Based Movement}{14}{section.3.4}
-\contentsline {section}{\numberline {3.5}Working Day Movement Model}{14}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Esempio di giornata}{15}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Home Activity Submodel}{15}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Office Activity Submodel}{16}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Evening Activity Submodel}{16}{subsection.3.5.4}
-\contentsline {subsection}{\numberline {3.5.5}Transport Activity Submodel}{17}{subsection.3.5.5}
-\contentsline {chapter}{\numberline {4}M2MShare}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modulo DTN}{19}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Elezione del Servant}{20}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Modulo di ricerca}{22}{section.4.2}
-\contentsline {section}{\numberline {4.3}Modulo di Trasporto}{22}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Sistema di accodamento}{23}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Scheduler ed esecuzione di un task}{24}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Tipi di task}{24}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Modulo di Routing}{24}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modulo MAC}{24}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Presence Collector}{24}{subsection.4.5.1}
-\contentsline {section}{\numberline {4.6}File Division Strategy}{24}{section.4.6}
-\contentsline {chapter}{\numberline {5}Implementazione}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}Modifiche a ONE}{25}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Gestione File}{25}{subsection.5.1.1}
-\contentsline {paragraph}{DTNFile}{25}{section*.7}
-\contentsline {paragraph}{DTNFileSystem}{26}{section*.8}
-\contentsline {paragraph}{DTNFileGenerator}{26}{section*.9}
-\contentsline {paragraph}{FileRequest}{28}{section*.10}
-\contentsline {paragraph}{M2MShareFileRequestReader}{29}{section*.11}
-\contentsline {subsection}{\numberline {5.1.2}GUI}{29}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Reports}{29}{subsection.5.1.3}
-\contentsline {paragraph}{FileGatheringLog}{29}{section*.13}
-\contentsline {paragraph}{DataTransferLog}{32}{section*.14}
-\contentsline {paragraph}{FileGatheringReport}{32}{section*.15}
-\contentsline {paragraph}{DelegationGraphvizReport}{33}{section*.16}
-\contentsline {section}{\numberline {5.2}M2MShare Implementation}{34}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}M2MShareRouter}{34}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}PresenceCollector}{36}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}QueuingCentral}{36}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Activity}{36}{subsection.5.2.4}
-\contentsline {paragraph}{VirtualFile}{36}{section*.18}
-\contentsline {paragraph}{DTNPendingDownload}{36}{section*.19}
-\contentsline {paragraph}{DTNDownloadFwd}{36}{section*.20}
-\contentsline {subsection}{\numberline {5.2.5}Scheduler}{36}{subsection.5.2.5}
-\contentsline {paragraph}{Executor}{36}{section*.21}
-\contentsline {paragraph}{Communicator}{36}{section*.22}
-\contentsline {subsection}{\numberline {5.2.6}BroadcastModule}{36}{subsection.5.2.6}
-\contentsline {subsection}{\numberline {5.2.7}IntervalMap}{36}{subsection.5.2.7}
-\contentsline {chapter}{\numberline {6}Simulations and results}{37}{chapter.6}
-\contentsline {section}{\numberline {6.1}Delegation efficiency}{39}{section.6.1}
-\contentsline {section}{\numberline {6.2}Delegation efficiency with variable file popularity}{42}{section.6.2}
-\contentsline {section}{\numberline {6.3}Delegation efficiency with variable nodes population}{43}{section.6.3}
-\contentsline {section}{\numberline {6.4}Multi-hop delegation}{45}{section.6.4}
-\contentsline {section}{\numberline {6.5}Data redundancy}{48}{section.6.5}
-\contentsline {section}{\numberline {6.6}File Division Strategy efficency}{49}{section.6.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{53}{chapter.7}
-\contentsline {chapter}{Bibliografia}{55}{chapter.7}
+\contentsline {section}{\numberline {2.5}The map}{10}{section.2.5}
+\contentsline {chapter}{\numberline {3}Modelli di movimento}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Real user traces VS Synthetic models}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Random Map-Based Movement}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}Shortest Path Map-Based Movement}{16}{section.3.3}
+\contentsline {section}{\numberline {3.4}Routed Map-Based Movement}{16}{section.3.4}
+\contentsline {section}{\numberline {3.5}Working Day Movement Model}{16}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Esempio di giornata}{17}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Home Activity Submodel}{18}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Office Activity Submodel}{18}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Evening Activity Submodel}{19}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Transport Activity Submodel}{19}{subsection.3.5.5}
+\contentsline {chapter}{\numberline {4}M2MShare}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modulo DTN}{21}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Elezione del Servant}{22}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Modulo di ricerca}{24}{section.4.2}
+\contentsline {section}{\numberline {4.3}Modulo di Trasporto}{24}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Sistema di accodamento}{25}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Scheduler ed esecuzione di un task}{26}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Tipi di task}{26}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Modulo di Routing}{26}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modulo MAC}{26}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Presence Collector}{26}{subsection.4.5.1}
+\contentsline {section}{\numberline {4.6}File Division Strategy}{26}{section.4.6}
+\contentsline {chapter}{\numberline {5}Implementazione}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modifiche a ONE}{27}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Gestione File}{27}{subsection.5.1.1}
+\contentsline {paragraph}{DTNFile}{27}{section*.7}
+\contentsline {paragraph}{DTNFileSystem}{28}{section*.8}
+\contentsline {paragraph}{DTNFileGenerator}{28}{section*.9}
+\contentsline {paragraph}{FileRequest}{30}{section*.10}
+\contentsline {paragraph}{M2MShareFileRequestReader}{31}{section*.11}
+\contentsline {subsection}{\numberline {5.1.2}GUI}{31}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Reports}{31}{subsection.5.1.3}
+\contentsline {paragraph}{FileGatheringLog}{31}{section*.13}
+\contentsline {paragraph}{DataTransferLog}{34}{section*.14}
+\contentsline {paragraph}{FileGatheringReport}{34}{section*.15}
+\contentsline {paragraph}{DelegationGraphvizReport}{35}{section*.16}
+\contentsline {section}{\numberline {5.2}M2MShare Implementation}{36}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}M2MShareRouter}{36}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}PresenceCollector}{38}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}QueuingCentral}{38}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Activity}{38}{subsection.5.2.4}
+\contentsline {paragraph}{VirtualFile}{38}{section*.18}
+\contentsline {paragraph}{DTNPendingDownload}{38}{section*.19}
+\contentsline {paragraph}{DTNDownloadFwd}{38}{section*.20}
+\contentsline {subsection}{\numberline {5.2.5}Scheduler}{38}{subsection.5.2.5}
+\contentsline {paragraph}{Executor}{38}{section*.21}
+\contentsline {paragraph}{Communicator}{38}{section*.22}
+\contentsline {subsection}{\numberline {5.2.6}BroadcastModule}{38}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}IntervalMap}{38}{subsection.5.2.7}
+\contentsline {chapter}{\numberline {6}Simulations and results}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}Delegation efficiency}{42}{section.6.1}
+\contentsline {section}{\numberline {6.2}Delegation efficiency with variable file popularity}{45}{section.6.2}
+\contentsline {section}{\numberline {6.3}Delegation efficiency with variable nodes population}{46}{section.6.3}
+\contentsline {section}{\numberline {6.4}Multi-hop delegation}{48}{section.6.4}
+\contentsline {section}{\numberline {6.5}Data redundancy}{51}{section.6.5}
+\contentsline {section}{\numberline {6.6}File Division Strategy efficency}{52}{section.6.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{55}{chapter.7}
+\contentsline {chapter}{Bibliografia}{57}{chapter.7}

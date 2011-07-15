@@ -33,7 +33,6 @@ related work dtn mobile
 5. Modelli di movimento (~10 pp)
    - Modelli di movimento sintetici vs real user traces
    - Importanza della scelta del modello di movimento 
-   - Descrizione della mappa usata
    - Random Map-Based Movement
    - Shortest Path Map-Based Movement
    - Routed Map-Based Movement
@@ -50,6 +49,7 @@ related work dtn mobile
    - Visualizzazione dei risultati (GUI & reports)
    - Come viene implementata la casualità
    - Esempio di esecuzione
+   - Descrizione della mappa usata
 
 
 6. Implementazione del protocollo (~25 pp)
