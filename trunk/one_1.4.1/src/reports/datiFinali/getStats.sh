@@ -15,3 +15,6 @@ gnuplot graficoTempiVF_Fp10.gp
 gnuplot graficoTempiVF_Fp50.gp
 
 gnuplot graficoPercCompletiMultiHop.gp
+
+gnuplot graficoTempiVFMultiHopPerc.gp
+gnuplot graficoDelegheMultiHopPerc.gp

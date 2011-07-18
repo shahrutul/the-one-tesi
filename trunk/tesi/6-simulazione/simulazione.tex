@@ -98,32 +98,44 @@ received. If no delegations are made and the first file request is satisfied by 
 \end{itemize}
 
 \begin{figure}[ht]
-\begin{minipage}[b]{0.48\linewidth}
 \centering
-\includegraphics[scale=0.48]{grafici/tempi.eps}
+\includegraphics[scale=0.7]{grafici/tempi.eps}
 \caption{Average, min. max found time employed by each strategy in finding the required data file.}
 \label{graficoTempiVF}
-\end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.48\linewidth}
+\end{figure}
+
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.48]{grafici/delegheFatte.eps}
+\includegraphics[scale=0.7]{grafici/delegheFatte.eps}
 \caption{Average, min, max number of delegations employed by each delegation strategy.}
 \label{graficoNumeroDeleghe}
-\end{minipage}
 \end{figure}
+
+%\begin{figure}[ht]
+%\begin{minipage}[b]{0.45\linewidth}
+%\centering
+%\includegraphics[scale=0.45]{grafici/tempi.eps}
+%\caption{Average, min. max found time employed by each strategy in finding the required data file.}
+%\label{graficoTempiVF}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{minipage}[b]{0.45\linewidth}
+%\centering
+%\includegraphics[scale=0.45]{grafici/delegheFatte.eps}
+%\caption{Average, min, max number of delegations employed by each delegation strategy.}
+%\label{graficoNumeroDeleghe}
+%\end{minipage}
+%\end{figure}
 
 
 In Fig. \ref{graficoTempiVF} it is possible to see the advantage, in terms of found time, in using the delegation technique instead of not using it. The two systems employing delegations find the required file in less time in each simulation run at the expense of higher overhead in terms of bandwidth due to delegations. The system employing delegations to all encountered peers gets a better result on average, but at a cost of a higher number of delegated tasks (Fig. \ref{graficoNumeroDeleghe}). A higher number of delegated tasks imply more bandwidth used for searching the data file and potentially retrieving (if found) and forwarding it toward the requester.
 \\
 
 \begin{figure}[ht]
-\begin{minipage}[b]{1\linewidth}
 \centering
-\includegraphics[scale=0.5]{grafici/tempiRitornoDeleghe.eps}
+\includegraphics[scale=0.7]{grafici/tempiRitornoDeleghe.eps}
 \caption{Average, min, max output return time for systems using task delegations.}
 \label{graficoRitornoMedioDeleghe}
-\end{minipage}
 \end{figure}
 
 Fig. \ref{graficoNumeroDeleghe} makes a comparison between the two systems employing delegations by showing the number of overall employed task delegations till file download or simulation time expires. It is easy to see that M2MShare uses fewer delegations while achieving a higher percentage of completed delegated tasks (Fig. \ref{graficoPercDelegheRitornate}). This outcome is due to a conservative delegation strategy employed by M2MShare in delegating unsatisfied, unaccomplished tasks only to frequently encountered peers

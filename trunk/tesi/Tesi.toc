@@ -8,11 +8,11 @@
 \contentsline {section}{\numberline {2.5}The map}{10}{section.2.5}
 \contentsline {chapter}{\numberline {3}Modelli di movimento}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Real user traces VS Synthetic models}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Random Map-Based Movement}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Shortest Path Map-Based Movement}{16}{section.3.3}
+\contentsline {section}{\numberline {3.2}Random Map-Based Movement}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Shortest Path Map-Based Movement}{15}{section.3.3}
 \contentsline {section}{\numberline {3.4}Routed Map-Based Movement}{16}{section.3.4}
 \contentsline {section}{\numberline {3.5}Working Day Movement Model}{16}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Esempio di giornata}{17}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.1}Example of working day}{17}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Home Activity Submodel}{18}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Office Activity Submodel}{18}{subsection.3.5.3}
 \contentsline {subsection}{\numberline {3.5.4}Evening Activity Submodel}{19}{subsection.3.5.4}
@@ -59,9 +59,9 @@
 \contentsline {chapter}{\numberline {6}Simulations and results}{39}{chapter.6}
 \contentsline {section}{\numberline {6.1}Delegation efficiency}{42}{section.6.1}
 \contentsline {section}{\numberline {6.2}Delegation efficiency with variable file popularity}{45}{section.6.2}
-\contentsline {section}{\numberline {6.3}Delegation efficiency with variable nodes population}{46}{section.6.3}
+\contentsline {section}{\numberline {6.3}Delegation efficiency with variable nodes population}{47}{section.6.3}
 \contentsline {section}{\numberline {6.4}Multi-hop delegation}{48}{section.6.4}
-\contentsline {section}{\numberline {6.5}Data redundancy}{51}{section.6.5}
-\contentsline {section}{\numberline {6.6}File Division Strategy efficency}{52}{section.6.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{55}{chapter.7}
-\contentsline {chapter}{Bibliografia}{57}{chapter.7}
+\contentsline {section}{\numberline {6.5}Data redundancy}{52}{section.6.5}
+\contentsline {section}{\numberline {6.6}File Division Strategy efficency}{53}{section.6.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{57}{chapter.7}
+\contentsline {chapter}{Bibliografia}{59}{chapter.7}
