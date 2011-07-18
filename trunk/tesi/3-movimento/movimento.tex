@@ -81,6 +81,8 @@ approach is to combine these different elements to create a new movement model.
 \section{Random Map-Based Movement}
 The simplest map-based mobility model is Random Map-Based Movement (MBM). Nodes adopting this model moves randomly but always in streets described in the map. This is done walking from one map node, i.e. an address on a street or a crossroad, to the other by always randomly selecting one of the directly connected map nodes. Result of this behaviour is a random movement in which there are more contacts between nodes than in Random Walk model. This is due to the restriction to node movement to follow streets described in the map.
 
+\section{Random Walk}
+
 
 \section{Shortest Path Map-Based Movement}
 Shortest Path Map-Based Movement (SPMBM) is another mobility model that uses a map-described environment to restrict node movement. With this model, nodes chooses their destination randomly inside the map, then calculate the shortest path to reach it and finally walk along this path. Dijkstra's algorithm is used to calculate the path. Destinations can be chosen in a totally random way or from a set of Points of Interests (POI). This can be useful to emulate interesting places like restaurants, monuments or shops. This model adds one level of realism, compared to MBM, since nodes don't move in a completely random way, but they have destinations and follow the best path to reach it.
@@ -137,13 +139,13 @@ When the node returns home it moves near this location for a while and then it s
 The submodel related to the working activities is a model which emulate the behaviour of an employee inside its office. During the working time the employee stays at his desk for most of the time but it can leave it for attend a meeting, talk with a colleague of have a break. During all these moments it can meet nodes related to other colleagues.
 \\
 
-The office is described ad a single room with rectangular shape, where the only entrance point, the door, is placed in the upper left hand corner. Every employee has its own desk, located in the same place inside the office for all the simulation duration. In this model is not simulated the presence of walls or other furniture inside the office. To compensate for this, the office is described as a room bigger than a normal size, to emulate time needed to avoid obstacles and reach a destination inside the office.
+The office is described as a single room with rectangular shape, where the only entrance point, the door, is placed in the upper left hand corner. Every employee has its own desk, located in the same place inside the office for all the simulation duration. In this model is not simulated the presence of walls or other furniture inside the office. To compensate for this, the office is described as a room bigger than the normal size, to emulate time needed to avoid obstacles and reach a destination when moving inside the office.
 \\
 
 When entered in the office, the employee moves directly to its desk and then stays there for an amount of time drawn from a Pareto distribution. When this period is passed, the node chooses a random destination inside the office, walks to reach it and then waits for an amount of time drawn from the same Pareto distribution, before to return to its desk. The repetition of this movements and pauses from the desk to some random locations inside the office continues until working time expires. 
 \\
 
-The working time length is a configurable parameter, as are configurable distribution parameters. This allow to tune the movements inside the office as there are a variety of different jobs and buildings where people move according to different patterns e.g. a teacher which moves every hour to change class inside a school or a cashier which do not leave its place for all the working time.
+The working time length is a configurable parameter, as are configurable distribution parameters. This allow to tune movements inside the office as there are a variety of different jobs and buildings where people move according to different patterns e.g. a teacher which moves every hour to change class inside a school or a cashier which do not leave its place for all the working time.
 
 
 \subsection{Evening Activity Submodel}
@@ -166,14 +168,14 @@ According to the chosen transportation, Transport Activity Submodel uses three d
 \\
 
 \begin{description}
-\item [Walking Submodel]: nodes which do not have a car walks on the streets toward the destination at constant speed. They uses Dijkstra algorithm to find the shorter path from the current position to the destination.
+\item [Walking Submodel]: nodes which do not have a car walks on the streets toward the destination at constant speed. They uses Dijkstra algorithm to find the shortest path from the current position to the destination.
 
-\item [Car Submodel]: nodes with a car move faster than walking nodes driving between a main activity and the next one, but walks during a single activities, i.e. they do not use the car inside the office, of course. In this model are not considered traffic congestions, traffic lights and every car carry one single person.
+\item [Car Submodel]: nodes with a car move faster than walking nodes, driving between a main activity and the next one, but walks during a single activities, i.e. they do not use the car inside the office, of course. In this model are not considered traffic congestions, traffic lights and every car carries one single person.
 
 \item [Bus Submodel]: there can be several routes of public transport (buses, trams, trains) in the simulated map. Each route is run by several public transport according to a schedule. Each public transport can carry more than one person at a time.
 \end{description}
 
-Every person which do not have a car knows one bus route and can use every bus running on this route. The choice between walking or using public transport is done considering a difference between Euclidean distances. If the distance between node's location and to the nearest bus stop summed with the Euclidean distance from the destination to the nearest bus stop is shorter than the Euclidean distance between the node's location and the destination than the node uses the public transport system, otherwise it walks to the destination. If public transport is chosen the node changes between two transport submodels: it walks to the nearest bus stop using Walking Submodel and, switching to Bus Submodel, it waits for the bus. When the bus arrives, the node enters it and travels until to the bus stop closer to the destination. Finally it switches back to the Walking Submodel to reach the destination.
+Every person which do not have a car knows one bus route and can use every bus running on that route. The choice between walking or using public transport is done considering a difference between Euclidean distances. If the distance between node's location and the nearest bus stop summed with the Euclidean distance from the destination to the nearest bus stop is shorter than the Euclidean distance between the node's location and the destination, than the node uses the public transport system, otherwise it walks to the destination. If public transport is chosen the node changes between two transport submodels: it walks to the nearest bus stop using Walking Submodel and, switching to Bus Submodel, it waits for the bus. When the bus arrives, the node enters it and travels until to the bus stop closer to the destination. Finally it switches back to the Walking Submodel to reach the destination.
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
