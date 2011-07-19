@@ -147,7 +147,7 @@ This is the strategy we used to get an high number of related simulations, from 
 
 \section{The map}
 \label{mappaONE}
-The map defines the space and routes in which the nodes can move inside the simulated world. The design of the map is an important part of the mobility model because it contains all the information of the locations of the houses, offices and meeting spots, as well as bus routes with bus stops. Since all the movement of the nodes is determined by activities with specific locations, the placement of these locations define how nodes are moving on a larger scale. Locations can be node group specific, i.e. some offices are used only by nodes in one group, nodes in different groups live in different houses locations, etc.. This makes it possible to create small districts within the map. In Fig. \ref{imgMappaABCD} is shown the default map included in the ONE simulator and used for our simulations, described in \cite{articoloWdm}, and it is possible to see the four main district in which the map is divided.
+The map defines the space and routes in which the nodes can move inside the simulated world. The design of the map is an important part of the mobility model because it contains all the information of the locations of the houses, offices and meeting spots, as well as bus routes with bus stops. Since all the movement of the nodes is determined by activities with specific locations, the placement of these locations define how nodes are moving on a larger scale. Locations can be node group specific, i.e. some offices are used only by nodes in one group, nodes in different groups live in different houses locations, etc.. This makes it possible to create small districts within the map. For our simulations we used one map included in the ONE. It is the map of Helsinki city centre and surrounding districts, with size of about 8000 x 7000 m$^{2}$. In Fig. \ref{imgMappaABCD} is shown the map and it is possible to see the four main district in which the map is divided. 
 
 \begin{figure}[htpb]
   \begin{center}
@@ -161,7 +161,8 @@ The map defines the space and routes in which the nodes can move inside the simu
 In this implementation, every node group belongs to a district i.e. all nodes in one group will have their home location, office and meeting spot inside the related district. This is useful to limit node movement to small areas. Doing this we increased locality and it is not possible that nodes belonging to different groups (and so different districts) can meet each others. To decrease locality it is possible to spread houses, offices and meeting spots on the map, having nodes meeting easily.
 \\
 
-It is also possible to combine low and high locality: in Helsinki map used for our simulations there are four main districts, with different sizes, overlapped by other districts. This allows to have high locality but also some movement between districts, which corresponds to nodes coming to some district to work or meet friends, while others are leaving their district for similar reasons. Nodes moving between districts, not located next to each other, will have to pass through other districts. In Table \ref{tabellaDistrettiMappa} is shown distribution of nodes, offices and meeting spots in the districts of the map.
+It is also possible to combine low and high locality: in Helsinki map used for our simulations there are four main districts, with different sizes, overlapped by other districts. This allows to have high locality but also some movement between districts, which corresponds to nodes coming to some district to work or meet friends, while others are leaving their district for similar reasons. Nodes moving between districts, not located next to each other, will have to pass through other districts. 
+\\
 
 \begin{table}[h]
 \begin{center}
@@ -191,6 +192,8 @@ It is also possible to combine low and high locality: in Helsinki map used for o
 \caption[Helsinky map districts]{Table showing assignment of nodes, offices and meeting spots between districts in Helsinky map}    
 \label{tabellaDistrettiMappa}
 \end{table}
+
+In Table \ref{tabellaDistrettiMappa} is shown distribution of nodes, offices and meeting spots in the districts of the map. Every district has its own bus route with 2 busses running on it. The only exception is district H which has 4 busses running on its route. This is done because the district covers the entire map and with only 2 busses the waiting times would be too much long.
 
 %
 %\section{Limitations}
