@@ -47,13 +47,22 @@ Before proceeding further, we introduce the reader to the adopted terminology an
 
 \end{itemize}
 
+
+\section{Simulations Scenario}
+In this section we describe the scenario implemented to evaluate the performance of M2MShare with the ONE simulator. The following are the default values used to initialize our simulations, that is if changes are not described in sections relative to a single simulation, these values are used.
+\\
+
+For our simulations we the map of Helsinki city centre and surrounding districts included in the ONE. The map has a size of about 8000 x 7000 m$^{2}$ and is described in Section \ref{mappaONE}. 
+
+
 To increase the trustworthiness of the experimental outcome we have included realistic day-by-day node movements through the Working Day Movement (WDM) model, described in Section \ref{descrWDM}. As anticipated, this model is able to represent both the unpredictability of certain movements of users and the routine of other movements such as, for instance, the daily trip from home to work. This provides a good approximation of inter-contact times and contact durations, providing the flexibility for configuring real life test scenarios.
 \\
 
-We use the same configuration parameters described in \cite{articoloWdm}, to initialize the movement model: the map is the one described in Section \ref{mappaONE}, in which half of all the nodes were set to travel by car. When a node is walking, the speed is set between 0.8 and 1.4 m/s and for buses between 7 and 10 m/s, with a 10 - 30 s waiting at each stop.  The speed of the cars is set to 20 m/s to make it a faster way to move between locations.
-Every node has a probability of 0.5 to do some evening activity after work, with groups size variable between 1 and 3 nodes. The working day length is set to 28800 s (8 hours) and the pause times inside the office is drawn from a Pareto distribution with coefficient 0.5 and minimum value 10 s. The
-office size is set to a $100 m x 100 m$ square, to compensate for the lack of floors, walls and other furniture.
+We use the same configuration parameters described in \cite{articoloWdm}, to initialize the movement model. Nodes population is variable during the simulations but the map is always divided in districts, with overlapping between them. There are several bus routes, one for every district and every node can use a bus of the route belonging to the same district of the node. When a node is walking, the speed is set between 0.8 and 1.4 m/s and for buses between 7 and 10 m/s, with a 10 - 30 s waiting at each stop. Half of all the nodes were set to travel by car and the speed of cars is set to 20 m/s to make it a faster way to move between locations. 
+\\
 
+To emulate differences in people lifestyle, especially in wake up time in the morning, the differences in schedules of nodes were drawn from a normal distribution with a standard deviation of 7200 s emulating a situation where about 68\% of the population leave home between 7 and 11 in the morning. Every node has a probability of 0.5 to do some evening activity after work, with groups size variable between 1 and 3 nodes. The working day length is set to 28800 s (8 hours), which is a value common to a large number of works, and the pause times inside the office is drawn from a Pareto distribution with coefficient 0.5 and minimum value 10 s. The office size is set to a $100 m x 100 m$ square, to compensate for the lack of floors, walls and other furniture. Finally the communication range of mobile devices is set to 10 m, which is common for most Bluetooth devices.
+\\
 
 
 \newpage
