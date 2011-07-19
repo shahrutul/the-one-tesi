@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  18 JUL 2011 16:37
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  19 JUL 2011 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -646,7 +646,7 @@ LaTeX Info: Redefining \nameref on input line 48.
 \openout3 = `Tesi.out'.
 
  (./copertina.tex
-<figure/unipd_logo.png, id=212, 376.40625pt x 376.40625pt>
+<figure/unipd_logo.png, id=220, 376.40625pt x 376.40625pt>
 File: figure/unipd_logo.png Graphic file (type png)
 
 <use figure/unipd_logo.png>
@@ -753,23 +753,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
 
-[4] <2-simulatore/img/Schermata-ONE.png, id=319, 949.5475pt x 710.655pt>
+[4] <2-simulatore/img/Schermata-ONE.png, id=329, 949.5475pt x 710.655pt>
 File: 2-simulatore/img/Schermata-ONE.png Graphic file (type png)
 
 <use 2-simulatore/img/Schermata-ONE.png>
-Overfull \hbox (494.58485pt too wide) in paragraph at lines 76--77
+Overfull \hbox (19.81227pt too wide) in paragraph at lines 76--77
  [] 
  []
-
-
-LaTeX Warning: Float too large for page by 78.78333pt on input line 80.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 83--85
 
  []
 
-<2-simulatore/img/Routing-Info.png, id=321, 295.1025pt x 421.575pt>
+<2-simulatore/img/Routing-Info.png, id=331, 295.1025pt x 421.575pt>
 File: 2-simulatore/img/Routing-Info.png Graphic file (type png)
 
 <use 2-simulatore/img/Routing-Info.png>
@@ -813,7 +810,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
  []
 
-[8] <2-simulatore/img/connessioni.png, id=348, 531.9875pt x 245.91875pt>
+[8] <2-simulatore/img/connessioni.png, id=358, 531.9875pt x 245.91875pt>
 File: 2-simulatore/img/connessioni.png Graphic file (type png)
 
 <use 2-simulatore/img/connessioni.png>
@@ -834,11 +831,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--144
 
 LaTeX Warning: Citation `articoloWDM' on page 10 undefined on input line 150.
 
-<figure/mappa_ABCD.png, id=357, 728.7225pt x 648.4225pt>
+<figure/mappa_ABCD.png, id=367, 728.7225pt x 648.4225pt>
 File: figure/mappa_ABCD.png Graphic file (type png)
 
 <use figure/mappa_ABCD.png>
-Overfull \hbox (77.23688pt too wide) in paragraph at lines 154--155
+Overfull \hbox (4.36035pt too wide) in paragraph at lines 154--155
  [] 
  []
 
@@ -855,121 +852,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--165
 [10] [11 <./figure/mappa_ABCD.png>]) (./3-movimento/movimento.tex [12]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--17
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+LaTeX Warning: Citation `RWPHarmful' on page 13 undefined on input line 35.
 
- []
 
-[13
+Underfull \vbox (badness 2012) has occurred while \output is active []
+
+ [13
 
 ]
-
-LaTeX Warning: Citation `ImpactofHumanMobility' on page 14 undefined on input l
-ine 33.
-
-[14]
-Overfull \hbox (2.55928pt too wide) in paragraph at lines 86--87
+Overfull \hbox (2.55928pt too wide) in paragraph at lines 43--44
 []\T1/cmr/m/n/10.95 Shortest Path Map-Based Move-ment (SPMBM) is an-other mo-bi
 l-ity model
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
-
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 72--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--128
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Underfull \hbox (badness 10000) in paragraph at lines 119--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--144
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+LaTeX Warning: Citation `ImpactofHumanMobility' on page 19 undefined on input l
+ine 151.
 
- []
+[19] [20]) (./4-m2mshare/m2mshare.tex [21] [22
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-[19]) (./4-m2mshare/m2mshare.tex [20]
+]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 17--19
@@ -996,9 +999,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--37
 
  []
 
-[21
-
-]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 39--45
 
  []
@@ -1008,7 +1009,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
-[22]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
  []
@@ -1028,7 +1029,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
 
  []
 
-[23]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 64--66
 
  []
@@ -1038,7 +1039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
 
-[24]
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 79--81
 
  []
@@ -1049,21 +1050,21 @@ Overfull \hbox (8.3148pt too wide) in paragraph at lines 90--91
 utente
  []
 
-[25]
+[27]
 Overfull \hbox (0.78401pt too wide) in paragraph at lines 101--102
 []\T1/cmr/m/n/10.95 che in-ter-essa le at-tiv-ità con-tenute nella \T1/cmr/m/it
 /10.95 dt-nPend-
  []
 
-) (./5-implementazione/implementazione.tex [26]
+) (./5-implementazione/implementazione.tex [28]
 Chapter 5.
 
-LaTeX Warning: Reference `limitazioniONE' on page 27 undefined on input line 18
+LaTeX Warning: Reference `limitazioniONE' on page 29 undefined on input line 18
 .
 
-[27
+[29
 
-] [28]
+] [30]
 Overfull \hbox (2.16139pt too wide) in paragraph at lines 72--73
 []\T1/cmr/m/n/10.95 Di se-guito sono pre-sen-tati al-cuni es-empi di con-fig-u-
 razione, per la creazione
@@ -1079,7 +1080,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--85
 
  []
 
-[29]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
@@ -1089,10 +1090,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
-[30] <5-implementazione/img/Routing-Info.png, id=466, 295.1025pt x 421.575pt>
+[32] <5-implementazione/img/Routing-Info.png, id=487, 295.1025pt x 421.575pt>
 File: 5-implementazione/img/Routing-Info.png Graphic file (type png)
 
-<use 5-implementazione/img/Routing-Info.png> [31] [32 <./5-implementazione/img/
+<use 5-implementazione/img/Routing-Info.png> [33] [34 <./5-implementazione/img/
 Routing-Info.png>]
 Overfull \hbox (0.2624pt too wide) in paragraph at lines 132--133
 []\T1/cmr/bx/n/10.95 DTNPendingDownload com-ple-tion: \T1/cmr/m/n/10.95 a \T1/c
@@ -1114,17 +1115,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
-[33]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-[34]
+[36]
 
-LaTeX Warning: Reference `analisiLabel' on page 35 undefined on input line 195.
+LaTeX Warning: Reference `analisiLabel' on page 37 undefined on input line 195.
 
 
-<5-implementazione/img/graph-example.jpg, id=491, 642.4pt x 401.5pt>
+<5-implementazione/img/graph-example.jpg, id=512, 642.4pt x 401.5pt>
 File: 5-implementazione/img/graph-example.jpg Graphic file (type jpg)
 
 <use 5-implementazione/img/graph-example.jpg>
@@ -1132,13 +1133,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--212
 
  []
 
-[35]
+[37]
 Overfull \hbox (3.24593pt too wide) in paragraph at lines 218--219
 []\T1/cmr/bx/n/10.95 M2MShareRouter.frequencyThreshold [2] \T1/cmr/m/n/10.95 in
 -di-cates the min-i-mum
  []
 
-[36 <./5-implementazione/img/graph-example.jpg>]
+[38 <./5-implementazione/img/graph-example.jpg>]
 Overfull \hbox (7.06223pt too wide) in paragraph at lines 232--233
 []\T1/cmr/bx/n/10.95 M2MShareRouter.useBroadcastModule [true] \T1/cmr/m/n/10.95
  used to en-able/dis-
@@ -1150,21 +1151,21 @@ Overfull \hbox (3.52475pt too wide) in paragraph at lines 234--235
 /cmr/m/n/10.95 used
  []
 
-[37]) (./6-simulazione/simulazione.tex [38]
+[39]) (./6-simulazione/simulazione.tex [40]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[39
+[41
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
  []
 
-[40] [41]
+[42] [43]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 64--83
  [] 
  []
@@ -1179,7 +1180,7 @@ Package epstopdf Info: Source file: <grafici/tempi.eps>
 d-to.pdf grafici/tempi.eps>
 (epstopdf)             \includegraphics on input line 102.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempi-eps-converted-to.pdf, id=540, 361.35pt x 252.945pt>
+<grafici/tempi-eps-converted-to.pdf, id=560, 361.35pt x 252.945pt>
 File: grafici/tempi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempi-eps-converted-to.pdf>
@@ -1195,7 +1196,7 @@ onverted-to.pdf grafici/delegheFatte.eps>
 (epstopdf)             \includegraphics on input line 109.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheFatte-eps-converted-to.pdf, id=541, 361.35pt x 252.945pt>
+<grafici/delegheFatte-eps-converted-to.pdf, id=561, 361.35pt x 252.945pt>
 File: grafici/delegheFatte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/delegheFatte-eps-converted-to.pdf>
@@ -1203,7 +1204,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--133
 
  []
 
-[42]
+[44]
 Package epstopdf Info: Source file: <grafici/tempiRitornoDeleghe.eps>
 (epstopdf)                    date: 2011-07-06 10:37:07
 (epstopdf)                    size: 17986 bytes
@@ -1216,7 +1217,7 @@ e-eps-converted-to.pdf grafici/tempiRitornoDeleghe.eps>
 (epstopdf)             \includegraphics on input line 136.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiRitornoDeleghe-eps-converted-to.pdf, id=550, 361.35pt x 252.945pt
+<grafici/tempiRitornoDeleghe-eps-converted-to.pdf, id=570, 361.35pt x 252.945pt
 >
 File: grafici/tempiRitornoDeleghe-eps-converted-to.pdf Graphic file (type pdf)
  <use grafici/tempiRitornoDeleghe-eps-converted-to.pdf>
@@ -1234,7 +1235,7 @@ Package epstopdf Info: Source file: <grafici/percDeleghe.eps>
 nverted-to.pdf grafici/percDeleghe.eps>
 (epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/percDeleghe-eps-converted-to.pdf, id=554, 361.35pt x 252.945pt>
+<grafici/percDeleghe-eps-converted-to.pdf, id=574, 361.35pt x 252.945pt>
 File: grafici/percDeleghe-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/percDeleghe-eps-converted-to.pdf>
@@ -1257,7 +1258,7 @@ Package epstopdf Info: Source file: <grafici/data.eps>
 -to.pdf grafici/data.eps>
 (epstopdf)             \includegraphics on input line 156.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/data-eps-converted-to.pdf, id=555, 361.35pt x 252.945pt>
+<grafici/data-eps-converted-to.pdf, id=575, 361.35pt x 252.945pt>
 File: grafici/data-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/data-eps-converted-to.pdf>
@@ -1275,7 +1276,7 @@ Overfull \hbox (19.0696pt too wide) in paragraph at lines 147--160
 [][]   [] 
  []
 
-[43 <./grafici/tempi-eps-converted-to.pdf>] [44 <./grafici/delegheFatte-eps-con
+[45 <./grafici/tempi-eps-converted-to.pdf>] [46 <./grafici/delegheFatte-eps-con
 verted-to.pdf>]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 172--191
  [] 
@@ -1296,12 +1297,12 @@ eps-converted-to.pdf grafici/tempiVFDiversaPop.eps>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVFDiversaPop-eps-converted-to.pdf, id=579, 361.35pt x 252.945pt>
+<grafici/tempiVFDiversaPop-eps-converted-to.pdf, id=599, 361.35pt x 252.945pt>
 File: grafici/tempiVFDiversaPop-eps-converted-to.pdf Graphic file (type pdf)
 
-<use grafici/tempiVFDiversaPop-eps-converted-to.pdf> [45 <./grafici/tempiRitorn
+<use grafici/tempiVFDiversaPop-eps-converted-to.pdf> [47 <./grafici/tempiRitorn
 oDeleghe-eps-converted-to.pdf> <./grafici/percDeleghe-eps-converted-to.pdf> <./
-grafici/data-eps-converted-to.pdf>] [46 <./grafici/tempiVFDiversaPop-eps-conver
+grafici/data-eps-converted-to.pdf>] [48 <./grafici/tempiVFDiversaPop-eps-conver
 ted-to.pdf>]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 210--229
  [] 
@@ -1322,7 +1323,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp5.eps>
 nverted-to.pdf grafici/tempiVF_Fp5.eps>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp5-eps-converted-to.pdf, id=614, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp5-eps-converted-to.pdf, id=633, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp5-eps-converted-to.pdf>
@@ -1346,7 +1347,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp10.eps>
 onverted-to.pdf grafici/tempiVF_Fp10.eps>
 (epstopdf)             \includegraphics on input line 245.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp10-eps-converted-to.pdf, id=615, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp10-eps-converted-to.pdf, id=634, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp10-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp10-eps-converted-to.pdf>
@@ -1380,7 +1381,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp50.eps>
 onverted-to.pdf grafici/tempiVF_Fp50.eps>
 (epstopdf)             \includegraphics on input line 253.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp50-eps-converted-to.pdf, id=616, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp50-eps-converted-to.pdf, id=635, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp50-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp50-eps-converted-to.pdf>
@@ -1393,7 +1394,7 @@ Underfull \hbox (badness 1688) in paragraph at lines 254--254
 [][]|\T1/cmr/m/n/10 Av-er-age found time with
  []
 
-[47]
+[49]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1407,7 +1408,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--290
 
  []
 
-[48 <./grafici/tempiVF_Fp5-eps-converted-to.pdf> <./grafici/tempiVF_Fp10-eps-co
+[50 <./grafici/tempiVF_Fp5-eps-converted-to.pdf> <./grafici/tempiVF_Fp10-eps-co
 nverted-to.pdf> <./grafici/tempiVF_Fp50-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <grafici/percCompletaMultiHop.eps>
 (epstopdf)                    date: 2011-07-09 09:50:56
@@ -1421,24 +1422,24 @@ op-eps-converted-to.pdf grafici/percCompletaMultiHop.eps>
 (epstopdf)             \includegraphics on input line 303.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/percCompletaMultiHop-eps-converted-to.pdf, id=643, 361.35pt x 252.945p
+<grafici/percCompletaMultiHop-eps-converted-to.pdf, id=662, 361.35pt x 252.945p
 t>
 File: grafici/percCompletaMultiHop-eps-converted-to.pdf Graphic file (type pdf)
 
- <use grafici/percCompletaMultiHop-eps-converted-to.pdf> [49 <./grafici/percCom
+ <use grafici/percCompletaMultiHop-eps-converted-to.pdf> [51 <./grafici/percCom
 pletaMultiHop-eps-converted-to.pdf>]
-<figure/mappa_0_hop.png, id=659, 728.7225pt x 648.4225pt>
+<figure/mappa_0_hop.png, id=679, 728.7225pt x 648.4225pt>
 File: figure/mappa_0_hop.png Graphic file (type png)
 
 <use figure/mappa_0_hop.png>
-<figure/mappa_1_hop.png, id=660, 728.7225pt x 648.4225pt>
+<figure/mappa_1_hop.png, id=680, 728.7225pt x 648.4225pt>
 File: figure/mappa_1_hop.png Graphic file (type png)
 
 <use figure/mappa_1_hop.png>
-<figure/mappa_3_hop.png, id=661, 728.7225pt x 648.4225pt>
+<figure/mappa_3_hop.png, id=681, 728.7225pt x 648.4225pt>
 File: figure/mappa_3_hop.png Graphic file (type png)
 
-<use figure/mappa_3_hop.png> [50 <./figure/mappa_0_hop.png>] [51 <./figure/mapp
+<use figure/mappa_3_hop.png> [52 <./figure/mappa_0_hop.png>] [53 <./figure/mapp
 a_1_hop.png> <./figure/mappa_3_hop.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 362--364
 
@@ -1454,7 +1455,7 @@ Package epstopdf Info: Source file: <grafici/ridondanza.eps>
 verted-to.pdf grafici/ridondanza.eps>
 (epstopdf)             \includegraphics on input line 372.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/ridondanza-eps-converted-to.pdf, id=681, 361.35pt x 252.945pt>
+<grafici/ridondanza-eps-converted-to.pdf, id=701, 361.35pt x 252.945pt>
 File: grafici/ridondanza-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/ridondanza-eps-converted-to.pdf>
@@ -1470,17 +1471,17 @@ converted-to.pdf grafici/delegheAttive.eps>
 (epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive-eps-converted-to.pdf, id=682, 361.35pt x 252.945pt>
+<grafici/delegheAttive-eps-converted-to.pdf, id=702, 361.35pt x 252.945pt>
 File: grafici/delegheAttive-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/delegheAttive-eps-converted-to.pdf>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
+ [54]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53 <./grafici/ridondanza-eps-converted-to.pdf> <./grafici/delegheAttive-eps-co
+[55 <./grafici/ridondanza-eps-converted-to.pdf> <./grafici/delegheAttive-eps-co
 nverted-to.pdf>]
 Package epstopdf Info: Source file: <grafici/dataDFS_3MB.eps>
 (epstopdf)                    date: 2011-07-06 10:37:07
@@ -1493,7 +1494,7 @@ nverted-to.pdf grafici/dataDFS_3MB.eps>
 (epstopdf)             \includegraphics on input line 430.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_3MB-eps-converted-to.pdf, id=705, 361.35pt x 252.945pt>
+<grafici/dataDFS_3MB-eps-converted-to.pdf, id=724, 361.35pt x 252.945pt>
 File: grafici/dataDFS_3MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_3MB-eps-converted-to.pdf>
@@ -1517,7 +1518,7 @@ Package epstopdf Info: Source file: <grafici/dataDFS_10MB.eps>
 onverted-to.pdf grafici/dataDFS_10MB.eps>
 (epstopdf)             \includegraphics on input line 437.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_10MB-eps-converted-to.pdf, id=706, 361.35pt x 252.945pt>
+<grafici/dataDFS_10MB-eps-converted-to.pdf, id=725, 361.35pt x 252.945pt>
 File: grafici/dataDFS_10MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_10MB-eps-converted-to.pdf>
@@ -1551,7 +1552,7 @@ Package epstopdf Info: Source file: <grafici/dataDFS_25MB.eps>
 onverted-to.pdf grafici/dataDFS_25MB.eps>
 (epstopdf)             \includegraphics on input line 445.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_25MB-eps-converted-to.pdf, id=707, 361.35pt x 252.945pt>
+<grafici/dataDFS_25MB-eps-converted-to.pdf, id=726, 361.35pt x 252.945pt>
 File: grafici/dataDFS_25MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_25MB-eps-converted-to.pdf>
@@ -1564,25 +1565,25 @@ Underfull \hbox (badness 2293) in paragraph at lines 446--446
 \T1/cmr/m/n/10 ferred data amount us-
  []
 
-) (./7-conclusioni/conclusioni.tex [54] [55 <./grafici/dataDFS_3MB-eps-converte
+) (./7-conclusioni/conclusioni.tex [56] [57 <./grafici/dataDFS_3MB-eps-converte
 d-to.pdf> <./grafici/dataDFS_10MB-eps-converted-to.pdf> <./grafici/dataDFS_25MB
--eps-converted-to.pdf>] [56
+-eps-converted-to.pdf>] [58
 
 ]
 Chapter 7.
-) [57] [58
+) [59] [60
 
-] (./Tesi.bbl [59
+] (./Tesi.bbl [61
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [60]
+ [62]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
  (./Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 194.
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 3602A7E01FDCAFED430CA98EB81A09AE;3478.
+(rerunfilecheck)             Checksum: 6EB283659837465AEC3738C9DD5ACD8E;3593.
 
 
 LaTeX Warning: There were undefined references.
@@ -1593,33 +1594,34 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 9477 strings out of 493772
- 136866 string characters out of 3150564
- 227417 words of memory out of 3000000
- 12387 multiletter control sequences out of 15000+200000
+ 9484 strings out of 493772
+ 136940 string characters out of 3150564
+ 227412 words of memory out of 3000000
+ 12390 multiletter control sequences out of 15000+200000
  26749 words of font info for 72 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
  36i,12n,43p,1453b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1
-000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
-></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/
-type1/public/cm-super/sfti1095.pfb>
-Output written on Tesi.pdf (64 pages, 1239132 bytes).
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist
+/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
+fbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></u
+sr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-
+dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type
+1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb
+></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/
+type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm
+-super/sfti1095.pfb>
+Output written on Tesi.pdf (66 pages, 1250608 bytes).
 PDF statistics:
- 860 PDF objects out of 1000 (max. 8388607)
- 719 compressed objects within 8 object streams
- 168 named destinations out of 1000 (max. 500000)
- 542 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 883 PDF objects out of 1000 (max. 8388607)
+ 739 compressed objects within 8 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 558 words of extra memory for PDF output out of 10000 (max. 10000000)
 
