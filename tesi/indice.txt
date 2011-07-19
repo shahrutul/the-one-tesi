@@ -30,7 +30,7 @@ related work dtn mobile
       - Presence Collector
    - File Division Strategy
 
-5. Modelli di movimento (~10 pp)
+4. Modelli di movimento (~10 pp)
    - Modelli di movimento sintetici vs real user traces
    - Importanza della scelta del modello di movimento 
    - Random Map-Based Movement
@@ -43,7 +43,7 @@ related work dtn mobile
       - Evening Activity Submodel
       - Transport Activity Submodel
 
-4. The ONE (~15 pp)
+5. The ONE (~15 pp)
    - Descrizione del simulatore
    - Configurazione
    - Visualizzazione dei risultati (GUI & reports)

@@ -2,7 +2,7 @@
 % content in this file will be fed into the main document
 
 %: ----------------------- name of chapter  -------------------------
-\chapter{M2MShare}\label{m2mshare} % top level followed by section, subsection
+\chapter{Background}\label{background} % top level followed by section, subsection
 
 
 %: ----------------------- paths to graphics ------------------------
@@ -12,110 +12,13 @@
 
 
 %: ----------------------- contents from here ------------------------
-\textbf{La parte principale: si parla del protocollo
-Differenza di operare in una DTN rispetto ad una rete tradizionale
-importanza del routing e delle deleghe}
-\\
+- Caratteristiche di una DTN 
+   - Esempi di cause di Delay and Disruption
+   - Inefficienza di protocolli classici su DTN ion caratteristiche
+related work dtn mobile
 
 
-\section{Modulo DTN}
-Le DTN sono particolarmente utili nel caso di situazioni in cui la connettività non \`{e} costante e possono esserci degli intervalli di tempo lunghi e soprattutto imprevedibili, fra un contatto e l'altro. Un esempio evidente \`{e} quello dell'ambito mobile, in cui l'utilizzo di DTN si presta particolarmente per il superamento degli ostacoli sopraccitati.
-\\
-
-I protocolli di routing tradizionalmente utilizzati per reti ad-hoc non sono adatti all'utilizzo su reti mobili in cui ogni nodo dispone di una connessione con portata limitata, in quanto spesso non c'\`{e} la possibilità di instaurare una connessione end-to-end fra due nodi comunicanti. Per un'applicazione di file sharing, inoltre, \`{e} fondamentale un'elevata disponibilità di file \`{e} fondamentale per garantire il recupero di un file cercato, e questa disponibilità si traduce nella necessità di un elevato numero di nodi connessi fra loro, cosa che come abbiamo visto non \`{e} affatto scontata in una rete mobile.
-\\
-
-Per ovviare a questo M2MShare utilizza un metodo di comunicazione asincrono i cui un peer \textit{client} (alla ricerca di un file), pu\`{o} delegare ad un altro peer \textit{servant} la ricerca e il successivo recupero di un file. Il principio delle deleghe \`{e} quindi alla base di tutto il sistema di M2MShare, in quanto permette di ampliare enormemente il raggio d'azione di una ricerca, in una rete per definizione non connessa e formata da nodi sparsi.
-\\
-
-E' utile approfondire il concetto di delega: questa consiste nella richiesta da parte di un client verso un server dell'esecuzione di un determinato task; il tipo del task pu\`{o} variare da una query composta da pi\`{u} keywords, per la quale si vuole ricevere una serie di files che soddisfino la query, alla ricerca di un determinato file fra i vari nodi della rete, il cui obiettivo \`{e} ottenere l'intero file o parti del file cercato. Quando un servant riceve una delega, la schedula per eseguirla in seguito e cercare ci\`{o} che viene richiesto. Una volta che una delega ricevuta \`{e} stata soddisfatta, il servant crea un nuovo task di tipo forward, il cui scopo \`{e} ritornare il risultato della delega al client che l'ha delegata. 
-\\
-In questo modo la mobilità dei nodi viene vista come un aspetto positivo della rete, in quanto permette di entrare in contatto, tramite le deleghe, con nodi che altrimenti un peer client potrebbe non incontrare mai.
-\\
-Tutti i task delegati hanno poi un TTL entro cui il risultato deve essere ritornato al client. Se un task simile non viene completato, e il suo risultato ritornato, entro lo scadere del TTL, la delega viene considerata come scaduta e quindi non più schedulata per l'esecuzione nel servant.
-\\
-
-\subsection{Elezione del Servant}
-Visto che tutto il ciclo di vita di un task, dalla creazione alla delega al ritorno del risultato, si svolge in un ambiente infrastructure-less, in cui il percorso dei dati viene creato dinamicamente durante l'esecuzione, è fondamentale una scelta oculata riguardo a chi delegare un proprio task insoddisfatto. 
-\\
-Delegare un task a tutti i nodi incontrati, infatti, non è la scelta più conveniente, visto che si tradurrebbe in un prevedibile spreco di traffico oltre che di energia, fattore da non sottovalutare in un ambiente mobile in cui i nodi hanno un autonomia non certo infinita.
-\\
-Un possibile fattore da valutare potrebbero essere gli interessi in comune: come analizzato in \cite{socialNetworks}, riguardo alla diffusione di dati, un nodo potrebbe diffondere dati differenti a seconda del nodo che incontra. Se è un amico, allora potrebbe essere conveniente diffondere i dati relativi ai loro interessi comuni, mentre se è uno sconosciuto allora i dati diffusi potrebbero essere i più lontani dai loro interessi comuni.
-\\
-
-Una volta delegato il task, poi è indispensabile che il risultato del task venga ritornato al client, una volta completato, altrimenti tutto il lavoro svolto è stato inutile. L'idea di base utilizzata in M2MShare è quindi quella di eleggere come servant dei nodi che ci si aspetta di incontrare di nuovo. Come visto anche nella sezione \ref{descrWDM} relativa al modello di movimento WDM, le attività quotidiane di una persona, possono generalmente lasciare trasparire una routine di fondo rispetto agli spostamenti e alle persone incontrate. Si vengono spontaneamente a creare delle \textit{comunità} temporanee all'interno delle quali le persone si incontrano con regolarità: ad esempio dei colleghi entrano in contatto ogni giorno in ufficio, dei pendolari utilizzano gli stessi mezzi pubblici per spostarsi alla mattina verso il luogo di lavoro e alla sera per tornare a casa, ecc..
-\\
-
-Una persona adatta ad essere eletta come servant è quindi una persona incontrata frequentemente. Per valutare quindi quanto spesso si entra in contatto con un altro device, M2MShare utilizza un demone chiamato \textit{PresenceCollector}, descritto nella sezione \ref{descrPresenceCollector}. Questo demone è incaricato di tenere traccia del numero di volte che il client è entrato in contatto con ogni altro nodo. Per fare ciò, effettua delle scansioni ad intervalli regolari, tenendo traccia dei nodi presenti all'interno del raggio di comunicazione. Una volta che il numero di incontri supera un parametro detto \textit{Frequency Threshold}, il nodo viene eletto come servant e il client può delegarvi dei task.
-\\
-
-La frequenza delle scansioni del \textit{PresenceCollector} è un parametro importante, in quanto influenza sia la probabilità di un nodo di essere eletto come servant (con scansioni più frequenti il numero di incontri per nodo cresce più rapidamente rispetto all'utilizzare una frequenza di scansione minore), sia il consumo energetico del client (scansioni più frequenti implicano un consumo maggiore). In M2MShare la frequenza di scan del \textit{PresenceCollector} è un parametro regolabile dall'utente, mentre uno sforzo aggiuntivo è stato fatto nel regolare automaticamente il valore della \textit{Frequency Threshold}.
-\\
-
-Questa è infatti l'altro parametro che influenza pesantemente le probabilità per un nodo di venire eletto come servant: con una \textit{Frequency Threshold} bassa, bastano pochi incontri affinché un nodo la superi e venga quindi eletto, rischiando di delegare un task ad un servant che verrà rincontrato con scarsa probabilità. Con una \textit{Frequency Threshold} troppo elevata invece è possibile che molti nodi promettenti vengano scartati.
-\\
-
-M2MShare utilizza quindi un algoritmo di tuning che, all'inizio di ogni giorno, regola il valore della \textit{Frequency Threshold} in base a quanto osservato nel giorno precedente, rispetto al numero di servants eletti e ad un altro parametro, detto \textit{Probation Window}. Affinché un nodo venga considerato periodico, il numero degli incontri con esso, in un periodo di tempo pari al valore della \textit{Probation Window}, deve essere superiore alla \textit{Frequency Threshold}. Quindi se il valore della \textit{Probation Window} diventa troppo elevato (pochi nodi vengono eletti), si procede a ridurre la \textit{Frequency Threshold}, rendendo così più probabile l'elezione di nodo a servant dopo un minor numero di incontri. Viceversa se il numero di servants attivi è superiore alle previsioni si provvede a diminuire il valore della \textit{Probation Window}. Quando anche questo raggiunge il minimo (impostato a 2 giorni), si procede ad incrementare la \textit{Frequency Threshold}.
-\\
-
-La lista contenente il numero di incontri per nodo, utilizza poi una tecnica di rimpiazzo in modo da garantire un consumo contenuto di memoria, garantendo allo stesso tempo agli altri nodi una possibilità di venire eletti come servants. Il criterio utilizzato per decidere se un nodo deve restare o meno nella lista è quello di valutare da quanto tempo vi è inserito: se un nodo viene eletto come servant, allora viene tolto dalla lista in quanto divenuto attivo, ma se un nodo è presente nella lista da un periodo di tempo superiore al valore della \textit{Probation Window}, allora anche in questo caso viene tolto, per dare la possibilità ad altri nodi di essere monitorati e magari venire eletti. Infine, nel caso la lista sia piena ogni nuovo nodo incontrato viene scartato, finché non si libera un posto grazie all'elezione di un nuovo servant o a causa della politica di rimpiazzo descritta.
-
-\section{Modulo di ricerca}
-Prima di poter cominciare il recupero di un file interessante per l'utente, \`{e} fondamentale che il sistema sappia che file cercare, fra quelli disponibili nella rete. Il modulo incaricato di assolvere questo compito \`{e} modulo di ricerca.
-\\
-
-Ogni device mantiene un repository in cui sono contenute informazioni relative ai file condivisi con gli altri utenti che utilizzano M2MShare. Queste informazioni includono nome del file, dimensione, posizione nel file system e un hash che lo identifica unicamente nella rete. Questo ultimo valore \`{e} particolarmente utile quando la ricerca ha come oggetto un file specifico, rispetto ad una serie di files, permettendo quindi una efficiente query con una risposta di tipo booleano (file presente \/ non presente nel repository).
-\\
-Oltre alla ricerca orientata al singolo file, il modulo di ricerca permette anche quella tramite l'uso di keywords specificate dall'utente. Per permettere ci\`{o} viene utilizzata anche una strategia di indicizzazione comune nell'Information Retrieval, ossia quella dell'\textit{Inverted Index}: ogni file \`{e} indicizzato sotto un certo numero di termini contenuti nella sua descrizione e durante la ricerca \`{e} fra questi termini che il modulo andrà a cercare nel caso di richiesta. 
-
-
-\section{Modulo di Trasporto}
-Il modulo di trasporto è probabilmente quello più complesso fra i moduli che compongono M2MShare. I suoi compiti spaziano dal gestire il ciclo di vita di un task (dalla creazione al termine passando per la delega), gestire la memoria utilizzata, fino alla gestione delle code di attività e la loro esecuzione.
-
-\subsection{Sistema di accodamento}
-Durante l'esecuzione di M2MShare, un nodo può trovarsi a dover eseguire numerose attività derivanti da deleghe ricevute da altri nodi e da task create dall'utente utilizzatore del device stesso. Idealmente ogni attività dovrebbe essere eseguita in un thread dedicato, operando così in parallelo alle altre attività. Questo non è praticamente conveniente, in quanto comporterebbe un utilizzo troppo elevato di memoria, per dei dispositivi come quelli mobili in cui le risorse a disposizione sono limitate. 
-\\
-
-Per risolvere questo problema M2MShare utilizza un sistema di accodamento in cui, non appena un task viene creato (dal nodo stesso o in seguito a delega), viene subito accodato in una delle code di attività disponibili e schedulato per la successiva esecuzione. In questo modo le varie attività vengono eseguite in maniera sequenziale, a seconda del tipo. Non tutte le attività vengono gestite infatti con la stessa priorità e diverse strategie vengono adottate a seconda della coda in cui un task viene accodato.
-\\
-
-Il componente dedicato alla gestione delle code di attività è il \textit{QueuingCentral}, che contiene al suo interno le seguenti code, ognuna delle quali contiene al suo interno attività con caratteristiche diverse:
-
-\begin{description}
-\item[dtnDownloadQueue:] contiene al suo interno task remoti indicanti che un servant ha completato un task delegato in precedenza.
-\item[dtnPendingQueue:] contiene al suo interno task delegati da altri verso il nodo corrente, che per questi funge da servant.
-\item[dtnPendingUpload:] contiene i task delegati da altri, che il nodo corrente ha terminato e di cui è pronto a ritornare il risultato.
-\item[queryQueue:] contiene le query eseguite dall'utente del nodo per la ricerca di files.
-\item[uploadQueue:] contiene le richieste di dati verso altri nodi.
-\item[virtualFileQueue:] contiene le richieste di download di file inserite dall'utente del nodo.
-\end{description}
-
-Il \textit{QueuingCentral} è anche responsabile di definire delle policy riguardanti la memoria da assegnare alla memorizzazione dei task nelle code, definendo quindi un limite alle deleghe ricevute e al numero massimo di trasferimenti da effettuare.
-
-\subsection{Scheduler ed esecuzione di un task}
-Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce il nome, l'esecuzione delle varie attività contenute nelle code del \textit{QueuingCentral}. I vari task vengono smistati fra quattro \textit{execution flows}:
-
-\begin{description}
-\item[triggered\_activity\_flow,] che interessa i task contenuti nella \textit{dtnPendingUpload}. Viene eseguito ogni volta che il \textit{PresenceCollector} effettua una scansione dei dispositivi presenti nelle vicinanze, in modo da poter eventualmente ritornare il risultato di un task delegato al nodo corrente.
-\item[local\_activity\_flow,] che interessa i task contenuti nelle code \textit{dtnDownloadQueue}, \textit{virtualFileQueue} e \textit{queryQueue}. Viene data priorità ai task contenuti nella \textit{dtnDownloadQueue}, in quanto rappresentano dei task delegati per i quali i rispettivi servants sono pronti a ritornare il risultato.
-\item[pending\_activity\_flow,] che interessa le attività contenute nella \textit{dtnPendingQueue}, ossia i task delegati da altri al nodo corrente. 
-\item[upload\_activity\_flow,] che interessa le attività contenute nella \textit{uploadQueue}.
-\end{description}
-
-Una volta che un task pronto per essere eseguito viene estratto dalla coda in cui si trova, la sua esecuzione è gestita da un'entità detta \textit{Executor}. Questa è un demone attivo presente nel sistema, che è incaricato fra l'altro di gestire anche il numero di esecuzioni parallele di un singolo task: può infatti capitare, per alcuni tipi di attività come i VirtualFile, che l'esecuzione consista nel download simultaneo di parti di file da diverse fonti presenti nel raggio di comunicazione. In questo caso ogni trasferimento è gestito da una distinta entità detta \textit{Communicator}, entità presenti in numero limitato all'interno di ogni nodo.
-
-\subsection{Tipi di task}
-\textbf{vale la pena descriverli?}
-
-\section{Modulo di Routing}
-\section{Modulo MAC}
-
-\subsection{Presence Collector} 
-\label{descrPresenceCollector}
-
-\section{File Division Strategy}
-\label{descrFileDivisionStrategy}
- 
+\section{Related works}
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
 % ---------------------------------------------------------------------------
