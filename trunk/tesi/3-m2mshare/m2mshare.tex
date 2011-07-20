@@ -18,15 +18,17 @@ importanza del routing e delle deleghe}
 \\
 
 
-\section{Modulo DTN}
-Le DTN sono particolarmente utili nel caso di situazioni in cui la connettività non \`{e} costante e possono esserci degli intervalli di tempo lunghi e soprattutto imprevedibili, fra un contatto e l'altro. Un esempio evidente \`{e} quello dell'ambito mobile, in cui l'utilizzo di DTN si presta particolarmente per il superamento degli ostacoli sopraccitati.
+\section{DTN module}
+DTNs are particularly useful in situations with intermittent connectivity and there are long and unpredictable intervals in contacts between nodes. Routing protocols developed for and used in the Internet are not suitable for adoption in mobile networks, where every node has a limited connection range and high mobility. These factors make difficult, and sometime impossible, to establish an end-to-end connection between source and destination nodes in a communication.
 \\
 
-I protocolli di routing tradizionalmente utilizzati per reti ad-hoc non sono adatti all'utilizzo su reti mobili in cui ogni nodo dispone di una connessione con portata limitata, in quanto spesso non c'\`{e} la possibilità di instaurare una connessione end-to-end fra due nodi comunicanti. Per un'applicazione di file sharing, inoltre, \`{e} fondamentale un'elevata disponibilità di file \`{e} fondamentale per garantire il recupero di un file cercato, e questa disponibilità si traduce nella necessità di un elevato numero di nodi connessi fra loro, cosa che come abbiamo visto non \`{e} affatto scontata in una rete mobile.
+In a Peer to Peer application is also fundamental to have an high availability of shared files, to ensure the recovery of a file searched. This implies the needs for a high number of simultaneously connected nodes, which we saw is not so obvious in a mobile network.
 \\
 
-Per ovviare a questo M2MShare utilizza un metodo di comunicazione asincrono i cui un peer \textit{client} (alla ricerca di un file), pu\`{o} delegare ad un altro peer \textit{servant} la ricerca e il successivo recupero di un file. Il principio delle deleghe \`{e} quindi alla base di tutto il sistema di M2MShare, in quanto permette di ampliare enormemente il raggio d'azione di una ricerca, in una rete per definizione non connessa e formata da nodi sparsi.
+To overcome these limitations, M2MShare uses an asynchronous communication strategy in which a \textit{client} peer, which is in search for a file, can delegate to another peer, a \textit{servant}, the task of search for the file and return it to the requester. Delegation system is at the root of M2MShare. This permits to widely extend the area where to look for the searched file, in a network composed by spread and poorly connected nodes.
 \\
+
+Before proceeding further it can be useful to explain in what a delegation action consists. A delegation is the action performed by a client peer which \textit{asks} to a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed by several keywords, for which the client want to receive a list of files which satisfies it.
 
 E' utile approfondire il concetto di delega: questa consiste nella richiesta da parte di un client verso un server dell'esecuzione di un determinato task; il tipo del task pu\`{o} variare da una query composta da pi\`{u} keywords, per la quale si vuole ricevere una serie di files che soddisfino la query, alla ricerca di un determinato file fra i vari nodi della rete, il cui obiettivo \`{e} ottenere l'intero file o parti del file cercato. Quando un servant riceve una delega, la schedula per eseguirla in seguito e cercare ci\`{o} che viene richiesto. Una volta che una delega ricevuta \`{e} stata soddisfatta, il servant crea un nuovo task di tipo forward, il cui scopo \`{e} ritornare il risultato della delega al client che l'ha delegata. 
 \\
