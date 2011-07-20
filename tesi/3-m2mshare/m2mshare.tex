@@ -28,16 +28,17 @@ In a Peer to Peer application is also fundamental to have an high availability o
 To overcome these limitations, M2MShare uses an asynchronous communication strategy in which a \textit{client} peer, which is in search for a file, can delegate to another peer, a \textit{servant}, the task of search for the file and return it to the requester. Delegation system is at the root of M2MShare. This permits to widely extend the area where to look for the searched file, in a network composed by spread and poorly connected nodes.
 \\
 
-Before proceeding further it can be useful to explain in what a delegation action consists. A delegation is the action performed by a client peer which \textit{asks} to a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed by several keywords, for which the client want to receive a list of files which satisfies it.
-
-E' utile approfondire il concetto di delega: questa consiste nella richiesta da parte di un client verso un server dell'esecuzione di un determinato task; il tipo del task pu\`{o} variare da una query composta da pi\`{u} keywords, per la quale si vuole ricevere una serie di files che soddisfino la query, alla ricerca di un determinato file fra i vari nodi della rete, il cui obiettivo \`{e} ottenere l'intero file o parti del file cercato. Quando un servant riceve una delega, la schedula per eseguirla in seguito e cercare ci\`{o} che viene richiesto. Una volta che una delega ricevuta \`{e} stata soddisfatta, il servant crea un nuovo task di tipo forward, il cui scopo \`{e} ritornare il risultato della delega al client che l'ha delegata. 
+Before proceeding further it can be useful to explain in what a delegation action consists. A delegation is the action performed by a client peer which \textit{asks} to a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed by several keywords, for which the client want to receive a list of files which satisfies it. To accomplish this task, the servant schedules it for a later execution and searches between shared files in encountered nodes for some file satisfying the query. When the pending task is completed, the servant creates a new task type, a forward task. The objective of this kind of task is to return the output of a pending task to the requester node.
 \\
-In questo modo la mobilità dei nodi viene vista come un aspetto positivo della rete, in quanto permette di entrare in contatto, tramite le deleghe, con nodi che altrimenti un peer client potrebbe non incontrare mai.
-\\
-Tutti i task delegati hanno poi un TTL entro cui il risultato deve essere ritornato al client. Se un task simile non viene completato, e il suo risultato ritornato, entro lo scadere del TTL, la delega viene considerata come scaduta e quindi non più schedulata per l'esecuzione nel servant.
+One task can be delegated by the client to several servant peers and this allow to use nodes mobility as an advantage instead of a negative factor. A client node can virtually enter in contact range with nodes that it would instead never meet. 
 \\
 
-\subsection{Elezione del Servant}
+All delegated task has also a Time To Live (TTL) value. If a delegated task is not completed and its result has not been returned to the client within its TTL value, the task expires and it is not scheduled again for execution in the servant.
+\\
+
+\subsection{Servant Election}
+Tee entire task life-cycle is done in an infrastructure-less environment, where routing path is dynamically created during execution. 
+
 Visto che tutto il ciclo di vita di un task, dalla creazione alla delega al ritorno del risultato, si svolge in un ambiente infrastructure-less, in cui il percorso dei dati viene creato dinamicamente durante l'esecuzione, è fondamentale una scelta oculata riguardo a chi delegare un proprio task insoddisfatto. 
 \\
 Delegare un task a tutti i nodi incontrati, infatti, non è la scelta più conveniente, visto che si tradurrebbe in un prevedibile spreco di traffico oltre che di energia, fattore da non sottovalutare in un ambiente mobile in cui i nodi hanno un autonomia non certo infinita.
