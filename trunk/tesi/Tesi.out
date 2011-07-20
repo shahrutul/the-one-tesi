@@ -26,31 +26,33 @@
 \BOOKMARK [2][-]{subsection.4.6.4}{Evening Activity Submodel}{section.4.6}% 26
 \BOOKMARK [2][-]{subsection.4.6.5}{Transport Activity Submodel}{section.4.6}% 27
 \BOOKMARK [1][-]{section.4.7}{Real user traces VS Synthetic models}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{The ONE simulator}{}% 29
-\BOOKMARK [1][-]{section.5.1}{Configuration}{chapter.5}% 30
-\BOOKMARK [1][-]{section.5.2}{Simulation outputs}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.3}{Simulation execution}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.4}{Randomness}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.5}{The map}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Implementazione}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Modifiche a ONE}{chapter.6}% 36
-\BOOKMARK [2][-]{subsection.6.1.1}{Gestione File}{section.6.1}% 37
-\BOOKMARK [2][-]{subsection.6.1.2}{GUI}{section.6.1}% 38
-\BOOKMARK [2][-]{subsection.6.1.3}{Reports}{section.6.1}% 39
-\BOOKMARK [1][-]{section.6.2}{M2MShare Implementation}{chapter.6}% 40
-\BOOKMARK [2][-]{subsection.6.2.1}{M2MShareRouter}{section.6.2}% 41
-\BOOKMARK [2][-]{subsection.6.2.2}{PresenceCollector}{section.6.2}% 42
-\BOOKMARK [2][-]{subsection.6.2.3}{QueuingCentral}{section.6.2}% 43
-\BOOKMARK [2][-]{subsection.6.2.4}{Activity}{section.6.2}% 44
-\BOOKMARK [2][-]{subsection.6.2.5}{Scheduler}{section.6.2}% 45
-\BOOKMARK [2][-]{subsection.6.2.6}{BroadcastModule}{section.6.2}% 46
-\BOOKMARK [2][-]{subsection.6.2.7}{IntervalMap}{section.6.2}% 47
-\BOOKMARK [0][-]{chapter.7}{Simulations and results}{}% 48
-\BOOKMARK [1][-]{section.7.1}{Delegation efficiency}{chapter.7}% 49
-\BOOKMARK [1][-]{section.7.2}{Delegation efficiency with variable file popularity}{chapter.7}% 50
-\BOOKMARK [1][-]{section.7.3}{Delegation efficiency with variable nodes population}{chapter.7}% 51
-\BOOKMARK [1][-]{section.7.4}{Multi-hop delegation}{chapter.7}% 52
-\BOOKMARK [1][-]{section.7.5}{Data redundancy}{chapter.7}% 53
-\BOOKMARK [1][-]{section.7.6}{File Division Strategy efficency}{chapter.7}% 54
-\BOOKMARK [0][-]{chapter.8}{Conclusioni}{}% 55
-\BOOKMARK [0][-]{chapter.8}{Bibliografia}{}% 56
+\BOOKMARK [1][-]{section.4.8}{Our choice}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{The ONE simulator}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Configuration}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Simulation outputs}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Simulation execution}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.4}{Randomness}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.5}{The map}{chapter.5}% 35
+\BOOKMARK [0][-]{chapter.6}{Implementazione}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Modifiche a ONE}{chapter.6}% 37
+\BOOKMARK [2][-]{subsection.6.1.1}{Gestione File}{section.6.1}% 38
+\BOOKMARK [2][-]{subsection.6.1.2}{GUI}{section.6.1}% 39
+\BOOKMARK [2][-]{subsection.6.1.3}{Reports}{section.6.1}% 40
+\BOOKMARK [1][-]{section.6.2}{M2MShare Implementation}{chapter.6}% 41
+\BOOKMARK [2][-]{subsection.6.2.1}{M2MShareRouter}{section.6.2}% 42
+\BOOKMARK [2][-]{subsection.6.2.2}{PresenceCollector}{section.6.2}% 43
+\BOOKMARK [2][-]{subsection.6.2.3}{QueuingCentral}{section.6.2}% 44
+\BOOKMARK [2][-]{subsection.6.2.4}{Activity}{section.6.2}% 45
+\BOOKMARK [2][-]{subsection.6.2.5}{Scheduler}{section.6.2}% 46
+\BOOKMARK [2][-]{subsection.6.2.6}{BroadcastModule}{section.6.2}% 47
+\BOOKMARK [2][-]{subsection.6.2.7}{IntervalMap}{section.6.2}% 48
+\BOOKMARK [0][-]{chapter.7}{Simulations and results}{}% 49
+\BOOKMARK [1][-]{section.7.1}{Simulations Scenario}{chapter.7}% 50
+\BOOKMARK [1][-]{section.7.2}{Delegation efficiency}{chapter.7}% 51
+\BOOKMARK [1][-]{section.7.3}{Delegation efficiency with variable file popularity}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.4}{Delegation efficiency with variable nodes population}{chapter.7}% 53
+\BOOKMARK [1][-]{section.7.5}{Multi-hop delegation}{chapter.7}% 54
+\BOOKMARK [1][-]{section.7.6}{Data redundancy}{chapter.7}% 55
+\BOOKMARK [1][-]{section.7.7}{File Division Strategy efficency}{chapter.7}% 56
+\BOOKMARK [0][-]{chapter.8}{Conclusioni}{}% 57
+\BOOKMARK [0][-]{chapter.8}{Bibliografia}{}% 58

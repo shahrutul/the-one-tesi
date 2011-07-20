@@ -15,18 +15,19 @@
 \contentsline {subsection}{\numberline {3.5.1}Presence Collector}{10}{subsection.3.5.1}
 \contentsline {section}{\numberline {3.6}File Division Strategy}{10}{section.3.6}
 \contentsline {chapter}{\numberline {4}Movement models}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Random Walk}{11}{section.4.1}
+\contentsline {section}{\numberline {4.1}Random Walk}{12}{section.4.1}
 \contentsline {section}{\numberline {4.2}Random Waypoint}{12}{section.4.2}
 \contentsline {section}{\numberline {4.3}Random Map-Based Movement}{12}{section.4.3}
-\contentsline {section}{\numberline {4.4}Shortest Path Map-Based Movement}{12}{section.4.4}
-\contentsline {section}{\numberline {4.5}Routed Map-Based Movement}{12}{section.4.5}
+\contentsline {section}{\numberline {4.4}Shortest Path Map-Based Movement}{13}{section.4.4}
+\contentsline {section}{\numberline {4.5}Routed Map-Based Movement}{13}{section.4.5}
 \contentsline {section}{\numberline {4.6}Working Day Movement Model}{13}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Example of working day}{14}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Home Activity Submodel}{14}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.2}Home Activity Submodel}{15}{subsection.4.6.2}
 \contentsline {subsection}{\numberline {4.6.3}Office Activity Submodel}{15}{subsection.4.6.3}
-\contentsline {subsection}{\numberline {4.6.4}Evening Activity Submodel}{15}{subsection.4.6.4}
+\contentsline {subsection}{\numberline {4.6.4}Evening Activity Submodel}{16}{subsection.4.6.4}
 \contentsline {subsection}{\numberline {4.6.5}Transport Activity Submodel}{16}{subsection.4.6.5}
 \contentsline {section}{\numberline {4.7}Real user traces VS Synthetic models}{17}{section.4.7}
+\contentsline {section}{\numberline {4.8}Our choice}{19}{section.4.8}
 \contentsline {chapter}{\numberline {5}The ONE simulator}{21}{chapter.5}
 \contentsline {section}{\numberline {5.1}Configuration}{21}{section.5.1}
 \contentsline {section}{\numberline {5.2}Simulation outputs}{23}{section.5.2}
@@ -61,11 +62,12 @@
 \contentsline {subsection}{\numberline {6.2.6}BroadcastModule}{42}{subsection.6.2.6}
 \contentsline {subsection}{\numberline {6.2.7}IntervalMap}{42}{subsection.6.2.7}
 \contentsline {chapter}{\numberline {7}Simulations and results}{43}{chapter.7}
-\contentsline {section}{\numberline {7.1}Delegation efficiency}{46}{section.7.1}
-\contentsline {section}{\numberline {7.2}Delegation efficiency with variable file popularity}{49}{section.7.2}
-\contentsline {section}{\numberline {7.3}Delegation efficiency with variable nodes population}{51}{section.7.3}
-\contentsline {section}{\numberline {7.4}Multi-hop delegation}{52}{section.7.4}
-\contentsline {section}{\numberline {7.5}Data redundancy}{56}{section.7.5}
-\contentsline {section}{\numberline {7.6}File Division Strategy efficency}{57}{section.7.6}
+\contentsline {section}{\numberline {7.1}Simulations Scenario}{44}{section.7.1}
+\contentsline {section}{\numberline {7.2}Delegation efficiency}{46}{section.7.2}
+\contentsline {section}{\numberline {7.3}Delegation efficiency with variable file popularity}{49}{section.7.3}
+\contentsline {section}{\numberline {7.4}Delegation efficiency with variable nodes population}{51}{section.7.4}
+\contentsline {section}{\numberline {7.5}Multi-hop delegation}{52}{section.7.5}
+\contentsline {section}{\numberline {7.6}Data redundancy}{56}{section.7.6}
+\contentsline {section}{\numberline {7.7}File Division Strategy efficency}{57}{section.7.7}
 \contentsline {chapter}{\numberline {8}Conclusioni}{61}{chapter.8}
 \contentsline {chapter}{Bibliografia}{63}{chapter.8}
