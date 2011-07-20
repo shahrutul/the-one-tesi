@@ -1,5 +1,38 @@
 \begin{thebibliography}{10}
 
+\bibitem{socialNetworks}
+Yang Zhang and Jing Zhao.
+\newblock Social network analysis on data diffusion in delay tolerant networks.
+\newblock In {\em Proceedings of the tenth ACM international symposium on
+  Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
+  York, NY, USA, 2009. ACM.
+
+\bibitem{rwpharmful}
+J.~Yoon, M.~Liu, and B.~Noble.
+\newblock Random waypoint considered harmful.
+\newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
+  Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
+  IEEE, April 2003.
+
+\bibitem{articoloWdm}
+Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
+\newblock Working day movement model.
+\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
+  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
+
+\bibitem{Natarajan:2007:UUI:1762888.1762904}
+Anirudh Natarajan, Mehul Motani, and Vikram Srinivasan.
+\newblock Understanding urban interactions from bluetooth phone contact traces.
+\newblock In {\em Proceedings of the 8th international conference on Passive
+  and active network measurement}, PAM'07, pages 115--124, Berlin, Heidelberg,
+  2007. Springer-Verlag.
+
+\bibitem{ImpactofHumanMobility}
+Augustin Chaintreau, Pan Hui, Jon Crowcroft, Christophe Diot, Richard Gass, and
+  James Scott.
+\newblock Impact of human mobility on opportunistic forwarding algorithms.
+\newblock {\em IEEE Transactions on Mobile Computing}, 6:606--620, June 2007.
+
 \bibitem{articoloONE}
 T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
 \newblock {The ONE Simulator for DTN Protocol Evaluation}.
@@ -7,11 +40,12 @@ T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
   Conference on Simulation Tools and Techniques}, New York, NY, USA, 2009.
   ICST.
 
-\bibitem{articoloWdm}
-Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
-\newblock Working day movement model.
-\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
-  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
+\bibitem{panelStateDTNEvaluation}
+Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
+  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
+\newblock The state of dtn evaluation.
+\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
+  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
 
 \bibitem{tesiarmir}
 A.~Bujari.
@@ -38,13 +72,6 @@ Andrew~S. Tanenbaum.
 \newblock {\em Modern Operating Systems}.
 \newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 3rd edition, 2007.
 
-\bibitem{socialNetworks}
-Yang Zhang and Jing Zhao.
-\newblock Social network analysis on data diffusion in delay tolerant networks.
-\newblock In {\em Proceedings of the tenth ACM international symposium on
-  Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
-  York, NY, USA, 2009. ACM.
-
 \bibitem{tesiMobilityModels}
 F.Ekman.
 \newblock Mobility models for mobile ad hoc network simulations.
@@ -55,11 +82,31 @@ Ari Ker\"{a}nen and J\"{o}rg Ott.
 \newblock {Increasing Reality for DTN Protocol Simulations}.
 \newblock Technical report, Helsinki University of Technology, July 2007.
 
-\bibitem{panelStateDTNEvaluation}
-Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
-  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
-\newblock The state of dtn evaluation.
-\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
-  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
+\bibitem{Balachandran:2002:CUB:511399.511359}
+Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
+\newblock Characterizing user behavior and network performance in a public
+  wireless lan.
+\newblock {\em SIGMETRICS Perform. Eval. Rev.}, 30:195--205, June 2002.
+
+\bibitem{Ghosh:2006:PMP:1132983.1132993}
+Joy Ghosh, Matthew~J. Beal, Hung~Q. Ngo, and Chunming Qiao.
+\newblock On profiling mobility and predicting locations of wireless users.
+\newblock In {\em Proceedings of the 2nd international workshop on Multi-hop ad
+  hoc networks: from theory to reality}, REALMAN '06, pages 55--62, New York,
+  NY, USA, 2006. ACM.
+
+\bibitem{Shaffer:2005:AMM:1104998.1105285}
+Jeremy Shaffer, Daniel~P. Siewiorek, and Asim Smailagic.
+\newblock Analysis of movement and mobility of wireless network users.
+\newblock In {\em Proceedings of the Ninth IEEE International Symposium on
+  Wearable Computers}, pages 60--69, Washington, DC, USA, 2005. IEEE Computer
+  Society.
+
+\bibitem{Ashbrook:2002:LSL:862896.881068}
+D.~Ashbrook.
+\newblock Learning significant locations and predicting user movement with gps.
+\newblock In {\em Proceedings of the 6th IEEE International Symposium on
+  Wearable Computers}, pages 101--, Washington, DC, USA, 2002. IEEE Computer
+  Society.
 
 \end{thebibliography}
