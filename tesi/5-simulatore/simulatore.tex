@@ -18,7 +18,7 @@ The simulation environment chosen for our simulations is The ONE (Opportunistic 
 To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility are explained in Section \ref{movimento}. Either mobility models that routing protocols are managed like independent modules, which are dynamically loaded depending on what set in configuration files. This allow a relatively easy implementation of new mobility models and routing protocols in the simulator.
 \\
 
-The simulator finally allow to save data of interest from the completed simulations into report files. This reports are created using modules dynamically loaded in the same way to what happens with movement and routing modules.
+The simulator allows to save data of interest from the completed simulations into report files. This reports are created using modules dynamically loaded as it would happen with movement and routing modules.
 \\
 
 \section{Configuration}
@@ -26,13 +26,7 @@ The simulator finally allow to save data of interest from the completed simulati
 A single simulation is set, before running, using configuration files which describe the simulated environment, from the simulation length to number of nodes emulating people in the simulated environment. Configuration files are text-based files that contain parameters about the simulation, user interface, event generation, and reporting modules. All these parameters are loaded before the beginning of simulations and are used to adjust details about the behaviour of loaded modules.
 \\
 
-Many of the simulation parameters are configurable sepa-
-rately for each node group but groups can also share a set of param-
-eters and only alter the parameters that are specific for the group.
-The configuration system also allows defining of an array of val-
-ues for each parameter hence enabling easy sensitivity analysis: in
-batch runs, a different value is chosen for each run so that large
-amounts of permutations are explored.
+%Many of the simulation parameters are configurable separately for each node group but groups can also share a set of parameters and only alter the parameters that are specific for the group. The configuration system also allows defining of an array of values for each parameter hence enabling easy sensitivity analysis: in batch runs, a different value is chosen for each run so that large amounts of permutations are explored.
 
 Inside configuration files, parameters are saved as key-value pairs and syntax for most of the
 variables is:
