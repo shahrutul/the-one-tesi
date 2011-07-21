@@ -17,7 +17,7 @@ Group.transmitRange = 10
 # transmit speed of 2 Mbps = 250kBps
 Group.transmitSpeed = 100k
 
-
+Events.nrof = 0
 
 
 ## Reports - all report names have to be valid report classes
