@@ -105,9 +105,9 @@ public class mainControlLaunch {
 				PrintWriter jobFile = new PrintWriter(new FileWriter(jobFileName,true));
 				jobFile.println();
 
-				for(int p=0; p<probs.length; p++){
-					jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_control.txt  "+settingFileName+"'");
-				}
+				
+				jobFile.println("sh -c 'cd tesi-src/ && ./one.sh -b 1 WDM_settings.txt m2mshare_settings_control.txt  "+settingFileName+"'");
+				
 				
 				jobFile.println("sh -c 'cd tesi-src/ && rm "+settingFileName+"'");
 
