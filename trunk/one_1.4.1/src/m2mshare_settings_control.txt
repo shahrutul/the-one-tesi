@@ -1,0 +1,32 @@
+
+Scenario.name = FG%%FilesGenerator.rngSeed%%_MM%%MovementModel.rngSeed%%_MapControl
+Scenario.simulateConnections = false
+Scenario.simulateFiles = false
+Scenario.updateInterval = 0.5
+
+# 43k ~= 12h
+# 86k ~= 24h
+# 172k ~= 48h
+# 602k ~= 1 week
+Scenario.endTime = 602k
+
+###################################
+### common settings for all groups
+Group.router = PassiveRouter
+Group.transmitRange = 10
+# transmit speed of 2 Mbps = 250kBps
+Group.transmitSpeed = 100k
+
+
+
+
+## Reports - all report names have to be valid report classes
+# how many reports to load
+Report.nrofReports = 1
+# default directory of reports (can be overriden per Report with output setting)
+Report.reportDir = reports/controlSet
+# Report classes to load
+Report.report6 = M2MShareMapCoverageControl
+
+
+
