@@ -52,17 +52,20 @@ When the task has been delegated is then fundamental that its result is forwarde
 M2MShare idea is that a frequently encountered person is a person that we will probably meet again and so it is a good candidate to servant election. To evaluate how frequently a node meet another node, M2MShare uses an active daemon called \textit{PresenceCollector}, described in Section \ref{descrPresenceCollector}. This daemon traces the number of encounters, scanning at regular intervals for other nodes in communication range. When the number of encounters with another node exceeds the value of a parameter called \textit{Frequency Threshold}, that node is elected as servant.
 \\
 
-The number of encounters per node is saved in a list with limited length. This limitation is adopted to guarantee a small memory usage. To allow each peer the possibility to serve as servant, a replacement strategy is adopted for entries in encounter list. 
+The numbers of encounters with other peers are saved in a list with limited length. This limitation is adopted to guarantee a small memory usage. To allow each peer the possibility to serve as servant, a replacement strategy is adopted for entries in encounter list. When a peer is elected as servant, its entry is removed from the list. If a peer is not elected as a servant and its entry is in the list from a long time period then its removed from the list. The maximum time a peer can be in the list without being elected as servant is related to a value called \textit{Probation Window}. If the list is full and a new peer is encountered, its information is discarded. A new peer can enter in the list only when a slot is freed y the replacement strategy.
 
-La lista contenente il numero di incontri per nodo, utilizza poi una tecnica di rimpiazzo in modo da garantire un consumo contenuto di memoria, garantendo allo stesso tempo agli altri nodi una possibilità di venire eletti come servants. Il criterio utilizzato per decidere se un nodo deve restare o meno nella lista è quello di valutare da quanto tempo vi è inserito: se un nodo viene eletto come servant, allora viene tolto dalla lista in quanto divenuto attivo, ma se un nodo è presente nella lista da un periodo di tempo superiore al valore della \textit{Probation Window}, allora anche in questo caso viene tolto, per dare la possibilità ad altri nodi di essere monitorati e magari venire eletti. Infine, nel caso la lista sia piena ogni nuovo nodo incontrato viene scartato, finché non si libera un posto grazie all'elezione di un nuovo servant o a causa della politica di rimpiazzo descritta.
-
-\section{Modulo di ricerca}
-Prima di poter cominciare il recupero di un file interessante per l'utente, \`{e} fondamentale che il sistema sappia che file cercare, fra quelli disponibili nella rete. Il modulo incaricato di assolvere questo compito \`{e} modulo di ricerca.
+\section{Search module}
+Before a user can choose what file to download from the network, is must know what files are shared by other users and find between them what it is looking for. Every peer in the network maintains a local repository of files shared with other M2MShare users. For every file are available informations about file name, dimension, position in local file system and an hash value that identifies univocally that file in the network.
 \\
 
-Ogni device mantiene un repository in cui sono contenute informazioni relative ai file condivisi con gli altri utenti che utilizzano M2MShare. Queste informazioni includono nome del file, dimensione, posizione nel file system e un hash che lo identifica unicamente nella rete. Questo ultimo valore \`{e} particolarmente utile quando la ricerca ha come oggetto un file specifico, rispetto ad una serie di files, permettendo quindi una efficiente query con una risposta di tipo booleano (file presente \/ non presente nel repository).
-\\
-Oltre alla ricerca orientata al singolo file, il modulo di ricerca permette anche quella tramite l'uso di keywords specificate dall'utente. Per permettere ci\`{o} viene utilizzata anche una strategia di indicizzazione comune nell'Information Retrieval, ossia quella dell'\textit{Inverted Index}: ogni file \`{e} indicizzato sotto un certo numero di termini contenuti nella sua descrizione e durante la ricerca \`{e} fra questi termini che il modulo andrà a cercare nel caso di richiesta. 
+There are two kinds of file queries: 
+
+\begin{description}
+\item[unique file query]: a single file is searched and a boolean answer (present / not present) is needed.
+\item[keyword query]: the user ask for a list of files satisfying some keyword included in the query.
+\end{description}
+
+To satisfy a keyword query, M2MShare uses the Inverted index list strategy. Every shared file is indexed under a finite number of terms contained in the file description text and during a query execution the Search module looks in these terms for files suitable for the response.
 
 
 \section{Modulo di Trasporto}
