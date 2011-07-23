@@ -237,7 +237,7 @@ As earlier said, this is the main class of M2MShare implementation. Its first re
 The class \textit{M2MShareRouter} also extends the superclass \textit{MessageRouter} and doing so it override the main method of this class: \textit{update()}. As said in Section \ref{esecuzioneONE}, that method is called one time for every simulated time interval, after the update of movement and connections of the node. In \textit{M2MShareRouter} the only action executed in \textit{update()} is to call the method \textit{runUpdate()} in module \textit{Scheduler}, described in section \ref{schedulerImplementazione}.
 
 \subsection{PresenceCollector}
-The module \textit{PresenceCollector} is responsible of gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation.
+The module \textit{PresenceCollector} is responsible of gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation. It includes a tuning algorithm of
 
 \subsection{QueuingCentral}
 
