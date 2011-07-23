@@ -124,6 +124,20 @@ M2MShare utilizza quindi un algoritmo di tuning che, all'inizio di ogni giorno, 
 
 \section{File Division Strategy}
 \label{descrFileDivisionStrategy}
+Bluetooth file transfer applications usually adopt a client-server paradigm where devices pair with each other for all the duration of data transfer. If the transfer is interrupted, exchanged data are of no use. This because every file transfer have to start from the beginning. 
+\\
+
+In a mobile environment such as the one where M2MShare operates, disconnections between nodes are very frequent. The standard file transfer strategy is not suitable for this environment, because pairing for all the duration of data exchange could be very difficult. We must remember that M2MShare should be entirely user transparent, so the user should not worry about file transfers. Data exchange should run automatically whenever possible and the transfer strategy should adopt transfer resume.
+\\
+
+M2MShare provide a file division strategy where files are divided in intervals of variable size. The file is seen as map of non overlapping intervals of variable length that need to be downloaded. So, when a node asks another node for a file, it asks only not yet downloaded intervals. If a disconnection occurs, the download can restart downloading the remaining not yet downloaded intervals.
+\\
+
+One of the characteristics of this file division strategy is the starting point of file transfers. If every file transfer starts from the beginning of the file, with several file possessors in reach area, there would be overlapping downloaded intervals downloaded. Overlapping data is of no use, creating redundancy, and M2MShare file division strategy tries to minimize that redundancy. This is done by assigning a different \textit{download map} to each file possessor. A download map is a list of not yet downloaded intervals, with a starting point which identifies the interval from where to initiate fetching data. The starting point is calculated considering the number of intervals the file is composed of, the file length and the index of the next interval to be fetched. For additional details refer to \cite{tesiarmir}.
+\\
+
+The fact that each file possessor is asked for the file starting from different points allows reconstructing the whole file even if just part of it is downloaded from each of them. When the requested interval has been downloaded, if the file possessor is still in reach, the rest of the map is requested. In case of task delegation, a data download might be delegated to a just elected servant peer, and in such a case the entire download map is communicated to the servant device.
+ 
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
