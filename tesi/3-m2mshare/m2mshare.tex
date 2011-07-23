@@ -16,7 +16,14 @@
 Differenza di operare in una DTN rispetto ad una rete tradizionale
 importanza del routing e delle deleghe}
 \\
+Mobility and low node density require a revision of networking protocols toward a delay tolerant approach. In this section we expose some operational details of M2MShare, the application we designed and implemented to demonstrate the opportunistic DTN approach in mobile to mobile multimedia content sharing.
 
+M2Mshare uses the Bluetooth to create a P2P overlay networks, which would allow the automatic exchange of multimedia content among smartphones. Our software automatically initiates a search by broadcasting the user’s query request toward other Bluetooth enabled devices operating the program. Once the answer/s is received, data found to match the criteria will be automatically requested for download. All this process is done without the user mediation; the user only needs to specify the search terms, configurable through the user interface and chose from the matched content list. Key features of M2MShare are its ease of use and autonomy, once the initial preferences are set up no further user interaction is needed and the user can find downloaded files directly on her/his phone, when done.
+Given that energy consumption is a problem for handheld devices the notion of active sessions was introduced. An active session is a period of time in which the software is functional and performs its duties and such periods are configurable through the graphical user interface. This way, the user can set the application to look for requested contents only in certain periods of the day; for instance, when commuting or during lunch time in the cafeteria, so as to be active only when it could be useful since the high number of other peers around.
+
+M2MSHare uses node mobility to reach data content on other local disconnected networks. This is achieved by introducing an asynchronous communication model, store-delegate-and-forward where a peer delegates and unaccomplished/unsatisfied task to other peers in the overlay network. Delegating tasks to all encountered peers is energy and bandwidth consuming. Also, it would be useless to assign tasks to peers that will never be met again in the future. To avoid this M2MShare exploits social relations and delegates tasks only to frequently encountered peers, peers whom are expected to be encountered again in the future.
+
+We could say that we exploit social relations among users to determine possible task delegates. This is not a new approach as context and social relations are already studied in opportunistic data transmission. Yet, we utilize even unknown social relations by connecting users that have to pass by the same geographical location at the same time frequently enough. To assume that a candidate for task delegation could be met again in the future (so that she/he will be able to deliver contents possibly found), we use as an heuristic the history of previous encounters.
 
 \section{DTN module}
 DTNs are particularly useful in situations with intermittent connectivity and there are long and unpredictable intervals in contacts between nodes. Routing protocols developed for and used in the Internet are not suitable for adoption in mobile networks, where every node has a limited connection range and high mobility. These factors make difficult, and sometime impossible, to establish an end-to-end connection between source and destination nodes in a communication.
@@ -68,7 +75,14 @@ There are two kinds of file queries:
 To satisfy a keyword query, M2MShare uses the Inverted index list strategy. Every shared file is indexed under a finite number of terms contained in the file description text and during a query execution the Search module looks in these terms for files suitable for the response.
 
 
-\section{Modulo di Trasporto}
+\section{Transport module}
+Ciclo di vita di un task
+memory management
+queuing system
+come viene serializzato un task
+
+
+Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
 Il modulo di trasporto è probabilmente quello più complesso fra i moduli che compongono M2MShare. I suoi compiti spaziano dal gestire il ciclo di vita di un task (dalla creazione al termine passando per la delega), gestire la memoria utilizzata, fino alla gestione delle code di attività e la loro esecuzione.
 
 \subsection{Sistema di accodamento}
@@ -103,23 +117,25 @@ Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce
 
 Una volta che un task pronto per essere eseguito viene estratto dalla coda in cui si trova, la sua esecuzione è gestita da un'entità detta \textit{Executor}. Questa è un demone attivo presente nel sistema, che è incaricato fra l'altro di gestire anche il numero di esecuzioni parallele di un singolo task: può infatti capitare, per alcuni tipi di attività come i VirtualFile, che l'esecuzione consista nel download simultaneo di parti di file da diverse fonti presenti nel raggio di comunicazione. In questo caso ogni trasferimento è gestito da una distinta entità detta \textit{Communicator}, entità presenti in numero limitato all'interno di ogni nodo.
 
-\subsection{Tipi di task}
-\textbf{vale la pena descriverli?}
 
 \section{Modulo di Routing}
+Provides message forwarding capabilities in our overlay network and implements a controlled flooding technique alike AODV. Here we discuss about overlay organization - how overlay connections are established and maintained along with some insights on some implementation details
+
 \section{Modulo MAC}
+Provides service discovery and message broadcast facility for peers in our network. In this section our focus is concentrated in a fundamental service called PresenceCollector which periodically gathers presence information about in-reach area devices. We discuss the importance of the periodic inquiry and introduce a theorem that can be used to compute the average transferred data quantity between two devices. Finally, we conclude our discussion by introducing the BroadcastService giving some implementation considerations
 
 \subsection{Presence Collector} 
 \label{descrPresenceCollector}
-La frequenza delle scansioni del \textit{PresenceCollector} è un parametro importante, in quanto influenza sia la probabilità di un nodo di essere eletto come servant (con scansioni più frequenti il numero di incontri per nodo cresce più rapidamente rispetto all'utilizzare una frequenza di scansione minore), sia il consumo energetico del client (scansioni più frequenti implicano un consumo maggiore). In M2MShare la frequenza di scan del \textit{PresenceCollector} è un parametro regolabile dall'utente, mentre uno sforzo aggiuntivo è stato fatto nel regolare automaticamente il valore della \textit{Frequency Threshold}.
+The \textit{PresenceCollector} is the daemon which periodically scans the network for in-reach area devices. Encounters data resulting from these scans is used to evaluate if a peer is a frequent encountered peer and eventually elect it as a servant.
 \\
 
-Questa è infatti l'altro parametro che influenza pesantemente le probabilità per un nodo di venire eletto come servant: con una \textit{Frequency Threshold} bassa, bastano pochi incontri affinché un nodo la superi e venga quindi eletto, rischiando di delegare un task ad un servant che verrà rincontrato con scarsa probabilità. Con una \textit{Frequency Threshold} troppo elevata invece è possibile che molti nodi promettenti vengano scartati.
+Scan frequency is a very important parameter. It influences energy consumption and probability for another peer to be elected as a servant. The presence collector is always active, so an high scan frequency is not reasonable because it results in a network bandwidth and device energy waste. Also, an high frequency results in a high probability for a node to be elected as a servant: the number of encounters raise and the \textit{frequency threshold} is exceeded faster than with a low scan frequency value.
 \\
 
-M2MShare utilizza quindi un algoritmo di tuning che, all'inizio di ogni giorno, regola il valore della \textit{Frequency Threshold} in base a quanto osservato nel giorno precedente, rispetto al numero di servants eletti e ad un altro parametro, detto \textit{Probation Window}. Affinché un nodo venga considerato periodico, il numero degli incontri con esso, in un periodo di tempo pari al valore della \textit{Probation Window}, deve essere superiore alla \textit{Frequency Threshold}. Quindi se il valore della \textit{Probation Window} diventa troppo elevato (pochi nodi vengono eletti), si procede a ridurre la \textit{Frequency Threshold}, rendendo così più probabile l'elezione di nodo a servant dopo un minor numero di incontri. Viceversa se il numero di servants attivi è superiore alle previsioni si provvede a diminuire il valore della \textit{Probation Window}. Quando anche questo raggiunge il minimo (impostato a 2 giorni), si procede ad incrementare la \textit{Frequency Threshold}.
+While scan frequency can be set by the user, additional efforts have been done to automatically tune the \textit{Frequency Threshold} value. This is the other parameter that affects the probability  for a node to be elected as a servant: few encounters are enough, with a low value, to exceed the threshold value. If the value is too low, we could delegate task that we would never meet again, resulting in never forwarded results of the task. On the other hand, with a high \textit{Frequency Threshold} value, many promising peers could be rejected from being servants.
 \\
 
+At the beginning of every day, M2MShare uses a tuning algorithm which adapts the \textit{Frequency Threshold} value according to what observed during the previous day. Considered values are the number of elected peers and \textit{Probation Window} value. A peer is considered frequently encountered if it is met a number of times great than the \textit{Frequency Threshold} in a period as long as the \textit{Probation Window} value. After this period, if a peer has not been yet elected, it is removed from the encounter list. If \textit{Probation Window} value is high and few nodes are elected, \textit{Frequency Threshold} is lowered, making more probable for a node to be elected. On the other hand, if the number of elected peers is too high, \textit{Probation Window} is lowered. When its value reaches the minimum value (set to 2 days), \textit{Frequency Threshold} is raised.
 
 
 \section{File Division Strategy}
@@ -136,7 +152,7 @@ M2MShare provide a file division strategy where files are divided in intervals o
 One of the characteristics of this file division strategy is the starting point of file transfers. If every file transfer starts from the beginning of the file, with several file possessors in reach area, there would be overlapping downloaded intervals downloaded. Overlapping data is of no use, creating redundancy, and M2MShare file division strategy tries to minimize that redundancy. This is done by assigning a different \textit{download map} to each file possessor. A download map is a list of not yet downloaded intervals, with a starting point which identifies the interval from where to initiate fetching data. The starting point is calculated considering the number of intervals the file is composed of, the file length and the index of the next interval to be fetched. For additional details refer to \cite{tesiarmir}.
 \\
 
-The fact that each file possessor is asked for the file starting from different points allows reconstructing the whole file even if just part of it is downloaded from each of them. When the requested interval has been downloaded, if the file possessor is still in reach, the rest of the map is requested. In case of task delegation, a data download might be delegated to a just elected servant peer, and in such a case the entire download map is communicated to the servant device.
+The fact that each file possessor is asked for the file starting from different points allows reconstructing the whole file even if just part of it is downloaded from each of them. When the requested interval has been downloaded, if the file possessor is still in reach, the rest of the map is requested. In case of task delegation, a data download might be delegated to a servant peer, and in such a case the entire download map is communicated to the servant device.
  
  
 % ---------------------------------------------------------------------------
