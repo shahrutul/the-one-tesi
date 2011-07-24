@@ -7,6 +7,11 @@ Yang Zhang and Jing Zhao.
   Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
   York, NY, USA, 2009. ACM.
 
+\bibitem{tesiarmir}
+A.~Bujari.
+\newblock A delay tolerant solution for p2p file sharing in manets.
+\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
+
 \bibitem{rwpharmful}
 J.~Yoon, M.~Liu, and B.~Noble.
 \newblock Random waypoint considered harmful.
@@ -19,6 +24,33 @@ Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
 \newblock Working day movement model.
 \newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
   models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
+
+\bibitem{Balachandran:2002:CUB:511399.511359}
+Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
+\newblock Characterizing user behavior and network performance in a public
+  wireless lan.
+\newblock {\em SIGMETRICS Perform. Eval. Rev.}, 30:195--205, June 2002.
+
+\bibitem{Ghosh:2006:PMP:1132983.1132993}
+Joy Ghosh, Matthew~J. Beal, Hung~Q. Ngo, and Chunming Qiao.
+\newblock On profiling mobility and predicting locations of wireless users.
+\newblock In {\em Proceedings of the 2nd international workshop on Multi-hop ad
+  hoc networks: from theory to reality}, REALMAN '06, pages 55--62, New York,
+  NY, USA, 2006. ACM.
+
+\bibitem{Shaffer:2005:AMM:1104998.1105285}
+Jeremy Shaffer, Daniel~P. Siewiorek, and Asim Smailagic.
+\newblock Analysis of movement and mobility of wireless network users.
+\newblock In {\em Proceedings of the Ninth IEEE International Symposium on
+  Wearable Computers}, pages 60--69, Washington, DC, USA, 2005. IEEE Computer
+  Society.
+
+\bibitem{Ashbrook:2002:LSL:862896.881068}
+D.~Ashbrook.
+\newblock Learning significant locations and predicting user movement with gps.
+\newblock In {\em Proceedings of the 6th IEEE International Symposium on
+  Wearable Computers}, pages 101--, Washington, DC, USA, 2002. IEEE Computer
+  Society.
 
 \bibitem{Natarajan:2007:UUI:1762888.1762904}
 Anirudh Natarajan, Mehul Motani, and Vikram Srinivasan.
@@ -46,11 +78,6 @@ Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
 \newblock The state of dtn evaluation.
 \newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
   CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
-
-\bibitem{tesiarmir}
-A.~Bujari.
-\newblock A delay tolerant solution for p2p file sharing in manets.
-\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
 
 \bibitem{orion}
 C.~Lindemann A.~Klemm and O.~Waldhorst.
@@ -81,32 +108,5 @@ F.Ekman.
 Ari Ker\"{a}nen and J\"{o}rg Ott.
 \newblock {Increasing Reality for DTN Protocol Simulations}.
 \newblock Technical report, Helsinki University of Technology, July 2007.
-
-\bibitem{Balachandran:2002:CUB:511399.511359}
-Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
-\newblock Characterizing user behavior and network performance in a public
-  wireless lan.
-\newblock {\em SIGMETRICS Perform. Eval. Rev.}, 30:195--205, June 2002.
-
-\bibitem{Ghosh:2006:PMP:1132983.1132993}
-Joy Ghosh, Matthew~J. Beal, Hung~Q. Ngo, and Chunming Qiao.
-\newblock On profiling mobility and predicting locations of wireless users.
-\newblock In {\em Proceedings of the 2nd international workshop on Multi-hop ad
-  hoc networks: from theory to reality}, REALMAN '06, pages 55--62, New York,
-  NY, USA, 2006. ACM.
-
-\bibitem{Shaffer:2005:AMM:1104998.1105285}
-Jeremy Shaffer, Daniel~P. Siewiorek, and Asim Smailagic.
-\newblock Analysis of movement and mobility of wireless network users.
-\newblock In {\em Proceedings of the Ninth IEEE International Symposium on
-  Wearable Computers}, pages 60--69, Washington, DC, USA, 2005. IEEE Computer
-  Society.
-
-\bibitem{Ashbrook:2002:LSL:862896.881068}
-D.~Ashbrook.
-\newblock Learning significant locations and predicting user movement with gps.
-\newblock In {\em Proceedings of the 6th IEEE International Symposium on
-  Wearable Computers}, pages 101--, Washington, DC, USA, 2002. IEEE Computer
-  Society.
 
 \end{thebibliography}

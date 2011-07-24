@@ -83,6 +83,23 @@ come viene serializzato un task
 
 
 Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
+
+A peer device operating M2MShare might receive simultaneous incoming requests for
+upload and delegations from other peers, on the same time issue his own requests.
+Parallel requests processing means that each request being processed is handled in a
+separate execution flow. This modus operandi can easily cause a relatively large
+memory utilization that, due to the limited device resources, can cause the application to
+crash;
+
+Another feature that was deemed important was to distinguish between different kinds
+of tasks, as this would allow different policies to be applied to different types of
+requests. In order to manage inter and intra-queue requests, local and global policies
+were needed. Local policies regulate the way that tasks are handled within one specific
+queue, whereas global policies regulate the manner in which the various queues are
+processed. These considerations are implemented in the current release by providing a
+default processing policy.
+The QueuingCentral is the component that implements our queuing strategy
+
 Il modulo di trasporto è probabilmente quello più complesso fra i moduli che compongono M2MShare. I suoi compiti spaziano dal gestire il ciclo di vita di un task (dalla creazione al termine passando per la delega), gestire la memoria utilizzata, fino alla gestione delle code di attività e la loro esecuzione.
 
 \subsection{Sistema di accodamento}
