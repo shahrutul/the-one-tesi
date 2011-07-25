@@ -76,51 +76,37 @@ To satisfy a keyword query, M2MShare uses the Inverted index list strategy. Ever
 
 
 \section{Transport module}
-Ciclo di vita di un task
-memory management
-queuing system
-come viene serializzato un task
-
-
-Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
-
-A peer device operating M2MShare might receive simultaneous incoming requests for
-upload and delegations from other peers, on the same time issue his own requests.
-Parallel requests processing means that each request being processed is handled in a
-separate execution flow. This modus operandi can easily cause a relatively large
-memory utilization that, due to the limited device resources, can cause the application to
-crash;
-
-Another feature that was deemed important was to distinguish between different kinds
-of tasks, as this would allow different policies to be applied to different types of
-requests. In order to manage inter and intra-queue requests, local and global policies
-were needed. Local policies regulate the way that tasks are handled within one specific
-queue, whereas global policies regulate the manner in which the various queues are
-processed. These considerations are implemented in the current release by providing a
-default processing policy.
-The QueuingCentral is the component that implements our queuing strategy
-
-Il modulo di trasporto è probabilmente quello più complesso fra i moduli che compongono M2MShare. I suoi compiti spaziano dal gestire il ciclo di vita di un task (dalla creazione al termine passando per la delega), gestire la memoria utilizzata, fino alla gestione delle code di attività e la loro esecuzione.
-
-\subsection{Sistema di accodamento}
-Durante l'esecuzione di M2MShare, un nodo può trovarsi a dover eseguire numerose attività derivanti da deleghe ricevute da altri nodi e da task create dall'utente utilizzatore del device stesso. Idealmente ogni attività dovrebbe essere eseguita in un thread dedicato, operando così in parallelo alle altre attività. Questo non è praticamente conveniente, in quanto comporterebbe un utilizzo troppo elevato di memoria, per dei dispositivi come quelli mobili in cui le risorse a disposizione sono limitate. 
+M2MShare operates on devices with limited memory and calculation resources. Each device have to handle simultaneously incoming requests for upload and delegations from other peers and user request issued on the device itself. If these requests would be executed in parallel, then each one would require a separate execution flow. With the limited device resources, this can cause a large memory usage and consequently a probable application crash. 
 \\
 
-Per risolvere questo problema M2MShare utilizza un sistema di accodamento in cui, non appena un task viene creato (dal nodo stesso o in seguito a delega), viene subito accodato in una delle code di attività disponibili e schedulato per la successiva esecuzione. In questo modo le varie attività vengono eseguite in maniera sequenziale, a seconda del tipo. Non tutte le attività vengono gestite infatti con la stessa priorità e diverse strategie vengono adottate a seconda della coda in cui un task viene accodato.
+In Transport Module, M2MShare manages active tasks queuing them and executing only a limited number of them simultaneously. Tasks are divided in different kinds and this allow to apply different policies to different types of requests. These policies are implemented using different task queues and a component called \textit{QueuingCentral} which manages the queues. It also imposes limits on the maximum number of tasks a single peer can handle.
 \\
 
-Il componente dedicato alla gestione delle code di attività è il \textit{QueuingCentral}, che contiene al suo interno le seguenti code, ognuna delle quali contiene al suo interno attività con caratteristiche diverse:
+When a task is created or received from another peer delegation, it is queued in the related queue and scheduled for later execution. Tasks are executed sequentially, and the execution order depends on task type. Some queues have priority over other queues, i.e. 
 
-\begin{description}
-\item[dtnDownloadQueue:] contiene al suo interno task remoti indicanti che un servant ha completato un task delegato in precedenza.
-\item[dtnPendingQueue:] contiene al suo interno task delegati da altri verso il nodo corrente, che per questi funge da servant.
-\item[dtnPendingUpload:] contiene i task delegati da altri, che il nodo corrente ha terminato e di cui è pronto a ritornare il risultato.
-\item[queryQueue:] contiene le query eseguite dall'utente del nodo per la ricerca di files.
-\item[uploadQueue:] contiene le richieste di dati verso altri nodi.
-\item[virtualFileQueue:] contiene le richieste di download di file inserite dall'utente del nodo.
-\end{description}
+viene data priorità ai tasks creati dall'utente
 
-Il \textit{QueuingCentral} è anche responsabile di definire delle policy riguardanti la memoria da assegnare alla memorizzazione dei task nelle code, definendo quindi un limite alle deleghe ricevute e al numero massimo di trasferimenti da effettuare.
+
+%Ciclo di vita di un task
+%memory management
+%queuing system
+%come viene serializzato un task
+%
+%
+%Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
+
+
+%Il componente dedicato alla gestione delle code di attività è il \textit{QueuingCentral}, che contiene al suo interno le seguenti code, ognuna delle quali contiene al suo interno attività con caratteristiche diverse:
+
+%\begin{description}
+%\item[dtnDownloadQueue:] contiene al suo interno task remoti indicanti che un servant ha completato un task delegato in precedenza.
+%\item[dtnPendingQueue:] contiene al suo interno task delegati da altri verso il nodo corrente, che per questi funge da servant.
+%\item[dtnPendingUpload:] contiene i task delegati da altri, che il nodo corrente ha terminato e di cui è pronto a ritornare il risultato.
+%\item[queryQueue:] contiene le query eseguite dall'utente del nodo per la ricerca di files.
+%\item[uploadQueue:] contiene le richieste di dati verso altri nodi.
+%\item[virtualFileQueue:] contiene le richieste di download di file inserite dall'utente del nodo.
+%\end{description}
+
 
 \subsection{Scheduler ed esecuzione di un task}
 Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce il nome, l'esecuzione delle varie attività contenute nelle code del \textit{QueuingCentral}. I vari task vengono smistati fra quattro \textit{execution flows}:
