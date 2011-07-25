@@ -3,59 +3,58 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Tesi.aux
 The style file: unsrt.bst
 Database file #1: bibliografia.bib
-Repeated entry---line 113 of file bibliografia.bib
+Repeated entry---line 125 of file bibliografia.bib
  : @inproceedings{rwpharmful
  :                          ,
 I'm skipping whatever remains of this entry
 Name 1 in "A. Klemm, C. Lindemann, and O. Waldhorst" has a comma at the end for entry orion
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in orion
-Warning--empty year in orion
 Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in humanmobility
 Warning--empty year in humanmobility
-You've used 18 entries,
+You've used 19 entries,
             1791 wiz_defined-function locations,
-            566 strings with 7421 characters,
-and the built_in function-call counts, 4717 in all, are:
-= -- 470
-> -- 173
+            570 strings with 7503 characters,
+and the built_in function-call counts, 4852 in all, are:
+= -- 483
+> -- 177
 < -- 9
-+ -- 66
-- -- 48
++ -- 68
+- -- 49
 * -- 275
-:= -- 708
-add.period$ -- 61
-call.type$ -- 18
-change.case$ -- 19
+:= -- 730
+add.period$ -- 65
+call.type$ -- 19
+change.case$ -- 20
 chr.to.int$ -- 0
 cite$ -- 22
-duplicate$ -- 246
-empty$ -- 448
-format.name$ -- 48
-if$ -- 1113
+duplicate$ -- 251
+empty$ -- 466
+format.name$ -- 49
+if$ -- 1146
 int.to.chr$ -- 0
-int.to.str$ -- 18
+int.to.str$ -- 19
 missing$ -- 17
-newline$ -- 91
-num.names$ -- 18
-pop$ -- 66
+newline$ -- 97
+num.names$ -- 19
+pop$ -- 71
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 134
+skip$ -- 137
 stack$ -- 0
 substring$ -- 273
-swap$ -- 81
+swap$ -- 82
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 4
-while$ -- 46
-width$ -- 20
-write$ -- 215
+warning$ -- 3
+while$ -- 47
+width$ -- 21
+write$ -- 227
 (There were 4 error messages)
