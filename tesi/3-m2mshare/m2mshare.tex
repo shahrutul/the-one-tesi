@@ -76,53 +76,60 @@ To satisfy a keyword query, M2MShare uses the Inverted index list strategy. Ever
 
 
 \section{Transport module}
-M2MShare operates on devices with limited memory and calculation resources. Each device have to handle simultaneously incoming requests for upload and delegations from other peers and user request issued on the device itself. If these requests would be executed in parallel, then each one would require a separate execution flow. With the limited device resources, this can cause a large memory usage and consequently a probable application crash. 
+M2MShare operates on devices with limited memory and calculation resources. Each device has to handle simultaneously incoming requests for upload and delegations from other peers and user requests issued on the device itself. If these requests would be executed in parallel, then each one would require a separate execution flow. With the limited device resources, this could cause a large memory usage and consequently a probable application crash. 
 \\
 
 In Transport Module, M2MShare manages active tasks queuing them and executing only a limited number of them simultaneously. Tasks are divided in different kinds and this allow to apply different policies to different types of requests. These policies are implemented using different task queues and a component called \textit{QueuingCentral} which manages the queues. It also imposes limits on the maximum number of tasks a single peer can handle.
 \\
 
-When a task is created or received from another peer delegation, it is queued in the related queue and scheduled for later execution. Tasks are executed sequentially, and the execution order depends on task type. Some queues have priority over other queues, i.e. 
-
-viene data priorità ai tasks creati dall'utente
-
-
-%Ciclo di vita di un task
-%memory management
-%queuing system
-%come viene serializzato un task
-%
-%
-%Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
-
-
-%Il componente dedicato alla gestione delle code di attività è il \textit{QueuingCentral}, che contiene al suo interno le seguenti code, ognuna delle quali contiene al suo interno attività con caratteristiche diverse:
-
-%\begin{description}
-%\item[dtnDownloadQueue:] contiene al suo interno task remoti indicanti che un servant ha completato un task delegato in precedenza.
-%\item[dtnPendingQueue:] contiene al suo interno task delegati da altri verso il nodo corrente, che per questi funge da servant.
-%\item[dtnPendingUpload:] contiene i task delegati da altri, che il nodo corrente ha terminato e di cui è pronto a ritornare il risultato.
-%\item[queryQueue:] contiene le query eseguite dall'utente del nodo per la ricerca di files.
-%\item[uploadQueue:] contiene le richieste di dati verso altri nodi.
-%\item[virtualFileQueue:] contiene le richieste di download di file inserite dall'utente del nodo.
-%\end{description}
-
-
-\subsection{Scheduler ed esecuzione di un task}
-Lo \textit{Scheduler} è il componente incaricato di schedulare, come suggerisce il nome, l'esecuzione delle varie attività contenute nelle code del \textit{QueuingCentral}. I vari task vengono smistati fra quattro \textit{execution flows}:
-
+When a task is created or received from another peer delegation, it is queued in the related queue and scheduled for later execution. The queues managed by the QueuingCentral are:
 \begin{description}
-\item[triggered\_activity\_flow,] che interessa i task contenuti nella \textit{dtnPendingUpload}. Viene eseguito ogni volta che il \textit{PresenceCollector} effettua una scansione dei dispositivi presenti nelle vicinanze, in modo da poter eventualmente ritornare il risultato di un task delegato al nodo corrente.
-\item[local\_activity\_flow,] che interessa i task contenuti nelle code \textit{dtnDownloadQueue}, \textit{virtualFileQueue} e \textit{queryQueue}. Viene data priorità ai task contenuti nella \textit{dtnDownloadQueue}, in quanto rappresentano dei task delegati per i quali i rispettivi servants sono pronti a ritornare il risultato.
-\item[pending\_activity\_flow,] che interessa le attività contenute nella \textit{dtnPendingQueue}, ossia i task delegati da altri al nodo corrente. 
-\item[upload\_activity\_flow,] che interessa le attività contenute nella \textit{uploadQueue}.
+\item[dtnDownloadQueue:] includes remote tasks which indicate that a servant peer has completed a previously delegated task.
+\item[dtnPendingQueue:] includes tasks previously delegated from other peers. The current peer act as servant for these tasks.
+\item[dtnPendingUpload:] includes completed tasks previously delegated from other peers. The current peer is ready to forward the result of these tasks.
+\item[queryQueue:] includes user-issued queries.
+\item[uploadQueue:] includes data requests from other peers.
+\item[virtualFileQueue:] includes user-issued file download requests.
 \end{description}
 
-Una volta che un task pronto per essere eseguito viene estratto dalla coda in cui si trova, la sua esecuzione è gestita da un'entità detta \textit{Executor}. Questa è un demone attivo presente nel sistema, che è incaricato fra l'altro di gestire anche il numero di esecuzioni parallele di un singolo task: può infatti capitare, per alcuni tipi di attività come i VirtualFile, che l'esecuzione consista nel download simultaneo di parti di file da diverse fonti presenti nel raggio di comunicazione. In questo caso ogni trasferimento è gestito da una distinta entità detta \textit{Communicator}, entità presenti in numero limitato all'interno di ogni nodo.
+Tasks execution is scheduled by a component called \textit{Scheduler}, which extract tasks from related queues and executes them. Inside each queue tasks are inserted and fetched with a FIFO policy. The Scheduler includes four execution flows used to implement inter-queue policies and to assign different priorities to different task types. Some tasks can use several execution flows, with a maximum number of flow for each task. This allow, for example, to simultaneously download pieces of the same file from different sources.
+\\
+
+One of the highlights of M2MShare is task delegation. This is done by remotely communicate task informations to a servant peer. The task, when active, is encoded using serialization in the client side, transmitted to the servant peer and there the task is decoded and queued in the correct queue related to pending tasks.
+
+%Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
 
 
 \section{Modulo di Routing}
 Provides message forwarding capabilities in our overlay network and implements a controlled flooding technique alike AODV. Here we discuss about overlay organization - how overlay connections are established and maintained along with some insights on some implementation details
+
+\cite{orion}
+\cite{aodv}
+M2MShare establishes overlay connections on demand and maintains them as long as
+they are necessary; task accomplished or when disconnect occurs because devices aren‘t
+in reach area anymore. Peers in the overlay are uniquely identified by their MAC
+address hence peer address space is flat and analogous to that of MAC layer, whereas
+files are identified by a 16byte MD5 digest computed on its first 100k data bytes
+calculated during the indexing process.
+The routing layer provides mechanisms for query routing along with a mechanism for
+controlled flooding of query requests. As in ORION (Section 3.3) a structure like file
+routing table (FRT) is used to store alternative next hops for a particular file. Another
+particularity borrowed by ORION is the shadowing of non direct file possessors from
+the origin (query issuer) point of view. From the origin stand point all files are stored by
+devices in-reach area which during data transfer will act as relay nodes without the
+origin knowing about it.
+
+The controlled flooding mechanism is relatively simple and is described by the pseudo
+code shown in (Section 2.2). Its modus operandi is shown below by means of an activity
+diagram (Figure 4.17). Controlled message flooding is achieved by implementing the
+following pseudo code elements:
+1. Uniquely identifying messages: This technique is borrowed from the AODV routing
+algorithm, where a message is uniquely identified by (i) originator of the message
+and a (ii) message id which is shipped along with the message itself. All devices
+maintain an id which is incremented on each issued broadcast. In our system this id
+is represented by a long data type.
+
+
 
 \section{Modulo MAC}
 Provides service discovery and message broadcast facility for peers in our network. In this section our focus is concentrated in a fundamental service called PresenceCollector which periodically gathers presence information about in-reach area devices. We discuss the importance of the periodic inquiry and introduce a theorem that can be used to compute the average transferred data quantity between two devices. Finally, we conclude our discussion by introducing the BroadcastService giving some implementation considerations

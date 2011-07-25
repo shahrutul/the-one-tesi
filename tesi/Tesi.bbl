@@ -7,6 +7,17 @@ Yang Zhang and Jing Zhao.
   Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
   York, NY, USA, 2009. ACM.
 
+\bibitem{orion}
+C.~Lindemann A.~Klemm and O.~Waldhorst.
+\newblock Orion - a special-purpose peer-to-peer file sharing system for mobile
+  ad hoc networks.
+\newblock 2003.
+
+\bibitem{aodv}
+IETF.
+\newblock {AODV} specifications, {RFC} 3561.
+\newblock \url{http://www.ietf.org/rfc/rfc3561.txt}, July 2003.
+
 \bibitem{tesiarmir}
 A.~Bujari.
 \newblock A delay tolerant solution for p2p file sharing in manets.
@@ -78,11 +89,6 @@ Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
 \newblock The state of dtn evaluation.
 \newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
   CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
-
-\bibitem{orion}
-C.~Lindemann A.~Klemm and O.~Waldhorst.
-\newblock Orion - a special-purpose peer-to-peer file sharing system for mobile
-  ad hoc networks.
 
 \bibitem{humanmobility}
 S.Hong K.Lee~S.Chong I.Rhee, M.Shin.
