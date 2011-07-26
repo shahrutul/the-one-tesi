@@ -20,39 +20,37 @@ As we saw in Chapter \ref{m2mshare}, M2MShare is a peer-to-peer protocol which a
 
 
 \subsection{File Management}
+The first step is to add to nodes the capability of manage files. To this purpose, we add to every node a file system, in which to save files to share with a P2P application. 
+%Node's capabilities are described in class named \textit{DTNHost}
 
-
-Il primo passo è stato quindi quello di dotare i vari nodi che compongono la simulazione, descritti dalla classe \textit{DTNHost}, di un file system al cui interno salvare i files oggetto delle ricerche e trasferimenti tipici di un protocollo di file sharing.
 
 \paragraph{DTNFile}
-Ogni file simulato è un'istanza della classe \textit{DTNFile}, che al suo interno contiene i campi necessari a descrivere il file stesso:
+Every simulated file is an instance of class \textit{DTNFile}, which includes informations about the described file:
 
 \begin{itemize}
-\item Nome del file
-\item Hash che lo identifica univocamente
-\item Grandezza in bytes del file
+\item file name
+\item file hash value
+\item file length, in bytes
 \end{itemize}
 
-Si è scelto di non inserire fra i campi anche le keywords che potrebbero descrivere il file e permettere una ricerca tramite parole chiave. Questo perché lo scopo delle simulazioni era quello di cercare e recuperare un determinato file già  noto a priori, saltando quindi la prima parte di ricerca in cui l'utente può specificare più keywords secondo effettuarla.
+We do not specify keywords related to that file, which could be useful to implement a keyword-based search procedure. We did so, because the purpose of our simulations was to emulate and evaluate the behaviour of M2MShare in the second phase of the protocol. In this phase, the user already knows what file it is looking for, so it asks the system to find and download back it, without needing of previous keyword queries. For this purpose a file hash value is sufficient to unambiguously identify the file in the overlay network.
+
 
 \paragraph{DTNFileSystem}
-I vari \textit{DTNFile} in possesso di un nodo sono contenuti all'interno di un'entità  chiamata \textit{DTNFileSystem}. Come suggerisce il nome, il suo compito àš quello di simulare ad alto livello il file system del device rappresentato dal nodo. La realizzazione àš basilare, con i files condivisi contenuti in un'unica directory e delle funzioni che permettono le operazioni di:
-\begin{itemize}
-\item ottenere il numero di files contenuti
-\item verificare la presenza di un determinato DTNFile, utilizzando il suo hash come criterio di ricerca
-\item recuperare il riferimento di un determinato DTNFile
-\item recuperare una \textit{Collection} contenente tutti i riferimenti ai files presenti nel file system
-\item inserire un nuovo \textit{DTNFile} nel file system
-\end{itemize}
+\textit{DTNFile}s shared by a node are included in an entity called \textit{DTNFileSystem}. As its name suggests, it emulates a mobile device's file system, from an high-level prospective. It has a simple implementation, with a single-level directory structure and functions which allow to insert, delete and read files from the file system. To retrieve a file, its hash value is used as search criteria.
+\\
 
-Lo presenza del file system simulato, rappresentato da un'istanza della classe DTNFileSystem, all'interno di un determinato nodo àš dipendente dalla configurazione adottata per la simulazione, come descritto nella sezione \ref{configurazioneONE}. Per aumentare la flessibilità  a seconda della simulazione desiderata, sono stati quindi aggiunti due parametri di configurazione:
+The file system presence in a simulated node is optional. For instance, a node emulating a bus do not need a file system. We added new parameters, settable in configuration files, which allow to specify more options related to file management for a single simulation and increase simulations flexibility: 
+
 \begin{description}
-\item[Scenario.simulateFiles] àš un parametro booleano che indica se simulare o meno la presenza di un file system nei nodi e la seguente distribuzione di files contenuti.
-\item[Group.fileCapability] è un parametro booleano che indica se un determinato gruppo di nodi ha la possibilità  o meno di utilizzare un file system per contenere dei files. Un gruppo di nodi rappresentante dei mezzi di trasporto pubblici, ad esempio, non avrà  necessità  di gestire la presenza di files al proprio interno.
+\item[Scenario.simulateFiles] is a boolean parameter that indicates whether or not to simulate the files management in mobile nodes. It applies to the whole simulation.
+\item[Group.fileCapability] is a boolean parameter that indicates if nodes belonging to a group can use a file system to store files.
 \end{description}
 
 \paragraph{DTNFileGenerator}
 \label{fileGeneratorImplementazione}
+To emulate files distribution between nodes at the beginning of the simulation, we created a generator which 
+
 Per simulare la distribuzione di files fra i vari nodi, all'inizio della simulazione, è stato creato un generatore che, a partire da uno o più files di input, crea i vari \textit{DTNFiles} e li distribuisce fra i nodi, a seconda di quanto configurato.
 \\
 Ogni file di input può contenere più \textit{DTNFileCreationRequest}, ognuna delle quali descrive il \textit{DTNFile} da creare e come distribuirlo fra i nodi della simulazione. Una \textit{DTNFileCreationRequest} contiene al proprio interno:
