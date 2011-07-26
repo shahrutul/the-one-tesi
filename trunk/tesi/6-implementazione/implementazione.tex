@@ -12,12 +12,16 @@
 
 
 %: ----------------------- contents from here ------------------------
-In questa sezione verrà  descritta l'implementazione del protocollo realizzata utilizzando come base il simulatore ONE (descritto nel Capitolo \ref{simulatore}). Come prima cosa è però necessario soffermarsi su alcune modifiche che àš stato necessario eseguire sul simulatore stesso, in modo da poter poi simulare appieno il comportamento di M2MShare.
+In this chapter we describe our implementation of M2MShare in the ONE simulator, which is described in Chapter \ref{simulatore}. Before proceeding further, we show some features we added the the simulator, in order to completely emulate M2MShare behaviour.
+  
 
-\section{Modifiche a ONE}
-Come già  ampiamente descritto, M2MShare è un protocollo di peer-to-peer, adibito alla condivisione di file fra dispositivi mobili. ONE è allo stato dell'arte per quanto riguarda la simulazione del movimento e delle connessioni fra dispositivi mobili (come analizzato in \cite{panelStateDTNEvaluation}), ma abbiamo visto che possiede comunque delle limitazioni, le principali elencate nella sezione \ref{limitazioniONE}. Prima di poter realizzare un'implementazione completa di M2MShare è stato quindi necessario effettuare delle modifiche a ONE, introducendo alcune caratteristiche indispensabili a simulare il comportamento di un protocollo di peer-to-peer per lo scambio di files.
+\section{ONE additions}
+As we saw in Chapter \ref{m2mshare}, M2MShare is a peer-to-peer protocol which allow the automatic exchange of multimedia content among mobile devices. The ONE is the state of the art regarding movements and connections simulation, especially between mobile nodes, but it has some limitations. Before we could completely implement M2MShare in the simulator, we modified the ONE adding some fundamental features. These allow us to simulate the behaviour of a peer-to-peer protocol with file exchange between network nodes.
 
-\subsection{Gestione File}
+
+\subsection{File Management}
+
+
 Il primo passo è stato quindi quello di dotare i vari nodi che compongono la simulazione, descritti dalla classe \textit{DTNHost}, di un file system al cui interno salvare i files oggetto delle ricerche e trasferimenti tipici di un protocollo di file sharing.
 
 \paragraph{DTNFile}
