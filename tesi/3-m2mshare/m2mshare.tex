@@ -12,18 +12,22 @@
 
 
 %: ----------------------- contents from here ------------------------
-\textbf{La parte principale: si parla del protocollo
-Differenza di operare in una DTN rispetto ad una rete tradizionale
-importanza del routing e delle deleghe}
+In DTNs mobility and low node density require new strategies to implement a file-sharing application which allow the excange of multimedia contents among mobile devices. M2MShare \cite{tesiarmir} uses Bluetooth to create a Peer-to-Peer overlay network and uses node mobility to reach data content on other local disconnected networks. The main idea of the protocol is to use a store-delegate-and-forward model. This is similar to the store-and-forward strategy widely used in DTNs, but M2MShare adds the \textit{delegate} part to the model. The result is an asynchronous communication model where a peer delegates an unaccomplished task to other peers in the overlay network.
 \\
-Mobility and low node density require a revision of networking protocols toward a delay tolerant approach. In this section we expose some operational details of M2MShare, the application we designed and implemented to demonstrate the opportunistic DTN approach in mobile to mobile multimedia content sharing.
 
-M2Mshare uses the Bluetooth to create a P2P overlay networks, which would allow the automatic exchange of multimedia content among smartphones. Our software automatically initiates a search by broadcasting the user’s query request toward other Bluetooth enabled devices operating the program. Once the answer/s is received, data found to match the criteria will be automatically requested for download. All this process is done without the user mediation; the user only needs to specify the search terms, configurable through the user interface and chose from the matched content list. Key features of M2MShare are its ease of use and autonomy, once the initial preferences are set up no further user interaction is needed and the user can find downloaded files directly on her/his phone, when done.
-Given that energy consumption is a problem for handheld devices the notion of active sessions was introduced. An active session is a period of time in which the software is functional and performs its duties and such periods are configurable through the graphical user interface. This way, the user can set the application to look for requested contents only in certain periods of the day; for instance, when commuting or during lunch time in the cafeteria, so as to be active only when it could be useful since the high number of other peers around.
+Delegations are used to extend search and diffusion area for a shared file, while M2MSHare dynamically establishes forward routes along the destination path by exploiting social relations existing between peers users. This is done limiting delegations only to frequently encountered peers, whom users pass by the same geographical location at the same time frequently enough. The history of previous encounters is then used as heuristic to evaluate if a peer is a good candidate for delegations. This allow to assign tasks only to nodes that we should meet again in the future, so they can return back to us the result of the task.
+\\
 
-M2MSHare uses node mobility to reach data content on other local disconnected networks. This is achieved by introducing an asynchronous communication model, store-delegate-and-forward where a peer delegates and unaccomplished/unsatisfied task to other peers in the overlay network. Delegating tasks to all encountered peers is energy and bandwidth consuming. Also, it would be useless to assign tasks to peers that will never be met again in the future. To avoid this M2MShare exploits social relations and delegates tasks only to frequently encountered peers, peers whom are expected to be encountered again in the future.
-
-We could say that we exploit social relations among users to determine possible task delegates. This is not a new approach as context and social relations are already studied in opportunistic data transmission. Yet, we utilize even unknown social relations by connecting users that have to pass by the same geographical location at the same time frequently enough. To assume that a candidate for task delegation could be met again in the future (so that she/he will be able to deliver contents possibly found), we use as an heuristic the history of previous encounters.
+In this chapter we describe the protocol from a top-down prospective, showing some details about modules which compose M2MShare architecture. 
+%
+%Mobility and low node density require a revision of networking protocols toward a delay tolerant approach. In this section we expose some operational details of M2MShare, the application we designed and implemented to demonstrate the opportunistic DTN approach in mobile to mobile multimedia content sharing.
+%
+%M2Mshare uses the Bluetooth to create a P2P overlay networks, which would allow the automatic exchange of multimedia content among smartphones. Our software automatically initiates a search by broadcasting the user’s query request toward other Bluetooth enabled devices operating the program. Once the answer/s is received, data found to match the criteria will be automatically requested for download. All this process is done without the user mediation; the user only needs to specify the search terms, configurable through the user interface and chose from the matched content list. Key features of M2MShare are its ease of use and autonomy, once the initial preferences are set up no further user interaction is needed and the user can find downloaded files directly on her/his phone, when done.
+%Given that energy consumption is a problem for handheld devices the notion of active sessions was introduced. An active session is a period of time in which the software is functional and performs its duties and such periods are configurable through the graphical user interface. This way, the user can set the application to look for requested contents only in certain periods of the day; for instance, when commuting or during lunch time in the cafeteria, so as to be active only when it could be useful since the high number of other peers around.
+%
+%M2MSHare uses node mobility to reach data content on other local disconnected networks. This is achieved by introducing an asynchronous communication model, store-delegate-and-forward where a peer delegates and unaccomplished/unsatisfied task to other peers in the overlay network. M2MSHare dynamically establishes forward routes (delegations) along the destination path by exploiting social relations existing between users operating mobile wireless devices, whose activity is entirely user-transparent Delegating tasks to all encountered peers is energy and bandwidth consuming. Also, it would be useless to assign tasks to peers that will never be met again in the future. To avoid this M2MShare exploits social relations and delegates tasks only to frequently encountered peers, peers whom are expected to be encountered again in the future.
+%
+%We could say that we exploit social relations among users to determine possible task delegates. This is not a new approach as context and social relations are already studied in opportunistic data transmission. Yet, we utilize even unknown social relations by connecting users that have to pass by the same geographical location at the same time frequently enough. To assume that a candidate for task delegation could be met again in the future (so that she/he will be able to deliver contents possibly found), we use as an heuristic the history of previous encounters.
 
 \section{DTN module}
 DTNs are particularly useful in situations with intermittent connectivity and there are long and unpredictable intervals in contacts between nodes. Routing protocols developed for and used in the Internet are not suitable for adoption in mobile networks, where every node has a limited connection range and high mobility. These factors make difficult, and sometime impossible, to establish an end-to-end connection between source and destination nodes in a communication.
@@ -100,43 +104,15 @@ One of the highlights of M2MShare is task delegation. This is done by remotely c
 %Provides the task queuing mechanism and task lifecycle management. We discuss about the necessity of resource management given the fact that mobile devices are resource constraint and extend our solution to this. An important part of this section is the communication protocol that individual tasks implement along with a detailed analysis of the data packets exchanged during communication. Finally, we introduce the file division strategy and provide some test results that demonstrate its efficiency over other division strategies
 
 
-\section{Modulo di Routing}
-Provides message forwarding capabilities in our overlay network and implements a controlled flooding technique alike AODV. Here we discuss about overlay organization - how overlay connections are established and maintained along with some insights on some implementation details
-
-\cite{orion}
-\cite{aodv}
-M2MShare establishes overlay connections on demand and maintains them as long as
-they are necessary; task accomplished or when disconnect occurs because devices aren‘t
-in reach area anymore. Peers in the overlay are uniquely identified by their MAC
-address hence peer address space is flat and analogous to that of MAC layer, whereas
-files are identified by a 16byte MD5 digest computed on its first 100k data bytes
-calculated during the indexing process.
-The routing layer provides mechanisms for query routing along with a mechanism for
-controlled flooding of query requests. As in ORION (Section 3.3) a structure like file
-routing table (FRT) is used to store alternative next hops for a particular file. Another
-particularity borrowed by ORION is the shadowing of non direct file possessors from
-the origin (query issuer) point of view. From the origin stand point all files are stored by
-devices in-reach area which during data transfer will act as relay nodes without the
-origin knowing about it.
-
-The controlled flooding mechanism is relatively simple and is described by the pseudo
-code shown in (Section 2.2). Its modus operandi is shown below by means of an activity
-diagram (Figure 4.17). Controlled message flooding is achieved by implementing the
-following pseudo code elements:
-1. Uniquely identifying messages: This technique is borrowed from the AODV routing
-algorithm, where a message is uniquely identified by (i) originator of the message
-and a (ii) message id which is shipped along with the message itself. All devices
-maintain an id which is incremented on each issued broadcast. In our system this id
-is represented by a long data type.
+\section{Routing module}
+M2MShare uses this module for query routing, using a relay method borrowed from ORION \cite{orion}. In every node, a structure similar to ORION File Routing Table is used to store alternative paths to file shared in remote peers. The usage of this structure allows to keep file locations transparent to the requester node. From its point of view, all files are shared by in-reach area nodes, while these act as relay nodes during file transfers.\\
+A flood control mechanism is implemented using a technique borrowed from AODV \cite{aodv}. Query requests are uniquely identified and every node maintains an \textit{id} which is incremented on each issued broadcast. When it receive a new requests it checks if the request has been already forwarded, before broadcasting it.
 
 
 
 \section{Modulo MAC}
-Provides service discovery and message broadcast facility for peers in our network. In this section our focus is concentrated in a fundamental service called PresenceCollector which periodically gathers presence information about in-reach area devices. We discuss the importance of the periodic inquiry and introduce a theorem that can be used to compute the average transferred data quantity between two devices. Finally, we conclude our discussion by introducing the BroadcastService giving some implementation considerations
-
-\subsection{Presence Collector} 
 \label{descrPresenceCollector}
-The \textit{PresenceCollector} is the daemon which periodically scans the network for in-reach area devices. Encounters data resulting from these scans is used to evaluate if a peer is a frequent encountered peer and eventually elect it as a servant.
+We saw that a node must be met several times before to be elected as servant. To evaluate if a peer is a frequent encountered peer and eventually elect it as a servant, M2MShare uses a daemon called \textit{PresenceCollector}, which periodically scans the network for in-reach area devices. 
 \\
 
 Scan frequency is a very important parameter. It influences energy consumption and probability for another peer to be elected as a servant. The presence collector is always active, so an high scan frequency is not reasonable because it results in a network bandwidth and device energy waste. Also, an high frequency results in a high probability for a node to be elected as a servant: the number of encounters raise and the \textit{frequency threshold} is exceeded faster than with a low scan frequency value.
