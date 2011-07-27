@@ -126,6 +126,7 @@ When it has been moved, for every node are updated connections and simulated rou
 Last action performed during simulated world \textit{update()} is to update router status for every node. This part is strongly dependent on routing protocol simulated and, by overriding router module \textit{update()} method, is the way to implement a new routing protocol in the ONE.
 
 \section{Randomness}
+\label{randomness}
 One basic characteristic of a simulation done with a network simulator like the ONE is repeatability, i.e. running several simulations with the same configuration, results of these simulations will be the same, as will be the same the behaviour of acting nodes in the simulations. This is fundamental to verify correctness of data and results of completed simulations, or to repeat the simulation changing only few parameters over the total configuration, leaving constant the simulated world description.
 \\
 
