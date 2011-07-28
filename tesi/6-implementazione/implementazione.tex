@@ -2,7 +2,7 @@
 % content in this file will be fed into the main document
 
 %: ----------------------- name of chapter  -------------------------
-\chapter{Implementazione}\label{implementazione} % top level followed by section, subsection
+1\chapter{Implementazione}\label{implementazione} % top level followed by section, subsection
 
 
 %: ----------------------- paths to graphics ------------------------
@@ -206,12 +206,12 @@ In figure \ref{graph-example}
 
 
 \section{M2MShare Implementation}
-In this section will be described the implementation of the modules composing M2MShare into THE\_ONE. As said earlier in Section \ref{simulatore}, every routing protocol is an extension of a common superclass named \textit{MessageRouter} and, according to the THE\_ONE philosophy, every new routing module can be inserted extending that class and it can be consequently used in configuration time to set the routing behaviour of nodes.
+In this section will be described the implementation of modules composing M2MShare into the ONE simulator. As said earlier in Section \ref{simulatore}, every routing protocol is an extension of a common superclass named \textit{MessageRouter} and, according to the the ONE philosophy, every new routing module can be inserted extending that class and it can be consequently used in configuration time to set the routing behaviour of nodes.
 \\
 
 M2MShare implementation consists in the main class extending \textit{MessageRouter}, named \textit{M2MShareRouter}, and several other classes contained into the package \textit{routing.m2mShare}.
 
-\subsection{M2MShareRouter}
+\paragraph{M2MShareRouter}
 As earlier said, this is the main class of M2MShare implementation. Its first responsibility is to load the related settings as set in configuration files (see Section \ref{configurazioneONE}) and initializes all the modules needed to the execution of the protocol. These are the entities which will be later described and are responsible of the different aspects of the protocol. Values used to initialize the settings are read from configuration files and are all included in the settings namespace \textit{M2MShareRouter}. Every parameter have a default value, used in case it is not specified in any configuration file. Here are shown the available parameters and, shown in brackets, the relative default value:
 \begin{itemize}
 \item \textbf{M2MShareRouter.frequencyThreshold [2]} indicates the minimum number of encounter times needed for elect as servant a peer and consequently delegate to him a task
@@ -235,24 +235,30 @@ As earlier said, this is the main class of M2MShare implementation. Its first re
 
 The class \textit{M2MShareRouter} also extends the superclass \textit{MessageRouter} and doing so it override the main method of this class: \textit{update()}. As said in Section \ref{esecuzioneONE}, that method is called one time for every simulated time interval, after the update of movement and connections of the node. In \textit{M2MShareRouter} the only action executed in \textit{update()} is to call the method \textit{runUpdate()} in module \textit{Scheduler}, described in section \ref{schedulerImplementazione}.
 
-\subsection{PresenceCollector}
-The module \textit{PresenceCollector} is responsible of gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation. It includes a tuning algorithm of
+\paragraph{PresenceCollector}
+The module \textit{PresenceCollector} is responsible of gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation. Encounters data is gathered scanning for in-reach devices with a fixed frequency. When another node exceeds a value named \textit{Frequency Threshold}, it can be elected as servant and receive unaccomplished tasks as delegations from the current node. Encounters data is saved in a structure called \textit{Servant List} which uses a replacement policy to manage peer slots in the list. If a peer has been encountered for a period great than a value, called \textit{Probation Window}, without being elected as servant, its slot is freed to give other peers the opportunity to be elected as servants. \textit{PresenceCollector} also includes a tuning algorithm which adapts \textit{Frequency Threshold} and \textit{Probation Window} values at the beginning of every simulated day, according to what observed during of the previous day.
 
-\subsection{QueuingCentral}
 
-\subsection{Activity}
-\paragraph{VirtualFile}
-\paragraph{DTNPendingDownload}
-\paragraph{DTNDownloadFwd}
+\paragraph{Activities}
+A single node in M2MShare system can execute several kinds of tasks. In our implementation, each of them is an implementation of interface \textit{DTNActivity} and characterizes one task type respect to another for what concerns their execution. 
+\\
+In a \textit{VirtualFile} task type, the execution is focused on searching in-reach devices for the file the user asks to find and download. A VirtualFile include an IntervalMap used to store what file pieces are still missing. When a VirtualFile task is completed, a new DTNFile is created and saved in node's file system. 
+\\
+A VirtualFile can be delegated to a servant peer. When a servant node received a delegated task, it creates and queues a \textit{DTNPendingDownload} activity. In its execution, the servant node search in-reach devices for requested intervals of the file described in the delegated task. When a DTNPendingDownload task is completed, the servant node creates end schedules for execution a \textit{DTNForward} task.
+\\
+In this task's execution, the servant node looks the client node that delegated it the VirtualFile task. When this node is found, the servant node notify that it is ready to forward the output of DTNPendingDownload task. The client can request all or only a subset of intervals the servant downloaded.
+\\
 
-\subsection{Scheduler}
+Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL value, calculated using client's Probation Window value. When this value is exceeded, the task is deleted from queues and never scheduled again for execution.
+ 
+\paragraph{Scheduler}
 \label{schedulerImplementazione}
 \paragraph{Executor}
 \paragraph{Communicator}
 
-\subsection{BroadcastModule}
+\paragraph{BroadcastModule}
 
-\subsection{IntervalMap}
+\paragraph{IntervalMap}
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
