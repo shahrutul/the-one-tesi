@@ -250,6 +250,22 @@ In this task's execution, the servant node looks the client node that delegated 
 \\
 
 Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL value, calculated using client's Probation Window value. When this value is exceeded, the task is deleted from queues and never scheduled again for execution.
+\\
+
+With our addition to M2Mshare first version, a task can be delegated with more than one hop. To do so we allow M2MShareRouter to delegate also incomplete DTNPendingDownload activities. The result of this delegation, in servant peer, is the creation of a new DTNPendingDownload task. A delegations history list is included in every delegated task. When this second-level task is completed, a new DTNForward task is created in the servant peer. Its execution consists in returning the output of the second-level delegation to one of the nodes in delegation history list. This allow to return the output to the initial requester node faster than returning it following the inverse order of delegation history list.
+\\
+
+To avoid the generation of an exagerated 
+numero di hop configurabile 
+
+\paragraph{File Division Strategies}
+To evaluate the efficiency of M2MShare file division strategy, we implement a 
+una version edella interval map
+possibilità di configurarla 
+alcune simulazioni con una , altre con l'altra
+valutazione delle performavnces come dati scambiati
+
+descrizione del trasferimento dati
  
 \paragraph{Scheduler}
 \label{schedulerImplementazione}
@@ -257,8 +273,6 @@ Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL val
 \paragraph{Communicator}
 
 \paragraph{BroadcastModule}
-
-\paragraph{IntervalMap}
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------
