@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class mainAnalisysNVariabile {
 	private static final String REPORTS_DIR = "reports/diversoNePop";
-	private static final String OUTPUT_FILE_TEMPI_VF = "reports/datiTempiVF_Fp";
+	private static final String OUTPUT_FILE_TEMPI_VF = "reports/datiFinali/datiTempiVF_Fp";
 	private static final String KEY_VIRTUALFILE = "First VirtualFile satisfied:\t";
 	private static final int[] FPs = {5,10,20,30,50,80};
 	private static final int[] Ns = {100,200,400,600,800,1000};
@@ -92,7 +92,8 @@ public class mainAnalisysNVariabile {
 								double tempValue = Double.parseDouble(line.substring(KEY_VIRTUALFILE.length()));
 								//System.err.println(tempValue);
 								if(tempValue == 0){
-									tempValue = 172800;
+									tempValue = 604000;
+									System.err.println(currentFile.getName());
 								}
 								tSum += tempValue;
 							}
@@ -100,10 +101,10 @@ public class mainAnalisysNVariabile {
 						scanner.close();
 					}
 
-					tAvgs[Ni][strat] = tSum / tFilesLetti;
+					tAvgs[Ni][strat] = tSum / tFilesLetti;/*
 					if(tAvgs[Ni][strat] > 172800){
 						tAvgs[Ni][strat] = 172800;
-					}
+					}*/
 				}
 			}
 

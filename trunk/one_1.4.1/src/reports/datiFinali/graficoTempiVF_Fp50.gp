@@ -10,7 +10,7 @@ set style line 2  linetype 2 linewidth 2.000 pointtype 2 pointsize default
 set style line 3  linetype 2 linewidth 3.000 pointtype 3 pointsize default
 
 set bmargin  7
-set yrange [0:48]
+set yrange [0:168]
 
 #set style histogram clustered gap 2 title  offset character 0, 0, 0
 set datafile missing '-'
