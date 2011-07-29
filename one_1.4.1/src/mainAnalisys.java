@@ -178,17 +178,17 @@ public class mainAnalisys {
 			out.println("Strat\tNo_delegation\tM2MShare\tDelegation_To_all");
 			out.print(labels[0]);
 			for(int i=0; i<3; i++){				
-				out.print("\t" + tAvgs[i]);
+				out.print("\t" + (tAvgs[i]/3600));
 			}
 			out.println();
 			out.print(labels[1]);
 			for(int i=0; i<3; i++){				
-				out.print("\t" + tMins[i]);
+				out.print("\t" + (tMins[i]/3600));
 			}
 			out.println();
 			out.print(labels[2]);
 			for(int i=0; i<3; i++){				
-				out.print("\t" + tMaxs[i]);
+				out.print("\t" + (tMaxs[i]/3600));
 			}
 			out.println();
 			out.close();

@@ -15,6 +15,7 @@ set style data histograms
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set ylabel "Time (s)"
 #set xlabel "Session number"
+set yrange [0:168]
 
 set key horiz
 set key center outside top
