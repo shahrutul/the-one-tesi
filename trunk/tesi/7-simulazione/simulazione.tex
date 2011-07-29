@@ -204,9 +204,9 @@ In previous analysis we show the advantage, in terms of found time of the search
 %These are the settings used for the simulations:
 
 We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copies). When the Fp is low (with $Fp \geq 5\%$) the system which does not use delegation is not able to find any piece of the file during the simulation time. We have indicated this in the chart by assigning to Ftavg a value of 48 h. With higher values of Fp, the first protocol is able to find the file thanks to the higher popularity of the requested file, but it takes more time than M2MShare and Delegation\_to\_all. Finally, with the highest values of Fp the performances of the three compared systems became very similar. 
-\begin{figure}[ht]
+\begin{figure}[htbp]
   \begin{center}
-    \includegraphics[scale=0.5]{grafici/tempiVFDiversaPop.eps}
+    \includegraphics{grafici/tempiVFDiversaPop.eps}
     \caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
     \label{graficoPopVariabile}
   \end{center}
@@ -242,30 +242,58 @@ In previous analysis we considered as constant the number of nodes emulating peo
 
 In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with $N \geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in \figurename~\ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in \figurename~\ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
 
-\begin{figure}[ht]
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/tempiVF_Fp5.eps}
-\caption{Average found time with $Fp = 5\%$}
-\label{graficiTempiVF_Fp5}
-\end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/tempiVF_Fp10.eps}
-\caption{Average found time with $Fp = 10\%$}
-\label{graficiTempiVF_Fp10}
-\end{minipage}
-\hspace{0.5cm}
-\begin{center}
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/tempiVF_Fp50.eps}
-\caption{Average found time with $Fp = 50\%$}
-\label{graficiTempiVF_Fp50}
-\end{minipage}
-\end{center}
+%\begin{figure}[ht]
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/tempiVF_Fp5.eps}
+%\caption{Average found time with $Fp = 5\%$}
+%\label{graficiTempiVF_Fp5}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/tempiVF_Fp10.eps}
+%\caption{Average found time with $Fp = 10\%$}
+%\label{graficiTempiVF_Fp10}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{center}
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/tempiVF_Fp50.eps}
+%\caption{Average found time with $Fp = 50\%$}
+%\label{graficiTempiVF_Fp50}
+%\end{minipage}
+%\end{center}
+%\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp5.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp5_zoom.eps}}
+\caption{Average found time with $Fp = 5\%$\label{graficiTempiVF_Fp5}}
 \end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp10.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp10_zoom.eps}}
+\caption{Average found time with $Fp = 10\%$\label{graficiTempiVF_Fp10}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp50.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/tempiVF_Fp50_zoom.eps}}
+\caption{Average found time with $Fp = 50\%$\label{graficiTempiVF_Fp50}}
+\end{figure}
+
 
 \newpage
 \section{Multi-hop delegation}
