@@ -15,7 +15,7 @@ set style data histograms
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set ytics 0.1
 
-set ylabel "Percent of file founds"
+set ylabel "%"
 #set xlabel "Session number"
 
 set key horiz

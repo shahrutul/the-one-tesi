@@ -116,8 +116,14 @@ It is the entity responsible for reading the \textit{FileRequests} at the beginn
 
 
 \subsection{GUI}
-The GUI of THE\_ONE has been modified to reflect the addition of file simulation support to the simulator. The detail window related to a node, show using the button \"Routing info\" now contains informations about the file system of the node, including all the complete files owned and the percent of VirtualFiles already downloaded. 
-\figuremacro{Routing-Info}{Routing Info}{An example of window with a detailed view of a node state}{}
+The GUI of THE\_ONE has been modified to reflect the addition of file simulation support to the simulator. The detail window related to a node (\figurename~\ref{implRouting-Info}), show using the button \"Routing info\" now contains informations about the file system of the node, including all the complete files owned and the percent of VirtualFiles already downloaded. 
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics[scale=0.6]{5-simulatore/img/Routing-Info.png}
+    \caption[Routing Info]{An example of window with a detailed view of a node state}    
+    \label{implRouting-Info}
+  \end{center}
+\end{figure}
 
 \subsection{Reports}
 A fundamental feature related to simulations is the capability of gathering data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in THE\_ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
