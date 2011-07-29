@@ -255,24 +255,28 @@ Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL val
 With our addition to M2Mshare first version, a task can be delegated with more than one hop. To do so we allow M2MShareRouter to delegate also incomplete DTNPendingDownload activities. The result of this delegation, in servant peer, is the creation of a new DTNPendingDownload task. A delegations history list is included in every delegated task. When this second-level task is completed, a new DTNForward task is created in the servant peer. Its execution consists in returning the output of the second-level delegation to one of the nodes in delegation history list. This allow to return the output to the initial requester node faster than returning it following the inverse order of delegation history list.
 \\
 
-To avoid the generation of an exagerated 
-numero di hop configurabile 
+To avoid generating an high number of delegations, we set a trial period before a servant node delegate again a pending task. It waits one day and during this period it tries to complete the task by itself. If the task is still incomplete after one day, the node proceeds to delegate it for another hop. The maximum number of hops for each delegation is configurable for every simulation. To avoid delegation cycles, we implement an anti-cycle system similar to the one used in AODV \cite{aodv} which prevent to delegate a task to a node that is already acting as servant for it. 
 
 \paragraph{File Division Strategies}
-To evaluate the efficiency of M2MShare file division strategy, we implement a 
-una version edella interval map
-possibilità di configurarla 
-alcune simulazioni con una , altre con l'altra
-valutazione delle performavnces come dati scambiati
+To evaluate the efficiency of M2MShare file division strategy, we implement a \textit{IntervalMap} according to the one described in Section \ref{descrFileDivisionStrategy}. This structure includes not yet downloaded intervals for a file and is used by our system's Activities to implement the adopted file division strategy. Its behaviour can be set through configuration files for every simulation. This allow to emulate different file division strategies and compare their efficiency in several simulations:
+\begin{itemize}
+\item \textbf{M2MShare:} the strategy with dynamic starting point, described in Section \ref{descrFileDivisionStrategy}
+\item \textbf{iM:} where each file transfer starts from the beginning of the file
+\item \textbf{rM:} where each file transfer starts from a random point inside the file
+\end{itemize}
 
-descrizione del trasferimento dati
+
+\paragraph{Data Transfer}
+To emulate data transfers between nodes in the simulated network, we implement a entity named \textit{Communicator}. This entity is used by Activities to emulate the downloading of pieces of files from a file possessor, or the forwarding of a pending task's result to a client node. There is no 1-1 relation between Communicators and Activities. A task can use more than one Communicator when try to simultaneously download pieces of the same file from different sources in-reach area. Communicator behaviour is related to the adopted file division strategy, as it influences the starting point of file transfers. Using Communicators allow us to emulate data transfers only when a connection between two nodes is available and to notify informations about transfers to related report modules.
+
  
-\paragraph{Scheduler}
-\label{schedulerImplementazione}
-\paragraph{Executor}
-\paragraph{Communicator}
-
-\paragraph{BroadcastModule}
+ 
+%\paragraph{Scheduler}
+%\label{schedulerImplementazione}
+%\paragraph{Executor}
+%\paragraph{Communicator}
+%
+%\paragraph{BroadcastModule}
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------

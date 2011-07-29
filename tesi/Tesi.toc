@@ -48,18 +48,15 @@
 \contentsline {paragraph}{M2MShareRouter}{42}{section*.18}
 \contentsline {paragraph}{PresenceCollector}{43}{section*.19}
 \contentsline {paragraph}{Activities}{43}{section*.20}
-\contentsline {paragraph}{Scheduler}{44}{section*.21}
-\contentsline {paragraph}{Executor}{44}{section*.22}
-\contentsline {paragraph}{Communicator}{44}{section*.23}
-\contentsline {paragraph}{BroadcastModule}{44}{section*.24}
-\contentsline {paragraph}{IntervalMap}{44}{section*.25}
-\contentsline {chapter}{\numberline {7}Simulations and results}{45}{chapter.7}
-\contentsline {section}{\numberline {7.1}Simulations Scenario}{46}{section.7.1}
-\contentsline {section}{\numberline {7.2}Delegation efficiency}{48}{section.7.2}
-\contentsline {section}{\numberline {7.3}Delegation efficiency with variable file popularity}{51}{section.7.3}
-\contentsline {section}{\numberline {7.4}Delegation efficiency with variable nodes population}{53}{section.7.4}
-\contentsline {section}{\numberline {7.5}Multi-hop delegation}{54}{section.7.5}
-\contentsline {section}{\numberline {7.6}Data redundancy}{58}{section.7.6}
-\contentsline {section}{\numberline {7.7}File Division Strategy efficency}{59}{section.7.7}
-\contentsline {chapter}{\numberline {8}Conclusioni}{63}{chapter.8}
-\contentsline {chapter}{Bibliografia}{65}{chapter.8}
+\contentsline {paragraph}{File Division Strategies}{44}{section*.21}
+\contentsline {paragraph}{Data Transfer}{45}{section*.22}
+\contentsline {chapter}{\numberline {7}Simulations and results}{47}{chapter.7}
+\contentsline {section}{\numberline {7.1}Simulations Scenario}{48}{section.7.1}
+\contentsline {section}{\numberline {7.2}Delegation efficiency}{50}{section.7.2}
+\contentsline {section}{\numberline {7.3}Delegation efficiency with variable file popularity}{53}{section.7.3}
+\contentsline {section}{\numberline {7.4}Delegation efficiency with variable nodes population}{55}{section.7.4}
+\contentsline {section}{\numberline {7.5}Multi-hop delegation}{56}{section.7.5}
+\contentsline {section}{\numberline {7.6}Data redundancy}{60}{section.7.6}
+\contentsline {section}{\numberline {7.7}File Division Strategy efficency}{61}{section.7.7}
+\contentsline {chapter}{\numberline {8}Conclusioni}{65}{chapter.8}
+\contentsline {chapter}{Bibliografia}{67}{chapter.8}
