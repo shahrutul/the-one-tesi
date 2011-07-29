@@ -7,13 +7,13 @@ set output 'percCompletaMultiHop.eps'
 set style fill pattern 4 border
 #set style histogram clustered gap 2 title  offset character 0, 0, 0
 set style histogram gap 2
-set yrange [0:1]
+set yrange [0:100]
 
 #set boxwidth 5 relative
 set datafile missing '-'
 set style data histograms
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
-set ytics 0.1
+set ytics 10
 
 set ylabel "%"
 #set xlabel "Session number"

@@ -7,8 +7,8 @@ Scenario.updateInterval = 0.5
 # 43k ~= 12h
 # 86k ~= 24h
 # 172k ~= 48h
-# 602k ~= 1 week
-Scenario.endTime = 602k
+# 604k ~= 1 week
+Scenario.endTime = 604k
 
 ###################################
 ### common settings for all groups
