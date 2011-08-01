@@ -462,54 +462,58 @@ In earlier studies some test were done to evaluate the efficiency of M2MShare fi
 communication. That has only been possible with the current implementation of the protocol, in a network simulation environment which can simulate movement of nodes emulating people using M2MShare.
 As we can see from the graphics below our division strategy has the least redundancy during data transfer, especially considering big-sized files.
 
-\begin{figure}[ht]
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/dataDFS_3MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.}
-\label{graficoDataFDS_3MB}
-\end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/dataDFS_10MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.}
-\label{graficoDataFDS_10MB}
-\end{minipage}
-\hspace{0.5cm}
-\begin{center}
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\includegraphics[scale=0.5]{grafici/dataDFS_25MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 25.0 MB file size.}
-\label{graficoDataFDS_25MB}
-\end{minipage}
-\end{center}
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics[scale=0.9]{grafici/dataDFS_3MB.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/dataDFS_3MB_zoom.eps}}
+\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.\label{graficoDataFDS_3MB}}
 \end{figure}
 
-%\begin{figure}[htpb]
-%  \begin{center}
-%    \includegraphics[scale=0.75]{grafici/dataDFS_3MB.eps}
-%    \caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.}
-%    \label{graficoDataFDS_3MB}
-%  \end{center}
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics[scale=0.8]{grafici/dataDFS_10MB.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/dataDFS_10MB_zoom.eps}}
+\caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.\label{graficoDataFDS_10MB}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure%
+{\includegraphics[scale=0.7]{grafici/dataDFS_25MB.eps}}\qquad\qquad
+\subfigure%
+{\includegraphics{grafici/dataDFS_25MB_zoom.eps}}
+\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.\label{graficoDataFDS_25MB}}
+\end{figure}
+
+%\begin{figure}[ht]
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/dataDFS_3MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.}
+%\label{graficoDataFDS_3MB}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/dataDFS_10MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.}
+%\label{graficoDataFDS_10MB}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{center}
+%\begin{minipage}[b]{0.5\linewidth}
+%\centering
+%\includegraphics[scale=0.5]{grafici/dataDFS_25MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 25.0 MB file size.}
+%\label{graficoDataFDS_25MB}
+%\end{minipage}
+%\end{center}
 %\end{figure}
-%
-%\begin{figure}[htpb]
-%  \begin{center}
-%    \includegraphics[scale=0.75]{grafici/dataDFS_10MB.eps}
-%    \caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.}
-%    \label{graficoDataFDS_10MB}
-%  \end{center}
-%\end{figure}
-%
-%\begin{figure}[htpb]
-%  \begin{center}
-%    \includegraphics[scale=0.75]{grafici/dataDFS_25MB.eps}
-%    \caption{Average, min, max transferred data amount using different file division strategies and 25.0 MB file size.}
-%    \label{graficoDataFDS_25MB}
-%  \end{center}
-%\end{figure}
+
 
 %\label{analisiLabel}
  
