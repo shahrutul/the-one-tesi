@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  1 AUG 2011 11:08
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  1 AUG 2011 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1407,22 +1407,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--242
  []
 
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp5.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18628 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18519 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp5-eps-converted-to.pdf>
 (epstopdf)                    date: 2011-07-09 17:32:13
 (epstopdf)                    size: 7292 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp5-eps-co
 nverted-to.pdf grafici/tempiVF_Fp5.eps>
 (epstopdf)             \includegraphics on input line 273.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp5-eps-converted-to.pdf grafici/
+tempiVF_Fp5.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp5-eps-converted-to.pdf>
+(epstopdf)                    date: 2011-08-01 11:18:56
+(epstopdf)                    size: 7073 bytes.
 <grafici/tempiVF_Fp5-eps-converted-to.pdf, id=634, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp5-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp5_zoom.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18628 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18184 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp5_zoom-eps-converted-to.
 pdf>
 (epstopdf)                    date: 2011-07-29 16:54:11
@@ -1430,7 +1435,13 @@ pdf>
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp5_zoom-e
 ps-converted-to.pdf grafici/tempiVF_Fp5_zoom.eps>
 (epstopdf)             \includegraphics on input line 275.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf gra
+fici/tempiVF_Fp5_zoom.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp5_zoom-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2011-08-01 11:18:56
+(epstopdf)                    size: 6992 bytes.
 
 <grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf, id=635, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf Graphic file (type pdf)
@@ -1446,8 +1457,8 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 273--276
  []
 
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp10.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18631 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18519 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp10-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2011-07-09 17:32:13
@@ -1455,14 +1466,20 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp10.eps>
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp10-eps-c
 onverted-to.pdf grafici/tempiVF_Fp10.eps>
 (epstopdf)             \includegraphics on input line 282.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp10-eps-converted-to.pdf grafici
+/tempiVF_Fp10.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp10-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2011-08-01 11:18:56
+(epstopdf)                    size: 7067 bytes.
 <grafici/tempiVF_Fp10-eps-converted-to.pdf, id=636, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp10-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp10-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp10_zoom.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18631 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18526 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp10_zoom-eps-converted-to
 .pdf>
 (epstopdf)                    date: 2011-07-29 16:59:09
@@ -1470,7 +1487,13 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp10_zoom.eps>
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp10_zoom-
 eps-converted-to.pdf grafici/tempiVF_Fp10_zoom.eps>
 (epstopdf)             \includegraphics on input line 284.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf gr
+afici/tempiVF_Fp10_zoom.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp10_zoom-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2011-08-01 11:18:57
+(epstopdf)                    size: 7357 bytes.
 
 <grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf, id=637, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf Graphic file (type pdf)
@@ -1486,8 +1509,8 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 282--285
  []
 
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp50.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18622 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18512 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp50-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2011-07-09 17:32:14
@@ -1495,14 +1518,20 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp50.eps>
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp50-eps-c
 onverted-to.pdf grafici/tempiVF_Fp50.eps>
 (epstopdf)             \includegraphics on input line 291.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp50-eps-converted-to.pdf grafici
+/tempiVF_Fp50.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp50-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2011-08-01 11:18:57
+(epstopdf)                    size: 7047 bytes.
 <grafici/tempiVF_Fp50-eps-converted-to.pdf, id=638, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp50-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp50-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <grafici/tempiVF_Fp50_zoom.eps>
-(epstopdf)                    date: 2011-07-08 14:37:15
-(epstopdf)                    size: 18622 bytes
+(epstopdf)                    date: 2011-08-01 11:18:15
+(epstopdf)                    size: 18072 bytes
 (epstopdf)             Output file: <grafici/tempiVF_Fp50_zoom-eps-converted-to
 .pdf>
 (epstopdf)                    date: 2011-07-29 16:59:09
@@ -1510,7 +1539,13 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp50_zoom.eps>
 (epstopdf)             Command: <repstopdf --outfile=grafici/tempiVF_Fp50_zoom-
 eps-converted-to.pdf grafici/tempiVF_Fp50_zoom.eps>
 (epstopdf)             \includegraphics on input line 293.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf gr
+afici/tempiVF_Fp50_zoom.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/tempiVF_Fp50_zoom-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2011-08-01 11:18:58
+(epstopdf)                    size: 7054 bytes.
 
 <grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf, id=639, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf Graphic file (type pdf)
@@ -1648,6 +1683,11 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 468--471
  [][] 
  []
 
+
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 468--471
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <grafici/dataDFS_10MB.eps>
 (epstopdf)                    date: 2011-08-01 10:58:54
 (epstopdf)                    size: 18504 bytes
@@ -1683,6 +1723,11 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 477--480
  [][] 
  []
 
+
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 477--480
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <grafici/dataDFS_25MB.eps>
 (epstopdf)                    date: 2011-08-01 10:58:54
 (epstopdf)                    size: 18522 bytes
@@ -1714,6 +1759,11 @@ Package epstopdf Info: Output file is already uptodate.
 File: grafici/dataDFS_25MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_25MB_zoom-eps-converted-to.pdf>
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 486--489
+ [][] 
+ []
+
+
 Overfull \hbox (1.34912pt too wide) in paragraph at lines 486--489
  [][] 
  []
@@ -1787,7 +1837,7 @@ mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
 super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (76 pages, 1307852 bytes).
+Output written on Tesi.pdf (76 pages, 1306542 bytes).
 PDF statistics:
  972 PDF objects out of 1000 (max. 8388607)
  807 compressed objects within 9 object streams
