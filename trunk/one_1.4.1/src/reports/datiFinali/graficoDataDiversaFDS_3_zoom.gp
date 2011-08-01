@@ -1,7 +1,7 @@
 set term post eps noenhanced monochrome dashed
 #set term post eps noenhanced color dashed
 
-set output 'dataDFS_3MB.eps'
+set output 'dataDFS_3MB_zoom.eps'
 set boxwidth 0.9 absolute
 #set style fill   solid 1.00 border -1
 #set style fill pattern 4 border
@@ -14,7 +14,7 @@ set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0
 set ylabel "Total Data (MB)"
 #set xlabel "Session number"
 
-set yrange [0:7100]
+set yrange [0:500]
 
 set key horiz
 set key center outside top

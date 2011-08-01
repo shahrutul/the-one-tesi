@@ -1,7 +1,7 @@
 set term post eps noenhanced monochrome dashed
 #set term post eps noenhanced color dashed
 
-set output 'dataDFS_3MB.eps'
+set output 'dataDFS_25MB_zoom.eps'
 set boxwidth 0.9 absolute
 #set style fill   solid 1.00 border -1
 #set style fill pattern 4 border
@@ -14,13 +14,13 @@ set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0
 set ylabel "Total Data (MB)"
 #set xlabel "Session number"
 
-set yrange [0:7100]
+set yrange [0:2500]
 
 set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiDataDiversaFDS_3MB.dat' using 3:xtic(1) ti col fs pattern 2, '' u 2 ti col fs pattern 3, '' u 4 ti col fs pattern 5
+plot 'datiDataDiversaFDS_25MB.dat' using 3:xtic(1) ti col fs pattern 2, '' u 2 ti col fs pattern 3, '' u 4 ti col fs pattern 5
 #plot 'reports/datiTempiVF.dat' using 3:xtic(1) lc rgb red, '' u 2 lc rgb green, '' u 4 lc rgb blue
 
 #pause -1 "Hit any key to continue"
