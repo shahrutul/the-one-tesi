@@ -36,6 +36,8 @@ Before proceeding further, we introduce the reader to the adopted terminology an
 
 \item \textit{Delegation Depth}: how many times a delegated task can be re-delegate to other peers.
 
+\item \textit{Multi-hop delegation probability (MhDP)}: the probability that a servant peer would delegate again a pending incomplete task. This is specified only for simulations with multi-hop delegation.
+
 \item \textit{File Division Strategy}: refers to the type of file division strategy used during file transfer between nodes. It can be of three types:
 \begin{itemize}
 \item \textbf{M2MShare:} use the M2MShare technique to choose the initial download point in the requested file
@@ -207,7 +209,7 @@ Although this strategy introduces an overhead in terms of bandwidth usage, compu
 \end{center}
 \caption{Simulations settings for evaluation of delegation efficiency with variable file popularity\label{tab:settingsDiversaFilePop}}
 \end{table}
-In previous analysis we show the advantage, in terms of found time of the searched file, using M2MShare delegation strategy against avoid using delegation or delegate unaccomplished tasks to every meet node. The confrontation was made using a constant number of copies of the searched multimedia file uniformly distributed between all nodes in the simulation, i.e. 50 copies. The current analysis want to show the difference in performance using the three delegation strategies changing the initial file popularity of the searched file. To this aim, in these simulations we change the File popularity (Fp) of the multimedia file keeping constant the number of total nodes (N). Used values are shown in \tablename~\ref{tab:settingsDiversaFilePop}}.
+In previous analysis we show the advantage, in terms of found time of the searched file, using M2MShare delegation strategy against avoid using delegation or delegate unaccomplished tasks to every meet node. The confrontation was made using a constant number of copies of the searched multimedia file uniformly distributed between all nodes in the simulation, i.e. 50 copies. The current analysis want to show the difference in performance using the three delegation strategies changing the initial file popularity of the searched file. To this aim, in these simulations we change the File popularity (Fp) of the multimedia file keeping constant the number of total nodes (N). Used values are shown in \tablename~\ref{tab:settingsDiversaFilePop}.
 
 We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copies). When the Fp is low (with $Fp \geq 5\%$) the system which does not use delegation is not able to find any piece of the file during the simulation time. We have indicated this in the chart by assigning to Ftavg a value of 48 h. With higher values of Fp, the first protocol is able to find the file thanks to the higher popularity of the requested file, but it takes more time than M2MShare and Delegation\_to\_all. Finally, with the highest values of Fp the performances of the three compared systems became very similar. 
 
@@ -251,7 +253,7 @@ We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copi
 \caption{Simulations settings for evaluation of delegation efficiency with variable nodes population and file popularity\label{tab:settingsDiversoNePop}}
 \end{table}
 
-In previous analysis we considered as constant the number of nodes emulating people using M2MShare on their devices. As we can see in \tablename~\ref{tab:settingsDiversoNePop}}, in the current analysis we changed the total nodes population of the simulations and the searched file popularity, observing how this affects the performance of compared systems.\\
+In previous analysis we considered as constant the number of nodes emulating people using M2MShare on their devices. As we can see in \tablename~\ref{tab:settingsDiversoNePop}, in the current analysis we changed the total nodes population of the simulations and the searched file popularity, observing how this affects the performance of compared systems.\\
 
 In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with $N \geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in \figurename~\ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in \figurename~\ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
 
@@ -311,6 +313,7 @@ In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\
 
 \newpage
 \subsection{Data redundancy}
+\label{analisiRidondanza}
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|r|}
@@ -377,13 +380,15 @@ The trend of this graph is related to the number of simultaneously active delega
 \hline
 \bfseries File distribution & Distributed in a single district \\
 \hline
-\bfseries Delegation type & No\_Delegation, M2MShare\\
+\bfseries Delegation type & M2MShare\\
 \hline
-\bfseries Delegation depth & 1, 3 \\
+\bfseries Delegation depth & 1, 2, 3 \\
+\hline
+\bfseries Multi-hop delegation probability (MhDP) & 10\%, 25\%, 50\%, 75\%, 100\% \\
 \hline
 \bfseries File Division Strategy & M2MShare \\
 \hline
-\bfseries Nr. of simulations & 40 x 3\\
+\bfseries Nr. of simulations & 40 x 3 x 5\\
 \hline
 \bfseries Simulated time & One week \\
 \hline
@@ -441,6 +446,58 @@ It is straightforward that delegating again a unaccomplished task extends the to
   \end{center}
 \end{figure}
 
+\subsection{Data redundancy}
+In analysis in Section \ref{analisiRidondanza} we show the redundancy added in the network by using delegation and we show how our system outperforms the other trivial system which uses delegation to all encountered peers. In current section we show the impact of using multi-hop delegation against respect to added redundancy in the network. For these simulations we use the settings shown in \tablename~\ref{tab:settingsMultiHop}. We compared three versions of M2MShare with different maximum number of delegation hops. We also changed the probability that a servant peer would delegate again a received pending task.
+\\
+
+\begin{figure}[htbp]
+\centering%
+\subfigure[Data redundancy in the network]%
+{\includegraphics{grafici/ridondanza_multiHop_10perc.eps}}\qquad\qquad
+\subfigure[Number of simultaneously active delegated tasks]%
+{\includegraphics{grafici/delegheAttive_multiHop_10perc.eps}}
+\caption{Average data redundancy and number of active delegated tasks with MhDP $= 10\%$\label{fig:ridondanzaMultiHop_10}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure[Data redundancy in the network]%
+{\includegraphics{grafici/ridondanza_multiHop_25perc.eps}}\qquad\qquad
+\subfigure[Number of simultaneously active delegated tasks]%
+{\includegraphics{grafici/delegheAttive_multiHop_25perc.eps}}
+\caption{Average data redundancy and number of active delegated tasks with MhDP $= 25\%$\label{fig:ridondanzaMultiHop_25}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure[Data redundancy in the network]%
+{\includegraphics{grafici/ridondanza_multiHop_50perc.eps}}\qquad\qquad
+\subfigure[Number of simultaneously active delegated tasks]%
+{\includegraphics{grafici/delegheAttive_multiHop_50perc.eps}}
+\caption{Average data redundancy and number of active delegated tasks with MhDP $= 50\%$\label{fig:ridondanzaMultiHop_50}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure[Data redundancy in the network]%
+{\includegraphics{grafici/ridondanza_multiHop_75perc.eps}}\qquad\qquad
+\subfigure[Number of simultaneously active delegated tasks]%
+{\includegraphics{grafici/delegheAttive_multiHop_75perc.eps}}
+\caption{Average data redundancy and number of active delegated tasks with MhDP $= 75\%$\label{fig:ridondanzaMultiHop_75}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering%
+\subfigure[Data redundancy in the network]%
+{\includegraphics{grafici/ridondanza_multiHop_100perc.eps}}\qquad\qquad
+\subfigure[Number of simultaneously active delegated tasks]%
+{\includegraphics{grafici/delegheAttive_multiHop_100perc.eps}}
+\caption{Average data redundancy and number of active delegated tasks with MhDP $= 100\%$\label{fig:ridondanzaMultiHop_100}}
+\end{figure}
+%
+%Of course redundancy in a network composed only by nodes which do not use delegation is always zero. For this reason, for this study we compared only the two systems which use task delegations and settings used for these simulations are shown in \tablename~\ref{tab:settingsRedundancy}. In \figurename~\ref{graficoRidondanzaData} we show how change the average data redundancy during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes. 
+%\\
+%The trend of this graph is related to the number of simultaneously active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in its own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
 
 \pagebreak 
 \section{File Division Strategy efficiency}

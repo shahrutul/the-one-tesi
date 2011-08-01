@@ -28,3 +28,16 @@ gnuplot graficoPercCompletiMultiHop.gp
 
 gnuplot graficoTempiVFMultiHopPerc.gp
 gnuplot graficoDelegheMultiHopPerc.gp
+
+gnuplot graficoRidondanza_multiHop_10perc.gp
+gnuplot graficoRidondanza_multiHop_25perc.gp
+gnuplot graficoRidondanza_multiHop_50perc.gp
+gnuplot graficoRidondanza_multiHop_75perc.gp
+gnuplot graficoRidondanza_multiHop_100perc.gp
+
+gnuplot graficoDelegheAttive_multiHop_10perc.gp
+gnuplot graficoDelegheAttive_multiHop_25perc.gp
+gnuplot graficoDelegheAttive_multiHop_50perc.gp
+gnuplot graficoDelegheAttive_multiHop_75perc.gp
+gnuplot graficoDelegheAttive_multiHop_100perc.gp
+
