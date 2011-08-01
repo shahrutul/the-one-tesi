@@ -17,7 +17,7 @@ public class mainPopLaunch {
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
 	private static final String JOBFILE = "../sim";
-	private static final int NUM_RUN = 30;
+	private static final int NUM_RUN = 1;
 
 	/**
 	 * @param args
@@ -53,9 +53,6 @@ public class mainPopLaunch {
 				FilenameFilter filter = new FilenameFilter() {
 					@Override
 					public boolean accept(File dir, String name) {
-						if(dir.equals(folderRunning)){
-							return name.contains(matchString);
-						}
 						return name.contains(matchString);
 					}
 				};
