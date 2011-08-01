@@ -12,6 +12,8 @@ public class mainAnalisysRidondanzaMultiHop {
 	private static final String REPORTS_DIR = "reports/multiHopPerc";
 	private static final String OUTPUT_FILE = "reports/datiFinali/datiRidondanzaMultiHop.dat";
 	private static final String DATA_LOG_SUFFIX = "DataRedundancyLog.txt";
+	private static final String DATA_LOG_SUFFIX2 = "FileGatheringLog.txt";
+	private static final String VF_CREATED_LOG = "1.0000 VirtualFile created in ";
 	
 	//private static final String REQUESTER_NODE = "A32";
 	private static final int HOURS_ANALIZED = 168;
@@ -88,6 +90,8 @@ public class mainAnalisysRidondanzaMultiHop {
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
 					}
+					
+					String requesterNode = getRequesterNode(currentFile);
 
 					while (scanner.hasNextLine()) {
 						String line = scanner.nextLine();
@@ -104,9 +108,9 @@ public class mainAnalisysRidondanzaMultiHop {
 						double data = Double.parseDouble(line) / 1000000;
 
 						// System.err.println(""+time+"-"+source+"-"+dest+"-"+data);
-						/*if (source.equals(REQUESTER_NODE)) {
+						if (source.equals(requesterNode)) {
 							continue;
-						}*/
+						}
 
 						int ora = (int) (time / 3600);
 						if (ora > HOURS_ANALIZED) {
@@ -173,6 +177,38 @@ public class mainAnalisysRidondanzaMultiHop {
 			e.printStackTrace();
 		}
 		 
+	}
+
+	private static String getRequesterNode(File currentFile) {
+		String newFile = currentFile.getAbsolutePath().substring(
+				0, 
+				currentFile.getAbsolutePath().length() - DATA_LOG_SUFFIX.length()
+				) + DATA_LOG_SUFFIX2;
+		//System.err.println(newFile);
+		
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(new File(newFile));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String requestor = null;
+		
+		while (scanner.hasNextLine() && requestor == null) {
+			String line = scanner.nextLine();
+			if (line == null || line.equals("")) {
+				continue;
+			}
+			
+			if(line.contains(VF_CREATED_LOG)){
+				line = line.substring(VF_CREATED_LOG.length());
+				requestor = line.substring(0, line.indexOf(' '));
+			}
+		}
+		//System.err.println(requestor);
+		
+		return requestor;
 	}
 
 }

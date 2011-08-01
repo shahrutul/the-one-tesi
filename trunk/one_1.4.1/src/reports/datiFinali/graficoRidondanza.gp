@@ -22,6 +22,6 @@ set obj rect from 96, graph 0 to 120, graph 1 behind
 set obj rect from 144, graph 0 to 168, graph 1 behind
 
 #plot 'datiRidondanzaDati.dat' using 2:xtic(5) ti col, '' u 3 ti col, '' u 4 ti col
-plot 'datiRidondanzaDati.dat' using 3:xtic(5) ti col, '' u 4 ti col
+plot 'datiRidondanzaDati.dat' using 3:xtic(5) ti col lw 3, '' u 4 ti col lw 3
 
 #pause -1 "Hit any key to continue"
