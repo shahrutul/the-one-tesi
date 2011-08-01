@@ -37,11 +37,11 @@
 \BOOKMARK [1][-]{section.6.2}{M2MShare Implementation}{chapter.6}% 37
 \BOOKMARK [0][-]{chapter.7}{Simulations and results}{}% 38
 \BOOKMARK [1][-]{section.7.1}{Simulations Scenario}{chapter.7}% 39
-\BOOKMARK [1][-]{section.7.2}{Delegation efficiency}{chapter.7}% 40
-\BOOKMARK [1][-]{section.7.3}{Delegation efficiency with variable file popularity}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.4}{Delegation efficiency with variable nodes population}{chapter.7}% 42
-\BOOKMARK [1][-]{section.7.5}{Multi-hop delegation}{chapter.7}% 43
-\BOOKMARK [1][-]{section.7.6}{Data redundancy}{chapter.7}% 44
-\BOOKMARK [1][-]{section.7.7}{File Division Strategy efficency}{chapter.7}% 45
+\BOOKMARK [1][-]{section.7.2}{Single-hop delegation efficiency}{chapter.7}% 40
+\BOOKMARK [2][-]{subsection.7.2.1}{Delegation efficiency with variable file popularity}{section.7.2}% 41
+\BOOKMARK [2][-]{subsection.7.2.2}{Delegation efficiency with variable nodes population}{section.7.2}% 42
+\BOOKMARK [2][-]{subsection.7.2.3}{Data redundancy}{section.7.2}% 43
+\BOOKMARK [1][-]{section.7.3}{Multi-hop delegation efficiency}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.4}{File Division Strategy efficiency}{chapter.7}% 45
 \BOOKMARK [0][-]{chapter.8}{Conclusioni}{}% 46
 \BOOKMARK [0][-]{chapter.8}{Bibliografia}{}% 47
