@@ -17,7 +17,7 @@ public class mainPopLaunch {
 	private static final String SEED_FILE = "seedsNumFiles.txt";
 	private static final String SEED_SETTING_FILE_PREFIX = "../runningSettings/seedSettings";
 	private static final String JOBFILE = "../sim";
-	private static final int NUM_RUN = 1;
+	private static final int NUM_RUN = 30;
 
 	/**
 	 * @param args
@@ -38,42 +38,17 @@ public class mainPopLaunch {
 		}
 		System.out.println("Read "+seeds.size()+" seeds.");
 
-		int fileGenIndex = 0, movementIndex = 0;
-		boolean validSeeds = false;
+		//int fileGenIndex = 0, movementIndex = 0;
 
 		/* Read the file list of reports */
 		File folder = new File(REPORTS_DIR);
 		final File folderRunning = new File(RUNNING_DIR);
 
 		for(int irun=0; irun<NUM_RUN; irun++){
-
-			/* Start generating configuration seeds */
-			while(!validSeeds){
-				final String matchString = "FG"+seeds.get(fileGenIndex)+"_MM"+seeds.get(movementIndex);
-				FilenameFilter filter = new FilenameFilter() {
-					@Override
-					public boolean accept(File dir, String name) {
-						return name.contains(matchString);
-					}
-				};
-
-				if(folderRunning.list(filter) == null || folderRunning.list(filter).length == 0){
-					validSeeds = true;
-				}
-				if(!validSeeds){
-					/* next combination of seeds */
-					//System.err.println("Combination "+matchString+" already used");
-					if(fileGenIndex == movementIndex && movementIndex == seeds.size()){
-						System.out.println("All seed combinations tested!");
-						return;
-					}
-
-					if(movementIndex <  seeds.size()-1){
-						movementIndex++;
-						fileGenIndex++;
-					}
-				}			
-			}
+			
+			int fileGenIndex = irun;
+			int movementIndex = irun;
+			
 			/* Found a valid seeds combination */
 			System.out.println("Valid combination: "+seeds.get(fileGenIndex)+"_"+seeds.get(movementIndex));
 
