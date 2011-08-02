@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  1 AUG 2011 17:42
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  2 AUG 2011 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1611,8 +1611,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--404
 
 [60]
 Package epstopdf Info: Source file: <grafici/percCompletaMultiHop.eps>
-(epstopdf)                    date: 2011-07-09 09:50:56
-(epstopdf)                    size: 18071 bytes
+(epstopdf)                    date: 2011-08-02 10:33:15
+(epstopdf)                    size: 18123 bytes
 (epstopdf)             Output file: <grafici/percCompletaMultiHop-eps-converted
 -to.pdf>
 (epstopdf)                    date: 2011-07-09 17:32:14
@@ -1620,7 +1620,13 @@ Package epstopdf Info: Source file: <grafici/percCompletaMultiHop.eps>
 (epstopdf)             Command: <repstopdf --outfile=grafici/percCompletaMultiH
 op-eps-converted-to.pdf grafici/percCompletaMultiHop.eps>
 (epstopdf)             \includegraphics on input line 417.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/percCompletaMultiHop-eps-converted-to.pdf
+ grafici/percCompletaMultiHop.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/percCompletaMultiHop-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2011-08-02 11:17:02
+(epstopdf)                    size: 8694 bytes.
 
 <grafici/percCompletaMultiHop-eps-converted-to.pdf, id=748, 361.35pt x 252.945p
 t>
@@ -1643,6 +1649,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 450--452
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
+
+ []
+
+[61 <./grafici/percCompletaMultiHop-eps-converted-to.pdf>] [62 <./figure/mappa_
+0_hop.png> <./figure/mappa_1_hop.png>]
 Package epstopdf Info: Source file: <grafici/ridondanza_multiHop_10perc.eps>
 (epstopdf)                    date: 2011-08-01 17:38:46
 (epstopdf)                    size: 23610 bytes
@@ -1652,10 +1665,10 @@ verted-to.pdf>
 (epstopdf)                    size: 8349 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/ridondanza_multiHo
 p_10perc-eps-converted-to.pdf grafici/ridondanza_multiHop_10perc.eps>
-(epstopdf)             \includegraphics on input line 456.
+(epstopdf)             \includegraphics on input line 461.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf, id=757, 361.35pt x 25
+<grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf, id=786, 361.35pt x 25
 2.945pt>
 File: grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -1670,20 +1683,20 @@ converted-to.pdf>
 (epstopdf)                    size: 8610 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/delegheAttive_mult
 iHop_10perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_10perc.eps>
-(epstopdf)             \includegraphics on input line 458.
+(epstopdf)             \includegraphics on input line 463.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf, id=758, 361.35pt x
+<grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf, id=787, 361.35pt x
  252.945pt>
 File: grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf Graphic file (
 type pdf)
  <use grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 456--459
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 461--464
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 456--459
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 461--464
  [][] 
  []
 
@@ -1692,18 +1705,14 @@ Package epstopdf Info: Source file: <grafici/ridondanza_multiHop_25perc.eps>
 (epstopdf)                    size: 23629 bytes
 (epstopdf)             Output file: <grafici/ridondanza_multiHop_25perc-eps-con
 verted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:56
+(epstopdf)                    size: 8449 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/ridondanza_multiHo
 p_25perc-eps-converted-to.pdf grafici/ridondanza_multiHop_25perc.eps>
-(epstopdf)             \includegraphics on input line 465.
-runsystem(repstopdf --outfile=grafici/ridondanza_multiHop_25perc-eps-converted-
-to.pdf grafici/ridondanza_multiHop_25perc.eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 470.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/ridondanza_multiHop_25perc-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:56
-(epstopdf)                    size: 8449 bytes.
-
-<grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf, id=759, 361.35pt x 25
+<grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf, id=788, 361.35pt x 25
 2.945pt>
 File: grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -1714,29 +1723,24 @@ Package epstopdf Info: Source file: <grafici/delegheAttive_multiHop_25perc.eps>
 (epstopdf)                    size: 23657 bytes
 (epstopdf)             Output file: <grafici/delegheAttive_multiHop_25perc-eps-
 converted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:56
+(epstopdf)                    size: 8725 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/delegheAttive_mult
 iHop_25perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_25perc.eps>
-(epstopdf)             \includegraphics on input line 467.
-runsystem(repstopdf --outfile=grafici/delegheAttive_multiHop_25perc-eps-convert
-ed-to.pdf grafici/delegheAttive_multiHop_25perc.eps)...executed safely (allowed
-).
+(epstopdf)             \includegraphics on input line 472.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/delegheAttive_multiHop_25perc-eps-
-converted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:56
-(epstopdf)                    size: 8725 bytes.
-
-<grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf, id=760, 361.35pt x
+<grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf, id=789, 361.35pt x
  252.945pt>
 File: grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf Graphic file (
 type pdf)
  <use grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 465--468
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 470--473
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 465--468
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 470--473
  [][] 
  []
 
@@ -1745,18 +1749,14 @@ Package epstopdf Info: Source file: <grafici/ridondanza_multiHop_50perc.eps>
 (epstopdf)                    size: 23658 bytes
 (epstopdf)             Output file: <grafici/ridondanza_multiHop_50perc-eps-con
 verted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:57
+(epstopdf)                    size: 8488 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/ridondanza_multiHo
 p_50perc-eps-converted-to.pdf grafici/ridondanza_multiHop_50perc.eps>
-(epstopdf)             \includegraphics on input line 474.
-runsystem(repstopdf --outfile=grafici/ridondanza_multiHop_50perc-eps-converted-
-to.pdf grafici/ridondanza_multiHop_50perc.eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 479.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/ridondanza_multiHop_50perc-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:57
-(epstopdf)                    size: 8488 bytes.
-
-<grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf, id=761, 361.35pt x 25
+<grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf, id=790, 361.35pt x 25
 2.945pt>
 File: grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -1767,29 +1767,24 @@ Package epstopdf Info: Source file: <grafici/delegheAttive_multiHop_50perc.eps>
 (epstopdf)                    size: 23685 bytes
 (epstopdf)             Output file: <grafici/delegheAttive_multiHop_50perc-eps-
 converted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:57
+(epstopdf)                    size: 8831 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/delegheAttive_mult
 iHop_50perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_50perc.eps>
-(epstopdf)             \includegraphics on input line 476.
-runsystem(repstopdf --outfile=grafici/delegheAttive_multiHop_50perc-eps-convert
-ed-to.pdf grafici/delegheAttive_multiHop_50perc.eps)...executed safely (allowed
-).
+(epstopdf)             \includegraphics on input line 481.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/delegheAttive_multiHop_50perc-eps-
-converted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:57
-(epstopdf)                    size: 8831 bytes.
-
-<grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf, id=762, 361.35pt x
+<grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf, id=791, 361.35pt x
  252.945pt>
 File: grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf Graphic file (
 type pdf)
  <use grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 474--477
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 479--482
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 474--477
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 479--482
  [][] 
  []
 
@@ -1798,18 +1793,14 @@ Package epstopdf Info: Source file: <grafici/ridondanza_multiHop_75perc.eps>
 (epstopdf)                    size: 23670 bytes
 (epstopdf)             Output file: <grafici/ridondanza_multiHop_75perc-eps-con
 verted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:58
+(epstopdf)                    size: 8495 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/ridondanza_multiHo
 p_75perc-eps-converted-to.pdf grafici/ridondanza_multiHop_75perc.eps>
-(epstopdf)             \includegraphics on input line 483.
-runsystem(repstopdf --outfile=grafici/ridondanza_multiHop_75perc-eps-converted-
-to.pdf grafici/ridondanza_multiHop_75perc.eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 488.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/ridondanza_multiHop_75perc-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:58
-(epstopdf)                    size: 8495 bytes.
-
-<grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf, id=763, 361.35pt x 25
+<grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf, id=792, 361.35pt x 25
 2.945pt>
 File: grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -1820,29 +1811,24 @@ Package epstopdf Info: Source file: <grafici/delegheAttive_multiHop_75perc.eps>
 (epstopdf)                    size: 23694 bytes
 (epstopdf)             Output file: <grafici/delegheAttive_multiHop_75perc-eps-
 converted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:58
+(epstopdf)                    size: 8837 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/delegheAttive_mult
 iHop_75perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_75perc.eps>
-(epstopdf)             \includegraphics on input line 485.
-runsystem(repstopdf --outfile=grafici/delegheAttive_multiHop_75perc-eps-convert
-ed-to.pdf grafici/delegheAttive_multiHop_75perc.eps)...executed safely (allowed
-).
+(epstopdf)             \includegraphics on input line 490.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/delegheAttive_multiHop_75perc-eps-
-converted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:58
-(epstopdf)                    size: 8837 bytes.
-
-<grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf, id=764, 361.35pt x
+<grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf, id=793, 361.35pt x
  252.945pt>
 File: grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf Graphic file (
 type pdf)
  <use grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 483--486
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 488--491
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 483--486
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 488--491
  [][] 
  []
 
@@ -1851,18 +1837,14 @@ Package epstopdf Info: Source file: <grafici/ridondanza_multiHop_100perc.eps>
 (epstopdf)                    size: 23691 bytes
 (epstopdf)             Output file: <grafici/ridondanza_multiHop_100perc-eps-co
 nverted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:59
+(epstopdf)                    size: 8522 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/ridondanza_multiHo
 p_100perc-eps-converted-to.pdf grafici/ridondanza_multiHop_100perc.eps>
-(epstopdf)             \includegraphics on input line 492.
-runsystem(repstopdf --outfile=grafici/ridondanza_multiHop_100perc-eps-converted
--to.pdf grafici/ridondanza_multiHop_100perc.eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 497.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/ridondanza_multiHop_100perc-eps-co
-nverted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:59
-(epstopdf)                    size: 8522 bytes.
-
-<grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf, id=765, 361.35pt x 2
+<grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf, id=794, 361.35pt x 2
 52.945pt>
 File: grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1873,46 +1855,39 @@ Package epstopdf Info: Source file: <grafici/delegheAttive_multiHop_100perc.eps
 (epstopdf)                    size: 23710 bytes
 (epstopdf)             Output file: <grafici/delegheAttive_multiHop_100perc-eps
 -converted-to.pdf>
+(epstopdf)                    date: 2011-08-01 17:42:59
+(epstopdf)                    size: 8862 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/delegheAttive_mult
 iHop_100perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_100perc.eps>
-(epstopdf)             \includegraphics on input line 494.
-runsystem(repstopdf --outfile=grafici/delegheAttive_multiHop_100perc-eps-conver
-ted-to.pdf grafici/delegheAttive_multiHop_100perc.eps)...executed safely (allow
-ed).
+(epstopdf)             \includegraphics on input line 499.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <grafici/delegheAttive_multiHop_100perc-eps
--converted-to.pdf>
-(epstopdf)                    date: 2011-08-01 17:42:59
-(epstopdf)                    size: 8862 bytes.
-
-<grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf, id=766, 361.35pt 
+<grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf, id=795, 361.35pt 
 x 252.945pt>
 File: grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf Graphic file 
 (type pdf)
  <use grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 492--495
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 497--500
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 492--495
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 497--500
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61 <./grafici/percCompletaMultiHop-eps-converted-to.pdf>] [62 <./figure/mappa
-_0_hop.png> <./figure/mappa_1_hop.png>] [63 <./figure/mappa_3_hop.png>] [64 <./
-grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf> <./grafici/delegheAtti
-ve_multiHop_10perc-eps-converted-to.pdf>] [65 <./grafici/ridondanza_multiHop_25
-perc-eps-converted-to.pdf> <./grafici/delegheAttive_multiHop_25perc-eps-convert
-ed-to.pdf>] [66 <./grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf> <./
-grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf>] [67 <./grafici/rid
-ondanza_multiHop_75perc-eps-converted-to.pdf> <./grafici/delegheAttive_multiHop
-_75perc-eps-converted-to.pdf>] [68 <./grafici/ridondanza_multiHop_100perc-eps-c
-onverted-to.pdf> <./grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf
->]
+ [63 <./figure/mappa_3_hop.png>] [64 <./grafici/ridondanza_multiHop_10perc-eps-
+converted-to.pdf> <./grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf
+>] [65 <./grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf> <./grafici/d
+elegheAttive_multiHop_25perc-eps-converted-to.pdf>] [66 <./grafici/ridondanza_m
+ultiHop_50perc-eps-converted-to.pdf> <./grafici/delegheAttive_multiHop_50perc-e
+ps-converted-to.pdf>] [67 <./grafici/ridondanza_multiHop_75perc-eps-converted-t
+o.pdf> <./grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf>] [68 <./g
+rafici/ridondanza_multiHop_100perc-eps-converted-to.pdf> <./grafici/delegheAtti
+ve_multiHop_100perc-eps-converted-to.pdf>] [69]
 Package epstopdf Info: Source file: <grafici/dataDFS_3MB.eps>
 (epstopdf)                    date: 2011-08-01 10:58:54
 (epstopdf)                    size: 18499 bytes
@@ -1921,10 +1896,10 @@ Package epstopdf Info: Source file: <grafici/dataDFS_3MB.eps>
 (epstopdf)                    size: 8477 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_3MB-eps-co
 nverted-to.pdf grafici/dataDFS_3MB.eps>
-(epstopdf)             \includegraphics on input line 548.
+(epstopdf)             \includegraphics on input line 553.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_3MB-eps-converted-to.pdf, id=884, 361.35pt x 252.945pt>
+<grafici/dataDFS_3MB-eps-converted-to.pdf, id=894, 361.35pt x 252.945pt>
 File: grafici/dataDFS_3MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_3MB-eps-converted-to.pdf>
@@ -1937,19 +1912,19 @@ pdf>
 (epstopdf)                    size: 10329 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_3MB_zoom-e
 ps-converted-to.pdf grafici/dataDFS_3MB_zoom.eps>
-(epstopdf)             \includegraphics on input line 550.
+(epstopdf)             \includegraphics on input line 555.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_3MB_zoom-eps-converted-to.pdf, id=885, 361.35pt x 252.945pt>
+<grafici/dataDFS_3MB_zoom-eps-converted-to.pdf, id=895, 361.35pt x 252.945pt>
 File: grafici/dataDFS_3MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 548--551
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 553--556
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 548--551
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 553--556
  [][] 
  []
 
@@ -1962,9 +1937,9 @@ Package epstopdf Info: Source file: <grafici/dataDFS_10MB.eps>
 (epstopdf)                    size: 8932 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_10MB-eps-c
 onverted-to.pdf grafici/dataDFS_10MB.eps>
-(epstopdf)             \includegraphics on input line 557.
+(epstopdf)             \includegraphics on input line 562.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_10MB-eps-converted-to.pdf, id=886, 361.35pt x 252.945pt>
+<grafici/dataDFS_10MB-eps-converted-to.pdf, id=896, 361.35pt x 252.945pt>
 File: grafici/dataDFS_10MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_10MB-eps-converted-to.pdf>
@@ -1977,19 +1952,19 @@ Package epstopdf Info: Source file: <grafici/dataDFS_10MB_zoom.eps>
 (epstopdf)                    size: 10281 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_10MB_zoom-
 eps-converted-to.pdf grafici/dataDFS_10MB_zoom.eps>
-(epstopdf)             \includegraphics on input line 559.
+(epstopdf)             \includegraphics on input line 564.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_10MB_zoom-eps-converted-to.pdf, id=887, 361.35pt x 252.945pt>
+<grafici/dataDFS_10MB_zoom-eps-converted-to.pdf, id=897, 361.35pt x 252.945pt>
 File: grafici/dataDFS_10MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_10MB_zoom-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 557--560
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 562--565
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 557--560
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 562--565
  [][] 
  []
 
@@ -2002,9 +1977,9 @@ Package epstopdf Info: Source file: <grafici/dataDFS_25MB.eps>
 (epstopdf)                    size: 9561 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_25MB-eps-c
 onverted-to.pdf grafici/dataDFS_25MB.eps>
-(epstopdf)             \includegraphics on input line 566.
+(epstopdf)             \includegraphics on input line 571.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_25MB-eps-converted-to.pdf, id=888, 361.35pt x 252.945pt>
+<grafici/dataDFS_25MB-eps-converted-to.pdf, id=898, 361.35pt x 252.945pt>
 File: grafici/dataDFS_25MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_25MB-eps-converted-to.pdf>
@@ -2017,31 +1992,31 @@ Package epstopdf Info: Source file: <grafici/dataDFS_25MB_zoom.eps>
 (epstopdf)                    size: 10826 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/dataDFS_25MB_zoom-
 eps-converted-to.pdf grafici/dataDFS_25MB_zoom.eps>
-(epstopdf)             \includegraphics on input line 568.
+(epstopdf)             \includegraphics on input line 573.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_25MB_zoom-eps-converted-to.pdf, id=889, 361.35pt x 252.945pt>
+<grafici/dataDFS_25MB_zoom-eps-converted-to.pdf, id=899, 361.35pt x 252.945pt>
 File: grafici/dataDFS_25MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_25MB_zoom-eps-converted-to.pdf>
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 566--569
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 571--574
  [][] 
  []
 
 
-Overfull \hbox (1.34912pt too wide) in paragraph at lines 566--569
+Overfull \hbox (1.34912pt too wide) in paragraph at lines 571--574
  [][] 
  []
 
-) (./8-conclusioni/conclusioni.tex [69] [70 <./grafici/dataDFS_3MB-eps-converte
-d-to.pdf> <./grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>] [71 <./grafici/dat
+) (./8-conclusioni/conclusioni.tex [70] [71 <./grafici/dataDFS_3MB-eps-converte
+d-to.pdf> <./grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>] [72 <./grafici/dat
 aDFS_10MB-eps-converted-to.pdf> <./grafici/dataDFS_10MB_zoom-eps-converted-to.p
-df>] [72 <./grafici/dataDFS_25MB-eps-converted-to.pdf> <./grafici/dataDFS_25MB_
-zoom-eps-converted-to.pdf>]
-Chapter 8.
-) [73
+df>] [73 <./grafici/dataDFS_25MB-eps-converted-to.pdf> <./grafici/dataDFS_25MB_
+zoom-eps-converted-to.pdf>] [74
 
-] [74
+]
+Chapter 8.
+) [75] [76
 
 ] (./Tesi.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
@@ -2053,7 +2028,7 @@ Underfull \hbox (badness 1377) in paragraph at lines 40--44
  and
  []
 
-[75
+[77
 
 ]
 Underfull \hbox (badness 1062) in paragraph at lines 74--78
@@ -2063,7 +2038,7 @@ ot,
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
- [76]
+ [78]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
  (./Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
@@ -2081,37 +2056,34 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 197.
  ) 
 Here is how much of TeX's memory you used:
  9789 strings out of 493772
- 144635 string characters out of 3150564
- 231403 words of memory out of 3000000
- 12616 multiletter control sequences out of 15000+200000
+ 144628 string characters out of 3150564
+ 231864 words of memory out of 3000000
+ 12615 multiletter control sequences out of 15000+200000
  27063 words of font info for 73 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
  36i,12n,43p,1474b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{table.caption.41} has been referenced but does no
-t exist, replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fo
-nts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx
-1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/
-share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dis
-t/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
-sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></
-usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf
--dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
-per/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pf
-b></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (80 pages, 1377871 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+bx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.
+pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Tesi.pdf (82 pages, 1379031 bytes).
 PDF statistics:
- 1096 PDF objects out of 1200 (max. 8388607)
- 904 compressed objects within 10 object streams
- 221 named destinations out of 1000 (max. 500000)
+ 1108 PDF objects out of 1200 (max. 8388607)
+ 914 compressed objects within 10 object streams
+ 222 named destinations out of 1000 (max. 500000)
  585 words of extra memory for PDF output out of 10000 (max. 10000000)
 
