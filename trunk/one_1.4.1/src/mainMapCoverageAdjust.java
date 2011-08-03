@@ -11,9 +11,10 @@ import java.util.Scanner;
 
 
 public class mainMapCoverageAdjust {
-	private static final String REPORTS_DIR = "reports/multiHopPerc/10perc";
+	private static final int[] PERCs = {10,25,50,75,100};
+	private static final String REPORTS_DIR = "reports/multiHopPerc/";
 	private static final String OUTPUTS_DIR = "reports/datiFinali/multiHopPerc/";
-	private static File[][] files = new File[5][];
+	private static File[][][] files = new File[PERCs.length][5][];
 	private static final String[] stratLabels = {"No_delegations","Delegations_to_all", "M2MShare_1_hop", "M2MShare_2_hop", "M2MShare_3_hop"};
 	
 	private static final int initialWidth = 1000;
@@ -22,6 +23,7 @@ public class mainMapCoverageAdjust {
 	private static final int finalHeight = 40;
 	private static final int xStep = initialWidth / finalWidth;
 	private static final int yStep = initialHeight / finalHeight;
+	private static final int PRINT_MULTIPLIER = 18;
 	
 	private static class ParamFilenameFilter implements FilenameFilter{
 		private int strategy;
@@ -56,83 +58,90 @@ public class mainMapCoverageAdjust {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
-		File dir = new File(REPORTS_DIR);
+		
 		int totalFiles = 0;
-		for(int strat=0; strat<5; strat++){
-			files[strat] = dir.listFiles(new ParamFilenameFilter(strat));
-			totalFiles += files[strat].length;
-			System.out.println(files[strat].length+ " files read with strategy " + strat+":");
+		for(int p=0; p < PERCs.length; p++){
+			File dir = new File(REPORTS_DIR + PERCs[p] + "perc");			
+			for(int strat=2; strat<5; strat++){
+				files[p][strat] = dir.listFiles(new ParamFilenameFilter(strat));
+				totalFiles += files[p][strat].length;
+				System.out.println(files[p][strat].length+ " files read with strategy " + strat+":");
+			}
 		}
 		
 		int totalFilesRead = 0;
-		for(int strat=0; strat<5; strat++){
+		for(int p=0; p < PERCs.length; p++){
 			
-			long[][] sumValues = new long[finalWidth][finalHeight];
-			int filesRead = 0;
-			
-			for(int ifile=0; ifile< files[strat].length; ifile++){
-				File currentFile = files[strat][ifile];
-				System.out.println((100*totalFilesRead/totalFiles)+"% - "+currentFile.getName());
-				ArrayList<ArrayList<Integer>> a = new ArrayList<ArrayList<Integer>>();
-				Scanner input = null;
-				try {
-					input = new Scanner(currentFile);
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-				while(input.hasNextLine()){
-					Scanner colReader = new Scanner(input.nextLine());
-					ArrayList col = new ArrayList();
-					while(colReader.hasNextInt())
-					{
-						int temp = colReader.nextInt();
-						col.add(temp);
+			/*solo per multi-hop per adesso*/
+			for(int strat=2; strat<5; strat++){
 
+				long[][] sumValues = new long[finalWidth][finalHeight];
+				int filesRead = 0;
+
+				for(int ifile=0; ifile< files[strat].length; ifile++){
+					File currentFile = files[p][strat][ifile];
+					System.out.println((100*totalFilesRead/totalFiles)+"% - "+currentFile.getName());
+					ArrayList<ArrayList<Integer>> a = new ArrayList<ArrayList<Integer>>();
+					Scanner input = null;
+					try {
+						input = new Scanner(currentFile);
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
 					}
-					a.add(col);
-				}
+					while(input.hasNextLine()){
+						Scanner colReader = new Scanner(input.nextLine());
+						ArrayList col = new ArrayList();
+						while(colReader.hasNextInt())
+						{
+							int temp = colReader.nextInt();
+							col.add(temp);
 
-				//int[][] finalValues = new int[finalWidth][finalHeight];
-				
-				for(int x=0; x<finalWidth; x++){
-					for(int y=0; y<finalHeight; y++){
-						sumValues[x][y] += maxValues(a, x*xStep, y*yStep);
-						//sumValues[x][y] += avgValues(a, x*xStep, y*yStep);
-						//System.out.print(finalValues[x][y] + " ");
+						}
+						a.add(col);
+					}
+
+					//int[][] finalValues = new int[finalWidth][finalHeight];
+
+					for(int x=0; x<finalWidth; x++){
+						for(int y=0; y<finalHeight; y++){
+							sumValues[x][y] += maxValues(a, x*xStep, y*yStep);
+							//sumValues[x][y] += avgValues(a, x*xStep, y*yStep);
+							//System.out.print(finalValues[x][y] + " ");
+						}
+						//System.out.println();
 					}
 					//System.out.println();
-				}
-				//System.out.println();
-				 
-				filesRead++;
-				totalFilesRead++;
-				input.close();
-			}
 
-			/* faccio la media totale */
-			for(int x=0; x<finalWidth; x++){
-				for(int y=0; y<finalHeight; y++){
-					sumValues[x][y] = sumValues[x][y] / filesRead;
+					filesRead++;
+					totalFilesRead++;
+					input.close();
 				}
-			}
-			
-			
-			try {
-				PrintWriter out = new PrintWriter(new FileWriter(OUTPUTS_DIR + stratLabels[strat] + ".dat"));
+
+				/* faccio la media totale */
 				for(int x=0; x<finalWidth; x++){
 					for(int y=0; y<finalHeight; y++){
-						out.print(sumValues[x][y] + " ");
+						sumValues[x][y] = sumValues[x][y] / filesRead;
 					}
-					out.println();
 				}
-				//System.out.println();
-				out.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+
+
+				try {
+					PrintWriter out = new PrintWriter(new FileWriter(OUTPUTS_DIR + stratLabels[strat] + "_"+PERCs[p]+"perc.dat"));
+					for(int y=0; y<(finalHeight * PRINT_MULTIPLIER); y++){
+						for(int x=0; x<(finalWidth * PRINT_MULTIPLIER); x++){
+							out.print(sumValues[x / PRINT_MULTIPLIER][y / PRINT_MULTIPLIER] + " ");
+						}
+						out.println();
+					}
+					//System.out.println();
+					out.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+
+
 			}
-			
-			
-			
 		}
 				
 		
@@ -154,7 +163,7 @@ public class mainMapCoverageAdjust {
 		return max;
 	}
 	
-	private static int avgValue(ArrayList<ArrayList<Integer>> a, int xinit, int yinit) {
+	private static int avgValues(ArrayList<ArrayList<Integer>> a, int xinit, int yinit) {
 		long sum = 0;
 		for(int x=xinit; x<(xinit+xStep); x++){
 			for(int y=yinit; y<(yinit+yStep); y++){
@@ -163,6 +172,17 @@ public class mainMapCoverageAdjust {
 			}
 		}
 		return (int) (sum / (xStep*yStep/10));
+	}
+	
+	private static int sumValues(ArrayList<ArrayList<Integer>> a, int xinit, int yinit) {
+		long sum = 0;
+		for(int x=xinit; x<(xinit+xStep); x++){
+			for(int y=yinit; y<(yinit+yStep); y++){
+				int temp = a.get(y).get(x);
+				sum += temp;
+			}
+		}
+		return (int) sum / 3;
 	}
 	
 }
