@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {7.2.3}Data redundancy}{58}{subsection.7.2.3}
 \contentsline {section}{\numberline {7.3}Multi-hop delegation efficiency}{60}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}Map coverage}{61}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{64}{subsection.7.3.2}
-\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{70}{section.7.4}
-\contentsline {chapter}{\numberline {8}Conclusioni}{75}{chapter.8}
-\contentsline {chapter}{Bibliografia}{77}{chapter.8}
+\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{68}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{74}{section.7.4}
+\contentsline {chapter}{\numberline {8}Conclusioni}{79}{chapter.8}
+\contentsline {chapter}{Bibliografia}{81}{chapter.8}
