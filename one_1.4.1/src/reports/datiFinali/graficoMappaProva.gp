@@ -11,7 +11,11 @@ set ztics 10
 set urange [ * : * ] noreverse nowriteback  # (currently [-5.00000:5.00000] )
 set vrange [ * : * ] noreverse nowriteback  # (currently [-5.00000:5.00000] )
 
-set yrange [20:780]
+
+set bmargin at screen 0.03
+set tmargin at screen 0.90
+
+set yrange [20:730]
 set xrange [0:750]
 #set zrange [0:20]
 
@@ -62,8 +66,6 @@ splot "multiHopPerc/M2MShare_2_hop_100perc.dat" matrix with image, 'multiHopPerc
 set output 'mappe/M2MShare_3_hop_100perc.eps'
 splot "multiHopPerc/M2MShare_3_hop_100perc.dat" matrix with image, 'multiHopPerc/mappa.gif' binary filetype=gif origin=(10,35,0) dx=1 dy=1.06 with rgbalpha
 
-#set yrange [0:650]
-#set xrange [-50:750]
 
 
 
