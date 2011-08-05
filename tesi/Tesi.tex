@@ -93,21 +93,7 @@ INDICE}}
 \tableofcontents                                                            %crea l'indice
 \cleardoublepage
 
-%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
-%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
-%ELENCO DELLE FIGURE}}
-%
-%\listoffigures                                                              %crea l'elenco delle figure
-%\addcontentsline{toc}{chapter}{Elenco delle figure}                         %aggiungilo all'indice
-%\cleardoublepage
 
-
-%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
-%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
-%ELENCO DELLE TABELLE}}
-%\listoftables                                                               %crea l'elenco delle tabelle
-%\addcontentsline{toc}{chapter}{Elenco delle tabelle}                        %aggiungilo all'indice
-%\cleardoublepage                                                            %non numera l'ultima pagina sinistra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
@@ -170,7 +156,7 @@ INDICE}}
 %\end{thebibliography}
 %\cleardoublepage
 
-\addcontentsline{toc}{chapter}{Bibliografia}
+\addcontentsline{toc}{chapter}{References}
 \nocite{*}
 \bibliographystyle{unsrt}
 \bibliography{bibliografia}
@@ -178,6 +164,22 @@ INDICE}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries 
+FIGURE INDEX}}
+%
+\listoffigures                                                              %crea l'elenco delle figure
+\addcontentsline{toc}{chapter}{Figures Index}                         %aggiungilo all'indice
+\cleardoublepage
+
+
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+TABLES INDEX}}
+\listoftables                                                               %crea l'elenco delle tabelle
+\addcontentsline{toc}{chapter}{Tables Index}                        %aggiungilo all'indice
+\cleardoublepage                                                            %non numera l'ultima pagina sinistra
 
 %%%%%%%%%%%%%%RINGRAZIAMENTI%%%%%%%%%%%%%%%%%%%%
 
