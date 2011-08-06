@@ -1,5 +1,19 @@
 \begin{thebibliography}{10}
 
+\bibitem{Burleigh2003365}
+Scott Burleigh, Vinton Cerf, Robert Durst, Kevin Fall, Adrian Hooke, Keith
+  Scott, and Howard Weiss.
+\newblock The interplanetary internet: A communications infrastructure for mars
+  exploration.
+\newblock {\em Acta Astronautica}, 53(4-10):365 -- 373, 2003.
+\newblock The New Face of Space Selected Proceedings of the 53rd International
+  Astronautical Federation Congress.
+
+\bibitem{tesiarmir}
+A.~Bujari.
+\newblock A delay tolerant solution for p2p file sharing in manets.
+\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
+
 \bibitem{socialNetworks}
 Yang Zhang and Jing Zhao.
 \newblock Social network analysis on data diffusion in delay tolerant networks.
@@ -17,24 +31,6 @@ C.~Lindemann A.~Klemm and O.~Waldhorst.
 IETF.
 \newblock {AODV} specifications, {RFC} 3561.
 \newblock \url{http://www.ietf.org/rfc/rfc3561.txt}, July 2003.
-
-\bibitem{tesiarmir}
-A.~Bujari.
-\newblock A delay tolerant solution for p2p file sharing in manets.
-\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
-
-\bibitem{rwpharmful}
-J.~Yoon, M.~Liu, and B.~Noble.
-\newblock Random waypoint considered harmful.
-\newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
-  Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
-  IEEE, April 2003.
-
-\bibitem{articoloWdm}
-Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
-\newblock Working day movement model.
-\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
-  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
 
 \bibitem{Balachandran:2002:CUB:511399.511359}
 Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
@@ -76,6 +72,19 @@ Augustin Chaintreau, Pan Hui, Jon Crowcroft, Christophe Diot, Richard Gass, and
 \newblock Impact of human mobility on opportunistic forwarding algorithms.
 \newblock {\em IEEE Transactions on Mobile Computing}, 6:606--620, June 2007.
 
+\bibitem{rwpharmful}
+J.~Yoon, M.~Liu, and B.~Noble.
+\newblock Random waypoint considered harmful.
+\newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
+  Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
+  IEEE, April 2003.
+
+\bibitem{articoloWdm}
+Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
+\newblock Working day movement model.
+\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
+  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
+
 \bibitem{articoloONE}
 T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
 \newblock {The ONE Simulator for DTN Protocol Evaluation}.
@@ -83,12 +92,11 @@ T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
   Conference on Simulation Tools and Techniques}, New York, NY, USA, 2009.
   ICST.
 
-\bibitem{panelStateDTNEvaluation}
-Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
-  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
-\newblock The state of dtn evaluation.
-\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
-  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
+\bibitem{articoloM2MShare}
+A.~Bujari C.~Palazzi.
+\newblock A delay/disruption tolerant solution for mobile-to-mobile file
+  sharing.
+\newblock 2010.
 
 \bibitem{humanmobility}
 S.Hong K.Lee~S.Chong I.Rhee, M.Shin.
@@ -114,5 +122,12 @@ F.Ekman.
 Ari Ker\"{a}nen and J\"{o}rg Ott.
 \newblock {Increasing Reality for DTN Protocol Simulations}.
 \newblock Technical report, Helsinki University of Technology, July 2007.
+
+\bibitem{panelStateDTNEvaluation}
+Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
+  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
+\newblock The state of dtn evaluation.
+\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
+  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
 
 \end{thebibliography}

@@ -15,10 +15,18 @@
 In DTNs mobility and low node density require new strategies to implement a file-sharing application which allow the excange of multimedia contents among mobile devices. M2MShare \cite{tesiarmir} uses Bluetooth to create a Peer-to-Peer overlay network and uses node mobility to reach data content on other local disconnected networks. The main idea of the protocol is to use a store-delegate-and-forward model. This is similar to the store-and-forward strategy widely used in DTNs, but M2MShare adds the \textit{delegate} part to the model. The result is an asynchronous communication model where a peer delegates an unaccomplished task to other peers in the overlay network.
 \\
 
-Delegations are used to extend search and diffusion area for a shared file, while M2MSHare dynamically establishes forward routes along the destination path by exploiting social relations existing between peers users. This is done limiting delegations only to frequently encountered peers, whom users pass by the same geographical location at the same time frequently enough. The history of previous encounters is then used as heuristic to evaluate if a peer is a good candidate for delegations. This allow to assign tasks only to nodes that we should meet again in the future, so they can return back to us the result of the task.
+Delegations are used to extend search and diffusion area for a shared file, while M2MSHare dynamically establishes forward routes along the destination path by exploiting social relations existing between peers users. This is done limiting delegations only to frequently encountered peers, whom users pass by the same geographical location at the same time frequently enough. The history of previous encounters is then used as heuristic to evaluate if a peer is a good candidate for delegations. This allows to assign tasks only to nodes that we should meet again in the future, so they can return back to us the result of the task.
 \\
 
-In this chapter we describe the protocol from a top-down prospective, showing some details about modules which compose M2MShare architecture. 
+In this chapter we describe the protocol from a top-down prospective, showing some details about modules (\figurename~\ref{fig:stack-M2MShare}) which compose M2MShare architecture. 
+
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics[scale=0.6]{3-m2mshare/img/stack.png}
+    \caption{M2MShare protocol stack. Blocks shown in gray are proprietary.\cite{articoloM2MShare}}    
+    \label{fig:stack-M2MShare}
+  \end{center}
+\end{figure}
 %
 %Mobility and low node density require a revision of networking protocols toward a delay tolerant approach. In this section we expose some operational details of M2MShare, the application we designed and implemented to demonstrate the opportunistic DTN approach in mobile to mobile multimedia content sharing.
 %
@@ -30,40 +38,40 @@ In this chapter we describe the protocol from a top-down prospective, showing so
 %We could say that we exploit social relations among users to determine possible task delegates. This is not a new approach as context and social relations are already studied in opportunistic data transmission. Yet, we utilize even unknown social relations by connecting users that have to pass by the same geographical location at the same time frequently enough. To assume that a candidate for task delegation could be met again in the future (so that she/he will be able to deliver contents possibly found), we use as an heuristic the history of previous encounters.
 
 \section{DTN module}
-DTNs are particularly useful in situations with intermittent connectivity and there are long and unpredictable intervals in contacts between nodes. Routing protocols developed for and used in the Internet are not suitable for adoption in mobile networks, where every node has a limited connection range and high mobility. These factors make difficult, and sometime impossible, to establish an end-to-end connection between source and destination nodes in a communication.
+DTNs are particularly useful in situations with intermittent connectivity and long and unpredictable intervals in contacts between nodes. Routing protocols developed for and used in the Internet are not suitable for adoption in mobile networks, where every node has a limited connection range and high mobility. These factors make difficult, and sometime impossible, to establish an end-to-end connection between source and destination nodes.
 \\
 
-In a Peer to Peer application is also fundamental to have an high availability of shared files, to ensure the recovery of a file searched. This implies the needs for a high number of simultaneously connected nodes, which we saw is not so obvious in a mobile network.
+In a Peer to Peer application it is also fundamental to have an high availability of shared files, to ensure the recovery of a searched file. This implies the need for a high number of simultaneously connected nodes, which we saw is not so obvious in a mobile network.
 \\
 
 To overcome these limitations, M2MShare uses an asynchronous communication strategy in which a \textit{client} peer, which is in search for a file, can delegate to another peer, a \textit{servant}, the task of search for the file and return it to the requester. Delegation system is at the root of M2MShare. This permits to widely extend the area where to look for the searched file, in a network composed by spread and poorly connected nodes.
 \\
 
-Before proceeding further it can be useful to explain in what a delegation action consists. A delegation is the action performed by a client peer which \textit{asks} to a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed by several keywords, for which the client want to receive a list of files which satisfies it. To accomplish this task, the servant schedules it for a later execution and searches between shared files in encountered nodes for some file satisfying the query. When the pending task is completed, the servant creates a new task type, a forward task. The objective of this kind of task is to return the output of a pending task to the requester node.
+Before proceeding further it can be useful to explain in what a delegation action consists. A delegation is the action performed by a client peer which \textit{asks} to a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed by several keywords, for which the client wants to receive a list of files which satisfies it. To accomplish this task, the servant schedules it for a later execution and searches between shared files in encountered nodes for some file satisfying the query. When the pending task is completed, the servant creates a new task type, a forward task. The objective of this kind of task is to return the output of a pending task to the requester node.
 \\
-One task can be delegated by the client to several servant peers and this allow to use nodes mobility as an advantage instead of a negative factor. A client node can virtually enter in contact range with nodes that it would instead never meet. 
+One task can be delegated by the client to several servant peers and this allow to use nodes mobility as an advantage instead of a negative factor. A client node can virtually enter in contact range with nodes that it would never meet instead. 
 \\
 
-All delegated task has also a Time To Live (TTL) value. If a delegated task is not completed and its result has not been returned to the client within its TTL value, the task expires and it is not scheduled again for execution in the servant.
+All delegated task has also a Time To Live (TTL) value. If a delegated task is not completed and its result has not been returned to the client within its TTL value the task expires, it is deleted and it is not scheduled again for execution in the servant.
 \\
 
 \subsection{Servant Election}
-The entire task life-cycle is done in an infrastructure-less environment, where routing path is dynamically created during execution. So it is important to choose wisely which peers can be elected as servants.
+The entire task life-cycle is done in an infrastructure-less environment, where routing paths are dynamically created during execution. So it is important to choose wisely which peers can be elected as servants.
 \\
 
 The simpler choice could be to delegate an unaccomplished task to every met node. This could not be a good strategy in servant election. Delegating a task to every met node would be very expensive in bandwidth usage and in energy consumption. These factors are very important in a mobile environment where nodes have limited energy autonomy. 
 \\
 
-A possible solution would be to analyse common interest between client and other peers. In \cite{socialNetworks} is shown a strategy for data diffusion in which a node share only some kind of data to another node, accordingly to their common interests and relationship. If the other peer is a friend it could be convenient to share data related to their common interests. If the other is not a friend node the client node should share data the most different from their common interests.
+A possible solution would be to analyse common interest between client and other peers. In \cite{socialNetworks} is shown a strategy for data diffusion in which a node share only some kind of data to another node, accordingly to their common interests and relationship. If the other peer is a friend it could be convenient to share data related to their common interests. If the other is not a friend node, the client node should share data the most different from their common interests.
 \\
 
-When the task has been delegated is then fundamental that its result is forwarded back to the client. Otherwise the delegation would be useless. M2MShare strategy is to elect as servants only nodes that we expect to meet again. As we will see in Section \ref{descrWDM}, related to Working Day Movement model, one person daily activities can highlight a repetitiveness in movements and met people. Spontaneous and temporary \textit{communities} are created by people which met between them regularly, e.g. colleagues which work in the same office, commuters which use the same transportation to reach their work place, etc.. ecc..
+When the task has been delegated is then fundamental that its result is forwarded back to the client. Otherwise the delegation would be useless. M2MShare strategy is to elect as servants only nodes that we expect to meet again. As we will see in Section \ref{descrWDM}, related to Working Day Movement model, one person daily activities can highlight a repetitiveness in movements and met people. Spontaneous and temporary \textit{communities} are created by people which met between them regularly, e.g. colleagues which work in the same office, commuters which use the same transportation to reach their work place, etc..
 \\
 
 M2MShare idea is that a frequently encountered person is a person that we will probably meet again and so it is a good candidate to servant election. To evaluate how frequently a node meet another node, M2MShare uses an active daemon called \textit{PresenceCollector}, described in Section \ref{descrPresenceCollector}. This daemon traces the number of encounters, scanning at regular intervals for other nodes in communication range. When the number of encounters with another node exceeds the value of a parameter called \textit{Frequency Threshold}, that node is elected as servant.
 \\
 
-The numbers of encounters with other peers are saved in a list with limited length. This limitation is adopted to guarantee a small memory usage. To allow each peer the possibility to serve as servant, a replacement strategy is adopted for entries in encounter list. When a peer is elected as servant, its entry is removed from the list. If a peer is not elected as a servant and its entry is in the list from a long time period then its removed from the list. The maximum time a peer can be in the list without being elected as servant is related to a value called \textit{Probation Window}. If the list is full and a new peer is encountered, its information is discarded. A new peer can enter in the list only when a slot is freed y the replacement strategy.
+The numbers of encounters with other peers are saved in a list with limited length. This limitation is adopted to guarantee a small memory usage. To allow each peer the possibility to serve as servant, a replacement strategy is adopted for entries in encounter list. When a peer is elected as servant, its entry is removed from the list. If a peer is not elected as a servant and its entry is in the list from a long time period, then it is removed from the list. The maximum time a peer can be in the list without being elected as servant is related to a value called \textit{Probation Window}. If the list is full and a new peer is encountered, its information is discarded. A new peer can enter in the list only when a slot is freed by the replacement strategy.
 
 \section{Search module}
 Before a user can choose what file to download from the network, is must know what files are shared by other users and find between them what it is looking for. Every peer in the network maintains a local repository of files shared with other M2MShare users. For every file are available informations about file name, dimension, position in local file system and an hash value that identifies univocally that file in the network.
@@ -72,11 +80,11 @@ Before a user can choose what file to download from the network, is must know wh
 There are two kinds of file queries: 
 
 \begin{description}
-\item[unique file query]: a single file is searched and a boolean answer (present / not present) is needed.
-\item[keyword query]: the user ask for a list of files satisfying some keyword included in the query.
+\item[Unique file query:] a single file is searched and a boolean answer (present / not present) is needed.
+\item[Keyword query:] the user asks for a list of files satisfying some keyword included in the query.
 \end{description}
 
-To satisfy a keyword query, M2MShare uses the Inverted index list strategy. Every shared file is indexed under a finite number of terms contained in the file description text and during a query execution the Search module looks in these terms for files suitable for the response.
+To satisfy a keyword query, M2MShare uses the Inverted Index List strategy. Every shared file is indexed under a finite number of terms contained in the file description text and during a query execution the Search module looks in these terms for files suitable for the response.
 
 
 \section{Transport module}
@@ -106,22 +114,22 @@ One of the highlights of M2MShare is task delegation. This is done by remotely c
 
 \section{Routing module}
 M2MShare uses this module for query routing, using a relay method borrowed from ORION \cite{orion}. In every node, a structure similar to ORION File Routing Table is used to store alternative paths to file shared in remote peers. The usage of this structure allows to keep file locations transparent to the requester node. From its point of view, all files are shared by in-reach area nodes, while these act as relay nodes during file transfers.\\
-A flood control mechanism is implemented using a technique borrowed from AODV \cite{aodv}. Query requests are uniquely identified and every node maintains an \textit{id} which is incremented on each issued broadcast. When it receive a new requests it checks if the request has been already forwarded, before broadcasting it.
+A flood control mechanism is implemented using a technique borrowed from AODV \cite{aodv}. Query requests are uniquely identified and every node maintains an \textit{id} which is incremented on each issued broadcast. When a node receives a new requests, it checks if the request has been already forwarded, before broadcasting it.
 
 
 
-\section{Modulo MAC}
+\section{MAC module}
 \label{descrPresenceCollector}
 We saw that a node must be met several times before to be elected as servant. To evaluate if a peer is a frequent encountered peer and eventually elect it as a servant, M2MShare uses a daemon called \textit{PresenceCollector}, which periodically scans the network for in-reach area devices. 
 \\
 
-Scan frequency is a very important parameter. It influences energy consumption and probability for another peer to be elected as a servant. The presence collector is always active, so an high scan frequency is not reasonable because it results in a network bandwidth and device energy waste. Also, an high frequency results in a high probability for a node to be elected as a servant: the number of encounters raise and the \textit{frequency threshold} is exceeded faster than with a low scan frequency value.
+Scan frequency is a very important parameter. It influences energy consumption and probability for another peer to be elected as a servant. The presence collector is always active, so an high scan frequency is not reasonable because it results in a network bandwidth and device energy waste. Also, an high frequency results in a high probability for a node to be elected as a servant: the number of encounters raise and the \textit{Frequency Threshold} is exceeded faster than with a low scan frequency value.
 \\
 
-While scan frequency can be set by the user, additional efforts have been done to automatically tune the \textit{Frequency Threshold} value. This is the other parameter that affects the probability  for a node to be elected as a servant: few encounters are enough, with a low value, to exceed the threshold value. If the value is too low, we could delegate task that we would never meet again, resulting in never forwarded results of the task. On the other hand, with a high \textit{Frequency Threshold} value, many promising peers could be rejected from being servants.
+While scan frequency can be set by the user, additional efforts have been done to automatically tune the \textit{Frequency Threshold} value. This is the other parameter that affects the probability  for a node to be elected as a servant: few encounters are enough, with a low value, to exceed the threshold value. If the value is too low, we could delegate a task to peers that we would never meet again, resulting in never forwarded results of the task. On the other hand, with a high \textit{Frequency Threshold} value, many promising peers could be rejected from being elected as servants.
 \\
 
-At the beginning of every day, M2MShare uses a tuning algorithm which adapts the \textit{Frequency Threshold} value according to what observed during the previous day. Considered values are the number of elected peers and \textit{Probation Window} value. A peer is considered frequently encountered if it is met a number of times great than the \textit{Frequency Threshold} in a period as long as the \textit{Probation Window} value. After this period, if a peer has not been yet elected, it is removed from the encounter list. If \textit{Probation Window} value is high and few nodes are elected, \textit{Frequency Threshold} is lowered, making more probable for a node to be elected. On the other hand, if the number of elected peers is too high, \textit{Probation Window} is lowered. When its value reaches the minimum value (set to 2 days), \textit{Frequency Threshold} is raised.
+At the beginning of every day, M2MShare uses a tuning algorithm which adapts the \textit{Frequency Threshold} value according to what observed during the previous day. Considered values are the number of elected peers and \textit{Probation Window} value. A peer is considered frequently encountered if it is met a number of times greater than the \textit{Frequency Threshold} in a period as long as the \textit{Probation Window} value. After this period, if a peer has not been yet elected, it is removed from the encounter list. If \textit{Probation Window} value is high and few nodes are elected, \textit{Frequency Threshold} is lowered, making more probable for a node to be elected. On the other hand, if the number of elected peers is too high, \textit{Probation Window} is lowered. When its value reaches the minimum value (set to 2 days), \textit{Frequency Threshold} is raised.
 
 
 \section{File Division Strategy}
@@ -132,7 +140,7 @@ Bluetooth file transfer applications usually adopt a client-server paradigm wher
 In a mobile environment such as the one where M2MShare operates, disconnections between nodes are very frequent. The standard file transfer strategy is not suitable for this environment, because pairing for all the duration of data exchange could be very difficult. We must remember that M2MShare should be entirely user transparent, so the user should not worry about file transfers. Data exchange should run automatically whenever possible and the transfer strategy should adopt transfer resume.
 \\
 
-M2MShare provide a file division strategy where files are divided in intervals of variable size. The file is seen as map of non overlapping intervals of variable length that need to be downloaded. So, when a node asks another node for a file, it asks only not yet downloaded intervals. If a disconnection occurs, the download can restart downloading the remaining not yet downloaded intervals.
+M2MShare provide a file division strategy where files are divided in intervals of variable size. The file is seen as a map of non overlapping intervals of variable length that need to be downloaded. So, when a node asks another node for a file, it asks only not yet downloaded intervals. If a disconnection occurs, the download can restart with the remaining not yet downloaded intervals.
 \\
 
 One of the characteristics of this file division strategy is the starting point of file transfers. If every file transfer starts from the beginning of the file, with several file possessors in reach area, there would be overlapping downloaded intervals downloaded. Overlapping data is of no use, creating redundancy, and M2MShare file division strategy tries to minimize that redundancy. This is done by assigning a different \textit{download map} to each file possessor. A download map is a list of not yet downloaded intervals, with a starting point which identifies the interval from where to initiate fetching data. The starting point is calculated considering the number of intervals the file is composed of, the file length and the index of the next interval to be fetched. For additional details refer to \cite{tesiarmir}.
