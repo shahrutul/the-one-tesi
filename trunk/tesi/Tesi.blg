@@ -3,58 +3,59 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Tesi.aux
 The style file: unsrt.bst
 Database file #1: bibliografia.bib
-Repeated entry---line 125 of file bibliografia.bib
+Repeated entry---line 131 of file bibliografia.bib
  : @inproceedings{rwpharmful
  :                          ,
 I'm skipping whatever remains of this entry
 Name 1 in "A. Klemm, C. Lindemann, and O. Waldhorst" has a comma at the end for entry orion
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in orion
+Warning--empty journal in articoloM2MShare
 Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "I.Rhee, M.Shin, S.Hong, K.Lee, S.Chong" for entry humanmobility
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in humanmobility
 Warning--empty year in humanmobility
-You've used 19 entries,
+You've used 21 entries,
             1791 wiz_defined-function locations,
-            570 strings with 7503 characters,
-and the built_in function-call counts, 4852 in all, are:
-= -- 483
-> -- 177
+            583 strings with 7983 characters,
+and the built_in function-call counts, 5302 in all, are:
+= -- 518
+> -- 204
 < -- 9
-+ -- 68
-- -- 49
-* -- 275
-:= -- 730
-add.period$ -- 65
-call.type$ -- 19
-change.case$ -- 20
++ -- 78
+- -- 57
+* -- 309
+:= -- 808
+add.period$ -- 72
+call.type$ -- 21
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 251
-empty$ -- 466
-format.name$ -- 49
-if$ -- 1146
+cite$ -- 25
+duplicate$ -- 268
+empty$ -- 506
+format.name$ -- 57
+if$ -- 1241
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 17
-newline$ -- 97
-num.names$ -- 19
-pop$ -- 71
+int.to.str$ -- 21
+missing$ -- 19
+newline$ -- 108
+num.names$ -- 21
+pop$ -- 76
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 137
+skip$ -- 143
 stack$ -- 0
-substring$ -- 273
-swap$ -- 82
+substring$ -- 300
+swap$ -- 83
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 47
-width$ -- 21
-write$ -- 227
+warning$ -- 4
+while$ -- 50
+width$ -- 23
+write$ -- 249
 (There were 4 error messages)

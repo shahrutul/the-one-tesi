@@ -12,7 +12,7 @@
 
 
 %: ----------------------- contents from here ------------------------
-In this chapter we describe our implementation of M2MShare in the ONE simulator, which is described in Chapter \ref{simulatore}. Before proceeding further, we show some features we added the the simulator, in order to completely emulate M2MShare behaviour.
+In this chapter we describe our implementation of M2MShare in the ONE simulator, which is described in Chapter \ref{simulatore}. We illustrate some features we added the the simulator, in order to completely emulate M2MShare behaviour and to gather reports data from the simulations we executed.
   
 
 \section{ONE additions}
@@ -20,7 +20,7 @@ As we saw in Chapter \ref{m2mshare}, M2MShare is a peer-to-peer protocol which a
 
 
 \subsection{File Management}
-The first step is to add to nodes the capability of manage files. To this purpose, we add to every node a file system, in which to save files to share with a P2P application. 
+The first step is to add the capability of manage files to nodes. To this purpose, we add to every node a file system, in which to save files to share with other nodes using a P2P application. 
 %Node's capabilities are described in class named \textit{DTNHost}
 
 
@@ -49,7 +49,7 @@ The file system presence in a simulated node is optional. For instance, a node e
 
 \paragraph{DTNFileGenerator}
 \label{fileGeneratorImplementazione}
-In a P2P network, shared files are distributed among peers and a user can search between them for the file it is looking for. To emulate the initial files distribution, we implemented a generator which create and distribute files between nodes at the beginning of the simulation. This generator is initialized using configuration files. Each of them can include several \textit{DTNFileCreationRequest}. These requests describe the files to create and how to distribute them among simulated nodes. During simulation's configuration is possible to set:
+In a P2P network, shared files are distributed among peers and a user can search between them for the file it is looking for. To emulate the initial files distribution, we implemented a generator which creates and distributes files between nodes at the beginning of the simulation. This generator is initialized using configuration files. Each of them can include several \textit{DTNFileCreationRequest}. These requests describe the files to create and how to distribute them among simulated nodes. During simulation's configuration is possible to set:
 
 \begin{itemize}
 \item type of file distribution 
@@ -70,6 +70,7 @@ Files are distributed only among nodes which have a file system, that is nodes i
 The following are some example of input files used to create and distribute \textit{DTNFiles}, using the \textit{DTNFileGenerator}.
 
 \begin{center}
+%\framebox[8cm]{\textbf{A	mySong.mp3	3.5M	50}}
 \textbf{A	mySong.mp3	3.5M	50}
 \end{center}
 Indicates to create a \textit{DTNFile} with size 3,5 MB named "mySong.mp3". The file is copied 50 times and distributed with equal probability among all users with \textit{fileCapability = true}.
@@ -94,7 +95,7 @@ Indicates to create a \textit{DTNFile} with size 650 kB named "ebook.pdf". The f
 \\
 
 We saw in Section \ref{randomness} that an important characteristic of simulations is repeatability. This is fundamental to verify correctness of data and results of completed simulations, or to repeat the simulation changing only few parameters over the total configuration, leaving constant the simulated world description. This applies also to randomness included in \textit{DTNFileGenerator}.\\
-To guarantee that repeating one simulation with the same values same results are achieved, we use a strategy similar to the one adopted by movement models. \textit{DTNFileGenerator} is initialized with a configuration parameter related to \textit{random number generator} seed. If a simulation is repeated several times with the same random seed, files are distributed among the same set of nodes, at the beginning of the simulation.
+To guarantee that repeating one simulation with the same values, same results are achieved, we use a strategy similar to the one adopted by movement models. \textit{DTNFileGenerator} is initialized with a configuration parameter related to \textit{random number generator} seed. If a simulation is repeated several times with the same random seed, files are distributed among the same subset of nodes, at the beginning of the simulation.
 
 
 %Per garantire che, effettuando più simulazioni utilizzando la medesima configurazione, i files vengano distribuiti agli stessi nodi, è stata adottata la stessa tecnica utilizzata dai modelli di movimento che estendono la classe \textit{MovementModel}. In quel caso i moduli relativi al movimento vengono inizializzati utilizzando un parametro di configurazione relativo al seed per il \textit{random number generator}. Nel caso di valori di configurazione e seed iniziale mantenuti immutati, i nodi si muovono nello stesso modo anche ripetendo più volte la simulazione: vengono infatti generati gli stessi valori relativi a destinazioni, velocità  e tempi di attesa per i nodi.
@@ -112,11 +113,11 @@ A \textit{FileRequest} represents the user request for a particular file. In eve
 All \textit{FileRequests} are read by the \textit{M2MShareFileRequestReader} at the beginning of every simulation, then during the simulation, when simulated time become equal to the \textit{creationTime} of the \textit{FileRequests}, that is inserted into the correct queue of the node corresponding to the address included in the request.
 
 \paragraph{M2MShareFileRequestReader}
-It is the entity responsible for reading the \textit{FileRequests} at the beginning and to dispatch the requests during the simulation, when the correct time comes. It implements the interface \textit{EventQueue}, and so it provides the method \textit{nextEventsTime()}, which returns when the next request will be ready to be inserted in the corresponding node, and the method \textit{nextEvent()}, which returns the next request that will become active.
+It is the entity responsible for reading the \textit{FileRequests} at the beginning and to dispatch the requests during the simulation, when the correct time comes. It implements the interface \textit{EventQueue}, and so it provides the method \textit{nextEventsTime()}, which returns the instant when the next request will be ready to be inserted in the corresponding node, and the method \textit{nextEvent()}, which returns the next request that will become active.
 
 
 \subsection{GUI}
-The GUI of THE\_ONE has been modified to reflect the addition of file simulation support to the simulator. The detail window related to a node (\figurename~\ref{implRouting-Info}), show using the button \"Routing info\" now contains informations about the file system of the node, including all the complete files owned and the percent of VirtualFiles already downloaded. 
+The GUI of the ONE simulator has been modified to reflect the addition of file simulation support to the simulator. The detail window related to a node (\figurename~\ref{implRouting-Info}), shown using the button \textquotedblleft Routing info\textquotedblright \ now contains informations about the file system of the node, including all the complete files owned and the percent of VirtualFiles already downloaded. 
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=0.6]{5-simulatore/img/Routing-Info.png}
@@ -126,18 +127,18 @@ The GUI of THE\_ONE has been modified to reflect the addition of file simulation
 \end{figure}
 
 \subsection{Reports}
-A fundamental feature related to simulations is the capability of gathering data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in THE\_ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
+A fundamental feature related to simulations is the capability of gathering data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in the ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
 The main objectives of our simulations was to gather informations about the efficiency of delegations and file division strategies, and to do so we collected data about several aspects for every simulation. We now describe the report modules created to the gathering of data during the simulations, specifying the type and mode of data collection used.
 
 \paragraph{FileGatheringLog}
-The first report module is a log report module, that store the selected events in a list, saving the to file one event per line. This module is responsible to listen for the following events:
+The first report module is a log report module, that store the selected events in a list, saving it to file, one event per line. This module is responsible to listen for the following events:
 \begin{itemize}
 \item \textbf{VirtualFile creation:} a new \textit{VirtualFile} has been created due to the execution of a \textit{FileRequest} in a node. It emulate a user requesting a new file to be found and downloaded.
 \item \textbf{DTNPendingDownload creation:} a new \textit{DTNPendingDownload} has been created in a servant peer due to the delegation of a task from a client node.
-\item \textbf{DTNPendingDownload completion:} a \textit{DTNPendingDownload} has been completed in a servant peer (the servant has downloaded all the requested file interval subject of the delegated task). Consequently a \textit{DTNDownloadFWD} has been created and enqueue in the servant.
-\item \textbf{DTNPendingDownload expiration:} a \textit{DTNPendingDownload} has expired in a servant peer before it was completed (the servant has not downloaded all the requested file interval subject of the delegated task).
-\item \textbf{DTNDownloadFWD expiration:} a \textit{DTNDownloadFWD} has expired in a servant peer before it was completed (the servant has not forwarded all the requested file interval subject of the delegated task to the requester node).
-\item \textbf{DTNDownloadFWD completion:} a \textit{DTNDownloadFWD} has been completed in a servant peer (the servant has forwarded all the requested file interval subject of the delegated task to the requester node).
+\item \textbf{DTNPendingDownload completion:} a \textit{DTNPendingDownload} has been completed in a servant peer (the servant has downloaded all the requested file interval subject of the delegated task). Consequently a \textit{DTNDownloadFWD} has been created and enqueued in the servant.
+\item \textbf{DTNPendingDownload expiration:} a \textit{DTNPendingDownload} has expired in a servant peer before it was completed (the servant has not downloaded all the requested file intervals subject of the delegated task).
+\item \textbf{DTNDownloadFWD expiration:} a \textit{DTNDownloadFWD} has expired in a servant peer before it was completed (the servant has not forwarded all the requested file intervals subject of the delegated task to the requester node).
+\item \textbf{DTNDownloadFWD completion:} a \textit{DTNDownloadFWD} has been completed in a servant peer (the servant has forwarded all the requested file intervals subject of the delegated task to the requester node).
 \end{itemize}
 
 Every event is saved in the following format:
@@ -149,7 +150,7 @@ The following are some examples:
 \begin{center}
 \textbf{15538.0000	PendingDownload	A32 to E476}
 \end{center}
-Is referred to the task delegation from the node A32 to the node E467, 15538 seconds after the start of the simulation.
+Is referred to the task delegation from the node A32 to the node E467, 15538 seconds after the beginning of the simulation.
 \\
 
 \begin{center}
@@ -165,7 +166,7 @@ Is referred to the expiration of the \textit{DownloadFWD} in the servant node F5
 \\
 
 \paragraph{DataTransferLog}
-\textit{DataTransferLog} module is another log module, which keep track of events regarding data transfer between nodes in the simulation. These can occur during the execution of several activities:
+\textit{DataTransferLog} module is another log module, which keeps track of events regarding data transfer between nodes in the simulation. These can occur during the execution of several activities:
 \begin{itemize}
 \item \textbf{VirtualFile:} when the requester peer is in range with a node carrying the searched file, and the data transfer take place. Multiple data transfer events can be generated, if there are several peers with the searched file in range.
 \item \textbf{DTNPendingDownload:} when a servant peer downloads, from a node carrying the searched file, some requested intervals contained in the delegated task.
@@ -179,7 +180,7 @@ e.g.
 \begin{center}
 \textbf{98829.0000	G714	A17	2750001}
 \end{center}
-Is referred to the data transfer from node G714 to node A17, 98829 seconds after the start of the simulation.
+Is referred to the data transfer from node G714 to node A17, 98829 seconds after the start of the simulation. 2750001 bytes have been transferred in this event.
 \\
 
 \paragraph{FileGatheringReport}
