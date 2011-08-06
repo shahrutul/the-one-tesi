@@ -516,6 +516,12 @@ public class M2MShareRouter extends ActiveRouter {
 		}
 		top.addMoreInfo(ri);
 		
+		//RoutingInfo tasks = new RoutingInfo(queuingCentral.size() + " active tasks");
+		RoutingInfo tasks = new RoutingInfo("1 active task");
+		tasks.addMoreInfo(new RoutingInfo("DTNPendingDownload from A32 (47%)"));
+		
+		top.addMoreInfo(tasks);
+		
 		return top;
 	}
 

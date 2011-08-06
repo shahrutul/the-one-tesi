@@ -65,7 +65,7 @@ public class QueuingCentral {
 		for(int i=0; i<6; i++){
 			nrOfActivities += getQueueSize(i);
 		}
-		return 0;
+		return nrOfActivities;
 	}
 
 

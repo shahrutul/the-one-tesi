@@ -24,7 +24,7 @@
 
 \oddsidemargin=30pt \evensidemargin=20pt	%impostano i margini
 
-\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}        
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si DTN-Pen-ding-Down-lo-ad}        
 %serve per la sillabazione: tra parentesi vanno inserite come nell'esempio le parole che latex non riesce a tagliare nel modo giusto andando a capo.
 
 \pagestyle{fancy}\addtolength{\headwidth}{20pt}		%comandi per l'impostazione
@@ -45,6 +45,15 @@ filecolor=black,%
 linkcolor=black,%
 urlcolor=black,%
 pdftex}
+
+%ambiente personalizzato per il codice sorgente
+\newenvironment{mylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\newenvironment{mytinylisting}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\tiny\bfseries}
+{\end{list}}
 												
 
 \begin{document} 	%inizio del documento

@@ -43,13 +43,12 @@
 \contentsline {paragraph}{FileGatheringLog}{41}{section*.20}
 \contentsline {paragraph}{DataTransferLog}{43}{section*.21}
 \contentsline {paragraph}{FileGatheringReport}{43}{section*.22}
-\contentsline {paragraph}{DelegationGraphvizReport}{44}{section*.23}
-\contentsline {section}{\numberline {6.2}M2MShare Implementation}{45}{section.6.2}
-\contentsline {paragraph}{M2MShareRouter}{45}{section*.25}
-\contentsline {paragraph}{PresenceCollector}{47}{section*.26}
-\contentsline {paragraph}{Activities}{47}{section*.27}
-\contentsline {paragraph}{File Division Strategies}{48}{section*.28}
-\contentsline {paragraph}{Data Transfer}{48}{section*.29}
+\contentsline {section}{\numberline {6.2}M2MShare Implementation}{44}{section.6.2}
+\contentsline {paragraph}{M2MShareRouter}{44}{section*.23}
+\contentsline {paragraph}{PresenceCollector}{46}{section*.24}
+\contentsline {paragraph}{Activities}{46}{section*.25}
+\contentsline {paragraph}{File Division Strategies}{47}{section*.26}
+\contentsline {paragraph}{Data Transfer}{47}{section*.27}
 \contentsline {chapter}{\numberline {7}Simulations and results}{49}{chapter.7}
 \contentsline {section}{\numberline {7.1}Simulations Scenario}{50}{section.7.1}
 \contentsline {section}{\numberline {7.2}Single-hop delegation efficiency}{52}{section.7.2}
@@ -62,5 +61,5 @@
 \contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{78}{section.7.4}
 \contentsline {chapter}{\numberline {8}Conclusioni}{83}{chapter.8}
 \contentsline {chapter}{References}{85}{chapter.8}
-\contentsline {chapter}{Figures Index}{90}{chapter*.60}
-\contentsline {chapter}{Tables Index}{91}{chapter*.61}
+\contentsline {chapter}{Figures Index}{90}{chapter*.58}
+\contentsline {chapter}{Tables Index}{91}{chapter*.59}
