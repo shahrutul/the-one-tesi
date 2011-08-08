@@ -44,4 +44,5 @@ gnuplot graficoDelegheAttive_multiHop_100perc.gp
 gnuplot graficoTempiVF_MultiHop.gp
 gnuplot graficoMapCoveredMultiHopPerc.gp
 
+cp ./*.eps ../../../../tesi/grafici/
 

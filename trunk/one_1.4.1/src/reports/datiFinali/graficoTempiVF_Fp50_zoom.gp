@@ -1,4 +1,5 @@
-set term post eps noenhanced monochrome dashed
+#set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'tempiVF_Fp50_zoom.eps'
 
 #set boxwidth 0.9 absolute
@@ -24,6 +25,6 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiTempiVF_Fp50' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2, '' u 4 ti col lt 3
+plot 'datiTempiVF_Fp50'  using 2:xtic(1) ti col lc rgb "blue" lt 1  lw 3, '' u 3 ti col lc rgb "red" lt 2  lw 3, '' u 4 ti col  ls 8 lc rgb "dark-green" lt 3  lw 3
 
 #pause -1 "Hit any key to continue"

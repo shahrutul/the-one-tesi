@@ -14,6 +14,6 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiDelegheTotali.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fs pattern 5
+plot 'datiDelegheTotali.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fc rgb "dark-green" fs pattern 7
 
 #pause -1 "Hit any key to continue"

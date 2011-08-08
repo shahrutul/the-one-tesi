@@ -24,6 +24,6 @@ set obj rect from 96, graph 0 to 120, graph 1 behind
 set obj rect from 144, graph 0 to 168, graph 1 behind
 
 #plot 'datiRidondanzaDati.dat' using 2:xtic(5) ti col, '' u 3 ti col, '' u 4 ti col
-plot 'datiDelegheAttiveMultiHop.dat' using 11 ti "M2MShare_1_hop" lw 3, '' u 12 ti "M2MShare_2_hop" lw 3, '' u 13 ti "M2MShare_3_hop" lw 3
+plot 'datiDelegheAttiveMultiHop.dat' using 11 ti "M2MShare_1_hop" lw 3, '' u 12 ti "M2MShare_2_hop" ls 8 lc rgb "dark-green"  lw 3, '' u 13 ti "M2MShare_3_hop" lw 3
 
 #pause -1 "Hit any key to continue"

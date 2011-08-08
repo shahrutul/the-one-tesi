@@ -1,9 +1,11 @@
-%!PS-Adobe-2.0 EPSF-2.0
-%%Title: dataDFS_3MB_zoom.eps
+%!PS-Adobe-2.0
+%%Title: test.eps
 %%Creator: gnuplot 4.4 patchlevel 3
-%%CreationDate: Mon Aug  8 17:27:22 2011
+%%CreationDate: Mon Aug  8 16:03:37 2011
 %%DocumentFonts: (atend)
-%%BoundingBox: 50 50 410 302
+%%BoundingBox: 50 50 554 770
+%%Orientation: Landscape
+%%Pages: (atend)
 %%EndComments
 %%BeginProlog
 /gnudict 256 dict def
@@ -12,11 +14,11 @@ gnudict begin
 % The following true/false flags may be edited by hand if desired.
 % The unit line width and grayscale image gamma correction may also be changed.
 %
-/Color true def
+/Color false def
 /Blacktext false def
 /Solid false def
 /Dashlength 1 def
-/Landscape false def
+/Landscape true def
 /Level1 false def
 /Rounded false def
 /ClipToBoundingBox false def
@@ -44,19 +46,19 @@ systemdict /pdfmark known not {
   userdict /pdfmark systemdict /cleartomark get put
 } if
 SDict begin [
-  /Title (dataDFS_3MB_zoom.eps)
+  /Title (test.eps)
   /Subject (gnuplot plot)
   /Creator (gnuplot 4.4 patchlevel 3)
   /Author (daniele)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Mon Aug  8 17:27:22 2011)
+  /CreationDate (Mon Aug  8 16:03:37 2011)
   /DOCINFO pdfmark
 end
 } ifelse
 /doclip {
   ClipToBoundingBox {
-    newpath 50 50 moveto 410 50 lineto 410 302 lineto 50 302 lineto closepath
+    newpath 50 50 moveto 554 50 lineto 554 770 lineto 50 770 lineto closepath
     clip
   } if
 } def
@@ -433,268 +435,553 @@ Level1 {Level1PatternFill} {Level2PatternFill} ifelse
 /Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
 dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
 currentdict end definefont pop
+/MFshow {
+   { dup 5 get 3 ge
+     { 5 get 3 eq {gsave} {grestore} ifelse }
+     {dup dup 0 get findfont exch 1 get scalefont setfont
+     [ currentpoint ] exch dup 2 get 0 exch R dup 5 get 2 ne {dup dup 6
+     get exch 4 get {Gshow} {stringwidth pop 0 R} ifelse }if dup 5 get 0 eq
+     {dup 3 get {2 get neg 0 exch R pop} {pop aload pop M} ifelse} {dup 5
+     get 1 eq {dup 2 get exch dup 3 get exch 6 get stringwidth pop -2 div
+     dup 0 R} {dup 6 get stringwidth pop -2 div 0 R 6 get
+     show 2 index {aload pop M neg 3 -1 roll neg R pop pop} {pop pop pop
+     pop aload pop M} ifelse }ifelse }ifelse }
+     ifelse }
+   forall} def
+/Gswidth {dup type /stringtype eq {stringwidth} {pop (n) stringwidth} ifelse} def
+/MFwidth {0 exch { dup 5 get 3 ge { 5 get 3 eq { 0 } { pop } ifelse }
+ {dup 3 get{dup dup 0 get findfont exch 1 get scalefont setfont
+     6 get Gswidth pop add} {pop} ifelse} ifelse} forall} def
+/MLshow { currentpoint stroke M
+  0 exch R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MRshow { currentpoint stroke M
+  exch dup MFwidth neg 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MCshow { currentpoint stroke M
+  exch dup MFwidth -2 div 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/XYsave    { [( ) 1 2 true false 3 ()] } bind def
+/XYrestore { [( ) 1 2 true false 4 ()] } bind def
 end
 %%EndProlog
+%%Page: 1 1
 gnudict begin
 gsave
 doclip
 50 50 translate
-0.050 0.050 scale
+0.100 0.100 scale
+90 rotate
+0 -5040 translate
 0 setgray
 newpath
 (Helvetica) findfont 140 scalefont setfont
 1.000 UL
 LTb
-1.000 UL
-LTa
-686 555 M
-6261 0 V
+0 0 M
+7199 0 L
+0 5039 V
+0 5039 L
+0 0 L
 stroke
+LT0
+168 4970 M
+[ [(Helvetica) 140.0 0.0 true true 0 (postscript  terminal test)]
+] -46.7 MLshow
 LTb
-686 555 M
-63 0 V
-6198 0 R
--63 0 V
-602 555 M
-( 0) Rshow
-1.000 UL
-LTb
-1.000 UL
 LTa
-686 1362 M
-6261 0 V
+3600 0 M
+0 5039 V
+0 2520 M
+7199 0 V
 stroke
-LTb
-686 1362 M
-63 0 V
-6198 0 R
--63 0 V
--6282 0 R
-( 100) Rshow
-1.000 UL
-LTb
-1.000 UL
-LTa
-686 2169 M
-6261 0 V
+LT3
+2760 2590 M
+1680 0 V
+0 -140 V
+-1680 0 V
+0 140 V
 stroke
+2760 2520 M
+[ [(Helvetica) 140.0 0.0 true true 0 (12345678901234567890)]
+] -46.7 MLshow
+2760 2715 M
+[ [(Helvetica) 140.0 0.0 true true 0 (test of character width:)]
+] -46.7 MLshow
 LTb
-686 2169 M
-63 0 V
-6198 0 R
--63 0 V
--6282 0 R
-( 200) Rshow
-1.000 UL
-LTb
-1.000 UL
-LTa
-686 2977 M
-6261 0 V
-stroke
-LTb
-686 2977 M
-63 0 V
-6198 0 R
--63 0 V
--6282 0 R
-( 300) Rshow
-1.000 UL
-LTb
-1.000 UL
-LTa
-686 3784 M
-6261 0 V
-stroke
-LTb
-686 3784 M
-63 0 V
-6198 0 R
--63 0 V
--6282 0 R
-( 400) Rshow
-1.000 UL
-LTb
-1.000 UL
-LTa
-686 4591 M
-6261 0 V
-stroke
-LTb
-686 4591 M
-63 0 V
-6198 0 R
--63 0 V
--6282 0 R
-( 500) Rshow
-1.000 UL
-LTb
-2251 555 M
-0 63 V
-0 -147 R
-currentpoint gsave translate -45 rotate 0 0 M
-(Average) Lshow
-grestore
-1.000 UL
-LTb
-3817 555 M
-0 63 V
-0 -147 R
-currentpoint gsave translate -45 rotate 0 0 M
-(Min) Lshow
-grestore
-1.000 UL
-LTb
-5382 555 M
-0 63 V
-0 -147 R
-currentpoint gsave translate -45 rotate 0 0 M
-(Max) Lshow
-grestore
-1.000 UL
-LTb
-1.000 UL
-LTb
-686 4591 N
-686 555 L
-6261 0 V
-0 4036 V
--6261 0 V
-Z stroke
-LCb setrgbcolor
-112 2573 M
+3600 2016 M
+[ [(Helvetica) 140.0 0.0 true true 0 (Enhanced text:   )]
+[(Helvetica) 140.0 0.0 true true 0 (x)]
+XYsave
+[(Helvetica) 112.0 -42.0 true true 0 (0)]
+XYrestore
+[(Helvetica) 112.0 70.0 true true 0 (n+1)]
+] -46.7 MLshow
+3600 3360 M
+(left justified) Lshow
+3600 3220 M
+(centre+d text) Cshow
+3600 3080 M
+(right justified) Rshow
+LT1
+140 2520 M
 currentpoint gsave translate -270 rotate 0 0 M
-(Total Data \(MB\)) Cshow
+(rotated ce+ntred text) Cshow
+grestore
+420 2520 M
+currentpoint gsave translate 45 rotate 0 0 M
+( rotated by +45 deg) Lshow
+grestore
+280 2520 M
+currentpoint gsave translate -45 rotate 0 0 M
+( rotated by -45 deg) Lshow
 grestore
 LTb
+LT4
+3726 5039 M
+0 -62 V
+-126 -63 R
+63 0 V
+-147 -70 R
+(show ticscale) Rshow
+LTb
 1.000 UP
-1.000 UL
-LTb
-% Begin plot #1
+6633 4900 M
+(-1) Rshow
+6717 4900 M
+252 0 V
+stroke
+LTa
+6633 4760 M
+(0) Rshow
+6717 4760 M
+252 0 V
+7084 4760 Pnt
+LT0
+6633 4620 M
+(1) Rshow
+6717 4620 M
+252 0 V
+7084 4620 Pls
+LT1
+6633 4480 M
+(2) Rshow
+6717 4480 M
+252 0 V
+7084 4480 Crs
+LT2
+6633 4340 M
+(3) Rshow
+6717 4340 M
+252 0 V
+7084 4340 Star
+LT3
+6633 4200 M
+(4) Rshow
+6717 4200 M
+252 0 V
+7084 4200 Box
+LT4
+6633 4060 M
+(5) Rshow
+6717 4060 M
+252 0 V
+7084 4060 BoxF
+LT5
+6633 3920 M
+(6) Rshow
+6717 3920 M
+252 0 V
+7084 3920 Circle
+LT6
+6633 3780 M
+(7) Rshow
+6717 3780 M
+252 0 V
+7084 3780 CircleF
+LT7
+6633 3640 M
+(8) Rshow
+6717 3640 M
+252 0 V
+7084 3640 TriU
+LT8
+6633 3500 M
+(9) Rshow
+6717 3500 M
+252 0 V
+7084 3500 TriUF
+LT0
+6633 3360 M
+(10) Rshow
+6717 3360 M
+252 0 V
+7084 3360 TriD
+LT1
+6633 3220 M
+(11) Rshow
+6717 3220 M
+252 0 V
+7084 3220 TriDF
+LT2
+6633 3080 M
+(12) Rshow
+6717 3080 M
+252 0 V
+7084 3080 Dia
+LT3
+6633 2940 M
+(13) Rshow
+6717 2940 M
+252 0 V
+7084 2940 DiaF
+LT4
+6633 2800 M
+(14) Rshow
+6717 2800 M
+252 0 V
+7084 2800 Pent
+LT5
+6633 2660 M
+(15) Rshow
+6717 2660 M
+252 0 V
+7084 2660 PentF
+LT6
+6633 2520 M
+(16) Rshow
+6717 2520 M
+252 0 V
+7084 2520 C0
+LT7
+6633 2380 M
+(17) Rshow
+6717 2380 M
+252 0 V
+7084 2380 C1
+LT8
+6633 2240 M
+(18) Rshow
+6717 2240 M
+252 0 V
+7084 2240 C2
+LT0
+6633 2100 M
+(19) Rshow
+6717 2100 M
+252 0 V
+7084 2100 C3
+LT1
+6633 1960 M
+(20) Rshow
+6717 1960 M
+252 0 V
+7084 1960 C4
+LT2
+6633 1820 M
+(21) Rshow
+6717 1820 M
+252 0 V
+7084 1820 C5
+LT3
+6633 1680 M
+(22) Rshow
+6717 1680 M
+252 0 V
+7084 1680 C6
+LT4
+6633 1540 M
+(23) Rshow
+6717 1540 M
+252 0 V
+7084 1540 C7
+LT5
+6633 1400 M
+(24) Rshow
+6717 1400 M
+252 0 V
+7084 1400 C8
+LT6
+6633 1260 M
+(25) Rshow
+6717 1260 M
+252 0 V
+7084 1260 C9
+LT7
+6633 1120 M
+(26) Rshow
+6717 1120 M
+252 0 V
+7084 1120 C10
+LT8
+6633 980 M
+(27) Rshow
+6717 980 M
+252 0 V
+7084 980 C11
+LT0
+6633 840 M
+(28) Rshow
+6717 840 M
+252 0 V
+7084 840 C12
+LT1
+6633 700 M
+(29) Rshow
+6717 700 M
+252 0 V
+7084 700 C13
+LT2
+6633 560 M
+(30) Rshow
+6717 560 M
+252 0 V
+7084 560 C14
+LT3
+6633 420 M
+(31) Rshow
+6717 420 M
+252 0 V
+7084 420 C15
+LT4
+6633 280 M
+(32) Rshow
+6717 280 M
+252 0 V
+7084 280 S0
 1.000 UL
 LT0
-LCb setrgbcolor
-2630 4907 M
-(M2MShare) Rshow
-LT0
-1 2714 4872 399 70 BoxColFill
-2714 4872 N
-399 0 V
-0 70 V
--399 0 V
-0 -70 V
-Z stroke
-LT0
-1 1954 555 283 308 BoxColFill
-1954 555 N
-0 307 V
-282 0 V
-0 -307 V
--282 0 V
-Z stroke
-1 3519 555 283 25 BoxColFill
-3519 555 N
-0 24 V
-282 0 V
-0 -24 V
--282 0 V
-Z stroke
-1 5084 555 283 1236 BoxColFill
-5084 555 N
-0 1235 V
-282 0 V
-0 -1235 V
--282 0 V
-Z stroke
-% End plot #1
-% Begin plot #2
+3020 1228 M
+121 32 V
+-121 32 V
+-320 -32 R
+441 0 V
+stroke
+gsave [] 0 setdash
+3020 1228 M
+121 32 V
+-121 32 V
+stroke
+grestore
+2380 1260 M
+0 32 V
+-121 -32 V
+121 -32 V
+0 32 V
+320 0 R
+-320 0 V
+stroke
+gsave [] 0 setdash
+2380 1260 M
+0 32 V
+-121 -32 V
+121 -32 V
+0 32 V
+stroke
+grestore
+gsave 2700 1580 N 32 0 V -32 121 V -32 -121 V 32 0 V 1 PolyFill
+2700 1580 M
+32 0 V
+-32 121 V
+-32 -121 V
+32 0 V
+0 -320 R
+0 320 V
+stroke
+gsave [] 0 setdash
+gsave 2700 1580 N 32 0 V -32 121 V -32 -121 V 32 0 V 1 PolyFill
+2700 1580 M
+32 0 V
+-32 121 V
+-32 -121 V
+32 0 V
+stroke
+grestore
+2700 940 M
+-32 0 V
+32 -121 V
+32 121 V
+-32 0 V
+0 320 R
+0 -320 V
+stroke
+gsave [] 0 setdash
+2700 940 M
+-32 0 V
+32 -121 V
+32 121 V
+-32 0 V
+stroke
+grestore
+2929 1489 M
+23 -23 V
+63 109 V
+-109 -63 V
+23 -23 V
+2471 1031 M
+23 -23 V
+2385 945 L
+63 109 V
+23 -23 V
+458 458 V
+stroke
+gsave [] 0 setdash
+2929 1489 M
+23 -23 V
+63 109 V
+-109 -63 V
+23 -23 V
+2471 1031 M
+23 -23 V
+2385 945 L
+63 109 V
+23 -23 V
+stroke
+grestore
+2385 1575 M
+315 -315 V
+86 -86 R
+-23 -23 V
+-63 109 V
+109 -63 V
+-23 -23 V
+3015 945 L
+stroke
+gsave [] 0 setdash
+2786 1174 M
+-23 -23 V
+-63 109 V
+109 -63 V
+-23 -23 V
+stroke
+grestore
 1.000 UL
 LTb
-0.00 0.39 0.00 C LCb setrgbcolor
-3869 4907 M
-(iM) Rshow
+539 201 M
+720 0 V
+(  lw 1) Lshow
+2.000 UL
 LTb
-0.00 0.39 0.00 C 3953 4872 399 70 40 45 2 PatternFill
-3953 4872 N
-399 0 V
-0 70 V
--399 0 V
-0 -70 V
-Z stroke
+539 402 M
+720 0 V
+(  lw 2) Lshow
+3.000 UL
 LTb
-0.00 0.39 0.00 C 2267 555 283 3246 40 45 2 PatternFill
-2267 555 N
-0 3245 V
-282 0 V
-0 -3245 V
--282 0 V
-Z stroke
-3832 555 283 25 40 45 2 PatternFill
-3832 555 N
-0 24 V
-282 0 V
-0 -24 V
--282 0 V
-Z stroke
-5397 555 283 4037 40 45 2 PatternFill
-5397 555 N
-0 4036 V
-282 0 V
-0 -4036 V
--282 0 V
-Z stroke
-% End plot #2
-% Begin plot #3
+539 603 M
+720 0 V
+(  lw 3) Lshow
+4.000 UL
+LTb
+539 804 M
+720 0 V
+(  lw 4) Lshow
+5.000 UL
+LTb
+539 1005 M
+720 0 V
+(  lw 5) Lshow
+6.000 UL
+LTb
+539 1206 M
+720 0 V
+(  lw 6) Lshow
+539 1407 M
+(linewidth) Lshow
 1.000 UL
+LTb
+4860 840 M
+(pattern fill) Cshow
+3600 0 180 630 BoxFill
+3600 0 M
+0 630 V
+180 0 V
+3780 0 L
+3600 0 L
+90 700 R
+( 0) Cshow
+3870 0 180 630 80 -45 1 PatternFill
+3870 0 M
+0 630 V
+180 0 V
+4050 0 L
+3870 0 L
+90 700 R
+( 1) Cshow
+4140 0 180 630 40 45 2 PatternFill
+4140 0 M
+0 630 V
+180 0 V
+4320 0 L
+4140 0 L
+90 700 R
+( 2) Cshow
+1 4410 0 180 630 BoxColFill
+4410 0 M
+0 630 V
+180 0 V
+4590 0 L
+4410 0 L
+90 700 R
+( 3) Cshow
+4680 0 180 630 80 45 0 PatternFill
+4680 0 M
+0 630 V
+180 0 V
+4860 0 L
+4680 0 L
+90 700 R
+( 4) Cshow
+4950 0 180 630 80 -45 0 PatternFill
+4950 0 M
+0 630 V
+180 0 V
+5130 0 L
+4950 0 L
+90 700 R
+( 5) Cshow
+5220 0 180 630 40 30 0 PatternFill
+5220 0 M
+0 630 V
+180 0 V
+5400 0 L
+5220 0 L
+90 700 R
+( 6) Cshow
+5490 0 180 630 40 -30 0 PatternFill
+5490 0 M
+0 630 V
+180 0 V
+5670 0 L
+5490 0 L
+90 700 R
+( 7) Cshow
+5760 0 180 630 BoxFill
+5760 0 M
+0 630 V
+180 0 V
+5940 0 L
+5760 0 L
+90 700 R
+( 8) Cshow
+6030 0 180 630 80 -45 1 PatternFill
+6030 0 M
+0 630 V
+180 0 V
+6210 0 L
+6030 0 L
+90 700 R
+( 9) Cshow
 LT2
-LCb setrgbcolor
-5108 4907 M
-(rM) Rshow
-LT2
-5192 4872 399 70 80 -45 0 PatternFill
-5192 4872 N
-399 0 V
-0 70 V
--399 0 V
-0 -70 V
-Z stroke
-LT2
-2580 555 283 3036 80 -45 0 PatternFill
-2580 555 N
-0 3035 V
-282 0 V
-0 -3035 V
--282 0 V
-Z stroke
-4145 555 283 25 80 -45 0 PatternFill
-4145 555 N
-0 24 V
-282 0 V
-0 -24 V
--282 0 V
-Z stroke
-5710 555 283 4037 80 -45 0 PatternFill
-5710 555 N
-0 4036 V
-282 0 V
-0 -4036 V
--282 0 V
-Z stroke
-% End plot #3
-1.000 UL
+gsave 5399 4183 N -180 311 V -360 0 V -180 -311 V 179 -312 V 361 0 V 180 312 V 1 PolyFill
+LT1
+gsave 5759 4003 N -180 311 V -360 0 V -180 -311 V 179 -312 V 361 0 V 180 312 V 0.50 PolyFill
 LTb
-686 4591 N
-686 555 L
-6261 0 V
-0 4036 V
--6261 0 V
-Z stroke
-1.000 UP
-1.000 UL
-LTb
+5039 4613 M
+(filled polygons:) Cshow
 stroke
 grestore
 end
 showpage
 %%Trailer
 %%DocumentFonts: Helvetica
+%%Pages: 1

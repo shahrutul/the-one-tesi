@@ -1,4 +1,5 @@
-set term post eps noenhanced monochrome dashed
+#set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'tempiVFMultiHopPerc.eps'
 
 #set boxwidth 0.9 absolute
