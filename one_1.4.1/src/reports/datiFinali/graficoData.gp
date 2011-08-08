@@ -5,7 +5,7 @@
 set term post eps noenhanced color dashed
 set output 'data.eps'
 set boxwidth 0.9 absolute
-set style fill pattern 5 border
+#set style fill pattern 5 border
 set style histogram clustered gap 2 title  offset character 0, 0, 0
 set datafile missing '-'
 set style data histograms
@@ -18,6 +18,6 @@ set grid ytics
 
 #plot 'dati.dat' using 3 t "Server", '' using 4 t "Client", '' using 5:xtic(1) t "Network"
 #plot 'dati.dat' u 2 ti col, '' u 3 ti col, '' u 4 ti col
-plot 'datiTotalData.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fs pattern 5
+plot 'datiTotalData.dat' using 2:xtic(1) ti col fc rgb "red" fs pattern 3, '' u 3 ti col fc rgb "dark-green" fs pattern 7
 
 #pause -1 "Hit any key to continue"

@@ -1,4 +1,5 @@
-set term post eps noenhanced monochrome dashed
+#set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 set output 'tempiVFDiversaPop.eps'
 
 #set boxwidth 0.9 absolute
@@ -25,6 +26,6 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col lt 2, '' u 4 ti col lt 3
+plot 'datiTempiVFDiversaPop.dat' using 2:xtic(1) ti col lt 1, '' u 3 ti col ls 8 lc rgb "dark-green"  lt 2, '' u 4 ti col lt 3
 
 #pause -1 "Hit any key to continue"

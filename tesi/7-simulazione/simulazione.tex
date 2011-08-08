@@ -15,8 +15,6 @@
 In previous chapters we focused on the concepts, related technologies and implementation realized of the protocol, M2MShare, subject of the study of this thesis. In this section we describe the simulations executed and analysis with relative results. For every type of analysis we describe the related simulations, the configuration of the simulated world and the other protocols compared to our M2MShare. Finally, for every analysis, we show the results in a graphical way with a textual interpretation.
 \\
 
-We repeat each of the simulation scenarios several times in order to achieve more accurate results, independent of the initial positioning of the requester peer in search for that particular data file and independent of the initial positioning of the searched file copies. Each scenario is run using a different random seeds to initialize the movement model and for every seed the simulation is repeated using the three compared protocols.
-
 Before proceeding further, we introduce the reader to the adopted terminology and some "must know" configuration parameters:
 \begin{itemize}
 \item \textit{Population}: refers to the number of nodes in the simulation which emulate people operating M2MShare. This number does not include nodes which emulate public transport, like buses or trams. People are distributed in districts of the map, described in Section \ref{mappaONE}.
@@ -67,6 +65,8 @@ We use the same configuration parameters described in \cite{articoloWdm}, to ini
 
 To emulate differences in people lifestyle, especially in wake up time in the morning, the differences in schedules of nodes were drawn from a normal distribution with a standard deviation of 7200 s emulating a situation where about 68\% of the population leave home between 7 and 11 in the morning. Every node has a probability of 0.5 to do some evening activity after work, with groups size variable between 1 and 3 nodes. The working day length is set to 28800 s (8 hours), which is a value common to a large number of works, and the pause times inside the office is drawn from a Pareto distribution with coefficient 0.5 and minimum value 10 s. The office size is set to a $100 m x 100 m$ square, to compensate for the lack of floors, walls and other furniture. Finally the communication range of mobile devices is set to 10 m, which is common for most Bluetooth devices.
 \\
+
+We repeat each of the simulation scenarios several times in order to achieve more accurate results, independent of the initial positioning of the requester peer in search for that particular data file and independent of the initial positioning of the searched file copies. Each scenario is run using a different random seeds to initialize the movement model and for every seed the simulation is repeated using the compared protocols.
 
 \newpage
 \section{Single-hop delegation efficiency}
@@ -183,7 +183,7 @@ In \figurename~\ref{graficoTempiVF} it is possible to see the advantage, in term
 \begin{figure}[htbp]
 \centering
 %\includegraphics[scale=0.7]{grafici/data.eps}
-\includegraphics{grafici/delegheFatte.eps}
+\includegraphics{grafici/data.eps}
 \caption{Average, min, max transferred data amount employed in each delegations technique.}
 \label{graficoDataDiverseDel}
 \end{figure}
@@ -225,7 +225,7 @@ Although this strategy introduces an overhead in terms of bandwidth usage, compu
 \end{table}
 In previous analysis we show the advantage, in terms of found time of the searched file, using M2MShare delegation strategy against avoid using delegation or delegate unaccomplished tasks to every meet node. The confrontation was made using a constant number of copies of the searched multimedia file uniformly distributed between all nodes in the simulation, i.e. 50 copies. The current analysis want to show the difference in performance using the three delegation strategies changing the initial file popularity of the searched file. To this aim, in these simulations we change the File popularity (Fp) of the multimedia file keeping constant the number of total nodes (N). Simulations settings are shown in \tablename~\ref{tab:settingsDiversaFilePop}.
 
-We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copies). When the Fp is low (with $Fp \geq 5\%$) the system which does not use delegation is not able to find any piece of the file during the simulation time. We have indicated this in the chart by assigning to Ftavg a value of 48 h. With higher values of Fp, the first protocol is able to find the file thanks to the higher popularity of the requested file, but it takes more time than M2MShare and Delegation\_to\_all. Finally, with the highest values of Fp the performances of the three compared systems became very similar. 
+We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copies). When the Fp is low (with Fp $\geq 5\%$) the system which does not use delegation is not able to find any piece of the file during the simulation time. We have indicated this in the chart by assigning to Ftavg a value of 48 h. With higher values of Fp, the first protocol is able to find the file thanks to the higher popularity of the requested file, but it takes more time than M2MShare and Delegation\_to\_all. Finally, with the highest values of Fp the performances of the three compared systems became very similar. 
 
 
 \begin{figure}[htbp]
@@ -269,7 +269,7 @@ We change the File Popularity (Fp) value, from 5\% (50 copies) to 40\% (400 copi
 
 In previous analysis we considered as constant the number of nodes emulating people using M2MShare on their devices. As we can see in \tablename~\ref{tab:settingsDiversoNePop}, in the current analysis we changed the total nodes population of the simulations and the searched file popularity, observing how this affects the performance of compared systems.\\
 
-In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with $N \geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in \figurename~\ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in \figurename~\ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
+In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\%. The protocol not employing delegations (black line in the chart) is not able to find any piece of the file during the simulation time when the considered nodes in the scenario are equal or less than 400. We have indicated this in the chart by assigning to Ftavg a value of 48 h. This is due to the trivial strategy employed by the protocol and to the sparse environment. Even when able to find some node possessing the file (with N $\geq 600$), the time needed results bigger than using a strategy implementing delegations. Clearly, when increasing the file population (Fp), even the number of nodes in the population that posses the data file increases; as a result, the time to retrieve the file decreases for all solutions. A similar result is achieved also when considering a wider popularity for the required multimedia file (Fp = 10\%, in \figurename~\ref{graficiTempiVF_Fp10}). However, in this case, the higher popularity of the requested file helps both solutions in finding the file possessor with a smaller Ftavg than in the previous scenario.  Finally, in \figurename~\ref{graficiTempiVF_Fp50}, the performances of the compared solutions are very similar. This is due to the high file popularity among nodes (Fp = 50\%): the chances of eventually finding a file possessor in a short time are clearly much higher.
 
 %\begin{figure}[ht]
 %\begin{minipage}[b]{0.5\linewidth}
@@ -302,7 +302,7 @@ In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\
 {\includegraphics{grafici/tempiVF_Fp5.eps}}\qquad\qquad
 \subfigure%
 {\includegraphics{grafici/tempiVF_Fp5_zoom.eps}}
-\caption{Average found time with $Fp = 5\%$\label{graficiTempiVF_Fp5}}
+\caption{Average found time with Fp $= 5\%$\label{graficiTempiVF_Fp5}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -311,7 +311,7 @@ In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\
 {\includegraphics{grafici/tempiVF_Fp10.eps}}\qquad\qquad
 \subfigure%
 {\includegraphics{grafici/tempiVF_Fp10_zoom.eps}}
-\caption{Average found time with $Fp = 10\%$\label{graficiTempiVF_Fp10}}
+\caption{Average found time with Fp $= 10\%$\label{graficiTempiVF_Fp10}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -320,7 +320,7 @@ In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\
 {\includegraphics{grafici/tempiVF_Fp50.eps}}\qquad\qquad
 \subfigure%
 {\includegraphics{grafici/tempiVF_Fp50_zoom.eps}}
-\caption{Average found time with $Fp = 50\%$\label{graficiTempiVF_Fp50}}
+\caption{Average found time with Fp $= 50\%$\label{graficiTempiVF_Fp50}}
 \end{figure}
 
 
@@ -358,9 +358,9 @@ In the first scenario (\figurename~\ref{graficiTempiVF_Fp5}) we consider Fp = 5\
 In analysis in Section \ref{analisiDelegationEfficiency}, especially in \figurename~ \ref{graficoDataDiverseDel}, we show that our system is the most efficient with respect to data transmissions. Although using delegations introduces an overhead in terms of bandwidth usage we control this side effects by delegating only to frequently encountered peers whom are expected to be encountered again in the future. Another side effect caused by delegating tasks is the increasing of data redundancy in the whole network. For \textit{redundancy}, in this case, we mean storage space used in nodes involved in delegation system. 
 \\ 
 
-Of course redundancy in a network composed only by nodes which do not use delegation is always zero. For this reason, for this study we compared only the two systems which use task delegations and settings used for these simulations are shown in \tablename~\ref{tab:settingsRedundancy}. In \figurename~\ref{graficoRidondanzaData} we show how change the average data redundancy during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes. 
+Of course redundancy in a network composed only by nodes which do not use delegation is always zero. For this reason, for this study we compare only the two systems which use task delegations and settings used for these simulations are shown in \tablename~\ref{tab:settingsRedundancy}. In \figurename~\ref{graficoRidondanzaData} we show how the average data redundancy changes during the progress of simulations. It is straightforward to notice the higher value introduced by delegating to all encountered peers whether M2MShare reduces the data redundancy quantity while still achieving the goal of acquiring the requested file. This is due to the number of contemporary active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}, which is higher in the system which delegates task to all encounter nodes. 
 \\
-The trend of this graph is related to the number of simultaneously active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in its own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
+The trend of this graph is related to the number of simultaneously active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in its own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output back to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
 
 \begin{figure}[htbp]
 \begin{minipage}[b]{1\linewidth}
@@ -413,7 +413,7 @@ The trend of this graph is related to the number of simultaneously active delega
 In previous analysis we considered only delegation strategies using single-hop delegation, i.e. once a servant peer receive a task, delegated from another node, it will not delegate it again to a further-lever servant. 
 \\
 
-There are some situations in which single-hop delegations are not enough, due to other factors, like a low popularity of the searched file or its high distance from the searching peer. It is also possible that all the peers holding the searched file have different behaviours from those of the client and his direct servants. In these cases, we extended M2MShare giving to a peer the capability to delegate again a pending task. To avoid creating an excessively large number of delegations, we allow to delegate again only after a trial period, i.e. one day, in which the servant try to complete the task by itself. If at the end of this period the task is still incomplete, it is delegate again to a new set of upper-level servants.
+There are some situations in which single-hop delegations are not enough, due to other factors, like a low popularity of the searched file or its high distance from the searching peer. It is also possible that all the peers holding the searched file have different behaviours from those of the client and his direct servants. In these cases, we extended M2MShare giving to a peer the capability to delegate again a pending task. To avoid creating an excessively large number of delegations, we allow to delegate again only after a trial period, i.e. one day, in which the servant try to complete the task by itself. At the end of this period, if the task is still incomplete it is delegate again to a new set of upper-level servants.
 \\
 
 We simulate the behaviour of our protocol in a similar situation by tuning the distribution of the searched file at the beginning of the simulation: we distribute the 25 initial copies only between nodes in a map district on the other side of town from the searching node. As usually we repeated the simulations several times to get more accurate results, independently from the initial location of the searching node. In every simulation we compare then the effectiveness of three different strategies:
@@ -427,7 +427,7 @@ We simulate the behaviour of our protocol in a similar situation by tuning the d
 An higher number of servant nodes involved in the delegation system results in a higher data redundancy added to the network. To limit the number of delegations used, we implement the multi-hop delegation system using different Multi-hop Delegation Probability (MhDP). This value indicates the probability that a node would delegate again an incomplete task in a multi-hop system. As shown in \tablename~\ref{tab:settingsMultiHop}, we repeated our simulations with MHDP values of 10\%, 25\%, 50\%, 75\% and 100\%.
 \\
 
-In \figurename~\ref{tempiVF_MultiHop} it is possible to see the average found time employed  by the three strategies to return the searched file to the requester node. M2MShare with 1-hop delegations can achieve some success, but it is not comparable with results of M2MShare versions employing multi-hop delegations. The two systems using multi-hop delegations find the required file in less time in each simulation run at the expense of higher overhead in terms of number of servant peers involved, as we will see in Section \ref{analisiRidondanzaMultiHop}.
+In \figurename~\ref{fig:tempiVF_MultiHop} it is possible to see the average found time employed  by the three strategies to return the searched file to the requester node. M2MShare with 1-hop delegations can achieve some success, but it is not comparable with results of M2MShare versions employing multi-hop delegations. The two systems using multi-hop delegations find the required file in less time in each simulation run at the expense of higher overhead in terms of number of servant peers involved, as we will see in Section \ref{analisiRidondanzaMultiHop}.
 
 \begin{figure}[htpb]
   \begin{center}
@@ -446,8 +446,51 @@ In \figurename~\ref{tempiVF_MultiHop} it is possible to see the average found ti
 %\end{minipage}
 %\end{figure}
 
+\newpage
 \subsection{Map coverage}
 It is straightforward that delegating again a unaccomplished task extends the total explored area. A single node can explore only a small area, covered only by its own connectivity range. With M2MShare 1-hop version there is an increase of the explored area, due to delegations to some servants with different movement behaviour than the requester, but limited to 1-hop delegation. With multi-hop delegation there is the maximum area coverage extension. In this analysis we evaluate the average explored area using different values of delegation depth and MhDP.
+\\
+
+First of all we create a control set to evaluate the maximum area explorable by nodes during the simulations. To do so we execute 40 simulations with nodes involved in their daily activities, but with no files distributed and no file request in one node. Settings for these simulations are shown in \tablename~\ref{tab:settingsControlSet}. We evaluate the average area explored by all 1000 nodes in one-week simulations. The related map is shown in  \figurename~\ref{fig:mapCoverage_controlSet}. We adopt this value to the maximum explorable area (100\%) and we repeated a set of simulations using values in \tablename~\ref{tab:settingsMultiHop}: we compare M2MShare with 1-hop, 2-hop and 3-hop delegations and using different Multi-hop Delegation Probability (MhDP). The average area explored using different MhDP values is shown in \figurename~\ref{fig:mapCoverage_MultiHop}.
+\\
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[width=4cm]{|l|r|}
+\hline
+\bfseries Population & 1000 \\
+\hline
+\bfseries File distribution & No file distributed \\
+\hline
+\bfseries Delegation type & No\_Delegation \\
+\hline
+\bfseries Nr. of simulations & 40\\
+\hline
+\bfseries Simulated time & One week \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Simulations settings for map coverage control set\label{tab:settingsControlSet}}
+\end{table}
+
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics{grafici/mapCovered_MultiHop.eps}
+    \caption{Average explored area percent employing M2MShare with different multi-hop versions.}
+    \label{fig:mapCoverage_MultiHop}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics[scale=0.85]{grafici/mappe/controlSet.eps}
+    \caption{Maximum explored area by nodes in one-week simulations.}
+    \label{fig:mapCoverage_controlSet}
+  \end{center}
+\end{figure}
+
 
 \begin{figure}[htbp]
 \centering%
@@ -516,7 +559,7 @@ It is straightforward that delegating again a unaccomplished task extends the to
 \vspace{-10pt}%
 \subfigure[Explored area with 3-hop delegations]%
 {\includegraphics[scale=0.85]{grafici/mappe/M2MShare_3_hop_100perc.eps}}
-\caption{Average explored area with MhDP $= 100\%$\label{fig:mappaMultiHop_10}}
+\caption{Average explored area with MhDP $= 100\%$\label{fig:mappaMultiHop_100}}
 \end{figure}
 
 

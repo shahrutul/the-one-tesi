@@ -19,7 +19,7 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiTempiMultiHopPerc.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fs pattern 5, '' u 4 ti col fs pattern 6
+plot 'datiTempiMultiHopPerc.dat' using 2:xtic(1) ti col fs pattern 3, '' u 3 ti col fc rgb "dark-green" fs pattern 5, '' u 4 ti col fs pattern 6
 
 
 #pause -1 "Hit any key to continue"

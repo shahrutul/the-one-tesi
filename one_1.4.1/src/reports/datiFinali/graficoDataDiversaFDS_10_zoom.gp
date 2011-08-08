@@ -1,5 +1,5 @@
-set term post eps noenhanced monochrome dashed
-#set term post eps noenhanced color dashed
+#set term post eps noenhanced monochrome dashed
+set term post eps noenhanced color dashed
 
 set output 'dataDFS_10MB_zoom.eps'
 set boxwidth 0.9 absolute
@@ -20,7 +20,6 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiDataDiversaFDS_10MB.dat' using 3:xtic(1) ti col fs pattern 2, '' u 2 ti col fs pattern 3, '' u 4 ti col fs pattern 5
-#plot 'datiTempiVF.dat' using 3:xtic(1) lc rgb red, '' u 2 lc rgb green, '' u 4 lc rgb blue
+plot 'datiDataDiversaFDS_10MB.dat'  using 3:xtic(1) ti col fs pattern 3, '' u 2 ti col fc rgb "dark-green" fs pattern 2, '' u 4 ti col fs pattern 5
 
 #pause -1 "Hit any key to continue"
