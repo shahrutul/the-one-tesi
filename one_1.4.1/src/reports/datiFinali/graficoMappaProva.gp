@@ -21,6 +21,10 @@ set xrange [0:750]
 
 set palette rgbformulae -7, 2, -7
 
+set output 'mappe/controlSet.eps'
+splot "multiHopPerc/controlSet.dat" matrix with image, 'multiHopPerc/mappa.gif' binary filetype=gif origin=(10,35,0) dx=1 dy=1.06 with rgbalpha
+
+
 set output 'mappe/M2MShare_1_hop_10perc.eps'
 splot "multiHopPerc/M2MShare_1_hop_10perc.dat" matrix with image, 'multiHopPerc/mappa.gif' binary filetype=gif origin=(10,35,0) dx=1 dy=1.06 with rgbalpha
 

@@ -144,7 +144,7 @@ public class mainMapCoverageAdjust {
 			}
 		}
 				
-		
+		System.out.println("100% - Complete!");
 	}
 
 	private static int maxValues(ArrayList<ArrayList<Integer>> a, int xinit, int yinit) {
