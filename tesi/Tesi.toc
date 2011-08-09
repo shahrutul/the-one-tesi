@@ -31,40 +31,42 @@
 \contentsline {section}{\numberline {5.1}Configuration}{27}{section.5.1}
 \contentsline {section}{\numberline {5.2}Simulation outputs}{29}{section.5.2}
 \contentsline {section}{\numberline {5.3}Simulation execution}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Randomness}{33}{section.5.4}
+\contentsline {section}{\numberline {5.4}Randomness}{34}{section.5.4}
 \contentsline {section}{\numberline {5.5}The map}{34}{section.5.5}
 \contentsline {chapter}{\numberline {6}Implementation}{37}{chapter.6}
 \contentsline {section}{\numberline {6.1}ONE additions}{37}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}File Management}{37}{subsection.6.1.1}
-\contentsline {paragraph}{DTNFile}{37}{section*.14}
-\contentsline {paragraph}{DTNFileSystem}{38}{section*.15}
-\contentsline {paragraph}{DTNFileGenerator}{38}{section*.16}
-\contentsline {paragraph}{FileRequest}{40}{section*.17}
-\contentsline {paragraph}{M2MShareFileRequestReader}{40}{section*.18}
+\contentsline {paragraph}{DTNFile}{37}{section*.16}
+\contentsline {paragraph}{DTNFileSystem}{38}{section*.17}
+\contentsline {paragraph}{DTNFileGenerator}{38}{section*.18}
+\contentsline {paragraph}{FileRequest}{40}{section*.19}
+\contentsline {paragraph}{M2MShareFileRequestReader}{40}{section*.20}
 \contentsline {subsection}{\numberline {6.1.2}GUI}{40}{subsection.6.1.2}
 \contentsline {subsection}{\numberline {6.1.3}Reports}{40}{subsection.6.1.3}
-\contentsline {paragraph}{FileGatheringLog}{41}{section*.20}
-\contentsline {paragraph}{DataTransferLog}{43}{section*.21}
-\contentsline {paragraph}{FileGatheringReport}{43}{section*.22}
-\contentsline {section}{\numberline {6.2}M2MShare Implementation}{44}{section.6.2}
-\contentsline {paragraph}{M2MShareRouter}{44}{section*.23}
-\contentsline {paragraph}{PresenceCollector}{46}{section*.24}
-\contentsline {paragraph}{Activities}{46}{section*.25}
-\contentsline {paragraph}{File Division Strategies}{47}{section*.26}
-\contentsline {paragraph}{Data Transfer}{47}{section*.27}
-\contentsline {chapter}{\numberline {7}Simulations and results}{49}{chapter.7}
-\contentsline {section}{\numberline {7.1}Simulations Scenario}{50}{section.7.1}
-\contentsline {section}{\numberline {7.2}Single-hop delegation efficiency}{52}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Delegation efficiency with variable file popularity}{56}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Delegation efficiency with variable nodes population}{58}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Data redundancy}{62}{subsection.7.2.3}
-\contentsline {section}{\numberline {7.3}Multi-hop delegation efficiency}{64}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Map coverage}{66}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{73}{subsection.7.3.2}
-\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{79}{section.7.4}
-\contentsline {chapter}{\numberline {8}Conclusioni}{85}{chapter.8}
-\contentsline {section}{\numberline {8.1}Results and Considerations}{85}{section.8.1}
-\contentsline {section}{\numberline {8.2}Future Work}{85}{section.8.2}
-\contentsline {chapter}{References}{87}{section.8.2}
-\contentsline {chapter}{Figures Index}{92}{chapter*.61}
-\contentsline {chapter}{Tables Index}{93}{chapter*.62}
+\contentsline {paragraph}{FileGatheringLog}{41}{section*.22}
+\contentsline {paragraph}{DataTransferLog}{43}{section*.23}
+\contentsline {paragraph}{FileGatheringReport}{43}{section*.24}
+\contentsline {paragraph}{M2MShareMapCoverageReport}{44}{section*.25}
+\contentsline {section}{\numberline {6.2}M2MShare Implementation}{45}{section.6.2}
+\contentsline {paragraph}{M2MShareRouter}{45}{section*.26}
+\contentsline {paragraph}{PresenceCollector}{46}{section*.27}
+\contentsline {paragraph}{Activities}{46}{section*.28}
+\contentsline {paragraph}{File Division Strategies}{47}{section*.29}
+\contentsline {paragraph}{Data Transfer}{48}{section*.30}
+\contentsline {section}{\numberline {6.3}Analysis}{48}{section.6.3}
+\contentsline {chapter}{\numberline {7}Simulations and results}{51}{chapter.7}
+\contentsline {section}{\numberline {7.1}Simulations Scenario}{52}{section.7.1}
+\contentsline {section}{\numberline {7.2}Single-hop delegation efficiency}{54}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Delegation efficiency with variable file popularity}{58}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Delegation efficiency with variable nodes population}{60}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Data redundancy}{64}{subsection.7.2.3}
+\contentsline {section}{\numberline {7.3}Multi-hop delegation efficiency}{66}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Map coverage}{68}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{75}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{81}{section.7.4}
+\contentsline {chapter}{\numberline {8}Conclusions}{87}{chapter.8}
+\contentsline {section}{\numberline {8.1}Results and Considerations}{87}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{87}{section.8.2}
+\contentsline {chapter}{References}{89}{section.8.2}
+\contentsline {chapter}{Figures Index}{94}{chapter*.64}
+\contentsline {chapter}{Tables Index}{95}{chapter*.65}

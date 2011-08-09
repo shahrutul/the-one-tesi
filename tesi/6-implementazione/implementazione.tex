@@ -127,6 +127,7 @@ The GUI of the ONE simulator has been modified to reflect the addition of file s
 \end{figure}
 
 \subsection{Reports}
+\label{descrReports}
 A fundamental feature related to simulations is the capability of gathering data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in the ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
 The main objectives of our simulations was to gather informations about the efficiency of delegations and file division strategies, and to do so we collected data about several aspects for every simulation. We now describe the report modules created to the gathering of data during the simulations, specifying the type and mode of data collection used.
 
@@ -199,6 +200,15 @@ Is referred to the data transfer from node G714 to node A17, 98829 seconds after
 \item \textbf{Simulation time:}	the real duration of the simulation (in seconds)
 \end{itemize}
 Saving all these values for every simulation is useful to make some \textit{a posteriori} analysis like averages, minimum and maximum values and to find best or worst case for a large number of simulations.
+
+\paragraph{M2MShareMapCoverageReport}
+In order to evaluate the achieved explored area using different delegation strategies we implement the \textit{M2MShareMapCoverageReport}. This module divides the simulated map in squares with size of 10 x 10 meters and counts how many times each square has been visited during the simulation. When a node moves, the module saves its position adding 1 to the value of the related square. The report is configurable, in order to only save movements related to nodes employing different delegation strategies:
+\begin{itemize}
+\item the node with the initial file request issued by the user
+\item nodes acting as servants, i.e. nodes with delegated tasks received
+\item all nodes in the simulation
+\end{itemize}
+The reason we decide to save all nodes movements, in some simulations, is to get a \textit{control set} to evaluate the maximum explorable area using certain parameters. Doing so for a high number of simulations we see which parts of the map are explorable (streets, buildings, parks) and which are not (like rivers, the sea or places not reachable with nodes movement).
 
 %
 %\paragraph{DelegationGraphvizReport}
@@ -279,14 +289,37 @@ To evaluate the efficiency of M2MShare file division strategy, we implement a \t
 \paragraph{Data Transfer}
 To emulate data transfers between nodes in the simulated network, we implement a entity named \textit{Communicator}. This entity is used by Activities to emulate the downloading of pieces of files from a file possessor, or the forwarding of a pending task's result to a client node. There is no 1-1 relation between Communicators and Activities. A task can use more than one Communicator when try to simultaneously download pieces of the same file from different sources in communication range. Communicator behaviour is related to the adopted file division strategy, as it influences the starting point of file transfers. Using Communicators allow us to emulate data transfers only when a connection between two nodes is available and to notify informations about transfers to related report modules.
 
- 
- 
 %\paragraph{Scheduler}
 %\label{schedulerImplementazione}
 %\paragraph{Executor}
 %\paragraph{Communicator}
 %
 %\paragraph{BroadcastModule}
+ 
+\section{Analysis}
+To evaluate M2Mshare efficiency we need to analyse its performance compared with other strategies or with different versions of M2MShare, like in multi-hop simulations. To do so we repeat each simulation several times changing the random module generators seeds. We do so to achieve results independent from nodes movement and starting point. For each simulation we save some report files, generated using report modules described in Section \ref{descrReports}. Several analysis have been made over these reports using a set of classes we implemented for this purpose. 
+\\
+
+Repeating each simulation with different strategies we are able to compare their performance related to several values. Using our report and analysis modules, for each single simulation we are able to evaluate:
+\begin{itemize}
+\item number of File Request created
+\item how many tasks have been delegated during the simulation
+\item how many delegated tasks have been completed
+\item how many delegated tasks expired before completion
+\item how many delegated tasks have been completed but expired before result being forwarded to the requester node
+\item number of File Request satisfied
+\item after how much time a File Request has been satisfied
+\item the length of simulated time
+\item the length of the simulation (in real time)
+\end{itemize} 
+
+For each set of simulations repeated changing random generators seeds, we are able to evaluate 
+\begin{itemize}
+\item minimum value
+\item maximum value
+\item average value
+\end{itemize} 
+related to each of the parameters above.
  
 % ---------------------------------------------------------------------------
 %: ----------------------- end of thesis sub-document ------------------------

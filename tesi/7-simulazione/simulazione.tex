@@ -453,10 +453,12 @@ It is straightforward that delegating again a unaccomplished task extends the to
 
 First of all we create a control set to evaluate the maximum area explorable by nodes during the simulations. To do so we execute 40 simulations with nodes involved in their daily activities, but with no files distributed and no file request in one node. Settings for these simulations are shown in \tablename~\ref{tab:settingsControlSet}. We evaluate the average area explored by all 1000 nodes in one-week simulations. The related map is shown in  \figurename~\ref{fig:mapCoverage_controlSet}. We adopt this value to the maximum explorable area (100\%) and we repeated a set of simulations using values in \tablename~\ref{tab:settingsMultiHop}: we compare M2MShare with 1-hop, 2-hop and 3-hop delegations and using different Multi-hop Delegation Probability (MhDP). The average area explored using different MhDP values is shown in \figurename~\ref{fig:mapCoverage_MultiHop}.
 \\
+As it is possible to see, M2MShare expands the explored area of a single due to delegations to some servants with different movement behaviour than the requester, but limited to 1-hop delegation. The maximum area extension is when using up to 3-hop delegations in which almost all the city is covered by searching nodes.
+\\
 
+For each MhDP value we show the differences in explored area using 1-hop, 2-hop or 3-hop delegations. In \figurename~\ref{fig:mappaMultiHop_10} we show the tree maps related to the average explored area using the three versions of M2MShare with MhDP~$= 10\%$. Raising the MhDP value to 25\% (\figurename~\ref{fig:mappaMultiHop_25}) it is possible to see an increment of the explored area using multi-hop delegations. This increment is less visible raising again the MhDP to 50\% (\figurename~\ref{fig:mappaMultiHop_50}), 75\% (\figurename~\ref{fig:mappaMultiHop_75}) or 100\% (\figurename~\ref{fig:mappaMultiHop_100}).   
 
-
-\begin{table}[h]
+\begin{table}[htpb]
 \begin{center}
 \begin{tabular}[width=4cm]{|l|r|}
 \hline
@@ -594,13 +596,14 @@ First of all we create a control set to evaluate the maximum area explorable by 
 \newpage
 \subsection{Data redundancy}
 \label{analisiRidondanzaMultiHop}
-In analysis in Section \ref{analisiRidondanza} we show the redundancy added in the network by using delegation and we show how our system outperforms the other trivial system which uses delegation to all encountered peers. In current section we show the impact of using multi-hop delegation against respect to added redundancy in the network. For these simulations we use the settings shown in \tablename~\ref{tab:settingsMultiHop}. We compared three versions of M2MShare with different maximum number of delegation hops. We also changed the probability that a servant peer would delegate again a received pending task.
+In analysis in Section \ref{analisiRidondanza} we show the redundancy added in the network by using delegation and we show how our system outperforms the other trivial system which uses delegation to all encountered peers. In current section we show the impact of using multi-hop delegation respect to added redundancy in the network. For these simulations we use the settings shown in \tablename~\ref{tab:settingsMultiHop}. We compared three versions of M2MShare with different maximum number of delegation hops. We also changed the probability that a servant peer would delegate again a received pending task.
 \\
 
 In \figurename~\ref{fig:ridondanzaMultiHop_10}, \ref{fig:ridondanzaMultiHop_25}, \ref{fig:ridondanzaMultiHop_50}, \ref{fig:ridondanzaMultiHop_75}, \ref{fig:ridondanzaMultiHop_100} we can see the difference in number of delegation used and data redundancy added by the three versions of M2MShare. Both of them uses the same number of delegations for the first day, then the 2-hop and the 3-hop versions start to delegate again the incomplete task. The next difference can be seen after another day, when nodes adopting 3-hop delegations delegate again the unaccomplished task. It is straightforward to notice the increment of servant nodes using 3-hop delegations versus 2-hop or 1-hop systems.
 \\
 
-An higher number of servant nodes involved in the delegation system results in a higher data redundancy added to the network. To limit the number of delegations used and related data redundancy added, we implement the multi-hop delegation system using different Multi-hop Delegation Probability (MHDP). This value indicates the probability that a node would delegate again an incomplete task in a multi-hop system. We repeated our simulations with MHDP values of 10\% (\figurename~\ref{fig:ridondanzaMultiHop_10}), 25\% (\figurename~\ref{fig:ridondanzaMultiHop_25}), 50\% (\figurename~\ref{fig:ridondanzaMultiHop_50}), 75\% (\figurename~\ref{fig:ridondanzaMultiHop_75}) and 100\% (\figurename~\ref{fig:ridondanzaMultiHop_100}). With a small MHDP value a small number of delegations are used, reducing the overall data redundancy. Raising MHDP value, more delegations are used, increasing the data redundancy introduced in the network. With MHDP \= 100\% a servant peer delegate a unaccomplished task to every encountered node which exceeds Frequency Threshold value, after the one-day trial period. With a such high MHDP value we can see that over 70\% of nodes in the simulation are involved in delegations system.
+An higher number of servant nodes involved in the delegation system results in a higher data redundancy added to the network. To limit the number of delegations used and related data redundancy added, we implement the multi-hop delegation system using different Multi-hop Delegation Probability (MhDP). This value indicates the probability that a node would delegate again an incomplete task in a multi-hop system. We repeated our simulations with MhDP values of 10\% (\figurename~\ref{fig:ridondanzaMultiHop_10}), 25\% (\figurename~\ref{fig:ridondanzaMultiHop_25}), 50\% (\figurename~\ref{fig:ridondanzaMultiHop_50}), 75\% (\figurename~\ref{fig:ridondanzaMultiHop_75}) and 100\% (\figurename~\ref{fig:ridondanzaMultiHop_100}). With a small MhDP value a small number of delegations are used, reducing the overall data redundancy. Raising MhDP value, more delegations are used, increasing the data redundancy introduced in the network. With MhDP \= 100\% a servant peer delegate a unaccomplished task to every encountered node which exceeds Frequency Threshold value, after the one-day trial period. With a such high MhDP value we can see that over 70\% of nodes in the simulation are involved in delegations system.
+
 
 \begin{figure}[htbp]
 \centering%
@@ -651,7 +654,7 @@ An higher number of servant nodes involved in the delegation system results in a
 %\\
 %The trend of this graph is related to the number of simultaneously active delegated tasks, shown in \figurename~\ref{graficoDelegheAttive}. Whenever a task is delegated, there is one more node looking for the searched file, and if it is found, the node will copy some file interval in its own data storage, doing so increase the total data redundancy. On the other hand, when a delegated task expires, or a servant returns the output to the requester node, temporary data downloaded for the task is deleted, freeing space in servant's data storage and doing decrease the total data redundancy.
 
-\pagebreak 
+\newpage 
 \section{File Division Strategy efficiency}
 \begin{table}[h]
 \begin{center}
