@@ -15,8 +15,15 @@
 The simulation environment chosen for our simulations is The ONE (Opportunistic Network Environment) version 1.4.1\footnote{The ONE simulator \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}}, described in \cite{articoloONE}. This simulation environment written in Java is completely configurable and is able to simulate completely the behaviour of nodes in the simulations, including movement, connections and to give a visual feedback about all these factors using its GUI. A more interesting feature, for our purposes, is the capability of emulate message routing using different routing protocols.
 \\
  
-To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility are explained in Section \ref{movimento}. One characteristic of the ONE architecture is high modularity. Each movement models and for each routing protocol is implemented in an independent module, which is dynamically loaded depending on the simulation settings. This allows a relatively easy implementation of new mobility models and routing protocols in the simulator.
+To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility are explained in Section \ref{movimento}. One characteristic of the ONE architecture is high modularity, as shown in \figurename~\ref{overview-ONE}. Each movement models and for each routing protocol is implemented in an independent module, which is dynamically loaded depending on the simulation settings. This allows a relatively easy implementation of new mobility models and routing protocols in the simulator.
 \\
+\begin{figure}[htpb]
+  \begin{center}
+    \includegraphics[scale=0.3]{5-simulatore/img/overview.png}
+    \caption{Overview of the ONE simulation environment \cite{articoloONE}}    
+    \label{overview-ONE}
+  \end{center}
+\end{figure}
 
 The simulator allows to save data of interest from completed simulations into report files. There reports are created using modules dynamically loaded as it would happen with movement and routing modules.
 \\

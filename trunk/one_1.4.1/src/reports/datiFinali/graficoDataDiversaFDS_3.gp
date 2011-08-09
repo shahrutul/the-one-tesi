@@ -20,7 +20,7 @@ set key horiz
 set key center outside top
 set grid ytics
 
-plot 'datiDataDiversaFDS_3MB.dat' using 3:xtic(1) ti col fs pattern 3, '' u 2 ti col fc rgb "dark-green" fs pattern 2, '' u 4 ti col fs pattern 5
+plot 'datiDataDiversaFDS_3MB.dat' using 3:xtic(1) ti col fs pattern 3, '' u 2 ti col fc rgb "dark-green" fs pattern 2, '' u 4 ti col fs pattern 7 lw 4
 #plot 'reports/datiTempiVF.dat' using 3:xtic(1) lc rgb red, '' u 2 lc rgb green, '' u 4 lc rgb blue
 
 #pause -1 "Hit any key to continue"
