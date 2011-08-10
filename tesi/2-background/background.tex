@@ -18,7 +18,7 @@ To fully understand how M2MShare works and what kind of simulator have to be use
 The Internet is a connected network where internet protocols, most notably transmission control protocol/internet protocol (TCP/IP), are dependent upon (low) latencies of approximately milliseconds. This low latency, coupled with low bit error rates, allows TCP to reliably transmit and receive acknowledgements for messages traversing the terrestrial Internet. 
 \\
 
-A DTN is a network designed to operate effectively in highly-challenged environments where protocols adopted in connected networks (i.e. TCP/IP) fail. The \"D\" part in DTN acronym stands both for \textit{Delay} and for \textit{Disruption}. By delay we mean the end-to-end latency of data transmission. Some of those delays are inherent in the transmission medium, or the geometry of the system, but others are due to packets being temporarily stored on intermediate nodes. By disruption, we mean factors that cause connections to break down, or not be established, normally due to transient or quickly changing aspects of the system and/or its environment.
+A DTN is a network designed to operate effectively in highly-challenged environments where protocols adopted in connected networks (i.e. TCP/IP) fail. The "D" part in DTN acronym stands both for \textit{Delay} and for \textit{Disruption}. By delay we mean the end-to-end latency of data transmission. Some of those delays are inherent in the transmission medium, or the geometry of the system, but others are due to packets being temporarily stored on intermediate nodes. By disruption, we mean factors that cause connections to break down, or not be established, normally due to transient or quickly changing aspects of the system and/or its environment.
 \\
 
 There are some environments where low latency and end-to-end links are rarely available. One of the best examples of high latency with intermittent connectivity is that of space communications \cite{Burleigh2003365}. One-way trip times, at the speed of light, from the Earth to the Moon incurs a delay of 1.7 seconds; while one-way trip times to Mars incur a minimum delay of 8 minutes. The problem of latency for interplanetary links is exasperated with increased error rate due to solar radiation. In addition, the celestial bodies are in constant motion, which can block the required line-of-sight between transmit and receive antennas, resulting in links that at best are only intermittently connected. 
@@ -52,11 +52,65 @@ Messages are stored in storage mediums which can hold them for a long time perio
 \end{itemize}
 
 
-
  
-\section{Peer-to-peer systems}
+\section{Peer-to-Peer networks}
+The most distinctive difference between Client/Server networking and Peer-to-Peer (P2P) networking is the role of each node in the network. In Peer-to-Peer networks nodes act as Servent, which is is an artificial word derived from the terms server and client. This term represent the capability of the nodes of a Peer-to-Peer network of acting at the same time as server as well as a client. In Client/Server networks each node can act as a server or as a client but cannot embrace both capabilities.
+\\
+
+In \cite{Aberer02anoverview} are identified three principles underlying P2P networks:
+\begin{itemize}
+\item  \textbf{Principle of sharing resources}: P2P systems involve an aspect of resource sharing, such as disk space network bandwidth or services. By sharing of resources applications can be realized which could not be set up by a single node. This was the driving motivation
+behind a P2P system such as Napster.
+\item \textbf{Principle of decentralization}: this is an immediate consequence of sharing
+of resources. Parts of the system or even the whole system are no longer op-
+erated centrally. Decentralization is in particular interesting in order to avoid
+single-point-of failures or performance bottlenecks in the system. Examples
+of fully decentralized systems are Gnutella and Freenet.
+\item \textbf{Principle of self-organization}: when a P2P system becomes fully decen-
+tralized then there exists no longer a node that can centrally coordinate it’s
+activities or a database to store global information about the system centrally.
+Therefore nodes have to self-organize themselves, based on whatever local in-
+formation is available and interacting with locally reachable nodes (neighbors).
+The global behaviour then emerges as the result of all the local behaviours
+that occur.
+
+\end{itemize}
 
 
+
+
+\subsection{Peer-to-Peer networks as Overlay networks}
+Peer-to-peer networks are typically constructed as overlay networks. These are computer networks which are built on top of other networks, adding an additional level of routing-logic. This is often done in the application layer, above transport and network layers, where maintenance and management algorithms operate. Overlays usually define some set of functions to forward overlay packets using this state. In order to implement such a higher-level of routing, many overlay networks define an additional level of logical routes above routes provided by the network layer. Each logical route can be composed by multiple lower-levels routes, i.e. routes composed by several IP-level routes.
+\\
+
+Overlay networks provide design flexibility and ease of deployment, at the cost of little inefficiency compared to a system implemented directly in coordination with the network layer. Also, designing a system using overlays helps to focus on the problem and functionalities to provide. While overlays are positioned at the application layer, it is possible to think to them as a distinct layer implementing higher-lever routing and transport services, while the complexities of network-level routing and transport are encapsulated in the lower layers.
+\\
+
+This allows to implement new services that are not yet available within the existing network. Some examples are the Distributed Hash Table (DHT) or the implementation of Virtual Private Networks (VPNs). 
+
+
+%It also separates design concerns. Indeed, while overlays are positioned at the application layer, it is more fitting to think of them as a distinct layer implementing higher-lever routing and transport services. This separation of concerns partially decouples design, implementation, and optimization from the network and transport layer. The programmer is then free to focus solely on whatever problems are at hand, while the complexities of network-level routing and transport are encapsulated in the lower layers.
+%\\
+
+%The use of an overlay network in the design of new Internet services bypasses the need for strong social coordination during deployment. This has proven important in the continued evolution of the network, as individual autonomous systems and end-users can begin (or end) providing services in a piece-wise fashion. Multicast serves as a strong example of why such piece-wise role out is critical for eventual deployment.
+
+\subsection{Peer-to-Peer architectures}
+One ways to classify P2P networks is to consider the degree of centralization of the network and divides P2P networks in centralized or decentralized (or unstructured) networks.
+\\
+
+\paragraph{Centralized P2P networks} One of the most famous occurrence of the P2P paradigm was probably Napster. This file-sharing system used an architecture in which a centralized entity provides a directory service to all participating peers, effectively forming a star network. All peers joining the system have to register their data with this centralized server. This allows other peers in the system to locate any data in the network by presence of a physically centralized directory. Only pointers to decentralized available peers are stored at the centralized server while the actual data is store in peers. When a peer found a pointer to relevant data in the directory, it could directly communicate with other peers that store the data in a decentralized manner, completely bypassing the centralized directory entity. Napster cannot be denoted as a pure P2P system because without central directory servers, single peers are not able to find resources shared by other peers.
+\\
+
+\paragraph{Decentralized P2P networks}
+In decentralized (or unstructured) P2P architectures peers do not rely on any centralized entity to locate data items within the network. More specifically, in decentralized P2P networks, peers recursively forward received requests to neighbouring peers, in an attempt to find all relevant items in the network. This request forwarding is done using a broadcast technique know as message flooding. To prevent infinite loops and to control the number of messages generated by one single request, each message gets assigned a time-to-live (TTL) value. Each peer forwarding such a message decreases this value by one, and only messages with positive TTL values get forwarded. The main advantage of unstructured P2P networks is the fact that there is no need to maintain a network structure, as peers maintain only pointers to a limited number of direct neighbours. Also there is no need for a specific storage location for data items, as they can be located anywhere in the network.
+\\
+
+In \cite{Schollmeier:2001:DPN:882470.883282}, R. Schollmeier splits P2P networking
+definition into two sub-definitions: \textit{pure} and \textit{hybrid} Peer-to-Peer networks.\\ 
+The network is said pure if any peer in the underlying topology can be added and removed arbitrarily without having the network suffering any loss of network service. In other words, there is no special set of nodes that must be present for the service to work. \\
+Peer-to-peer networks and algorithms in which an essential subset of peers exists are said to be hybrid networks. Hybrid networks typically have one or more strongly differentiated roles for various subsets of peers. Often role differentiation is related to the class of resource being shared. For example, one set of peers may handle storage, and another provide computational power. \\
+%In other networks roles are differentiated across functionality, as is done in peer-to-peer file-sharing services such as Napster and BitTorrent, both of which separate indexing, and storage and download.
+Pure peer-to-peer networks tend to generalize better, since they do not require any centralized, essential node to provide the related service.
 
 %\section{Related works}
 % ---------------------------------------------------------------------------
