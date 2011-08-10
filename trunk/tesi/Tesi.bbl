@@ -9,10 +9,28 @@ Scott Burleigh, Vinton Cerf, Robert Durst, Kevin Fall, Adrian Hooke, Keith
 \newblock The New Face of Space Selected Proceedings of the 53rd International
   Astronautical Federation Congress.
 
+\bibitem{Aberer02anoverview}
+Karl Aberer and Manfred Hauswirth.
+\newblock An overview on peer-to-peer information systems, 2002.
+
+\bibitem{Schollmeier:2001:DPN:882470.883282}
+R.~Schollmeier.
+\newblock [16] a definition of peer-to-peer networking for the classification
+  of peer-to-peer architectures and applications.
+\newblock In {\em Proceedings of the First International Conference on
+  Peer-to-Peer Computing}, P2P '01, pages 101--, Washington, DC, USA, 2001.
+  IEEE Computer Society.
+
 \bibitem{tesiarmir}
 A.~Bujari.
 \newblock A delay tolerant solution for p2p file sharing in manets.
 \newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
+
+\bibitem{articoloM2MShare}
+A.~Bujari C.~Palazzi.
+\newblock A delay/disruption tolerant solution for mobile-to-mobile file
+  sharing.
+\newblock 2010.
 
 \bibitem{socialNetworks}
 Yang Zhang and Jing Zhao.
@@ -91,12 +109,6 @@ T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
 \newblock In {\em SIMUTools '09: Proceedings of the 2nd International
   Conference on Simulation Tools and Techniques}, New York, NY, USA, 2009.
   ICST.
-
-\bibitem{articoloM2MShare}
-A.~Bujari C.~Palazzi.
-\newblock A delay/disruption tolerant solution for mobile-to-mobile file
-  sharing.
-\newblock 2010.
 
 \bibitem{humanmobility}
 S.Hong K.Lee~S.Chong I.Rhee, M.Shin.
