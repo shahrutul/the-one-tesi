@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  11 AUG 2011 17:10
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  11 AUG 2011 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,27 +723,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--24
+
+ []
+
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.36 
-      [1
+l.25 O
+      ne cause of intermittent connectivity is user movement. While mobile d...
+[1
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 42.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55 \item \textbf
-                  {M2MShare:} this chapter describes M2MShare, the protocol ...
+l.45 \item \textbf
+                  {Background:} in this chapter we describe some must-know t...
 [2]) (./2-background/background.tex [3] [4
 
 ]
@@ -2536,15 +2545,12 @@ Package rerunfilecheck Info: File `Tesi.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
  10032 strings out of 493772
  151943 string characters out of 3150564
- 237714 words of memory out of 3000000
+ 237715 words of memory out of 3000000
  12743 multiletter control sequences out of 15000+200000
  27749 words of font info for 74 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
@@ -2568,7 +2574,7 @@ ype1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
 super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share
 /texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (106 pages, 3371564 bytes).
+Output written on Tesi.pdf (106 pages, 3371027 bytes).
 PDF statistics:
  1560 PDF objects out of 1728 (max. 8388607)
  1281 compressed objects within 13 object streams
