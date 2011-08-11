@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  10 AUG 2011 17:22
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  11 AUG 2011 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -713,22 +713,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  [4] (./1-introduzione/introduzione.tex
 Chapter 1.
-) (./2-background/background.texpdfTeX warning (ext4): destination with the sam
-e identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.5 \chapter
-            {Background}\label{background} % top level followed by section, ...
-[1
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+
+ []
 
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5 \chapter
-            {Background}\label{background} % top level followed by section, ...
-[2
+l.36 
+      [1
+
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 42.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.55 \item \textbf
+                  {M2MShare:} this chapter describes M2MShare, the protocol ...
+[2]) (./2-background/background.tex [3] [4
 
 ]
 Chapter 2.
@@ -747,23 +763,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
 
-[3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 31.
- (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 31.
-
-<2-background/img/store-and-forward.png, id=353, 507.8975pt x 120.45pt>
+[5] <2-background/img/store-and-forward.png, id=369, 507.8975pt x 120.45pt>
 File: 2-background/img/store-and-forward.png Graphic file (type png)
 
-<use 2-background/img/store-and-forward.png> [4]
+<use 2-background/img/store-and-forward.png> [6]
 Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
-[5 <./2-background/img/store-and-forward.png>]
+[7 <./2-background/img/store-and-forward.png>]
 Overfull \hbox (5.49843pt too wide) in paragraph at lines 83--85
 []\T1/cmr/m/n/10.95 Peer-to-peer net-works are typ-i-cally con-structed as over
 -lay net-works. These
@@ -785,16 +793,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--100
  []
 
 
+LaTeX Warning: Citation `Carlsson:2001:RFN:647728.734520' on page 8 undefined o
+n input line 101.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
-[6]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 105--107
 
  []
 
-) (./3-m2mshare/m2mshare.tex [7] [8]
+) (./3-m2mshare/m2mshare.tex [9] [10]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
@@ -806,7 +818,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-<3-m2mshare/img/stack.png, id=390, 428.60126pt x 299.1175pt>
+<3-m2mshare/img/stack.png, id=405, 428.60126pt x 299.1175pt>
 File: 3-m2mshare/img/stack.png Graphic file (type png)
 
 <use 3-m2mshare/img/stack.png>
@@ -814,7 +826,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
 
-[9
+[11
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
@@ -834,7 +846,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--54
 
 Underfull \vbox (badness 1158) has occurred while \output is active []
 
- [10 <./3-m2mshare/img/stack.png>]
+ [12 <./3-m2mshare/img/stack.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
@@ -864,7 +876,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-[11]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 77--79
 
  []
@@ -874,7 +886,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
-[12]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 94--96
 
  []
@@ -884,7 +896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
-[13]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 123--125
 
  []
@@ -899,7 +911,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
-[14]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 137--139
 
  []
@@ -919,7 +931,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--148
 
  []
 
-[15]) (./4-movimento/movimento.tex [16]
+[17]) (./4-movimento/movimento.tex [18]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 17--19
@@ -941,7 +953,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
  []
 
-[17
+[19
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
@@ -963,25 +975,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
-<4-movimento/img/random_walk.png, id=459, 600.2425pt x 332.24126pt>
+<4-movimento/img/random_walk.png, id=476, 600.2425pt x 332.24126pt>
 File: 4-movimento/img/random_walk.png Graphic file (type png)
 
 <use 4-movimento/img/random_walk.png>
-<4-movimento/img/random_waypoint.png, id=462, 600.2425pt x 332.24126pt>
+<4-movimento/img/random_waypoint.png, id=479, 600.2425pt x 332.24126pt>
 File: 4-movimento/img/random_waypoint.png Graphic file (type png)
 
 <use 4-movimento/img/random_waypoint.png>
-<4-movimento/img/random_map.png, id=464, 600.2425pt x 332.24126pt>
+<4-movimento/img/random_map.png, id=481, 600.2425pt x 332.24126pt>
 File: 4-movimento/img/random_map.png Graphic file (type png)
 
-<use 4-movimento/img/random_map.png> [19] [20 <./4-movimento/img/random_walk.pn
+<use 4-movimento/img/random_map.png> [21] [22 <./4-movimento/img/random_walk.pn
 g (PNG copy)> <./4-movimento/img/random_waypoint.png (PNG copy)>]
-<4-movimento/img/waypoint_map.png, id=483, 600.2425pt x 332.24126pt>
+<4-movimento/img/waypoint_map.png, id=498, 600.2425pt x 332.24126pt>
 File: 4-movimento/img/waypoint_map.png Graphic file (type png)
 
 <use 4-movimento/img/waypoint_map.png>
@@ -990,11 +1002,11 @@ Overfull \hbox (2.55928pt too wide) in paragraph at lines 80--88
 l-ity model
  []
 
-<4-movimento/img/route_map.png, id=485, 600.2425pt x 332.24126pt>
+<4-movimento/img/route_map.png, id=500, 600.2425pt x 332.24126pt>
 File: 4-movimento/img/route_map.png Graphic file (type png)
 
-<use 4-movimento/img/route_map.png> [21 <./4-movimento/img/random_map.png (PNG 
-copy)>] [22 <./4-movimento/img/waypoint_map.png (PNG copy)> <./4-movimento/img/
+<use 4-movimento/img/route_map.png> [23 <./4-movimento/img/random_map.png (PNG 
+copy)>] [24 <./4-movimento/img/waypoint_map.png (PNG copy)> <./4-movimento/img/
 route_map.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
@@ -1020,7 +1032,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--121
 
  []
 
-[23]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
@@ -1043,7 +1055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
 Underfull \vbox (badness 1983) has occurred while \output is active []
 
- [24]
+ [26]
 Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
  []
@@ -1063,7 +1075,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
 
-[25]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 162--164
 
  []
@@ -1078,7 +1090,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
-[26]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
@@ -1088,14 +1100,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
-[27]) (./5-simulatore/simulatore.tex [28]
+[29]) (./5-simulatore/simulatore.tex [30]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-<5-simulatore/img/overview.png, id=530, 1025.8325pt x 577.15625pt>
+<5-simulatore/img/overview.png, id=545, 1025.8325pt x 577.15625pt>
 File: 5-simulatore/img/overview.png Graphic file (type png)
 
 <use 5-simulatore/img/overview.png>
@@ -1108,7 +1120,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
-[29
+[31
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 45--47
@@ -1130,12 +1142,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
-[30 <./5-simulatore/img/overview.png (PNG copy)>]
+[32 <./5-simulatore/img/overview.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
 
-<5-simulatore/img/Schermata-ONE.png, id=548, 949.5475pt x 710.655pt>
+<5-simulatore/img/Schermata-ONE.png, id=564, 949.5475pt x 710.655pt>
 File: 5-simulatore/img/Schermata-ONE.png Graphic file (type png)
 
 <use 5-simulatore/img/Schermata-ONE.png>
@@ -1148,8 +1160,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--85
 
  []
 
-[31] [32 <./5-simulatore/img/Schermata-ONE.png>]
-<5-simulatore/img/Routing-Info.png, id=561, 295.1025pt x 421.575pt>
+[33] [34 <./5-simulatore/img/Schermata-ONE.png>]
+<5-simulatore/img/Routing-Info.png, id=576, 295.1025pt x 421.575pt>
 File: 5-simulatore/img/Routing-Info.png Graphic file (type png)
 
 <use 5-simulatore/img/Routing-Info.png>
@@ -1162,7 +1174,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
 
-[33 <./5-simulatore/img/Routing-Info.png>]
+[35 <./5-simulatore/img/Routing-Info.png>]
 Overfull \hbox (0.19664pt too wide) in paragraph at lines 105--106
 []\T1/cmr/m/n/10.95 which can show con-tact and inter-contact time be-tween the
  nodes,
@@ -1188,15 +1200,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--125
 
  []
 
-[34]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
  []
 
-<5-simulatore/img/connessioni.png, id=574, 531.9875pt x 245.91875pt>
+<5-simulatore/img/connessioni.png, id=589, 531.9875pt x 245.91875pt>
 File: 5-simulatore/img/connessioni.png Graphic file (type png)
 
-<use 5-simulatore/img/connessioni.png> [35 <./5-simulatore/img/connessioni.png>
+<use 5-simulatore/img/connessioni.png> [37 <./5-simulatore/img/connessioni.png>
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 137--139
 
@@ -1212,7 +1224,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
  []
 
-[36] <figure/mappa_ABCD.png, id=586, 728.7225pt x 648.4225pt>
+[38] <figure/mappa_ABCD.png, id=603, 728.7225pt x 648.4225pt>
 File: figure/mappa_ABCD.png Graphic file (type png)
 
 <use figure/mappa_ABCD.png>
@@ -1225,21 +1237,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 162--164
 
  []
 
-[37 <./figure/mappa_ABCD.png>]
+[39 <./figure/mappa_ABCD.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
-) (./6-implementazione/implementazione.tex [38]
+) (./6-implementazione/implementazione.tex [40]
 Chapter 6.
-[39
+[41
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
-[40]
+[42]
 Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
@@ -1259,16 +1271,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--96
 
  []
 
-[41] <6-implementazione/img/Routing-Info.png, id=621, 315.1775pt x 421.575pt>
+[43] <6-implementazione/img/Routing-Info.png, id=637, 315.1775pt x 421.575pt>
 File: 6-implementazione/img/Routing-Info.png Graphic file (type png)
 
-<use 6-implementazione/img/Routing-Info.png> [42]
+<use 6-implementazione/img/Routing-Info.png> [44]
 Overfull \hbox (0.2624pt too wide) in paragraph at lines 139--140
 []\T1/cmr/bx/n/10.95 DTNPendingDownload com-ple-tion: \T1/cmr/m/n/10.95 a \T1/c
 mr/m/it/10.95 DTN-Pen-ding-Down-load \T1/cmr/m/n/10.95 has
  []
 
-[43 <./6-implementazione/img/Routing-Info.png>]
+[45 <./6-implementazione/img/Routing-Info.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 154--156
 
  []
@@ -1283,12 +1295,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
-[44]
+[46]
 Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
-[45]
+[47]
 Overfull \hbox (95.42255pt too wide) in paragraph at lines 205--206
 \T1/cmr/m/n/10.95 plored area us-ing dif-fer-ent del-e-ga-tion strate-gies we i
 m-ple-ment the \T1/cmr/m/it/10.95 M2MShareMapCoverageReport\T1/cmr/m/n/10.95 .
@@ -1299,13 +1311,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--228
 
  []
 
-[46]
+[48]
 Overfull \hbox (3.24593pt too wide) in paragraph at lines 234--235
 []\T1/cmr/bx/n/10.95 M2MShareRouter.frequencyThreshold [2] \T1/cmr/m/n/10.95 in
 -di-cates the min-i-mum
  []
 
-[47]
+[49]
 Overfull \hbox (7.06223pt too wide) in paragraph at lines 248--249
 []\T1/cmr/bx/n/10.95 M2MShareRouter.useBroadcastModule [true] \T1/cmr/m/n/10.95
  used to en-able/dis-
@@ -1332,7 +1344,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 266--268
 
  []
 
-[48]
+[50]
 Underfull \hbox (badness 10000) in paragraph at lines 269--271
 
  []
@@ -1347,12 +1359,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 275--277
 
  []
 
-[49]
+[51]
 Underfull \hbox (badness 10000) in paragraph at lines 300--302
 
  []
 
-[50]) (./7-simulazione/simulazione.tex [51] [52
+[52]) (./7-simulazione/simulazione.tex [53] [54
 
 ]
 Chapter 7.
@@ -1361,7 +1373,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[53]
+[55]
 Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
@@ -1371,7 +1383,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--62
 
  []
 
-[54]
+[56]
 Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
@@ -1381,7 +1393,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
-[55]
+[57]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 76--97
  [] 
  []
@@ -1396,7 +1408,7 @@ Package epstopdf Info: Source file: <grafici/tempi.eps>
 d-to.pdf grafici/tempi.eps>
 (epstopdf)             \includegraphics on input line 116.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempi-eps-converted-to.pdf, id=706, 361.35pt x 252.945pt>
+<grafici/tempi-eps-converted-to.pdf, id=722, 361.35pt x 252.945pt>
 File: grafici/tempi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempi-eps-converted-to.pdf>
@@ -1415,7 +1427,7 @@ Package epstopdf Info: Source file: <grafici/delegheFatte.eps>
 onverted-to.pdf grafici/delegheFatte.eps>
 (epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/delegheFatte-eps-converted-to.pdf, id=707, 361.35pt x 252.945pt>
+<grafici/delegheFatte-eps-converted-to.pdf, id=723, 361.35pt x 252.945pt>
 File: grafici/delegheFatte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/delegheFatte-eps-converted-to.pdf>
@@ -1428,7 +1440,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--148
 
  []
 
-[56] [57 <./grafici/tempi-eps-converted-to.pdf> <./grafici/delegheFatte-eps-con
+[58] [59 <./grafici/tempi-eps-converted-to.pdf> <./grafici/delegheFatte-eps-con
 verted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
@@ -1444,7 +1456,7 @@ Package epstopdf Info: Source file: <grafici/percDeleghe.eps>
 nverted-to.pdf grafici/percDeleghe.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/percDeleghe-eps-converted-to.pdf, id=734, 361.35pt x 252.945pt>
+<grafici/percDeleghe-eps-converted-to.pdf, id=749, 361.35pt x 252.945pt>
 File: grafici/percDeleghe-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/percDeleghe-eps-converted-to.pdf>
@@ -1462,7 +1474,7 @@ Package epstopdf Info: Source file: <grafici/data.eps>
 -to.pdf grafici/data.eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/data-eps-converted-to.pdf, id=735, 361.35pt x 252.945pt>
+<grafici/data-eps-converted-to.pdf, id=750, 361.35pt x 252.945pt>
 File: grafici/data-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/data-eps-converted-to.pdf>
@@ -1470,7 +1482,7 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 186--187
  [][] 
  []
 
-[58] [59 <./grafici/percDeleghe-eps-converted-to.pdf> <./grafici/data-eps-conve
+[60] [61 <./grafici/percDeleghe-eps-converted-to.pdf> <./grafici/data-eps-conve
 rted-to.pdf>]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 202--223
  [] 
@@ -1488,7 +1500,7 @@ eps-converted-to.pdf grafici/tempiVFDiversaPop.eps>
 (epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVFDiversaPop-eps-converted-to.pdf, id=758, 361.35pt x 252.945pt>
+<grafici/tempiVFDiversaPop-eps-converted-to.pdf, id=774, 361.35pt x 252.945pt>
 File: grafici/tempiVFDiversaPop-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVFDiversaPop-eps-converted-to.pdf>
@@ -1504,7 +1516,7 @@ zoom-eps-converted-to.pdf grafici/tempiVFDiversaPop_zoom.eps>
 (epstopdf)             \includegraphics on input line 236.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVFDiversaPop_zoom-eps-converted-to.pdf, id=759, 361.35pt x 252.94
+<grafici/tempiVFDiversaPop_zoom-eps-converted-to.pdf, id=775, 361.35pt x 252.94
 5pt>
 File: grafici/tempiVFDiversaPop_zoom-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1518,7 +1530,7 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 234--237
  [][] 
  []
 
-[60] [61 <./grafici/tempiVFDiversaPop-eps-converted-to.pdf> <./grafici/tempiVFD
+[62] [63 <./grafici/tempiVFDiversaPop-eps-converted-to.pdf> <./grafici/tempiVFD
 iversaPop_zoom-eps-converted-to.pdf>]
 Overfull \hbox (8.64276pt too wide) in paragraph at lines 245--266
  [] 
@@ -1539,7 +1551,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp5.eps>
 nverted-to.pdf grafici/tempiVF_Fp5.eps>
 (epstopdf)             \includegraphics on input line 302.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp5-eps-converted-to.pdf, id=787, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp5-eps-converted-to.pdf, id=802, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp5-eps-converted-to.pdf>
@@ -1555,7 +1567,7 @@ ps-converted-to.pdf grafici/tempiVF_Fp5_zoom.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf, id=788, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf, id=803, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp5_zoom-eps-converted-to.pdf>
@@ -1579,7 +1591,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp10.eps>
 onverted-to.pdf grafici/tempiVF_Fp10.eps>
 (epstopdf)             \includegraphics on input line 311.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp10-eps-converted-to.pdf, id=789, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp10-eps-converted-to.pdf, id=804, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp10-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp10-eps-converted-to.pdf>
@@ -1595,7 +1607,7 @@ eps-converted-to.pdf grafici/tempiVF_Fp10_zoom.eps>
 (epstopdf)             \includegraphics on input line 313.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf, id=790, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf, id=805, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf>
@@ -1619,7 +1631,7 @@ Package epstopdf Info: Source file: <grafici/tempiVF_Fp50.eps>
 onverted-to.pdf grafici/tempiVF_Fp50.eps>
 (epstopdf)             \includegraphics on input line 320.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/tempiVF_Fp50-eps-converted-to.pdf, id=791, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp50-eps-converted-to.pdf, id=806, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp50-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp50-eps-converted-to.pdf>
@@ -1635,7 +1647,7 @@ eps-converted-to.pdf grafici/tempiVF_Fp50_zoom.eps>
 (epstopdf)             \includegraphics on input line 322.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf, id=792, 361.35pt x 252.945pt>
+<grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf, id=807, 361.35pt x 252.945pt>
 File: grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf>
@@ -1648,9 +1660,9 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 320--323
  [][] 
  []
 
-[62] [63 <./grafici/tempiVF_Fp5-eps-converted-to.pdf> <./grafici/tempiVF_Fp5_zo
-om-eps-converted-to.pdf>] [64 <./grafici/tempiVF_Fp10-eps-converted-to.pdf> <./
-grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf>] [65 <./grafici/tempiVF_Fp50-ep
+[64] [65 <./grafici/tempiVF_Fp5-eps-converted-to.pdf> <./grafici/tempiVF_Fp5_zo
+om-eps-converted-to.pdf>] [66 <./grafici/tempiVF_Fp10-eps-converted-to.pdf> <./
+grafici/tempiVF_Fp10_zoom-eps-converted-to.pdf>] [67 <./grafici/tempiVF_Fp50-ep
 s-converted-to.pdf> <./grafici/tempiVF_Fp50_zoom-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 358--360
 
@@ -1666,7 +1678,7 @@ Package epstopdf Info: Source file: <grafici/ridondanza.eps>
 verted-to.pdf grafici/ridondanza.eps>
 (epstopdf)             \includegraphics on input line 368.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/ridondanza-eps-converted-to.pdf, id=856, 361.35pt x 252.945pt>
+<grafici/ridondanza-eps-converted-to.pdf, id=872, 361.35pt x 252.945pt>
 File: grafici/ridondanza-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/ridondanza-eps-converted-to.pdf>
@@ -1685,7 +1697,7 @@ Package epstopdf Info: Source file: <grafici/delegheAttive.eps>
 converted-to.pdf grafici/delegheAttive.eps>
 (epstopdf)             \includegraphics on input line 375.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/delegheAttive-eps-converted-to.pdf, id=857, 361.35pt x 252.945pt>
+<grafici/delegheAttive-eps-converted-to.pdf, id=873, 361.35pt x 252.945pt>
 File: grafici/delegheAttive-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/delegheAttive-eps-converted-to.pdf>
@@ -1693,7 +1705,7 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 375--376
  [][] 
  []
 
-[66] [67 <./grafici/ridondanza-eps-converted-to.pdf> <./grafici/delegheAttive-e
+[68] [69 <./grafici/ridondanza-eps-converted-to.pdf> <./grafici/delegheAttive-e
 ps-converted-to.pdf>]
 Overfull \hbox (37.74532pt too wide) in paragraph at lines 387--410
  [] 
@@ -1714,7 +1726,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--429
 
  []
 
-[68]
+[70]
 Package epstopdf Info: Source file: <grafici/tempiVF_MultiHop.eps>
 (epstopdf)                    date: 2011-08-09 16:20:23
 (epstopdf)                    size: 20487 bytes
@@ -1727,7 +1739,7 @@ ps-converted-to.pdf grafici/tempiVF_MultiHop.eps>
 (epstopdf)             \includegraphics on input line 434.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/tempiVF_MultiHop-eps-converted-to.pdf, id=887, 361.35pt x 252.945pt>
+<grafici/tempiVF_MultiHop-eps-converted-to.pdf, id=902, 361.35pt x 252.945pt>
 File: grafici/tempiVF_MultiHop-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/tempiVF_MultiHop-eps-converted-to.pdf>
@@ -1735,7 +1747,7 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 434--435
  [] 
  []
 
-[69 <./grafici/tempiVF_MultiHop-eps-converted-to.pdf>]
+[71 <./grafici/tempiVF_MultiHop-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 451--453
 
  []
@@ -1757,7 +1769,7 @@ p-eps-converted-to.pdf grafici/mapCovered_MultiHop.eps>
 (epstopdf)             \includegraphics on input line 482.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mapCovered_MultiHop-eps-converted-to.pdf, id=907, 361.35pt x 252.945pt
+<grafici/mapCovered_MultiHop-eps-converted-to.pdf, id=922, 361.35pt x 252.945pt
 >
 File: grafici/mapCovered_MultiHop-eps-converted-to.pdf Graphic file (type pdf)
  <use grafici/mapCovered_MultiHop-eps-converted-to.pdf>
@@ -1776,7 +1788,7 @@ pdf>
 ps-converted-to.pdf grafici/mappe/controlSet.eps>
 (epstopdf)             \includegraphics on input line 490.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/mappe/controlSet-eps-converted-to.pdf, id=908, 361.35pt x 252.945pt>
+<grafici/mappe/controlSet-eps-converted-to.pdf, id=923, 361.35pt x 252.945pt>
 File: grafici/mappe/controlSet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/mappe/controlSet-eps-converted-to.pdf>
@@ -1792,7 +1804,7 @@ op_10perc-eps-converted-to.pdf grafici/mappe/M2MShare_1_hop_10perc.eps>
 (epstopdf)             \includegraphics on input line 501.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_1_hop_10perc-eps-converted-to.pdf, id=909, 361.35pt x 2
+<grafici/mappe/M2MShare_1_hop_10perc-eps-converted-to.pdf, id=924, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_1_hop_10perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1809,7 +1821,7 @@ op_10perc-eps-converted-to.pdf grafici/mappe/M2MShare_2_hop_10perc.eps>
 (epstopdf)             \includegraphics on input line 504.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_2_hop_10perc-eps-converted-to.pdf, id=910, 361.35pt x 2
+<grafici/mappe/M2MShare_2_hop_10perc-eps-converted-to.pdf, id=925, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_2_hop_10perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1826,7 +1838,7 @@ op_10perc-eps-converted-to.pdf grafici/mappe/M2MShare_3_hop_10perc.eps>
 (epstopdf)             \includegraphics on input line 507.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_3_hop_10perc-eps-converted-to.pdf, id=911, 361.35pt x 2
+<grafici/mappe/M2MShare_3_hop_10perc-eps-converted-to.pdf, id=926, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_3_hop_10perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1846,7 +1858,7 @@ op_25perc-eps-converted-to.pdf grafici/mappe/M2MShare_1_hop_25perc.eps>
 (epstopdf)             \includegraphics on input line 515.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_1_hop_25perc-eps-converted-to.pdf, id=912, 361.35pt x 2
+<grafici/mappe/M2MShare_1_hop_25perc-eps-converted-to.pdf, id=927, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_1_hop_25perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1863,7 +1875,7 @@ op_25perc-eps-converted-to.pdf grafici/mappe/M2MShare_2_hop_25perc.eps>
 (epstopdf)             \includegraphics on input line 518.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_2_hop_25perc-eps-converted-to.pdf, id=913, 361.35pt x 2
+<grafici/mappe/M2MShare_2_hop_25perc-eps-converted-to.pdf, id=928, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_2_hop_25perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1880,7 +1892,7 @@ op_25perc-eps-converted-to.pdf grafici/mappe/M2MShare_3_hop_25perc.eps>
 (epstopdf)             \includegraphics on input line 521.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_3_hop_25perc-eps-converted-to.pdf, id=914, 361.35pt x 2
+<grafici/mappe/M2MShare_3_hop_25perc-eps-converted-to.pdf, id=929, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_3_hop_25perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1900,7 +1912,7 @@ op_50perc-eps-converted-to.pdf grafici/mappe/M2MShare_1_hop_50perc.eps>
 (epstopdf)             \includegraphics on input line 529.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_1_hop_50perc-eps-converted-to.pdf, id=915, 361.35pt x 2
+<grafici/mappe/M2MShare_1_hop_50perc-eps-converted-to.pdf, id=930, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_1_hop_50perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1917,7 +1929,7 @@ op_50perc-eps-converted-to.pdf grafici/mappe/M2MShare_2_hop_50perc.eps>
 (epstopdf)             \includegraphics on input line 532.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_2_hop_50perc-eps-converted-to.pdf, id=916, 361.35pt x 2
+<grafici/mappe/M2MShare_2_hop_50perc-eps-converted-to.pdf, id=931, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_2_hop_50perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1934,7 +1946,7 @@ op_50perc-eps-converted-to.pdf grafici/mappe/M2MShare_3_hop_50perc.eps>
 (epstopdf)             \includegraphics on input line 535.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_3_hop_50perc-eps-converted-to.pdf, id=917, 361.35pt x 2
+<grafici/mappe/M2MShare_3_hop_50perc-eps-converted-to.pdf, id=932, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_3_hop_50perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1954,7 +1966,7 @@ op_75perc-eps-converted-to.pdf grafici/mappe/M2MShare_1_hop_75perc.eps>
 (epstopdf)             \includegraphics on input line 543.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_1_hop_75perc-eps-converted-to.pdf, id=918, 361.35pt x 2
+<grafici/mappe/M2MShare_1_hop_75perc-eps-converted-to.pdf, id=933, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_1_hop_75perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1971,7 +1983,7 @@ op_75perc-eps-converted-to.pdf grafici/mappe/M2MShare_2_hop_75perc.eps>
 (epstopdf)             \includegraphics on input line 546.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_2_hop_75perc-eps-converted-to.pdf, id=919, 361.35pt x 2
+<grafici/mappe/M2MShare_2_hop_75perc-eps-converted-to.pdf, id=934, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_2_hop_75perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -1988,7 +2000,7 @@ op_75perc-eps-converted-to.pdf grafici/mappe/M2MShare_3_hop_75perc.eps>
 (epstopdf)             \includegraphics on input line 549.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_3_hop_75perc-eps-converted-to.pdf, id=920, 361.35pt x 2
+<grafici/mappe/M2MShare_3_hop_75perc-eps-converted-to.pdf, id=935, 361.35pt x 2
 52.945pt>
 File: grafici/mappe/M2MShare_3_hop_75perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -2008,7 +2020,7 @@ op_100perc-eps-converted-to.pdf grafici/mappe/M2MShare_1_hop_100perc.eps>
 (epstopdf)             \includegraphics on input line 557.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_1_hop_100perc-eps-converted-to.pdf, id=921, 361.35pt x 
+<grafici/mappe/M2MShare_1_hop_100perc-eps-converted-to.pdf, id=936, 361.35pt x 
 252.945pt>
 File: grafici/mappe/M2MShare_1_hop_100perc-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -2025,7 +2037,7 @@ op_100perc-eps-converted-to.pdf grafici/mappe/M2MShare_2_hop_100perc.eps>
 (epstopdf)             \includegraphics on input line 560.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_2_hop_100perc-eps-converted-to.pdf, id=922, 361.35pt x 
+<grafici/mappe/M2MShare_2_hop_100perc-eps-converted-to.pdf, id=937, 361.35pt x 
 252.945pt>
 File: grafici/mappe/M2MShare_2_hop_100perc-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -2042,7 +2054,7 @@ op_100perc-eps-converted-to.pdf grafici/mappe/M2MShare_3_hop_100perc.eps>
 (epstopdf)             \includegraphics on input line 563.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/mappe/M2MShare_3_hop_100perc-eps-converted-to.pdf, id=923, 361.35pt x 
+<grafici/mappe/M2MShare_3_hop_100perc-eps-converted-to.pdf, id=938, 361.35pt x 
 252.945pt>
 File: grafici/mappe/M2MShare_3_hop_100perc-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -2050,18 +2062,18 @@ ype pdf)
 
 LaTeX Warning: Float too large for page by 95.76088pt on input line 565.
 
-[70] [71 <./grafici/mapCovered_MultiHop-eps-converted-to.pdf> <./grafici/mappe/
-controlSet-eps-converted-to.pdf>] [72 <./grafici/mappe/M2MShare_1_hop_10perc-ep
+[72] [73 <./grafici/mapCovered_MultiHop-eps-converted-to.pdf> <./grafici/mappe/
+controlSet-eps-converted-to.pdf>] [74 <./grafici/mappe/M2MShare_1_hop_10perc-ep
 s-converted-to.pdf> <./grafici/mappe/M2MShare_2_hop_10perc-eps-converted-to.pdf
-> <./grafici/mappe/M2MShare_3_hop_10perc-eps-converted-to.pdf>] [73 <./grafici/
+> <./grafici/mappe/M2MShare_3_hop_10perc-eps-converted-to.pdf>] [75 <./grafici/
 mappe/M2MShare_1_hop_25perc-eps-converted-to.pdf> <./grafici/mappe/M2MShare_2_h
 op_25perc-eps-converted-to.pdf> <./grafici/mappe/M2MShare_3_hop_25perc-eps-conv
-erted-to.pdf>] [74 <./grafici/mappe/M2MShare_1_hop_50perc-eps-converted-to.pdf>
+erted-to.pdf>] [76 <./grafici/mappe/M2MShare_1_hop_50perc-eps-converted-to.pdf>
  <./grafici/mappe/M2MShare_2_hop_50perc-eps-converted-to.pdf> <./grafici/mappe/
-M2MShare_3_hop_50perc-eps-converted-to.pdf>] [75 <./grafici/mappe/M2MShare_1_ho
+M2MShare_3_hop_50perc-eps-converted-to.pdf>] [77 <./grafici/mappe/M2MShare_1_ho
 p_75perc-eps-converted-to.pdf> <./grafici/mappe/M2MShare_2_hop_75perc-eps-conve
 rted-to.pdf> <./grafici/mappe/M2MShare_3_hop_75perc-eps-converted-to.pdf>]
-[76 <./grafici/mappe/M2MShare_1_hop_100perc-eps-converted-to.pdf> <./grafici/ma
+[78 <./grafici/mappe/M2MShare_1_hop_100perc-eps-converted-to.pdf> <./grafici/ma
 ppe/M2MShare_2_hop_100perc-eps-converted-to.pdf> <./grafici/mappe/M2MShare_3_ho
 p_100perc-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 599--601
@@ -2085,7 +2097,7 @@ p_10perc-eps-converted-to.pdf grafici/ridondanza_multiHop_10perc.eps>
 (epstopdf)             \includegraphics on input line 611.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf, id=1106, 361.35pt x 2
+<grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf, id=1121, 361.35pt x 2
 52.945pt>
 File: grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -2103,7 +2115,7 @@ iHop_10perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_10perc.eps>
 (epstopdf)             \includegraphics on input line 613.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf, id=1107, 361.35pt 
+<grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf, id=1122, 361.35pt 
 x 252.945pt>
 File: grafici/delegheAttive_multiHop_10perc-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -2129,7 +2141,7 @@ p_25perc-eps-converted-to.pdf grafici/ridondanza_multiHop_25perc.eps>
 (epstopdf)             \includegraphics on input line 620.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf, id=1108, 361.35pt x 2
+<grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf, id=1123, 361.35pt x 2
 52.945pt>
 File: grafici/ridondanza_multiHop_25perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -2147,7 +2159,7 @@ iHop_25perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_25perc.eps>
 (epstopdf)             \includegraphics on input line 622.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf, id=1109, 361.35pt 
+<grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf, id=1124, 361.35pt 
 x 252.945pt>
 File: grafici/delegheAttive_multiHop_25perc-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -2173,7 +2185,7 @@ p_50perc-eps-converted-to.pdf grafici/ridondanza_multiHop_50perc.eps>
 (epstopdf)             \includegraphics on input line 629.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf, id=1110, 361.35pt x 2
+<grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf, id=1125, 361.35pt x 2
 52.945pt>
 File: grafici/ridondanza_multiHop_50perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -2191,7 +2203,7 @@ iHop_50perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_50perc.eps>
 (epstopdf)             \includegraphics on input line 631.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf, id=1111, 361.35pt 
+<grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf, id=1126, 361.35pt 
 x 252.945pt>
 File: grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -2217,7 +2229,7 @@ p_75perc-eps-converted-to.pdf grafici/ridondanza_multiHop_75perc.eps>
 (epstopdf)             \includegraphics on input line 638.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf, id=1112, 361.35pt x 2
+<grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf, id=1127, 361.35pt x 2
 52.945pt>
 File: grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -2235,7 +2247,7 @@ iHop_75perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_75perc.eps>
 (epstopdf)             \includegraphics on input line 640.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf, id=1113, 361.35pt 
+<grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf, id=1128, 361.35pt 
 x 252.945pt>
 File: grafici/delegheAttive_multiHop_75perc-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -2261,7 +2273,7 @@ p_100perc-eps-converted-to.pdf grafici/ridondanza_multiHop_100perc.eps>
 (epstopdf)             \includegraphics on input line 647.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf, id=1114, 361.35pt x 
+<grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf, id=1129, 361.35pt x 
 252.945pt>
 File: grafici/ridondanza_multiHop_100perc-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -2279,7 +2291,7 @@ iHop_100perc-eps-converted-to.pdf grafici/delegheAttive_multiHop_100perc.eps>
 (epstopdf)             \includegraphics on input line 649.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf, id=1115, 361.35pt
+<grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf, id=1130, 361.35pt
  x 252.945pt>
 File: grafici/delegheAttive_multiHop_100perc-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -2294,15 +2306,15 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 647--650
  [][] 
  []
 
-[77] [78 <./grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf> <./grafici
-/delegheAttive_multiHop_10perc-eps-converted-to.pdf>] [79 <./grafici/ridondanza
+[79] [80 <./grafici/ridondanza_multiHop_10perc-eps-converted-to.pdf> <./grafici
+/delegheAttive_multiHop_10perc-eps-converted-to.pdf>] [81 <./grafici/ridondanza
 _multiHop_25perc-eps-converted-to.pdf> <./grafici/delegheAttive_multiHop_25perc
--eps-converted-to.pdf>] [80 <./grafici/ridondanza_multiHop_50perc-eps-converted
+-eps-converted-to.pdf>] [82 <./grafici/ridondanza_multiHop_50perc-eps-converted
 -to.pdf> <./grafici/delegheAttive_multiHop_50perc-eps-converted-to.pdf>]
-[81 <./grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf> <./grafici/dele
-gheAttive_multiHop_75perc-eps-converted-to.pdf>] [82 <./grafici/ridondanza_mult
+[83 <./grafici/ridondanza_multiHop_75perc-eps-converted-to.pdf> <./grafici/dele
+gheAttive_multiHop_75perc-eps-converted-to.pdf>] [84 <./grafici/ridondanza_mult
 iHop_100perc-eps-converted-to.pdf> <./grafici/delegheAttive_multiHop_100perc-ep
-s-converted-to.pdf>] [83]
+s-converted-to.pdf>] [85]
 Package epstopdf Info: Source file: <grafici/dataDFS_3MB.eps>
 (epstopdf)                    date: 2011-08-09 16:20:23
 (epstopdf)                    size: 18549 bytes
@@ -2314,7 +2326,7 @@ nverted-to.pdf grafici/dataDFS_3MB.eps>
 (epstopdf)             \includegraphics on input line 703.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_3MB-eps-converted-to.pdf, id=1217, 361.35pt x 252.945pt>
+<grafici/dataDFS_3MB-eps-converted-to.pdf, id=1233, 361.35pt x 252.945pt>
 File: grafici/dataDFS_3MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_3MB-eps-converted-to.pdf>
@@ -2330,7 +2342,7 @@ ps-converted-to.pdf grafici/dataDFS_3MB_zoom.eps>
 (epstopdf)             \includegraphics on input line 705.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_3MB_zoom-eps-converted-to.pdf, id=1218, 361.35pt x 252.945pt>
+<grafici/dataDFS_3MB_zoom-eps-converted-to.pdf, id=1234, 361.35pt x 252.945pt>
 File: grafici/dataDFS_3MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>
@@ -2354,7 +2366,7 @@ Package epstopdf Info: Source file: <grafici/dataDFS_10MB.eps>
 onverted-to.pdf grafici/dataDFS_10MB.eps>
 (epstopdf)             \includegraphics on input line 712.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_10MB-eps-converted-to.pdf, id=1219, 361.35pt x 252.945pt>
+<grafici/dataDFS_10MB-eps-converted-to.pdf, id=1235, 361.35pt x 252.945pt>
 File: grafici/dataDFS_10MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_10MB-eps-converted-to.pdf>
@@ -2370,7 +2382,7 @@ eps-converted-to.pdf grafici/dataDFS_10MB_zoom.eps>
 (epstopdf)             \includegraphics on input line 714.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_10MB_zoom-eps-converted-to.pdf, id=1220, 361.35pt x 252.945pt>
+<grafici/dataDFS_10MB_zoom-eps-converted-to.pdf, id=1236, 361.35pt x 252.945pt>
 File: grafici/dataDFS_10MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 <use grafici/dataDFS_10MB_zoom-eps-converted-to.pdf>
 Overfull \hbox (1.34912pt too wide) in paragraph at lines 712--715
@@ -2393,7 +2405,7 @@ Package epstopdf Info: Source file: <grafici/dataDFS_25MB.eps>
 onverted-to.pdf grafici/dataDFS_25MB.eps>
 (epstopdf)             \includegraphics on input line 721.
 Package epstopdf Info: Output file is already uptodate.
-<grafici/dataDFS_25MB-eps-converted-to.pdf, id=1221, 361.35pt x 252.945pt>
+<grafici/dataDFS_25MB-eps-converted-to.pdf, id=1237, 361.35pt x 252.945pt>
 File: grafici/dataDFS_25MB-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafici/dataDFS_25MB-eps-converted-to.pdf>
@@ -2409,7 +2421,7 @@ eps-converted-to.pdf grafici/dataDFS_25MB_zoom.eps>
 (epstopdf)             \includegraphics on input line 723.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafici/dataDFS_25MB_zoom-eps-converted-to.pdf, id=1222, 361.35pt x 252.945pt>
+<grafici/dataDFS_25MB_zoom-eps-converted-to.pdf, id=1238, 361.35pt x 252.945pt>
 File: grafici/dataDFS_25MB_zoom-eps-converted-to.pdf Graphic file (type pdf)
 <use grafici/dataDFS_25MB_zoom-eps-converted-to.pdf>
 Overfull \hbox (1.34912pt too wide) in paragraph at lines 721--724
@@ -2421,15 +2433,15 @@ Overfull \hbox (1.34912pt too wide) in paragraph at lines 721--724
  [][] 
  []
 
-) (./8-conclusioni/conclusioni.tex [84] [85 <./grafici/dataDFS_3MB-eps-converte
-d-to.pdf> <./grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>] [86 <./grafici/dat
+) (./8-conclusioni/conclusioni.tex [86] [87 <./grafici/dataDFS_3MB-eps-converte
+d-to.pdf> <./grafici/dataDFS_3MB_zoom-eps-converted-to.pdf>] [88 <./grafici/dat
 aDFS_10MB-eps-converted-to.pdf> <./grafici/dataDFS_10MB_zoom-eps-converted-to.p
-df>] [87 <./grafici/dataDFS_25MB-eps-converted-to.pdf> <./grafici/dataDFS_25MB_
-zoom-eps-converted-to.pdf>] [88
+df>] [89 <./grafici/dataDFS_25MB-eps-converted-to.pdf> <./grafici/dataDFS_25MB_
+zoom-eps-converted-to.pdf>] [90
 
 ]
 Chapter 8.
-) [89] [90
+) [91] [92
 
 ] (./Tesi.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 51.
@@ -2441,7 +2453,7 @@ Underfull \hbox (badness 1377) in paragraph at lines 54--58
  and
  []
 
-[91
+[93
 
 ]
 Underfull \hbox (badness 1062) in paragraph at lines 88--92
@@ -2449,7 +2461,7 @@ Underfull \hbox (badness 1062) in paragraph at lines 88--92
 ot,
  []
 
-[92]) [93] [94
+[94]) [95] [96
 
 ] (./Tesi.lof
 Overfull \hbox (9.71558pt too wide) in paragraph at lines 6--6
@@ -2457,7 +2469,7 @@ Overfull \hbox (9.71558pt too wide) in paragraph at lines 6--6
 re proprietary.[[]][][] [][]  
  []
 
-[95]
+[97]
 Overfull \hbox (1.13542pt too wide) in paragraph at lines 55--55
  [][] [][][]\T1/cmr/m/n/10.95 Average data re-dun-dancy and num-ber of ac-tive 
 del-e-gated tasks 
@@ -2491,7 +2503,7 @@ del-e-gated tasks
 \tf@lof=\write5
 \openout5 = `Tesi.lof'.
 
- [96] (./Tesi.lot
+ [98] (./Tesi.lot
 Overfull \hbox (1.21786pt too wide) in paragraph at lines 11--11
  [][] [][][]\T1/cmr/m/n/10.95 Simulations set-tings for eval-u-a-tion of del-e-
 ga-tion ef-fi-ciency with 
@@ -2507,10 +2519,10 @@ ga-tion ef-fi-ciency with
 \tf@lot=\write6
 \openout6 = `Tesi.lot'.
 
- [97
+ [99
 
 
-] [98
+] [100
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
@@ -2520,13 +2532,20 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
 (rerunfilecheck)             Checksum: C9CB2D670DF218C237A18B5DA241C610;3901.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 10022 strings out of 493772
- 151853 string characters out of 3150564
+ 10032 strings out of 493772
+ 151943 string characters out of 3150564
  237714 words of memory out of 3000000
- 12742 multiletter control sequences out of 15000+200000
+ 12743 multiletter control sequences out of 15000+200000
  27749 words of font info for 74 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
  36i,12n,43p,1474b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2549,10 +2568,10 @@ ype1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
 super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share
 /texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (104 pages, 3364997 bytes).
+Output written on Tesi.pdf (106 pages, 3371564 bytes).
 PDF statistics:
- 1544 PDF objects out of 1728 (max. 8388607)
- 1267 compressed objects within 13 object streams
- 289 named destinations out of 1000 (max. 500000)
+ 1560 PDF objects out of 1728 (max. 8388607)
+ 1281 compressed objects within 13 object streams
+ 298 named destinations out of 1000 (max. 500000)
  783 words of extra memory for PDF output out of 10000 (max. 10000000)
 
