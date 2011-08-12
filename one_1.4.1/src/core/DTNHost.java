@@ -31,7 +31,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	private String name;
 	private List<MessageListener> msgListeners;
 	private List<MovementListener> movListeners;
-	private List<FileEventListener> queryListeners;
+	private List<FileEventListener> fileListeners;
 	private List<NetworkInterface> net;
 	private ModuleCommunicationBus comBus;
 	
@@ -46,7 +46,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	 * Creates a new DTNHost.
 	 * @param msgLs Message listeners
 	 * @param movLs Movement listeners
-	 * @param queryLs Query listeners
+	 * @param filesLs Files listeners
 	 * @param groupId GroupID of this host
 	 * @param interf List of NetworkInterfaces for the class
 	 * @param comBus Module communication bus object
@@ -55,7 +55,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	 */
 	public DTNHost(List<MessageListener> msgLs,
 			List<MovementListener> movLs,
-			List<FileEventListener> queryLs,
+			List<FileEventListener> filesLs,
 			String groupId, List<NetworkInterface> interf,
 			ModuleCommunicationBus comBus, 
 			MovementModel mmProto, MessageRouter mRouterProto,
@@ -78,7 +78,7 @@ public class DTNHost implements Comparable<DTNHost> {
 
 		this.msgListeners = msgLs;
 		this.movListeners = movLs;
-		this.queryListeners = queryLs;
+		this.fileListeners = filesLs;
 
 		// create instances by replicating the prototypes
 		this.movement = mmProto.replicate();
@@ -127,7 +127,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	 * @param router The router to set
 	 */
 	private void setRouter(MessageRouter router) {
-		router.init(this, msgListeners, queryListeners);
+		router.init(this, msgListeners, fileListeners);
 		this.router = router;
 	}
 
