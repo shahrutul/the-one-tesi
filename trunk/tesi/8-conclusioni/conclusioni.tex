@@ -12,7 +12,7 @@
 
 
 %: ----------------------- contents from here ------------------------
-In this thesis, we evaluated the performance of M2MShare, a protocol which implements DTN techniques in mobile phones world, in order to enable a peer-to-peer file sharing system between peers in the network using their mobility and opportunistic contacts among them. To do so we implemented the protocol in the Oppostunistic Network Environment (ONE) simulator. This simulator is able to emulate human movement adopting several movement models in a map-based environment and allow us to evaluate M2MShare behaviour in a realistic city-scale scenario.
+In this thesis, we evaluated the performance of M2MShare, a protocol which implements DTN techniques in mobile phones world, in order to enable a peer-to-peer file sharing system between peers in the network  making leverage on their mobility and opportunistic contacts among them. To do so we implemented the protocol in the Oppostunistic Network Environment (ONE) simulator. This simulator is able to emulate human movement adopting several movement models in a map-based environment and allow us to evaluate M2MShare behaviour in a realistic city-scale scenario.
 \\
 
 We evaluated M2MShare employing one-hop delegations against two other systems using different strategies:
@@ -20,7 +20,7 @@ We evaluated M2MShare employing one-hop delegations against two other systems us
 \item \textit{No\_delegation:} system which does not employ delegations and file exchange is initiated only when a peer holding the requested data file is found in reach area of file requester.
 \item \textit{Delegation\_to\_all:} system employing delegations but instead employs the trivial technique where missing tasks are delegated to each encountered peer.
 \end{itemize}
-Our analysis proved that the use of delegations is more efficient than to the strategy which does not employ delegations using it, due to the number of servant peers involved in the file-search activity. This number is limited using as heuristic the history of met nodes and delegating tasks only to frequently met peers. We proved that this strategy allow M2MShare to be more efficient than the strategy in which tasks were indiscriminately delegated to all met peers, respect to the number of peers involved and to the redundancy introduced in the entire network.
+Our analysis proved that the use of delegations is more efficient than to the strategy which does not employ them, due to the number of servant peers involved in the file-search activity. This number is limited using as heuristic the history of met nodes and delegating tasks only to frequently encountered peers. We proved that this strategy allows M2MShare to be more efficient than the strategy in which tasks are indiscriminately delegated to all met peers, respect to the number of peers involved and to the redundancy introduced in the entire network.
 \\
 
 We improved M2MShare by adding support for multi-hop delegations and we proved how this increases the search area for a file, compared to the single-hop delegations strategy introduced by M2MShare.
@@ -31,9 +31,10 @@ We compared M2MShare file division strategy with two other division strategies:
 \item iM: a strategy which requests at each file server the entire file, always starting from its first byte;
 \item rM: a strategy that randomly chooses the initial download point in the file request.
 \end{itemize}
-and we proved that our division strategy has the least redundancy during data transfer, especially considering big-sized files.
+and we proved that our file division strategy has the least redundancy during data transfer, especially considering big-sized files.
 \\
 
+Some of the previous results will be presented with a paper we wrote at Wireless Days Conference 2011 \footnote{Wireless Days 2011 \href{http://www.wireless-days.org/}{http://www.wireless-days.org/}} in Niagara Falls, Ontario, Canada.
 Summarizing, to our judgement our contributions are the following:
 \begin{itemize}
 \item implementing M2MShare and evaluating its behaviour using a simulator (the ONE simulator) able to emulate nodes movement in a realistic urban scenario.
@@ -44,11 +45,12 @@ Summarizing, to our judgement our contributions are the following:
 \item enhancing the ONE simulator adding some new features to it and then making them available to the simulator users community\footnote{The ONE simulator user contributions \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}}.
 \end{itemize}
 
-
+\pagebreak
 \section{Future Work}
-Some potential future developments to further improve and extend the functionalities provided by the software might be:
+There are other analysis that could be done to evaluate M2MShare efficiency, respect to several factors. Some of them might be:
+%Some potential future developments to further improve and extend the functionalities provided by the software might be:
 \begin{itemize}
-\item Wider scenario: we emulated M2MShare behaviour and evaluated its efficiency in a city-scale scenario, adopting the working day movement model to emulate users daily activities. An interesting future work could be to evaluate M2MShare performance in a wider-scale environment, say a scenario composed by multiple cities and emulating commuters moving from a city to the other during their daily activities.
+\item Wider scenario: we emulated M2MShare behaviour and evaluated its efficiency in a city-scale scenario, adopting the Working Day Movement Model to emulate users daily activities. An interesting future work could be to evaluate M2MShare performance in a wider-scale environment, say a scenario composed by multiple cities and emulating commuters moving from a city to the other during their daily activities.
 \item Power consumption analysis: one characteristic of mobile devices is the limited power. One future analysis could be to evaluate the impact of delegations in terms of energy consumption. Several models for  energy consumption analysis for bluetooth are available and could be adapted and implemented in the ONE simulator.
 \item Search phase emulation: we emulated only the second part of the protocol, the one in which a node looks for a specific file and asks for it to other peers, using delegations. A possible future analysis would be to evaluate the efficiency of the Search Module of M2MShare in indexing and returning results for a user query, using delegations even in this activity.
 \end{itemize}

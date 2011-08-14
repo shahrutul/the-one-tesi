@@ -13,6 +13,13 @@ Scott Burleigh, Vinton Cerf, Robert Durst, Kevin Fall, Adrian Hooke, Keith
 Karl Aberer and Manfred Hauswirth.
 \newblock An overview on peer-to-peer information systems, 2002.
 
+\bibitem{Carlsson:2001:RFN:647728.734520}
+Bengt Carlsson and Rune Gustavsson.
+\newblock The rise and fall of napster - an evolutionary approach.
+\newblock In {\em Proceedings of the 6th International Computer Science
+  Conference on Active Media Technology}, AMT '01, pages 347--354, London, UK,
+  UK, 2001. Springer-Verlag.
+
 \bibitem{Schollmeier:2001:DPN:882470.883282}
 R.~Schollmeier.
 \newblock [16] a definition of peer-to-peer networking for the classification
@@ -22,15 +29,15 @@ R.~Schollmeier.
   IEEE Computer Society.
 
 \bibitem{tesiarmir}
-A.~Bujari.
+Armir Bujari.
 \newblock A delay tolerant solution for p2p file sharing in manets.
 \newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
 
 \bibitem{articoloM2MShare}
-A.~Bujari C.~Palazzi.
+Claudio~E. Palazzi and Armir Bujari.
 \newblock A delay/disruption tolerant solution for mobile-to-mobile file
   sharing.
-\newblock 2010.
+\newblock In {\em Wireless Days'10}, pages 1--5, 2010.
 
 \bibitem{socialNetworks}
 Yang Zhang and Jing Zhao.
@@ -40,9 +47,9 @@ Yang Zhang and Jing Zhao.
   York, NY, USA, 2009. ACM.
 
 \bibitem{orion}
-C.~Lindemann A.~Klemm and O.~Waldhorst.
-\newblock Orion - a special-purpose peer-to-peer file sharing system for mobile
-  ad hoc networks.
+Alexander Klemm, Er~Klemm, Christoph Lindemann, and Oliver~P. Waldhorst.
+\newblock A special-purpose peer-to-peer file sharing system for mobile ad hoc
+  networks.
 \newblock 2003.
 
 \bibitem{aodv}
@@ -91,7 +98,7 @@ Augustin Chaintreau, Pan Hui, Jon Crowcroft, Christophe Diot, Richard Gass, and
 \newblock {\em IEEE Transactions on Mobile Computing}, 6:606--620, June 2007.
 
 \bibitem{rwpharmful}
-J.~Yoon, M.~Liu, and B.~Noble.
+Jungkeun Yoon, Mingyan Liu, and Brian Noble.
 \newblock Random waypoint considered harmful.
 \newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
   Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
@@ -104,16 +111,19 @@ Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
   models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
 
 \bibitem{articoloONE}
-T.K\"{a}rkk\"{a}inen A.Ker\"{a}nen, J.Ott.
-\newblock {The ONE Simulator for DTN Protocol Evaluation}.
-\newblock In {\em SIMUTools '09: Proceedings of the 2nd International
-  Conference on Simulation Tools and Techniques}, New York, NY, USA, 2009.
-  ICST.
+Ari Ker\"{a}nen, J\"{o}rg Ott, and Teemu K\"{a}rkk\"{a}inen.
+\newblock {The ONE simulator for DTN protocol evaluation}.
+\newblock In {\em Proceedings of the 2nd International Conference on Simulation
+  Tools and Techniques}, Simutools '09, pages 55:1--55:10, ICST, Brussels,
+  Belgium, Belgium, 2009. ICST (Institute for Computer Sciences,
+  Social-Informatics and Telecommunications Engineering).
 
 \bibitem{humanmobility}
-S.Hong K.Lee~S.Chong I.Rhee, M.Shin.
-\newblock Human mobility patterns and their impact on routing in human-driven
-  mobile network.
+Injong Rhee, Minsu Shin, Seongik Hong, Kyunghan Lee, and Song Chong.
+\newblock Human mobility patterns and their impact on routing in {Human-Driven}
+  mobile networks.
+\newblock In {\em Proceedings of the Sixth Workshop on Hot Topics in Networks
+  (HotNets-VI)}, November 2007.
 
 \bibitem{computerNetworks}
 Andrew~S. Tanenbaum.
@@ -126,7 +136,7 @@ Andrew~S. Tanenbaum.
 \newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 3rd edition, 2007.
 
 \bibitem{tesiMobilityModels}
-F.Ekman.
+Frans Ekman.
 \newblock Mobility models for mobile ad hoc network simulations.
 \newblock Master's thesis, Helsinki University of Technology, 2008.
 
