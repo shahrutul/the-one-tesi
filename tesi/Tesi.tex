@@ -166,21 +166,30 @@ INDICE}}
 %\end{thebibliography}
 %\cleardoublepage
 
+\newpage
+\phantomsection \label{biblio}
 \addcontentsline{toc}{chapter}{References}
-\nocite{*}
-\bibliographystyle{unsrt}
+%\nocite{*}					%mostra anche i non citati
+%\bibliographystyle{unsrt}	%ordinata per citazione
+\bibliographystyle{plain}	%ordinata in ordine alfabetico
+
+
 \bibliography{bibliografia}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
+
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}} %imposta l'intestazione di pagina
 \lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries 
 FIGURE INDEX}}
 %
-\listoffigures                                                              %crea l'elenco delle figure
+\newpage
+\phantomsection \label{listoffig}
 \addcontentsline{toc}{chapter}{Figures Index}                         %aggiungilo all'indice
+\listoffigures                                                              %crea l'elenco delle figure
 \cleardoublepage
 
 
@@ -188,6 +197,8 @@ FIGURE INDEX}}
 \lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
 TABLES INDEX}}
 \listoftables                                                               %crea l'elenco delle tabelle
+\newpage
+\phantomsection \label{listoftab}
 \addcontentsline{toc}{chapter}{Tables Index}                        %aggiungilo all'indice
 \cleardoublepage                                                            %non numera l'ultima pagina sinistra
 

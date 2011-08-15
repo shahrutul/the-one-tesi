@@ -1,48 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2010/Arch Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Tesi.aux
-The style file: unsrt.bst
+The style file: plain.bst
 Database file #1: bibliografia.bib
+Warning--to sort, need author or key in dtnResearch
 Warning--empty booktitle in orion
-You've used 24 entries,
-            1791 wiz_defined-function locations,
-            608 strings with 9004 characters,
-and the built_in function-call counts, 6695 in all, are:
-= -- 658
-> -- 254
-< -- 13
-+ -- 95
-- -- 71
-* -- 390
-:= -- 979
-add.period$ -- 83
-call.type$ -- 24
-change.case$ -- 25
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            646 strings with 8955 characters,
+and the built_in function-call counts, 8396 in all, are:
+= -- 877
+> -- 357
+< -- 12
++ -- 146
+- -- 120
+* -- 551
+:= -- 1298
+add.period$ -- 72
+call.type$ -- 21
+change.case$ -- 123
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 342
-empty$ -- 648
-format.name$ -- 71
-if$ -- 1599
+cite$ -- 23
+duplicate$ -- 344
+empty$ -- 660
+format.name$ -- 120
+if$ -- 1855
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 21
-newline$ -- 123
-num.names$ -- 24
-pop$ -- 91
+int.to.str$ -- 21
+missing$ -- 17
+newline$ -- 107
+num.names$ -- 40
+pop$ -- 138
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 102
 quote$ -- 0
-skip$ -- 203
+skip$ -- 275
 stack$ -- 0
-substring$ -- 410
-swap$ -- 125
-text.length$ -- 13
+substring$ -- 546
+swap$ -- 116
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 1
-while$ -- 64
-width$ -- 26
-write$ -- 292
-(There was 1 warning)
+type$ -- 84
+warning$ -- 2
+while$ -- 81
+width$ -- 23
+write$ -- 252
+(There were 2 warnings)
