@@ -1,5 +1,31 @@
 \begin{thebibliography}{10}
 
+\bibitem{dtnResearch}
+{Delay Tolerant Networking Research Group}.
+\newblock \url{http://www.dtnrg.org/wiki}.
+
+\bibitem{Aberer02anoverview}
+Karl Aberer and Manfred Hauswirth.
+\newblock An overview on peer-to-peer information systems, 2002.
+
+\bibitem{Ashbrook:2002:LSL:862896.881068}
+D.~Ashbrook.
+\newblock Learning significant locations and predicting user movement with gps.
+\newblock In {\em Proceedings of the 6th IEEE International Symposium on
+  Wearable Computers}, pages 101--, Washington, DC, USA, 2002. IEEE Computer
+  Society.
+
+\bibitem{Balachandran:2002:CUB:511399.511359}
+Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
+\newblock Characterizing user behavior and network performance in a public
+  wireless lan.
+\newblock {\em SIGMETRICS Perform. Eval. Rev.}, 30:195--205, June 2002.
+
+\bibitem{tesiarmir}
+Armir Bujari.
+\newblock {A Delay Tolerant Solution for P2P file sharing in MANETs}.
+\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
+
 \bibitem{Burleigh2003365}
 Scott Burleigh, Vinton Cerf, Robert Durst, Kevin Fall, Adrian Hooke, Keith
   Scott, and Howard Weiss.
@@ -9,10 +35,6 @@ Scott Burleigh, Vinton Cerf, Robert Durst, Kevin Fall, Adrian Hooke, Keith
 \newblock The New Face of Space Selected Proceedings of the 53rd International
   Astronautical Federation Congress.
 
-\bibitem{Aberer02anoverview}
-Karl Aberer and Manfred Hauswirth.
-\newblock An overview on peer-to-peer information systems, 2002.
-
 \bibitem{Carlsson:2001:RFN:647728.734520}
 Bengt Carlsson and Rune Gustavsson.
 \newblock The rise and fall of napster - an evolutionary approach.
@@ -20,48 +42,17 @@ Bengt Carlsson and Rune Gustavsson.
   Conference on Active Media Technology}, AMT '01, pages 347--354, London, UK,
   UK, 2001. Springer-Verlag.
 
-\bibitem{Schollmeier:2001:DPN:882470.883282}
-R.~Schollmeier.
-\newblock [16] a definition of peer-to-peer networking for the classification
-  of peer-to-peer architectures and applications.
-\newblock In {\em Proceedings of the First International Conference on
-  Peer-to-Peer Computing}, P2P '01, pages 101--, Washington, DC, USA, 2001.
-  IEEE Computer Society.
+\bibitem{ImpactofHumanMobility}
+Augustin Chaintreau, Pan Hui, Jon Crowcroft, Christophe Diot, Richard Gass, and
+  James Scott.
+\newblock Impact of human mobility on opportunistic forwarding algorithms.
+\newblock {\em IEEE Transactions on Mobile Computing}, 6:606--620, June 2007.
 
-\bibitem{tesiarmir}
-Armir Bujari.
-\newblock A delay tolerant solution for p2p file sharing in manets.
-\newblock Master's thesis, Universit\`a degli Studi di Padova, 2010.
-
-\bibitem{articoloM2MShare}
-Claudio~E. Palazzi and Armir Bujari.
-\newblock A delay/disruption tolerant solution for mobile-to-mobile file
-  sharing.
-\newblock In {\em Wireless Days'10}, pages 1--5, 2010.
-
-\bibitem{socialNetworks}
-Yang Zhang and Jing Zhao.
-\newblock Social network analysis on data diffusion in delay tolerant networks.
-\newblock In {\em Proceedings of the tenth ACM international symposium on
-  Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
-  York, NY, USA, 2009. ACM.
-
-\bibitem{orion}
-Alexander Klemm, Er~Klemm, Christoph Lindemann, and Oliver~P. Waldhorst.
-\newblock A special-purpose peer-to-peer file sharing system for mobile ad hoc
-  networks.
-\newblock 2003.
-
-\bibitem{aodv}
-IETF.
-\newblock {AODV} specifications, {RFC} 3561.
-\newblock \url{http://www.ietf.org/rfc/rfc3561.txt}, July 2003.
-
-\bibitem{Balachandran:2002:CUB:511399.511359}
-Anand Balachandran, Geoffrey~M. Voelker, Paramvir Bahl, and P.~Venkat Rangan.
-\newblock Characterizing user behavior and network performance in a public
-  wireless lan.
-\newblock {\em SIGMETRICS Perform. Eval. Rev.}, 30:195--205, June 2002.
+\bibitem{articoloWdm}
+Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
+\newblock Working day movement model.
+\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
+  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
 
 \bibitem{Ghosh:2006:PMP:1132983.1132993}
 Joy Ghosh, Matthew~J. Beal, Hung~Q. Ngo, and Chunming Qiao.
@@ -70,45 +61,15 @@ Joy Ghosh, Matthew~J. Beal, Hung~Q. Ngo, and Chunming Qiao.
   hoc networks: from theory to reality}, REALMAN '06, pages 55--62, New York,
   NY, USA, 2006. ACM.
 
-\bibitem{Shaffer:2005:AMM:1104998.1105285}
-Jeremy Shaffer, Daniel~P. Siewiorek, and Asim Smailagic.
-\newblock Analysis of movement and mobility of wireless network users.
-\newblock In {\em Proceedings of the Ninth IEEE International Symposium on
-  Wearable Computers}, pages 60--69, Washington, DC, USA, 2005. IEEE Computer
-  Society.
+\bibitem{aodv}
+IETF.
+\newblock {AODV} specifications, {RFC} 3561.
+\newblock \url{http://www.ietf.org/rfc/rfc3561.txt}, July 2003.
 
-\bibitem{Ashbrook:2002:LSL:862896.881068}
-D.~Ashbrook.
-\newblock Learning significant locations and predicting user movement with gps.
-\newblock In {\em Proceedings of the 6th IEEE International Symposium on
-  Wearable Computers}, pages 101--, Washington, DC, USA, 2002. IEEE Computer
-  Society.
-
-\bibitem{Natarajan:2007:UUI:1762888.1762904}
-Anirudh Natarajan, Mehul Motani, and Vikram Srinivasan.
-\newblock Understanding urban interactions from bluetooth phone contact traces.
-\newblock In {\em Proceedings of the 8th international conference on Passive
-  and active network measurement}, PAM'07, pages 115--124, Berlin, Heidelberg,
-  2007. Springer-Verlag.
-
-\bibitem{ImpactofHumanMobility}
-Augustin Chaintreau, Pan Hui, Jon Crowcroft, Christophe Diot, Richard Gass, and
-  James Scott.
-\newblock Impact of human mobility on opportunistic forwarding algorithms.
-\newblock {\em IEEE Transactions on Mobile Computing}, 6:606--620, June 2007.
-
-\bibitem{rwpharmful}
-Jungkeun Yoon, Mingyan Liu, and Brian Noble.
-\newblock Random waypoint considered harmful.
-\newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
-  Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
-  IEEE, April 2003.
-
-\bibitem{articoloWdm}
-Frans Ekman, Ari Ker\"{a}nen, Jouni Karvo, and J\"{o}rg Ott.
-\newblock Working day movement model.
-\newblock In {\em Proceeding of the 1st ACM SIGMOBILE workshop on Mobility
-  models}, MobilityModels '08, pages 33--40, New York, NY, USA, 2008. ACM.
+\bibitem{bluetorrent}
+Sewook Jung, Uichin Lee, Alexander Chang, Dae-Ki Cho, and Mario Gerla.
+\newblock Bluetorrent: Cooperative content sharing for bluetooth users.
+\newblock {\em Pervasive Mob. Comput.}, 3:609--634, December 2007.
 
 \bibitem{articoloONE}
 Ari Ker\"{a}nen, J\"{o}rg Ott, and Teemu K\"{a}rkk\"{a}inen.
@@ -118,38 +79,57 @@ Ari Ker\"{a}nen, J\"{o}rg Ott, and Teemu K\"{a}rkk\"{a}inen.
   Belgium, Belgium, 2009. ICST (Institute for Computer Sciences,
   Social-Informatics and Telecommunications Engineering).
 
-\bibitem{humanmobility}
-Injong Rhee, Minsu Shin, Seongik Hong, Kyunghan Lee, and Song Chong.
-\newblock Human mobility patterns and their impact on routing in {Human-Driven}
-  mobile networks.
-\newblock In {\em Proceedings of the Sixth Workshop on Hot Topics in Networks
-  (HotNets-VI)}, November 2007.
+\bibitem{orion}
+Alexander Klemm, Er~Klemm, Christoph Lindemann, and Oliver~P. Waldhorst.
+\newblock A special-purpose peer-to-peer file sharing system for mobile ad hoc
+  networks.
+\newblock 2003.
 
-\bibitem{computerNetworks}
-Andrew~S. Tanenbaum.
-\newblock {\em Computer Networks}.
-\newblock Prentice Hall Professional Technical Reference, 4th edition, 2002.
+\bibitem{Natarajan:2007:UUI:1762888.1762904}
+Anirudh Natarajan, Mehul Motani, and Vikram Srinivasan.
+\newblock Understanding urban interactions from bluetooth phone contact traces.
+\newblock In {\em Proceedings of the 8th international conference on Passive
+  and active network measurement}, PAM'07, pages 115--124, Berlin, Heidelberg,
+  2007. Springer-Verlag.
 
-\bibitem{sistemiOperativi}
-Andrew~S. Tanenbaum.
-\newblock {\em Modern Operating Systems}.
-\newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 3rd edition, 2007.
+\bibitem{articoloM2MShare}
+Claudio~E. Palazzi and Armir Bujari.
+\newblock A delay/disruption tolerant solution for mobile-to-mobile file
+  sharing.
+\newblock In {\em Wireless Days'10}, pages 1--5, 2010.
 
-\bibitem{tesiMobilityModels}
-Frans Ekman.
-\newblock Mobility models for mobile ad hoc network simulations.
-\newblock Master's thesis, Helsinki University of Technology, 2008.
+\bibitem{Schollmeier:2001:DPN:882470.883282}
+R.~Schollmeier.
+\newblock [16] a definition of peer-to-peer networking for the classification
+  of peer-to-peer architectures and applications.
+\newblock In {\em Proceedings of the First International Conference on
+  Peer-to-Peer Computing}, P2P '01, pages 101--, Washington, DC, USA, 2001.
+  IEEE Computer Society.
 
-\bibitem{increasingReality}
-Ari Ker\"{a}nen and J\"{o}rg Ott.
-\newblock {Increasing Reality for DTN Protocol Simulations}.
-\newblock Technical report, Helsinki University of Technology, July 2007.
+\bibitem{Shaffer:2005:AMM:1104998.1105285}
+Jeremy Shaffer, Daniel~P. Siewiorek, and Asim Smailagic.
+\newblock Analysis of movement and mobility of wireless network users.
+\newblock In {\em Proceedings of the Ninth IEEE International Symposium on
+  Wearable Computers}, pages 60--69, Washington, DC, USA, 2005. IEEE Computer
+  Society.
 
-\bibitem{panelStateDTNEvaluation}
-Brenton Walker, Masato Tsuru, Armando Caro, Ari Ker\"{a}nen, J\"{o}rg Ott,
-  Teemu K\"{a}rkk\"{a}inen, Shinya Yamamura, and Akira Nagata.
-\newblock The state of dtn evaluation.
-\newblock In {\em Proceedings of the 5th ACM workshop on Challenged networks},
-  CHANTS '10, pages 29--30, New York, NY, USA, 2010. ACM.
+\bibitem{rwpharmful}
+Jungkeun Yoon, Mingyan Liu, and Brian Noble.
+\newblock Random waypoint considered harmful.
+\newblock In {\em Proceedings of the 22nd Annual Joint Conference of the IEEE
+  Computer and Communications Societies (INFOCOM)}, volume~2, pages 1312--1321.
+  IEEE, April 2003.
+
+\bibitem{socialNetworks}
+Yang Zhang and Jing Zhao.
+\newblock Social network analysis on data diffusion in delay tolerant networks.
+\newblock In {\em Proceedings of the tenth ACM international symposium on
+  Mobile ad hoc networking and computing}, MobiHoc '09, pages 345--346, New
+  York, NY, USA, 2009. ACM.
+
+\bibitem{positionBluetooth}
+Sheng Zhou and J.~K. Pollard.
+\newblock Position measurement using bluetooth.
+\newblock {\em IEEE Transactions on Consumer Electronics}, 52:555--558, 2006.
 
 \end{thebibliography}

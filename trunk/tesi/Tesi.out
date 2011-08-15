@@ -6,53 +6,55 @@
 \BOOKMARK [1][-]{section.2.2}{Peer-to-Peer networks}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.2.1}{Peer-to-Peer networks as Overlay networks}{section.2.2}% 7
 \BOOKMARK [2][-]{subsection.2.2.2}{Peer-to-Peer architectures}{section.2.2}% 8
-\BOOKMARK [0][-]{chapter.3}{M2MShare}{}% 9
-\BOOKMARK [1][-]{section.3.1}{DTN module}{chapter.3}% 10
-\BOOKMARK [2][-]{subsection.3.1.1}{Servant Election}{section.3.1}% 11
-\BOOKMARK [1][-]{section.3.2}{Search module}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.3}{Transport module}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.4}{Routing module}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.5}{MAC module}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.6}{File Division Strategy}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Movement models}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Real user traces VS Synthetic models}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Random Walk}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Random Waypoint}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.4}{Random Map-Based Movement}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.5}{Shortest Path Map-Based Movement}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.6}{Routed Map-Based Movement}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.7}{Working Day Movement Model}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.7.1}{Example of working day}{section.4.7}% 25
-\BOOKMARK [2][-]{subsection.4.7.2}{Home Activity Submodel}{section.4.7}% 26
-\BOOKMARK [2][-]{subsection.4.7.3}{Office Activity Submodel}{section.4.7}% 27
-\BOOKMARK [2][-]{subsection.4.7.4}{Evening Activity Submodel}{section.4.7}% 28
-\BOOKMARK [2][-]{subsection.4.7.5}{Transport Activity Submodel}{section.4.7}% 29
-\BOOKMARK [1][-]{section.4.8}{Our choice}{chapter.4}% 30
-\BOOKMARK [0][-]{chapter.5}{The ONE simulator}{}% 31
-\BOOKMARK [1][-]{section.5.1}{Configuration}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.2}{Simulation outputs}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.3}{Simulation execution}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.4}{Randomness}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.5}{The map}{chapter.5}% 36
-\BOOKMARK [0][-]{chapter.6}{Implementation}{}% 37
-\BOOKMARK [1][-]{section.6.1}{ONE additions}{chapter.6}% 38
-\BOOKMARK [2][-]{subsection.6.1.1}{File Management}{section.6.1}% 39
-\BOOKMARK [2][-]{subsection.6.1.2}{GUI}{section.6.1}% 40
-\BOOKMARK [2][-]{subsection.6.1.3}{Reports}{section.6.1}% 41
-\BOOKMARK [1][-]{section.6.2}{M2MShare Implementation}{chapter.6}% 42
-\BOOKMARK [1][-]{section.6.3}{Analysis}{chapter.6}% 43
-\BOOKMARK [0][-]{chapter.7}{Simulations and results}{}% 44
-\BOOKMARK [1][-]{section.7.1}{Simulations Scenario}{chapter.7}% 45
-\BOOKMARK [1][-]{section.7.2}{Single-hop delegation efficiency}{chapter.7}% 46
-\BOOKMARK [2][-]{subsection.7.2.1}{Delegation efficiency with variable file popularity}{section.7.2}% 47
-\BOOKMARK [2][-]{subsection.7.2.2}{Delegation efficiency with variable nodes population}{section.7.2}% 48
-\BOOKMARK [2][-]{subsection.7.2.3}{Data redundancy}{section.7.2}% 49
-\BOOKMARK [1][-]{section.7.3}{Multi-hop delegation efficiency}{chapter.7}% 50
-\BOOKMARK [2][-]{subsection.7.3.1}{Map coverage}{section.7.3}% 51
-\BOOKMARK [2][-]{subsection.7.3.2}{Data redundancy}{section.7.3}% 52
-\BOOKMARK [1][-]{section.7.4}{File Division Strategy efficiency}{chapter.7}% 53
-\BOOKMARK [0][-]{chapter.8}{Conclusions}{}% 54
-\BOOKMARK [1][-]{section.8.1}{Future Work}{chapter.8}% 55
-\BOOKMARK [0][-]{section.8.1}{References}{}% 56
-\BOOKMARK [0][-]{chapter*.66}{Figures Index}{}% 57
-\BOOKMARK [0][-]{chapter*.67}{Tables Index}{}% 58
+\BOOKMARK [1][-]{section.2.3}{Case study: BlueTorrent}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{M2MShare}{}% 10
+\BOOKMARK [1][-]{section.3.1}{DTN module}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.1.1}{Servant Election}{section.3.1}% 12
+\BOOKMARK [1][-]{section.3.2}{Search module}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.3}{Transport module}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.4}{Routing module}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.5}{MAC module}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.6}{File Division Strategy}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{Movement models}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Real user traces VS Synthetic models}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.2}{Random Walk}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.3}{Random Waypoint}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.4}{Random Map-Based Movement}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.5}{Shortest Path Map-Based Movement}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.6}{Routed Map-Based Movement}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.7}{Working Day Movement Model}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.7.1}{Example of working day}{section.4.7}% 26
+\BOOKMARK [2][-]{subsection.4.7.2}{Home Activity Submodel}{section.4.7}% 27
+\BOOKMARK [2][-]{subsection.4.7.3}{Office Activity Submodel}{section.4.7}% 28
+\BOOKMARK [2][-]{subsection.4.7.4}{Evening Activity Submodel}{section.4.7}% 29
+\BOOKMARK [2][-]{subsection.4.7.5}{Transport Activity Submodel}{section.4.7}% 30
+\BOOKMARK [1][-]{section.4.8}{Our choice}{chapter.4}% 31
+\BOOKMARK [0][-]{chapter.5}{The ONE simulator}{}% 32
+\BOOKMARK [1][-]{section.5.1}{Configuration}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.2}{Simulation outputs}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.3}{Simulation execution}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.4}{Randomness}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.5}{The map}{chapter.5}% 37
+\BOOKMARK [0][-]{chapter.6}{Implementation}{}% 38
+\BOOKMARK [1][-]{section.6.1}{ONE additions}{chapter.6}% 39
+\BOOKMARK [2][-]{subsection.6.1.1}{File Management}{section.6.1}% 40
+\BOOKMARK [2][-]{subsection.6.1.2}{GUI}{section.6.1}% 41
+\BOOKMARK [2][-]{subsection.6.1.3}{Reports}{section.6.1}% 42
+\BOOKMARK [1][-]{section.6.2}{M2MShare Implementation}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.3}{Analysis}{chapter.6}% 44
+\BOOKMARK [0][-]{chapter.7}{Simulations and results}{}% 45
+\BOOKMARK [1][-]{section.7.1}{Simulations Scenario}{chapter.7}% 46
+\BOOKMARK [1][-]{section.7.2}{Single-hop delegation efficiency}{chapter.7}% 47
+\BOOKMARK [2][-]{subsection.7.2.1}{Delegation efficiency with variable file popularity}{section.7.2}% 48
+\BOOKMARK [2][-]{subsection.7.2.2}{Delegation efficiency with variable nodes population}{section.7.2}% 49
+\BOOKMARK [2][-]{subsection.7.2.3}{Data redundancy}{section.7.2}% 50
+\BOOKMARK [1][-]{section.7.3}{Multi-hop delegation efficiency}{chapter.7}% 51
+\BOOKMARK [2][-]{subsection.7.3.1}{Map coverage}{section.7.3}% 52
+\BOOKMARK [2][-]{subsection.7.3.2}{Data redundancy}{section.7.3}% 53
+\BOOKMARK [1][-]{section.7.4}{File Division Strategy efficiency}{chapter.7}% 54
+\BOOKMARK [0][-]{chapter.8}{Conclusions}{}% 55
+\BOOKMARK [1][-]{section.8.1}{Future Work}{chapter.8}% 56
+\BOOKMARK [1][-]{section.8.2}{Acknowledgements}{chapter.8}% 57
+\BOOKMARK [0][-]{section*.69}{References}{}% 58
+\BOOKMARK [0][-]{section*.71}{Figures Index}{}% 59
+\BOOKMARK [0][-]{section*.74}{Tables Index}{}% 60

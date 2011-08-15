@@ -7,69 +7,74 @@
 \contentsline {section}{\numberline {2.2}Peer-to-Peer networks}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Peer-to-Peer networks as Overlay networks}{8}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Peer-to-Peer architectures}{8}{subsection.2.2.2}
-\contentsline {paragraph}{Centralized P2P networks}{9}{section*.4}
+\contentsline {paragraph}{Centralized P2P networks}{8}{section*.4}
 \contentsline {paragraph}{Decentralized P2P networks}{9}{section*.5}
-\contentsline {chapter}{\numberline {3}M2MShare}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}DTN module}{11}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Servant Election}{13}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Search module}{14}{section.3.2}
-\contentsline {section}{\numberline {3.3}Transport module}{14}{section.3.3}
-\contentsline {section}{\numberline {3.4}Routing module}{16}{section.3.4}
-\contentsline {section}{\numberline {3.5}MAC module}{16}{section.3.5}
-\contentsline {section}{\numberline {3.6}File Division Strategy}{17}{section.3.6}
-\contentsline {chapter}{\numberline {4}Movement models}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Real user traces VS Synthetic models}{20}{section.4.1}
-\contentsline {section}{\numberline {4.2}Random Walk}{21}{section.4.2}
-\contentsline {section}{\numberline {4.3}Random Waypoint}{21}{section.4.3}
-\contentsline {section}{\numberline {4.4}Random Map-Based Movement}{23}{section.4.4}
-\contentsline {section}{\numberline {4.5}Shortest Path Map-Based Movement}{23}{section.4.5}
-\contentsline {section}{\numberline {4.6}Routed Map-Based Movement}{24}{section.4.6}
-\contentsline {section}{\numberline {4.7}Working Day Movement Model}{25}{section.4.7}
-\contentsline {subsection}{\numberline {4.7.1}Example of working day}{26}{subsection.4.7.1}
-\contentsline {subsection}{\numberline {4.7.2}Home Activity Submodel}{26}{subsection.4.7.2}
-\contentsline {subsection}{\numberline {4.7.3}Office Activity Submodel}{27}{subsection.4.7.3}
-\contentsline {subsection}{\numberline {4.7.4}Evening Activity Submodel}{27}{subsection.4.7.4}
-\contentsline {subsection}{\numberline {4.7.5}Transport Activity Submodel}{28}{subsection.4.7.5}
-\contentsline {section}{\numberline {4.8}Our choice}{29}{section.4.8}
-\contentsline {chapter}{\numberline {5}The ONE simulator}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Configuration}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Simulation outputs}{33}{section.5.2}
-\contentsline {section}{\numberline {5.3}Simulation execution}{36}{section.5.3}
-\contentsline {section}{\numberline {5.4}Randomness}{38}{section.5.4}
-\contentsline {section}{\numberline {5.5}The map}{38}{section.5.5}
-\contentsline {chapter}{\numberline {6}Implementation}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}ONE additions}{41}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}File Management}{41}{subsection.6.1.1}
-\contentsline {paragraph}{DTNFile}{41}{section*.18}
-\contentsline {paragraph}{DTNFileSystem}{42}{section*.19}
-\contentsline {paragraph}{DTNFileGenerator}{42}{section*.20}
-\contentsline {paragraph}{FileRequest}{44}{section*.21}
-\contentsline {paragraph}{M2MShareFileRequestReader}{44}{section*.22}
-\contentsline {subsection}{\numberline {6.1.2}GUI}{44}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Reports}{44}{subsection.6.1.3}
-\contentsline {paragraph}{FileGatheringLog}{45}{section*.24}
-\contentsline {paragraph}{DataTransferLog}{47}{section*.25}
-\contentsline {paragraph}{FileGatheringReport}{47}{section*.26}
-\contentsline {paragraph}{M2MShareMapCoverageReport}{48}{section*.27}
-\contentsline {section}{\numberline {6.2}M2MShare Implementation}{49}{section.6.2}
-\contentsline {paragraph}{M2MShareRouter}{49}{section*.28}
-\contentsline {paragraph}{PresenceCollector}{50}{section*.29}
-\contentsline {paragraph}{Activities}{50}{section*.30}
-\contentsline {paragraph}{File Division Strategies}{51}{section*.31}
-\contentsline {paragraph}{Data Transfer}{52}{section*.32}
-\contentsline {section}{\numberline {6.3}Analysis}{52}{section.6.3}
-\contentsline {chapter}{\numberline {7}Simulations and results}{55}{chapter.7}
-\contentsline {section}{\numberline {7.1}Simulations Scenario}{56}{section.7.1}
-\contentsline {section}{\numberline {7.2}Single-hop delegation efficiency}{58}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Delegation efficiency with variable file popularity}{62}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Delegation efficiency with variable nodes population}{64}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Data redundancy}{68}{subsection.7.2.3}
-\contentsline {section}{\numberline {7.3}Multi-hop delegation efficiency}{70}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Map coverage}{72}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{79}{subsection.7.3.2}
-\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{85}{section.7.4}
-\contentsline {chapter}{\numberline {8}Conclusions}{91}{chapter.8}
-\contentsline {section}{\numberline {8.1}Future Work}{93}{section.8.1}
-\contentsline {chapter}{References}{95}{section.8.1}
-\contentsline {chapter}{Figures Index}{100}{chapter*.66}
-\contentsline {chapter}{Tables Index}{101}{chapter*.67}
+\contentsline {section}{\numberline {2.3}Case study: BlueTorrent}{9}{section.2.3}
+\contentsline {paragraph}{Peer Manager}{10}{section*.7}
+\contentsline {paragraph}{Query Processor}{10}{section*.8}
+\contentsline {paragraph}{Data Collector}{11}{section*.9}
+\contentsline {chapter}{\numberline {3}M2MShare}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}DTN module}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Servant Election}{15}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Search module}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}Transport module}{16}{section.3.3}
+\contentsline {section}{\numberline {3.4}Routing module}{18}{section.3.4}
+\contentsline {section}{\numberline {3.5}MAC module}{18}{section.3.5}
+\contentsline {section}{\numberline {3.6}File Division Strategy}{19}{section.3.6}
+\contentsline {chapter}{\numberline {4}Movement models}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Real user traces VS Synthetic models}{22}{section.4.1}
+\contentsline {section}{\numberline {4.2}Random Walk}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Random Waypoint}{23}{section.4.3}
+\contentsline {section}{\numberline {4.4}Random Map-Based Movement}{25}{section.4.4}
+\contentsline {section}{\numberline {4.5}Shortest Path Map-Based Movement}{25}{section.4.5}
+\contentsline {section}{\numberline {4.6}Routed Map-Based Movement}{26}{section.4.6}
+\contentsline {section}{\numberline {4.7}Working Day Movement Model}{27}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Example of working day}{28}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Home Activity Submodel}{28}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.3}Office Activity Submodel}{29}{subsection.4.7.3}
+\contentsline {subsection}{\numberline {4.7.4}Evening Activity Submodel}{29}{subsection.4.7.4}
+\contentsline {subsection}{\numberline {4.7.5}Transport Activity Submodel}{30}{subsection.4.7.5}
+\contentsline {section}{\numberline {4.8}Our choice}{31}{section.4.8}
+\contentsline {chapter}{\numberline {5}The ONE simulator}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Configuration}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Simulation outputs}{35}{section.5.2}
+\contentsline {section}{\numberline {5.3}Simulation execution}{38}{section.5.3}
+\contentsline {section}{\numberline {5.4}Randomness}{40}{section.5.4}
+\contentsline {section}{\numberline {5.5}The map}{40}{section.5.5}
+\contentsline {chapter}{\numberline {6}Implementation}{43}{chapter.6}
+\contentsline {section}{\numberline {6.1}ONE additions}{43}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}File Management}{43}{subsection.6.1.1}
+\contentsline {paragraph}{DTNFile}{43}{section*.22}
+\contentsline {paragraph}{DTNFileSystem}{44}{section*.23}
+\contentsline {paragraph}{DTNFileGenerator}{44}{section*.24}
+\contentsline {paragraph}{FileRequest}{46}{section*.25}
+\contentsline {paragraph}{M2MShareFileRequestReader}{46}{section*.26}
+\contentsline {subsection}{\numberline {6.1.2}GUI}{46}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Reports}{46}{subsection.6.1.3}
+\contentsline {paragraph}{FileGatheringLog}{47}{section*.28}
+\contentsline {paragraph}{DataTransferLog}{49}{section*.29}
+\contentsline {paragraph}{FileGatheringReport}{49}{section*.30}
+\contentsline {paragraph}{M2MShareMapCoverageReport}{50}{section*.31}
+\contentsline {section}{\numberline {6.2}M2MShare Implementation}{51}{section.6.2}
+\contentsline {paragraph}{M2MShareRouter}{51}{section*.32}
+\contentsline {paragraph}{PresenceCollector}{52}{section*.33}
+\contentsline {paragraph}{Activities}{52}{section*.34}
+\contentsline {paragraph}{File Division Strategies}{53}{section*.35}
+\contentsline {paragraph}{Data Transfer}{54}{section*.36}
+\contentsline {section}{\numberline {6.3}Analysis}{54}{section.6.3}
+\contentsline {chapter}{\numberline {7}Simulations and results}{57}{chapter.7}
+\contentsline {section}{\numberline {7.1}Simulations Scenario}{58}{section.7.1}
+\contentsline {section}{\numberline {7.2}Single-hop delegation efficiency}{60}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Delegation efficiency with variable file popularity}{64}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Delegation efficiency with variable nodes population}{66}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Data redundancy}{70}{subsection.7.2.3}
+\contentsline {section}{\numberline {7.3}Multi-hop delegation efficiency}{72}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Map coverage}{74}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Data redundancy}{81}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{87}{section.7.4}
+\contentsline {chapter}{\numberline {8}Conclusions}{93}{chapter.8}
+\contentsline {section}{\numberline {8.1}Future Work}{95}{section.8.1}
+\contentsline {section}{\numberline {8.2}Acknowledgements}{95}{section.8.2}
+\contentsline {chapter}{References}{97}{section*.69}
+\contentsline {chapter}{Figures Index}{100}{section*.71}
+\contentsline {chapter}{Tables Index}{104}{section*.74}
