@@ -20,7 +20,7 @@ set style data linespoints
 
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set ylabel "Time (h)"
-set xlabel "File population (Fp)"
+set xlabel "File popularity (Fp)"
 
 set key horiz
 set key center outside top
