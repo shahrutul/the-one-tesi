@@ -12,20 +12,20 @@
 
 
 %: ----------------------- contents from here ------------------------
-In this chapter we describe our implementation of M2MShare in the ONE simulator, which is described in Chapter \ref{simulatore}. We illustrate some features we added the the simulator, in order to completely emulate M2MShare behaviour and to gather reports data from the simulations we executed.
+In this chapter we describe our implementation of M2MShare in the ONE simulator, which is described in Chapter \ref{simulatore}. We illustrate some features we added to the simulator, in order to completely emulate M2MShare behaviour and to gather reports data from the simulations we executed.
   
 
 \section{ONE additions}
-As we saw in Chapter \ref{m2mshare}, M2MShare is a peer-to-peer protocol which allow the automatic exchange of multimedia content among mobile devices. The ONE is the state of the art regarding movements and connections simulation, especially between mobile nodes, but it has some limitations. Before we could completely implement M2MShare in the simulator, we modified the ONE adding some fundamental features. These allow us to simulate the behaviour of a peer-to-peer protocol with file exchange between network nodes.
+As we saw in Chapter \ref{m2mshare}, M2MShare is a peer-to-peer protocol which allows the automatic exchange of multimedia content among mobile devices. The ONE is the state-of-the-art regarding movements and connections simulation, especially between mobile nodes, but it has some limitations. Before we could completely implement M2MShare in the simulator, we modified the ONE adding some fundamental features. These allow us to simulate the behaviour of a peer-to-peer protocol with file exchange between network nodes.
 
 
 \subsection{File Management}
-The first step is to add the capability of manage files to nodes. To this purpose, we add to every node a file system, in which to save files to share with other nodes using a P2P application. 
+The first step is to add the capability of manage files to nodes. To this purpose, we added a file system to every node, in which to save files to share with other nodes using a P2P application. 
 %Node's capabilities are described in class named \textit{DTNHost}
 
 
 \paragraph{DTNFile}
-Every simulated file is an instance of class \textit{DTNFile}, which includes informations about the described file:
+Every simulated file is an instance of class \textit{DTNFile}, which includes information about the described file:
 
 \begin{itemize}
 \item file name
@@ -33,14 +33,14 @@ Every simulated file is an instance of class \textit{DTNFile}, which includes in
 \item file length, in bytes
 \end{itemize}
 
-We do not specify keywords related to that file, which could be useful to implement a keyword-based search procedure. We did so, because the purpose of our simulations was to emulate and evaluate the behaviour of M2MShare in the second phase of the protocol. In this phase, the user already knows what file it is looking for, so it asks the system to find and download back it, without needing of previous keyword queries. For this purpose a file hash value is sufficient to unambiguously identify the file in the overlay network.
+We do not specify keywords related to that file, which could be useful in implementing a keyword-based search procedure. We did so, because the purpose of our simulations was to emulate and evaluate the behaviour of M2MShare in the second phase of the protocol. In this phase, the user already knows what file it is looking for, so it asks the system to find and download back it, without needing of previous keyword queries. For this purpose a file hash value is sufficient to unambiguously identify the file in the overlay network.
 
 
 \paragraph{DTNFileSystem}
-\textit{DTNFile}s shared by a node are included in an entity called \textit{DTNFileSystem}. As its name suggests, it emulates a mobile device's file system, from an high-level prospective. It has a simple implementation, with a single-level directory structure and functions which allow to insert, delete and read files from the file system. To retrieve a file, its hash value is used as search criteria.
+\textit{DTNFile}s shared by a node are included in an entity called \textit{DTNFileSystem}. As its name suggests, it emulates a mobile device's file system, from an high-level prospective. It has a simple implementation, with a single-level directory structure and functions which allow inserting, deleting and reading files from the file system. To retrieve a file, its hash value is used as search criteria.
 \\
 
-The file system presence in a simulated node is optional. For instance, a node emulating a bus do not need a file system. We added new parameters, settable in configuration files, which allow to specify more options related to file management for a single simulation and increase simulations flexibility: 
+The file system presence in a simulated node is optional. For instance, a node emulating a bus do not need a file system. We added new parameters, settable in configuration files, which permit the specification of more options related to file management for a single simulation and increase simulation flexibility: 
 
 \begin{description}
 \item[Scenario.simulateFiles] is a boolean parameter that indicates whether or not to simulate the files management in mobile nodes. It applies to the whole simulation.
@@ -58,7 +58,7 @@ In a P2P network, shared files are distributed among peers and a user can search
 \item number of copies to distribute in the entire network
 \end{itemize}
 
-Files are distributed only among nodes which have a file system, that is nodes in groups with \textit{fileCapability} parameter set to \textit{true}. Files distribution can be choosen between the following:
+Files are distributed only among nodes which have a file system, that is nodes in groups with \textit{fileCapability} parameter set to \textit{true}. Files distribution can be chosen from the following:
 
 \begin{description}
 \item[A] (all): file is distributed among all nodes of the simulation with equal probability
@@ -128,17 +128,17 @@ The GUI of the ONE simulator has been modified to reflect the addition of file s
 
 \subsection{Reports}
 \label{descrReports}
-A fundamental feature related to simulations is the capability of gathering data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in the ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
-The main objectives of our simulations was to gather informations about the efficiency of delegations and file division strategies, and to do so we collected data about several aspects for every simulation. We now describe the report modules created to the gathering of data during the simulations, specifying the type and mode of data collection used.
+A fundamental feature related to simulations is the ability to gather data from different aspects of the simulated world, like positions of nodes, communications, data transfers and so on. To achieve this goal in the ONE are used some special modules named \textit{Report Generators} which works with some related Listeners to catch the interested events in the simulated scenario and save them to some report files.
+The main objectives of our simulations was to gather information about the efficiency of delegations and file division strategies, and to do so we collected data about several aspects for every simulation. We will now describe the report modules created to the gathering of data during the simulations, specifying the type and mode of data collection used.
 
 \paragraph{FileGatheringLog}
-The first report module is a log report module, that store the selected events in a list, saving it to file, one event per line. This module is responsible to listen for the following events:
+The first report module is a log report module, that stores the selected events in a list, saving them to file, one event per line. This module is responsible for listening for the following events:
 \begin{itemize}
-\item \textbf{VirtualFile creation:} a new \textit{VirtualFile} has been created due to the execution of a \textit{FileRequest} in a node. It emulate a user requesting a new file to be found and downloaded.
-\item \textbf{DTNPendingDownload creation:} a new \textit{DTNPendingDownload} has been created in a servant peer due to the delegation of a task from a client node.
-\item \textbf{DTNPendingDownload completion:} a \textit{DTNPendingDownload} has been completed in a servant peer (the servant has downloaded all the requested file interval subject of the delegated task). Consequently a \textit{DTNDownloadFWD} has been created and enqueued in the servant.
-\item \textbf{DTNPendingDownload expiration:} a \textit{DTNPendingDownload} has expired in a servant peer before it was completed (the servant has not downloaded all the requested file intervals subject of the delegated task).
-\item \textbf{DTNDownloadFWD expiration:} a \textit{DTNDownloadFWD} has expired in a servant peer before it was completed (the servant has not forwarded all the requested file intervals subject of the delegated task to the requester node).
+\item \textbf{VirtualFile creation:} a new \textit{VirtualFile} has been created due to the execution of a \textit{FileRequest} in a node. It emulates a user requesting a new file to be found and downloaded.
+\item \textbf{DTNPendingDownload creation:} a new \textit{DTNPendingDownload} has been created in a servant peer thanks to the delegation of a task from a client node.
+\item \textbf{DTNPendingDownload completion:} a \textit{DTNPendingDownload} has been completed in a servant peer (the servant has downloaded all the requested file intervals subject of the delegated task). Consequently a \textit{DTNDownloadFWD} has been created and queued in the servant.
+\item \textbf{DTNPendingDownload expiration:} a \textit{DTNPendingDownload} has expired in a servant peer before being completed (the servant has not downloaded all the requested file intervals subject of the delegated task).
+\item \textbf{DTNDownloadFWD expiration:} a \textit{DTNDownloadFWD} has expired in a servant peer before being completed (the servant has not forwarded all the requested file intervals subject of the delegated task to the requester node).
 \item \textbf{DTNDownloadFWD completion:} a \textit{DTNDownloadFWD} has been completed in a servant peer (the servant has forwarded all the requested file intervals subject of the delegated task to the requester node).
 \end{itemize}
 
@@ -151,19 +151,19 @@ The following are some examples:
 \begin{center}
 \textbf{15538.0000	PendingDownload	A32 to E476}
 \end{center}
-Is referred to the task delegation from the node A32 to the node E467, 15538 seconds after the beginning of the simulation.
+Refers to the task delegation from the node A32 to the node E467, 15538 seconds after the beginning of the simulation.
 \\
 
 \begin{center}
 \textbf{38559.5000 PendingDownload completed in F630 (317200191 requested by A32)}
 \end{center}
-Is referred to the completion of the \textit{DTNPendingDownload} in the servant node F630 at time 38559.5. It was delegated by the node A32 and the id of the searched file was \textit{317200191}
+Refers to the completion of the \textit{DTNPendingDownload} in the servant node F630 at time 38559.5. It was delegated by the node A32 and the id of the searched file was \textit{317200191}
 \\
 
 \begin{center}
 \textbf{213738.0000	DownloadFWD expired in F523 (317200191 requested by A32)}
 \end{center}
-Is referred to the expiration of the \textit{DownloadFWD} in the servant node F523 at time 213738. It was delegated by the node A32 and the id of the searched file was \textit{317200191}
+Refers to the expiration of the \textit{DownloadFWD} in the servant node F523 at time 213738. It was delegated by the node A32 and the id of the searched file was \textit{317200191}
 \\
 
 \paragraph{DataTransferLog}
@@ -181,16 +181,16 @@ e.g.
 \begin{center}
 \textbf{98829.0000	G714	A17	2750001}
 \end{center}
-Is referred to the data transfer from node G714 to node A17, 98829 seconds after the start of the simulation. 2750001 bytes have been transferred in this event.
+Refers to the data transfer from node G714 to node A17, 98829 seconds after the start of the simulation. 2750001 bytes have been transferred in this event.
 \\
 
 \paragraph{FileGatheringReport}
 \textit{FileGatheringReport} module is the most important report module used during our simulations, because it summarizes all key aspects of a single simulation. In detail, these are the values tracked by this module:
 \begin{itemize}
-\item \textbf{Total data:}	the total amount of data traffic exchanged between servant peers trying to satisfy a delegated task, file possessor peers and the data forwarding quantity toward the requestor node.
+\item \textbf{Total data:}	the total amount of data traffic exchanged between servant peers trying to satisfy a delegated task, file possessor peers and the data forwarding quantity toward the requester node.
 \item \textbf{VirtualFile created:}	number of \textit{VirtualFile} task created during the simulation
 \item \textbf{VirtualFile delegated:} how many times a task has been delegated to a servant peer
-\item \textbf{PendingDownloads completed:} how many of the delegated tasks have been completed i.e. how many times the servant peer has been able to find and download all the data intervals requested in the \textit{DTNPendingDownload} 
+\item \textbf{PendingDownloads completed:} how many of the delegated tasks have been completed i.e. how many times the servant peer has been able to locate and download all the data intervals requested in the \textit{DTNPendingDownload} 
 \item \textbf{PendingDownloads expired:} how many of the delegated tasks expired before the servant peer being able to find and download all the data intervals requested in the \textit{DTNPendingDownload} 
 \item \textbf{DownloadFWDs expired:} how many \textit{DownloadFWDs} expired i.e. the servant peer downloaded all the data intervals requested in the \textit{DTNPendingDownload} but it was not able to forward them to the requester peer before the task expiration
 \item \textbf{DownloadFWDs returned:} how many \textit{DownloadFWDs} has been forwarded correctly to the requester peer
@@ -199,16 +199,16 @@ Is referred to the data transfer from node G714 to node A17, 98829 seconds after
 \item \textbf{Simulated time:} the simulated duration (in seconds) of the simulation
 \item \textbf{Simulation time:}	the real duration of the simulation (in seconds)
 \end{itemize}
-Saving all these values for every simulation is useful to make some \textit{a posteriori} analysis like averages, minimum and maximum values and to find best or worst case for a large number of simulations.
+Saving all these values for every simulation is useful in order to make later analysis such as averages, minimum and maximum values and to find the best or worst case for a large number of simulations.
 
 \paragraph{M2MShareMapCoverageReport}
-In order to evaluate the achieved explored area using different delegation strategies we implement the \textit{M2MShareMapCoverageReport}. This module divides the simulated map in squares with size of 10 x 10 meters and counts how many times each square has been visited during the simulation. When a node moves, the module saves its position adding 1 to the value of the related square. The report is configurable, in order to only save movements related to nodes employing different delegation strategies:
+In order to evaluate the achieved explored area using different delegation strategies we implement the \textit{M2MShareMapCoverageReport}. This module divides the simulated map in squares with size of 10 x 10 meters and counts how many times each square has been visited during the simulation. When a node moves, the module saves its position by adding 1 to the value of the related square. The report is configurable, in order to save only movements related to nodes employing different delegation strategies:
 \begin{itemize}
 \item the node with the initial file request issued by the user
 \item nodes acting as servants, i.e. nodes with delegated tasks received
 \item all nodes in the simulation
 \end{itemize}
-The reason we decide to save all nodes movements, in some simulations, is to get a \textit{control set} to evaluate the maximum explorable area using certain parameters. Doing so for a high number of simulations we see which parts of the map are explorable (streets, buildings, parks) and which are not (like rivers, the sea or places not reachable with nodes movement).
+The reason we decided to save all nodes movements, in some simulations, is to obtain a \textit{control set} to evaluate the maximum area that can be explored using certain parameters. By doing so for a high number of simulations we see which parts of the map can be explored (streets, buildings, parks) and which are not (like rivers, the sea or places not reachable with nodes movement).
 
 %
 %\paragraph{DelegationGraphvizReport}
@@ -226,16 +226,16 @@ The reason we decide to save all nodes movements, in some simulations, is to get
 In this section we describe the implementation of modules composing M2MShare into the ONE simulator. As said earlier in Section \ref{simulatore}, every routing protocol is an extension of a common superclass named \textit{MessageRouter} and, according to the the ONE philosophy, a new routing module can be inserted extending that class and it can be consequently used in configuration time to set the routing behaviour of nodes.
 \\
 
-M2MShare implementation consists in the main class extending \textit{MessageRouter}, named \textit{M2MShareRouter}, and several other classes contained into the package \textit{routing.m2mShare}.
+M2MShare implementation consists in the main class extending \textit{MessageRouter}, named \textit{M2MShareRouter}, and several other classes contained in the package \textit{routing.m2mShare}.
 
 \paragraph{M2MShareRouter}
-As earlier said, this is the main class of M2MShare implementation. Its first responsibility is to load the related settings as set in configuration files (see Section \ref{configurazioneONE}) and to initialize all the modules needed to the execution of the protocol. These entities will be later described and are responsible of the different aspects of the protocol. Values used to initialize the settings are read from configuration files and are all included in the settings namespace \textit{M2MShareRouter}. Every parameter have a default value, used in case it is not specified in any configuration file. Here are shown the available parameters and, shown in brackets, the relative default value:
+As mentioned earlier, this is the main class of M2MShare implementation. Its first responsibility is to load the related settings as set in configuration files (see Section \ref{configurazioneONE}) and to initialize all the modules needed for the execution of the protocol. These entities will be described later and are responsible of the different aspects of the protocol. Values used to initialize the settings are read from configuration files and all are included in the settings namespace \textit{M2MShareRouter}. Every parameter has a default value, used in case nothing is not specified in any configuration file. Here the available parameters are shown and, shown in brackets, the relative default value:
 \begin{itemize}
-\item \textbf{M2MShareRouter.frequencyThreshold [2]} indicates the minimum number of encounters needed for elect a peer as servant and consequently delegate a task to him 
-\item \textbf{M2MShareRouter.scanFrequency [10]} indicates how many seconds the \textit{PresenceCollector} have to wait between a scan and the next one
+\item \textbf{M2MShareRouter.frequencyThreshold [2]} indicates the minimum number of encounters needed to elect a peer as servant and consequently delegate a task to it 
+\item \textbf{M2MShareRouter.scanFrequency [10]} indicates how many seconds the \textit{PresenceCollector} must to wait between one scan and the next
 \item \textbf{M2MShareRouter.delegationType [1]} indicates the type of delegation strategy used. It accepts three values:
 \begin{itemize}
-\item \textbf{0:} do not use delegation and file exchange is initiated only when a peer holding the requested data file is found in reach area 
+\item \textbf{0:} do not use delegation and file exchange is initiated only when a peer holding the requested data file is found in the reach area 
 \item \textbf{1:} use the M2MShare technique where unaccomplished tasks are delegated only to peers which exceed the \textit{frequencyThreshold} value
 \item \textbf{2:} use the trivial technique where unaccomplished tasks are delegated to each encountered peer
 \end{itemize}
@@ -247,47 +247,47 @@ As earlier said, this is the main class of M2MShare implementation. Its first re
 \end{itemize}
 \item \textbf{M2MShareRouter.useBroadcastModule [true]} used to enable/disable the broadcast module. Could be useful to speed-up simulations, at the cost of a loss of precision
 \item \textbf{M2MShareRouter.delegationDepth [1]} indicates the maximum number of delegation hops can be used for delegations, starting from the initial requester
-\item \textbf{M2MShareRouter.stopOnFirstFileRequestSatisfied [false]} used to make the simulation stop when the first File Request has been satisfied. Can be useful in simulations in which we are not interested in what happens after the File Request satisfaction
+\item \textbf{M2MShareRouter.stopOnFirstFileRequestSatisfied [false]} used to make the simulation stop when the first File Request has been satisfied. Can be useful in simulations in which we are not interested in what happens after the File Request is satisfied
 \end{itemize}
 
 %The class \textit{M2MShareRouter} also extends the superclass \textit{MessageRouter} and doing so it override the main method of this class: \textit{update()}. As said in Section \ref{esecuzioneONE}, that method is called one time for every simulated time interval, after the update of movement and connections of the node. In \textit{M2MShareRouter} the only action executed in \textit{update()} is to call the method \textit{runUpdate()} in module \textit{Scheduler}, described in section \ref{schedulerImplementazione}.
 
 \paragraph{PresenceCollector}
-The module \textit{PresenceCollector} is responsible of gathering informations about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation. Encounters data is gathered scanning for in-reach devices with a fixed frequency. When another node exceeds a value named \textit{Frequency Threshold}, it can be elected as servant and receive unaccomplished tasks as delegations from the current node. Encounters data is saved in a structure called \textit{Servant List} which uses a replacement policy to manage peer slots in the list. If a peer has been encountered for a period greater than a value, called \textit{Probation Window}, without being elected as servant, its slot is freed to give other peers the opportunity to be elected as servants. \textit{PresenceCollector} also includes a tuning algorithm which adapts \textit{Frequency Threshold} and \textit{Probation Window} values at the beginning of every simulated day, according to what observed during of the previous day.
+The module \textit{PresenceCollector} is responsible for gathering information about in-reach area devices and to track encounters between other nodes to realize the election strategy selected for the current node in the simulation. Encounters data is gathered scanning for in-reach devices with a fixed frequency. When another node exceeds a value named \textit{Frequency Threshold}, it can be elected as a servant and receive unaccomplished tasks as delegations from the current node. Encounters data is saved in a structure called \textit{Servant List} which uses a replacement policy to manage peer slots in the list. If a peer has been encountered for a period greater than a value, called \textit{Probation Window}, without being elected as servant, its slot is freed to give other peers the opportunity to be elected as servants. \textit{PresenceCollector} also includes a tuning algorithm which adapts \textit{Frequency Threshold} and \textit{Probation Window} values at the beginning of every simulated day, according to what observed during the previous day.
 
 
 \paragraph{Activities}
 A single node in M2MShare system can execute several kinds of tasks. In our implementation, each of them is an implementation of interface \textit{DTNActivity} and characterizes one task type respect to another for what concerns their execution. 
 \\
 
-In a \textit{VirtualFile} task type, the execution is focused on searching in-reach devices for the file the user asks to find and download. A VirtualFile includes an IntervalMap used to store what file pieces are still missing. When a VirtualFile task is completed, a new DTNFile is created and saved in the node's file system. 
+In a \textit{VirtualFile} task type, the execution is focused on searching in-reach devices for the file the user asks to find and download. A VirtualFile includes an IntervalMap used to store those file pieces that are still missing. When a VirtualFile task is completed, a new DTNFile is created and saved in the node's file system. 
 \\
 
-A VirtualFile can be delegated to a servant peer. When a servant node receives a delegated task, it creates and queues a \textit{DTNPendingDownload} activity. In its execution, the servant node search in-reach devices for requested intervals of the file described in the delegated task. When a DTNPendingDownload task is completed, the servant node creates end schedules for execution a \textit{DTNForward} task.
+A VirtualFile can be delegated to a servant peer. When a servant node receives a delegated task, it creates and queues a \textit{DTNPendingDownload} activity. In its execution, the servant node searches in-reach devices for requested intervals of the file described in the delegated task. When a DTNPendingDownload task is completed, the servant node creates end schedules a \textit{DTNForward} task for execution.
 \\
 
-In this task's execution, the servant node looks for the client node that delegated it the VirtualFile task. When this node is found, the servant node notifies that it is ready to forward the output of DTNPendingDownload task. The client can request all or only a subset of intervals the servant downloaded.
+In this task's execution, the servant node looks for the client node that delegated it the VirtualFile task. When this node is found, the servant node notifies that it is ready to forward the output of the DTNPendingDownload task. The client can request all or only a subset of intervals the servant downloaded.
 \\
 
-Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL value, calculated using client's Probation Window value. When this value is exceeded, the task is deleted from queues and never scheduled again for execution.
+Tasks active in servant nodes (DTNPendingDownload and DTNForward) have a TTL value, calculated using client's Probation Window value. When this value is exceeded, the task is deleted from queues and never again scheduled for execution.
 \\
 
-With our addition to M2MShare first version, a task can be delegated with more than one hop. To do so we allow M2MShareRouter to delegate also incomplete DTNPendingDownload activities. The result of this delegation, in servant peer, is the creation of a new DTNPendingDownload task. A delegations history list is included in every delegated task. When this second-level task is completed, a new DTNForward task is created in the servant peer. Its execution consists in returning the output of the second-level delegation to one of the nodes in delegation history list. This allow to return the output to the initial requester node faster than returning it following the inverse order of delegation history list.
+With our addition to M2MShare first version, a task can be delegated with more than one hop. To do so we allow M2MShareRouter to delegate also incomplete DTNPendingDownload activities. The result of this delegation, in servant peer, is the creation of a new DTNPendingDownload task. A delegation history list is included in every delegated task. When this second-level task is completed, a new DTNForward task is created in the servant peer. Its execution consists in returning the output of the second-level delegation to one of the nodes in delegation history list. This allows to return the output to the initial requester node faster than returning it following the inverse order of delegation history list.
 \\
 
-To avoid generating an high number of delegations, we set a trial period before a servant node delegate again a pending task. It waits one day and during this period it tries to complete the task by itself. If the task is still incomplete after one day, the node proceeds to delegate it for another hop. The maximum number of hops for each delegation is configurable for every simulation. To avoid delegation cycles, we implement an anti-cycle system similar to the one used in AODV \cite{aodv} which prevent to delegate a task to a node that is already acting as servant for it. 
+To avoid generating an high number of delegations, we set a trial period before a servant node delegate again a pending task. It waits one day and during this period it tries to complete the task by itself. If the task is still incomplete after one day, the node proceeds to delegate it for another hop. The maximum number of hops for each delegation is configurable for every simulation. To avoid delegation cycles, we implemented an anti-cycle system similar to the one used in AODV \cite{aodv} which prevents delegating a task to a node that is already acting as servant for it. 
 
 \paragraph{File Division Strategies}
-To evaluate the efficiency of M2MShare file division strategy, we implement a \textit{IntervalMap} according to the one described in Section \ref{descrFileDivisionStrategy}. This structure includes not yet downloaded intervals for a file and is used by our system's Activities to implement the adopted file division strategy. Its behaviour can be set through configuration files for every simulation. This allow to emulate different file division strategies and compare their efficiency in several simulations:
+To evaluate the efficiency of M2MShare file division strategy, we implemented a \textit{IntervalMap} according to the one described in Section \ref{descrFileDivisionStrategy}. This structure includes not yet downloaded intervals for a file and is used by our system's Activities to implement the adopted file division strategy. Its behaviour can be set through configuration files for every simulation. This allow emulations of different file division strategies and comparing their efficiency in several simulations:
 \begin{itemize}
 \item \textbf{M2MShare:} the strategy with dynamic starting point, described in Section \ref{descrFileDivisionStrategy}
 \item \textbf{iM:} where each file transfer starts from the beginning of the file
-\item \textbf{rM:} where each file transfer starts from a random point inside the file
+\item \textbf{rM:} where each file transfer starts from a random point within the file
 \end{itemize}
 
 
 \paragraph{Data Transfer}
-To emulate data transfers between nodes in the simulated network, we implement a entity named \textit{Communicator}. This entity is used by Activities to emulate the downloading of pieces of files from a file possessor, or the forwarding of a pending task's result to a client node. There is no 1-1 relation between Communicators and Activities. A task can use more than one Communicator when try to simultaneously download pieces of the same file from different sources in communication range. Communicator behaviour is related to the adopted file division strategy, as it influences the starting point of file transfers. Using Communicators allow us to emulate data transfers only when a connection between two nodes is available and to notify informations about transfers to related report modules.
+To emulate data transfers between nodes in the simulated network, we implement a entity named \textit{Communicator}. This entity is used by Activities to emulate the downloading of pieces of files from a file possessor, or the forwarding of a pending task's result to a client node. There is no 1-1 relation between Communicators and Activities. A task can use more than one Communicator when try to simultaneously download pieces of the same file from different sources within communication range. Communicator behaviour is related to the adopted file division strategy, as it influences the starting point of file transfers. Using Communicators allows us to emulate data transfers only when a connection between two nodes is available and to notify information about transfers to related report modules.
 
 %\paragraph{Scheduler}
 %\label{schedulerImplementazione}
@@ -297,16 +297,16 @@ To emulate data transfers between nodes in the simulated network, we implement a
 %\paragraph{BroadcastModule}
  
 \section{Analysis}
-To evaluate M2Mshare efficiency we need to analyse its performance compared with other strategies or with different versions of M2MShare, like in multi-hop simulations. To do so we repeat each simulation several times changing the random module generators seeds. We do so to achieve results independent from nodes movement and starting point. For each simulation we save some report files, generated using report modules described in Section \ref{descrReports}. Several analysis have been made over these reports using a set of classes we implemented for this purpose. 
+To evaluate M2Mshare efficiency we need to analyse its performance compared with other strategies or with different versions of M2MShare, as in multi-hop simulations. To do so we repeat each simulation several times changing the random module generators seeds. We do so to achieve results independent from nodes movement and the starting point. For each simulation we save some report files, generated using report modules described in Section \ref{descrReports}. Several analyses have been made over these reports using a set of classes we implemented for this purpose. 
 \\
 
 Repeating each simulation with different strategies we are able to compare their performance related to several values. Using our report and analysis modules, for each single simulation we are able to evaluate:
 \begin{itemize}
-\item number of File Request created
+\item number of File Requests created
 \item how many tasks have been delegated during the simulation
 \item how many delegated tasks have been completed
 \item how many delegated tasks expired before completion
-\item how many delegated tasks have been completed but expired before result being forwarded to the requester node
+\item how many delegated tasks have been completed but expired before the result was forwarded to the requester node
 \item number of File Request satisfied
 \item after how much time a File Request has been satisfied
 \item the length of simulated time
