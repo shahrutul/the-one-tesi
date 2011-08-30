@@ -7,18 +7,18 @@
 \contentsline {section}{\numberline {2.2}Peer-to-Peer networks}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Peer-to-Peer networks as Overlay networks}{8}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Peer-to-Peer architectures}{8}{subsection.2.2.2}
-\contentsline {paragraph}{Centralized P2P networks}{8}{section*.4}
+\contentsline {paragraph}{Centralized P2P networks}{9}{section*.4}
 \contentsline {paragraph}{Decentralized P2P networks}{9}{section*.5}
-\contentsline {section}{\numberline {2.3}Case study: BlueTorrent}{9}{section.2.3}
-\contentsline {paragraph}{Peer Manager}{10}{section*.7}
-\contentsline {paragraph}{Query Processor}{10}{section*.8}
-\contentsline {paragraph}{Data Collector}{11}{section*.9}
+\contentsline {section}{\numberline {2.3}Case study: BlueTorrent}{10}{section.2.3}
+\contentsline {paragraph}{Peer Manager:}{10}{section*.7}
+\contentsline {paragraph}{Query Processor:}{10}{section*.8}
+\contentsline {paragraph}{Data Collector:}{11}{section*.9}
 \contentsline {chapter}{\numberline {3}M2MShare}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}DTN module}{13}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Servant Election}{15}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Search module}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}Transport module}{16}{section.3.3}
-\contentsline {section}{\numberline {3.4}Routing module}{18}{section.3.4}
+\contentsline {section}{\numberline {3.4}Routing module}{17}{section.3.4}
 \contentsline {section}{\numberline {3.5}MAC module}{18}{section.3.5}
 \contentsline {section}{\numberline {3.6}File Division Strategy}{19}{section.3.6}
 \contentsline {chapter}{\numberline {4}Movement models}{21}{chapter.4}
@@ -36,11 +36,11 @@
 \contentsline {subsection}{\numberline {4.7.5}Transport Activity Submodel}{30}{subsection.4.7.5}
 \contentsline {section}{\numberline {4.8}Our choice}{31}{section.4.8}
 \contentsline {chapter}{\numberline {5}The ONE simulator}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Configuration}{33}{section.5.1}
-\contentsline {section}{\numberline {5.2}Simulation outputs}{35}{section.5.2}
+\contentsline {section}{\numberline {5.1}Simulator configuration}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Simulation output}{35}{section.5.2}
 \contentsline {section}{\numberline {5.3}Simulation execution}{38}{section.5.3}
-\contentsline {section}{\numberline {5.4}Randomness}{40}{section.5.4}
-\contentsline {section}{\numberline {5.5}The map}{40}{section.5.5}
+\contentsline {section}{\numberline {5.4}Randomness}{39}{section.5.4}
+\contentsline {section}{\numberline {5.5}The map}{41}{section.5.5}
 \contentsline {chapter}{\numberline {6}Implementation}{43}{chapter.6}
 \contentsline {section}{\numberline {6.1}ONE additions}{43}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}File Management}{43}{subsection.6.1.1}
@@ -74,7 +74,6 @@
 \contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{87}{section.7.4}
 \contentsline {chapter}{\numberline {8}Conclusions}{93}{chapter.8}
 \contentsline {section}{\numberline {8.1}Future Work}{95}{section.8.1}
-\contentsline {section}{\numberline {8.2}Acknowledgements}{95}{section.8.2}
-\contentsline {chapter}{References}{97}{section*.69}
-\contentsline {chapter}{Figures Index}{100}{section*.71}
-\contentsline {chapter}{Tables Index}{104}{section*.74}
+\contentsline {chapter}{Bibliography}{97}{chapter*.69}
+\contentsline {chapter}{List of Figures}{101}{chapter*.70}
+\contentsline {chapter}{List of Tables}{103}{chapter*.71}
