@@ -12,10 +12,10 @@
 
 
 %: ----------------------- contents from here ------------------------
-The simulation environment chosen for our simulations is The ONE (Opportunistic Network Environment) version 1.4.1\footnote{The ONE simulator \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}}, described in \cite{articoloONE}. This simulation environment written in Java is completely configurable and is able to simulate completely the behaviour of nodes in the simulations, including movement, connections and to give a visual feedback about all these factors using its GUI. A more interesting feature, for our purposes, is the capability of emulate message routing using different routing protocols.
+The simulation environment chosen for our simulations is The ONE (Opportunistic Network Environment) version 1.4.1\footnote{The ONE simulator \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/}}, described in \cite{articoloONE}. This simulation environment written in Java is completely configurable and is able to completely simulate the behaviour of nodes in the simulations, including movement, connections and to give a visual feedback about all these factors using its GUI. A more interesting feature, for our purposes, is the ability of emulating message routing using different routing protocols.
 \\
  
-To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility are explained in Section \ref{movimento}. One characteristic of the ONE architecture is high modularity, as shown in \figurename~\ref{overview-ONE}. Each movement models and for each routing protocol is implemented in an independent module, which is dynamically loaded depending on the simulation settings. This allows a relatively easy implementation of new mobility models and routing protocols in the simulator.
+To emulate nodes movement, the ONE can take in input traces from real-world measurements, from external mobility generators or it can generate movement patterns using synthetic mobility model generators. Differences between several available mobility models are explained in Section \ref{movimento}. One characteristic of the ONE architecture is high modularity, as shown in \figurename~\ref{overview-ONE}. Each movement models and for each routing protocol is implemented in an independent module, which is dynamically loaded depending on the simulator settings. This allows a relatively easy implementation of new mobility models and routing protocols in the simulator.
 \\
 \begin{figure}[htpb]
   \begin{center}
@@ -25,12 +25,12 @@ To emulate nodes movement, the ONE can take in input traces from real-world meas
   \end{center}
 \end{figure}
 
-The simulator allows to save data of interest from completed simulations into report files. There reports are created using modules dynamically loaded as it would happen with movement and routing modules.
+The simulator permits saving data of interest from completed simulations into report files. There reports are created using modules dynamically loaded as it would happen with movement and routing modules.
 \\
 
 \section{Simulator configuration}
 \label{configurazioneONE}
-A single simulation is set, before running, using configuration files which describe the simulated environment, from the simulation length to number of nodes emulating people in the simulated environment. Configuration files are text-based files that include parameters about the simulation, user interface, event generation, and reporting modules. All these parameters are loaded before the beginning of simulations and are used to adjust details about the behaviour of loaded modules.
+Before running, a single simulation is set using configuration files which describe the simulated environment, from the simulation length to number of the nodes emulating people in the simulated environment. Configuration files are text-based files that include parameters about the simulation, user interface, event generation, and reporting modules. All these parameters are loaded before the beginning of simulations and are used to adjust details about the behaviour of loaded modules.
 \\
 
 %Many of the simulation parameters are configurable separately for each node group but groups can also share a set of parameters and only alter the parameters that are specific for the group. The configuration system also allows defining of an array of values for each parameter hence enabling easy sensitivity analysis: in batch runs, a different value is chosen for each run so that large amounts of permutations are explored.
@@ -42,7 +42,7 @@ variables is:
 \textit{Namespace.key = value}
 \end{center}
 
-Namespace defines the part of the simulation environment where the setting has effect on. Many, but not all, namespaces are equal to the class name where they are read. This convention is especially followed by movement models, report modules and routing modules, so also created new modules should follow it.
+Namespace defines the part of the simulation environment that the setting has an effect on. Many, but not all, namespaces are equal to the class name where they are read. This convention is especially followed by movement models, report modules and routing modules, so also newly created modules should follow it.
 \\
 
 To make human-readability and configuration easier, numerical values can use suffixes kilo (k), mega (M) o giga (G), with \textquotedblleft .\textquotedblright \ as decimal separator. Boolean parameters accept \textquotedblleft true\textquotedblright \
@@ -53,13 +53,13 @@ Setting files can include comments with \textquotedblleft
 \#\textquotedblright \ character. Rest of the line is skipped when the settings are read.
 \\
 
-Every simulation can be set using several configuration files, to divide parameters into different categories, e.g. a file can include scenario parameters, like maps, streets and districts, another file can include parameters used to configure nodes, another file can include reports configuration and so on. First configuration file read, if exists, is always \textquotedblleft default\_settings.txt\textquotedblright. Other configuration files given as parameter can define more settings or override some (or even all) settings in the previous files. The idea is that you can define in the earlier files all the settings that are common for all the simulations and run different simulations changing parameters only in latests configuration files.
+Every simulation can be set using several configuration files, to divide parameters into different categories, e.g. a file can include scenario parameters, like maps, streets and districts, another file can include parameters used to configure nodes, another file can include reports configuration and so on. The first configuration file read, if it exists, is always \textquotedblleft default\_settings.txt\textquotedblright. Other configuration files given as parameter can define many settings or override some (or even all) settings in the previous files. The idea is that you can define all the settings that are common for all the simulations and run different simulations changing parameters only in the latest configuration files.
 \\
 
-The basic agents in the simulator are called nodes. A node models a mobile endpoint capable of acting as a store-carry-forward router (e.g., a pedestrian, car or tram with the required hardware). Nodes in the simulation world are divided into groups, each one configured with different capabilities. Inside a group, every node has the same characteristics, i.e. radio interface, persistent storage, movement, energy consumption and message routing protocol. It is possible to configure some of these capabilities as common for all groups, avoiding to set them individually for each group. Changing some configuration value between a group and another, allows to get heterogeneity between the behaviour of nodes in simulated scenario.
+The basic agents in the simulator are called nodes. A node models a mobile endpoint capable of acting as a store-carry-forward router (e.g., a pedestrian, car or tram with the required hardware). Nodes in the simulation world are divided into groups, each one configured with different capabilities. Inside a group, every node has the same characteristics, i.e. radio interface, persistent storage, movement, energy consumption and message routing protocol. It is possible to configure some of these capabilities as common for all groups, to avoid having to set them individually for each group. Changing some configuration values between one group and another, make it possible to obtain heterogeneity between the behaviour of nodes in simulated scenario.
 \\
 
-In configuration files is also possible to provide an array of settings for every parameter. This allows to run large amounts of different simulations using only one single configuration file. Every simulation will be different from the previous and this is very useful to gather reports about different aspects in a common scenario.
+In configuration files is also possible to provide an array of settings for every parameter. This allows running large quantities of different simulations using only one single configuration file. Every simulation will be different from the previous and this is very useful for gathering reports about different aspects in a common scenario.
 \\ Syntax for these configuration parameters is
 
 \begin{center}
@@ -69,7 +69,7 @@ In configuration files is also possible to provide an array of settings for ever
 Some parameters, finally, accept a file path as value and this can be either an absolute or relative path. These parameters are used for maps, nodes paths or events to be loaded by event generators modules.
 
 \section{Simulation output}
-The main way to follow the progress of simulations is the GUI present in the ONE. In main window, shown in \figurename~\ref{Schermata-ONE}, is possible to observe movements of nodes acting in the simulation and view details about one of them by selecting it from the list of active nodes. For every node is possible to get informations about active connections, messages carried and other details. In the main window is also present a log panel updated with a textual description of events generated in the current simulation. These events can be filtered allowing to see only logs related to one kind of events e.g. new connections, creation of messages or massage exchanges.
+The main way to follow the progress of simulations is the GUI present in the ONE. In the main window, shown in \figurename~\ref{Schermata-ONE}, it is possible to observe the movements of the nodes acting in the simulation and view details about one of them by selecting it from the list of active nodes. For every node it is possible to obtain informations about active connections, messages carried and other details. A log panel is also present in the main window, updated with a textual description of events generated in the current simulation. These events can be filtered permitting the vision of only the logs related to one kind of events e.g. new connections, creation of messages or massage exchanges.
 \\
 \begin{figure}[htpb]
   \begin{center}
@@ -80,7 +80,7 @@ The main way to follow the progress of simulations is the GUI present in the ONE
 \end{figure}
 %\figuremacro{Schermata-ONE}{Schermata Principale}{La schermata principale del simulatore ONE}{}
 
-Selecting a node is also possible to follow its movements inside the simulated world map, with the path to its next destination highlighted in the graphical visualization of the map. A pop-up window, shown in \figurename~\ref{Routing-Info}, can be invoked to get advanced informations about the state of that node.
+When selecting a node, it is also possible to follow its movements inside the simulated world map, with the path to its next destination highlighted in the graphical visualization of the map. A pop-up window, shown in \figurename~\ref{Routing-Info}, can be invoked to obtain advanced information about the state of that node.
 \\
 
 \begin{figure}[htpb]
@@ -92,10 +92,10 @@ Selecting a node is also possible to follow its movements inside the simulated w
 \end{figure}
 %\figuremacro{Routing-Info}{Routing Info}{Un esempio di finestra in cui sono presenti i dettagli relativi allo stato di un nodo}{}
 
-The map representation is configurable and the user can adjust the zoom level, simulation speed and it's possible to add an image as background, e.g. using a road map or a satellite photo of the interested area.
+The map representation is configurable and the user can adjust the zoom level, simulation speed and it is possible to add an image as background, e.g. using a road map or a satellite photo of the area of interest.
 \\
 
-The other way to follow the progress of simulations is to read generated reports, at the end of every simulation. Each report is generated by its related module. These modules, like movement and routing modules, are dynamically loaded at the beginning of the simulation according to what set in configuration files. To use report files is particularly useful when doing simulations in batch, without using the GUI and analysing resulting reports when all the set of simulations is complete. In batch mode is useful the possibility of define arrays of values for parameters in configuration files. These allow to set differences in configuration between the different runs of the batch. When the batch is executed, the ONE would run all the simulations, reading for each of them the correct configuration parameters, and saving the generated reports into different files for each simulation run.
+The other way to follow the progress of simulations is to read generated reports, at the end of every simulation. Each report is generated by its related module. These modules, such as movement and routing modules, are dynamically loaded at the beginning of the simulation according to what is set in configuration files. To use report files is particularly useful when doing simulations in batch, without using the GUI and analysing resulting reports when all the set of simulations is complete. In batch mode is useful the possibility of define arrays of values for parameters in configuration files. These allow to set differences in configuration between the different runs of the batch. When the batch is executed, the ONE would run all the simulations, reading for each of them the correct configuration parameters, and saving the generated reports into different files for each simulation run.
 \\
 
 Several report modules can be active during one single simulation. Output of these modules are report files, which typically are text-based files in which are saved statistical and log data gathered during the simulation. These data can be further analysed when the simulation has ended. In the ONE version 1.4.1, the simulator has some ready-to-use report modules which allow to create reports related to:
