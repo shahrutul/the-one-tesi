@@ -28,7 +28,7 @@ To emulate nodes movement, the ONE can take in input traces from real-world meas
 The simulator allows to save data of interest from completed simulations into report files. There reports are created using modules dynamically loaded as it would happen with movement and routing modules.
 \\
 
-\section{Configuration}
+\section{Simulator configuration}
 \label{configurazioneONE}
 A single simulation is set, before running, using configuration files which describe the simulated environment, from the simulation length to number of nodes emulating people in the simulated environment. Configuration files are text-based files that include parameters about the simulation, user interface, event generation, and reporting modules. All these parameters are loaded before the beginning of simulations and are used to adjust details about the behaviour of loaded modules.
 \\
@@ -68,7 +68,7 @@ In configuration files is also possible to provide an array of settings for ever
 
 Some parameters, finally, accept a file path as value and this can be either an absolute or relative path. These parameters are used for maps, nodes paths or events to be loaded by event generators modules.
 
-\section{Simulation outputs}
+\section{Simulation output}
 The main way to follow the progress of simulations is the GUI present in the ONE. In main window, shown in \figurename~\ref{Schermata-ONE}, is possible to observe movements of nodes acting in the simulation and view details about one of them by selecting it from the list of active nodes. For every node is possible to get informations about active connections, messages carried and other details. In the main window is also present a log panel updated with a textual description of events generated in the current simulation. These events can be filtered allowing to see only logs related to one kind of events e.g. new connections, creation of messages or massage exchanges.
 \\
 \begin{figure}[htpb]
