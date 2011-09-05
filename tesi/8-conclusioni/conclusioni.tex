@@ -12,7 +12,8 @@
 
 
 %: ----------------------- contents from here ------------------------
-In this thesis, we evaluated the performance of M2MShare, a protocol which implements DTN techniques in mobile phones world, in order to enable a peer-to-peer file sharing system between peers in the network  making leverage on their mobility and opportunistic contacts among them. To do so we implemented the protocol in the Oppostunistic Network Environment (ONE) simulator. This simulator is able to emulate human movements adopting several movement models in a map-based environment and allowing us to evaluate M2MShare behaviour in a realistic city-scale scenario.
+%In this thesis, we evaluated the performance of M2MShare, a protocol which implements DTN techniques in mobile phones world, in order to enable a peer-to-peer file sharing system between peers in the network making leverage on their mobility and opportunistic contacts among them. To do so we implemented the protocol in the Oppostunistic Network Environment (ONE) simulator. This simulator is able to emulate human movements adopting several movement models in a map-based environment and allowing us to evaluate M2MShare behaviour in a realistic city-scale scenario.
+In this thesis, we evaluated the performance of M2MShare, a DTN solution for mobile phones that leverages on nodes' mobility and opportunistic contacts to enable proximity based file sharing. To this aim, we have integrated M2MShare in the Opportunistic Network Environment (ONE) simulator and tested its performance with realistic movement models in a map-based environment. This complex city-scale testbed includes a multitude of nodes representing real users engaged in their daily activities and movements, and allowed us to demonstrate the efficacy of M2MShare. 
 \\
 
 We evaluated M2MShare employing one-hop delegations against two other systems using different strategies:
@@ -34,14 +35,14 @@ We compared M2MShare file division strategy with two other division strategies:
 and we proved that our file division strategy has the least redundancy during data transfer, especially considering big-sized files.
 \\
 
-Some of the previous results will be presented with a paper we wrote at Wireless Days Conference 2011 \footnote{Wireless Days 2011 \href{http://www.wireless-days.org/}{http://www.wireless-days.org/}} in Niagara Falls, Ontario, Canada.
-Summarizing, in our judgment our contributions are the following:
+Some of the previous results will be presented with a paper we wrote at Wireless Days Conference 2011 \footnote{Wireless Days 2011 \href{http://www.wireless-days.org/}{http://www.wireless-days.org/}} in Niagara Falls, Ontario, Canada. The full text of the paper is included in Appendix \ref{appendice-paper}.
+Summarizing, our contributions are the following:
 \begin{itemize}
-\item implementing M2MShare and evaluating its behaviour using a simulator (the ONE simulator) able to emulate nodes movement in a realistic urban scenario.
-\item evaluating the efficiency of the new paradigm created by M2MShare of use P2P solutions that matches file sharing with mobile users, allowing them to exchange files with each other.
-\item evaluating the efficiency of using task delegations to dynamically establish forward routes along the destination path in the network.
-\item evaluating the efficiency of the new file division strategy introduced with M2MShare 
-\item enhancing M2MShare adding support to multi-hop delegations in order to further increase the search area for a single node to other disconnected overlay networks.
+\item implementing M2MShare and evaluating its behaviour using a simulator (the ONE simulator) able to emulate nodes movement in a realistic urban scenario;
+\item evaluating the efficiency of the new paradigm created by M2MShare of use P2P solutions that matches file sharing with mobile users, allowing them to exchange files with each other;
+\item evaluating the efficiency of using task delegations to dynamically establish forward routes along the destination path in the network;
+\item evaluating the efficiency of the new file division strategy introduced with M2MShare; 
+\item enhancing M2MShare adding support to multi-hop delegations in order to further increase the search area for a single node to other disconnected overlay networks;
 \item enhancing the ONE simulator adding some new features to it and then making them available to the simulator users community\footnote{The ONE simulator user contributions \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}}.
 \end{itemize}
 

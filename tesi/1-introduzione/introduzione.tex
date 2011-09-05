@@ -12,10 +12,10 @@
 
 
 %: ----------------------- contents from here ------------------------
-Since the beginning of civilization, mankind has had the need to share information between places very distant from each other. Means of communication have evolved enormously through the centuries, from the first letters carried from one place to another by runner. Riding couriers moved correspondence through greater distances, allowing at the same time faster communication between more and more distant cities. The methods of communication continued to change and in the 1840s the electric telegraph was invented and messages were sent even quicker through the first invisible means of communication. Just twenty years later, the first transoceanic submarine cable was laid and it became possible to instantaneously send messages between America and Europe. Next, the telephone was invented and people began to talk over great distances as if they were sitting in the same room. Finally, with the rise of the Internet, new global-scale communications became possible.
-\\
+%Since the beginning of civilization, mankind has had the need to share information between places very distant from each other. Means of communication have evolved enormously through the centuries, from the first letters carried from one place to another by runner. Riding couriers moved correspondence through greater distances, allowing at the same time faster communication between more and more distant cities. The methods of communication continued to change and in the 1840s the electric telegraph was invented and messages were sent even quicker through the first invisible means of communication. Just twenty years later, the first transoceanic submarine cable was laid and it became possible to instantaneously send messages between America and Europe. Next, the telephone was invented and people began to talk over great distances as if they were sitting in the same room. Finally, with the rise of the Internet, new global-scale communications became possible.
+%\\
 
-In the last few years, access to the internet has become available for a large number of people, using a variety of different types of devices to connect to the network. Fifteen years ago, internet access was the prerogative of wired connected computers, and cellular phones were devices only able to make telephone calls and send/receive text messages. Today, smartphones are becoming very popular. These devices have evolved from very simple mobile phones to devices able to browse the internet, access and read emails, and watch video stream directly from the net.
+In the last few years, wireless access to the Internet has become available for a large number of people, using a variety of different types of devices to connect to the network. Fifteen years ago, Internet access was the prerogative of wired connected computers, and cellular phones were devices only able to make telephone calls and send/receive text messages. Today, smartphones are becoming very popular. These devices have evolved from very simple mobile phones to devices able to browse the Internet, access and read emails, and watch video stream directly from the net.
 \\
 
 All these new possibilities created new problems regarding the related requests for connectivity. While the core of the network is highly connected and well-suited for routing via conventional routing algorithms, mobile devices often work in environments with infrastructures that suffer from intermittent connectivity and difficulty in predicting changes in topology. In these contexts, the traditional routing algorithm designed for wired, high connected networks lack efficiency and other strategies must be adopted.
@@ -26,13 +26,13 @@ One cause of intermittent connectivity is user movement. When users of mobile de
 
 
 \section{Contributions}
-In this thesis, we evaluated the performance of the M2MShare, a protocol which implements DTN techniques in world of mobile phones in order to enable a peer-to-peer file sharing system within the network using their mobility and opportunistic contacts among them. To do so we implement the protocol in the Opportunistic Network Environment (ONE) simulator. This simulator is able to emulate human movement, adopting several movement models in a map-based environment. In our judgement, our contributions are the following:
+In this thesis, we discuss and evaluate M2MShare, a DTN solution for mobile phones that leverages on nodes' mobility and opportunistic contacts to enable proximity based file sharing. To this aim, we have integrated M2MShare in the Opportunistic Network Environment (ONE) simulator and tested its performance with realistic movement models in a map-based environment. This complex city-scale testbed includes a multitude of nodes emulating real users engaged in their daily activities and movements, and allowed us to demonstrate the efficacy of M2MShare. Our contributions are the following:
 \begin{itemize}
-\item implementing M2MShare and evaluating its behaviour using a simulator (the ONE simulator) able to emulate nodes movement in a realistic urban scenario.
-\item evaluating the efficiency of the new paradigm created by M2MShare of use P2P solutions that matches file sharing with mobile users, allowing them to exchange files with each other.
-\item evaluating the efficiency of using task delegations to dynamically establish forward routes along the destination path in the network.
-\item evaluating the efficiency of the new file division strategy introduced by M2MShare 
-\item enhancing M2MShare adding support to multi-hop delegations in order to further increase the search area for a single node to other disconnected overlay networks.
+\item implementing M2MShare and evaluating its behaviour using a simulator (the ONE simulator) able to emulate nodes movement in a realistic urban scenario;
+\item evaluating the efficiency of the new paradigm created by M2MShare of use P2P solutions that matches file sharing with mobile users, allowing them to exchange files with each other;
+\item evaluating the efficiency of using task delegations to dynamically establish forward routes along the destination path in the network;
+\item evaluating the efficiency of the new file division strategy introduced by M2MShare;
+\item enhancing M2MShare adding support to multi-hop delegations in order to further increase the search area for a single node to other disconnected overlay networks;
 \item enhancing the ONE simulator adding some new features to it and then making them available to the simulator users community\footnote{The ONE simulator user contributions \href{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}{http://www.netlab.tkk.fi/tutkimus/dtn/theone/\#contrib}}.
 \end{itemize}
 
@@ -40,13 +40,13 @@ In this thesis, we evaluated the performance of the M2MShare, a protocol which i
 The remainder of this document is organized in the following chapters:
 \begin{enumerate}
 \setcounter{enumi}{1}
-\item \textbf{Background:} in this chapter we describe some technologies that are useful to the reader to know about before reading the following chapters. We describe Delay Tolerant Networks (DTN) and Peer-to-Peer (P2P) systems.
-\item \textbf{M2MShare:} this chapter describes M2MShare, the protocol object of the study and simulations of this thesis.
-\item \textbf{Movement models:} in this chapter we give an overview about the movement models used to simulate people movements. We describe the characteristics of several movement models, comparing them, and finally we describe the model we use for our simulations.
-\item \textbf{The ONE simulator:} this chapter presents ONE (Opportunistic Network Environment), the simulator we used for our evaluation of M2MShare.
-\item \textbf{Implementation:} in this chapter we describe our integration of M2MShare into ONE and the improvements we made to the simulator to completely emulate the protocol behaviour.
-\item \textbf{Simulations and results:} in this chapter we present the simulations we did. For each simulation we describe the settings, the protocol aspects evaluated, and finally we give the related results with a graphical representation.
-\item \textbf{Conclusions:}  this chapter gives the concluding remarks, and proposes some related future work and enhancements. %It also contains the due acknowledgements.
+\item \textbf{Background:} in this chapter we describe main technologies related to this thesis. We describe Delay Tolerant Networks (DTN) and Peer-to-Peer (P2P) systems.
+\item \textbf{M2MShare:} this chapter describes technical details of the M2MShare solution.
+\item \textbf{Movement models:} in this chapter we provide an overview about the movement models used to simulate people movements. We describe the characteristics of several movement models, comparing them, and finally we describe the model we use for our simulations.
+\item \textbf{The ONE simulator:} this chapter presents ONE (Opportunistic Network Environment), the simulator we used to evaluate M2MShare.
+\item \textbf{Implementation:} in this chapter we describe our integration of M2MShare into ONE and the improvements we made to the simulator to comprehensively emulate the protocol behaviour.
+\item \textbf{Simulations and results:} in this chapter we present the outcome of performed simulations. For each simulation we also describe the settings and the evaluated protocol aspects.
+\item \textbf{Conclusions:}  this chapter provides concluding remarks and proposes possible future work and enhancements. %It also contains the due acknowledgements.
 
 \end{enumerate}
  
