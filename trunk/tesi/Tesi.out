@@ -16,7 +16,7 @@
 \BOOKMARK [1][-]{section.3.5}{MAC module}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.6}{File Division Strategy}{chapter.3}% 17
 \BOOKMARK [0][-]{chapter.4}{Movement models}{}% 18
-\BOOKMARK [1][-]{section.4.1}{Real user traces VS Synthetic models}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.1}{Real user traces vs Synthetic models}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.2}{Random Walk}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.3}{Random Waypoint}{chapter.4}% 21
 \BOOKMARK [1][-]{section.4.4}{Random Map-Based Movement}{chapter.4}% 22
@@ -54,6 +54,7 @@
 \BOOKMARK [1][-]{section.7.4}{File Division Strategy efficiency}{chapter.7}% 54
 \BOOKMARK [0][-]{chapter.8}{Conclusions}{}% 55
 \BOOKMARK [1][-]{section.8.1}{Future Work}{chapter.8}% 56
-\BOOKMARK [0][-]{chapter*.69}{Bibliography}{}% 57
-\BOOKMARK [0][-]{chapter*.70}{List of Figures}{}% 58
-\BOOKMARK [0][-]{chapter*.71}{List of Tables}{}% 59
+\BOOKMARK [0][-]{appendix.A}{Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility}{}% 57
+\BOOKMARK [0][-]{appendix*.69}{Bibliography}{}% 58
+\BOOKMARK [0][-]{appendix*.70}{List of Figures}{}% 59
+\BOOKMARK [0][-]{appendix*.71}{List of Tables}{}% 60

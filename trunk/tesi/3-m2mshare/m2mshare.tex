@@ -49,7 +49,9 @@ To overcome these limitations, M2MShare uses an asynchronous communication strat
 
 Before proceeding further it would be useful to explain in what a delegation action consists of. A delegation is the action performed by a client peer which asks a servant peer to execute some unaccomplished task of its own. This unaccomplished task can be a query, composed of several keywords, for which the client wants to receive a list of files which satisfy it. To accomplish this task, the servant schedules it for later execution and searches among shared files in encountered nodes for some file satisfying the query. When the pending task is completed, the servant creates a new task type, a forward task. The objective of this kind of task is to return the output of a pending task to the requester node. 
 \\
+
 One task can be delegated by the client to several servant peers and this allows using nodes mobility as an advantage instead of a negative factor. A client node can virtually enter in contact range with nodes that it would never otherwise meet.
+\\
 
 All delegated tasks also have a Time To Live (TTL) value. If a delegated task is not completed and its result has not been returned to the client within its TTL value the task expires, it is deleted and not scheduled again for execution in the servant.
 \\

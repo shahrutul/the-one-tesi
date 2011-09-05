@@ -15,7 +15,7 @@
 To fully understand how M2MShare works and what kind of simulator must be used to emulate it, is worth taking a look at some backgrounds technology which can be useful to know before proceeding further into this thesis. In this chapter we describe DTNs, the notion of peer-to-peer and overlay networks.
 
 \section{Delay/Disruption Tolerant Networks (DTN)}
-The Internet is a connected network where internet protocols, most notably transmission control protocol/internet protocol (TCP/IP), are dependent upon (low) latencies of approximately milliseconds. This low latency, coupled with low bit error rates, allows TCP to reliably transmit and receive acknowledgements for messages traversing the terrestrial Internet. 
+The Internet is a connected network where Internet protocols, most notably Transmission Control Protocol/Internet Protocol (TCP/IP), are dependent upon (low) latencies of approximately milliseconds. This low latency, coupled with low bit error rates, allows TCP to reliably transmit and receive acknowledgements for messages traversing the terrestrial Internet. 
 \\
 
 A DTN is a network designed to operate effectively in highly-challenged environments where protocols adopted in connected networks (i.e. TCP/IP) fail. The "D" part in DTN acronym stands both for \textit{Delay} and for \textit{Disruption}. By delay we mean the end-to-end latency of data transmission. Some of those delays are inherent in the transmission medium, or the geometry of the system, but others are due to packets being temporarily stored on intermediate nodes. By disruption, we mean factors that cause connections to break down, or not be established, normally due to transient or quickly changing aspects of the system and/or its environment.
@@ -44,7 +44,7 @@ To overcome problems associated with all these factors, DTNs use a old yet affec
   \end{center}
 \end{figure}
 
-Messages are stored in storage mediums which can hold them for long periods of time, called persistent storage. This is another difference from the internet protocols, where routers adopt very short-term storage provided by memory chips to store incoming packets. In Internet routers, messages are queued only for a few milliseconds while they are waiting for their next hop. In DTNs routers need persistent storage for one or more of the following reasons:
+Messages are stored in storage mediums which can hold them for long periods of time, called persistent storage. This is another difference from the Internet protocols, where routers adopt very short-term storage provided by memory chips to store incoming packets. In Internet routers, messages are queued only for a few milliseconds while they are waiting for their next hop. In DTNs routers need persistent storage for one or more of the following reasons:
 \begin{itemize}
 \item A communication link to the next hop may not be available for while and during this period message must be stored in the router.
 \item There could be asymmetries in speed and reliability between nodes, so that one node in a communicating pair may send or receive data much faster or more reliably than the other node.

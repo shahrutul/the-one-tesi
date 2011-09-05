@@ -35,14 +35,15 @@ A movement model can be simple, considering only random nodes movements, indepen
 
 In this chapter we show characteristics and differences between synthetic and real-trace-derived models. We illustrate some movement models showing how these implement and describe the movement of nodes in the simulation. Each description is accompanied by a screenshot to give a visual representation of node movement in the model. We focus on the Working Day Movement Model and finally we explain why we chose it for our simulations.
 
-\section{Real user traces VS Synthetic models}
+\section{Real user traces \textit{vs} Synthetic models}
 The most realistic user movement or contact patterns are the ones that happen in the real world. Therefore, several studies have focused on tracking user movement to be able to use the traces later for direct simulations or to learn more about which characteristics are common in real user behaviour. Real movement traces have usually been obtained by analysing WLAN access point logs \cite{Balachandran:2002:CUB:511399.511359} \cite{Ghosh:2006:PMP:1132983.1132993} \cite{Shaffer:2005:AMM:1104998.1105285} or using devices equipped with GPS modules carried by users \cite{Ashbrook:2002:LSL:862896.881068}. Contact traces have mostly been collected from real-world experiments where users have been carrying around Bluetooth devices tracking other devices within range \cite{Natarajan:2007:UUI:1762888.1762904}.
 \\
 
 When real trace are been obtained by analysing WLAN access point data, only certain areas have covered and so movements outside access points communication range are not recorded. Using GPS modules limits mobility recording only to outdoor movements. Contact traces, on the other hand, allow analysis of only frequency and number of contacts between users, without showing their spatial movements and movement patterns. Also, devices used to obtain real traces are not always carried by the users, are not necessarily always turned on, or with the GPS module active. Paper \cite{ImpactofHumanMobility} argues that the on/off times are an important characteristic of wireless users that needs to be taken into account.
 \\
 
-There are some other problems about directly using the collected traces in simulations. Real world traces are usually from very specific environments like university campuses areas. These traces are not so generic to be used to simulate movement in a different environment, like a centre of a city, because behaviour and movement patterns of studied people are different. Also, users mobility is often very low, while using the network, and one node only meets a small portion of all other nodes in the area resulting in an incomplete trace of users movements and contacts.
+%There are some other problems about directly using the collected traces in simulations. 
+Other issues arise when using directly traces collected in simulations. Real world traces are usually from very specific environments like university campuses areas. These traces are not so generic to be used to simulate movement in a different environment, like a centre of a city, because behaviour and movement patterns of studied people are different. Also, users mobility is often very low, while using the network, and one node only meets a small portion of all other nodes in the area resulting in an incomplete trace of users movements and contacts.
 \\
 
 
@@ -57,7 +58,10 @@ The Random Walk movement model (RW) is one of the simplest mobility models avail
 \end{figure}
 
 \section{Random Waypoint}
-The Random Waypoint movement model (RWP) is a generalization of RW and is one of the most frequently used models in mobility simulations. In this model every node chooses a random location within the simulation area and moves towards it at a random speed uniformly chosen from $(V_{min}, V_{max}]$, where $V_{min}$ is the minimum and $V_{max}$ is the maximum speed of the simulation. Like RW, in RWP the simulation area is an open empty space. When the node reaches its destination, it waits for a random amount of time and then repeats the previous steps (an example of topography for this model is shown in \figurename~\ref{fig:random_waypoint}). This model has one shortcoming, however, shown in \cite{rwpharmful}, in that the simulation does not reach a steady state and average speed of nodes constantly decreases if the $V_{min}$ value is set to zero, as in the default implementation of the model. 
+The Random Waypoint movement model (RWP) is a generalization of RW and is one of the most frequently used models in mobility simulations. In this model every node chooses a random location within the simulation area and moves towards it at a random speed uniformly chosen from $(V_{min}, V_{max}]$, where $V_{min}$ is the minimum and $V_{max}$ is the maximum speed of the simulation. Like RW, in RWP the simulation area is an open empty space. When the node reaches its destination, it waits for a random amount of time and then repeats the previous steps (an example of topography for this model is shown in \figurename~\ref{fig:random_waypoint}). However, this model has a shortcoming as shown in
+\cite{rwpharmful}: if the $V_{min}$ value is set to zero, as in the default implementation of the model, the simulation cannot reach a steady state and the average speed of nodes constantly decreases.
+
+%This model has one shortcoming, however, shown in \cite{rwpharmful}, in that the simulation does not reach a steady state and average speed of nodes constantly decreases if the $V_{min}$ value is set to zero, as in the default implementation of the model. 
 \begin{figure}[htpb]
   \begin{center}
     \includegraphics[scale=0.6]{4-movimento/img/random_waypoint.png}
@@ -180,13 +184,14 @@ Every person who does not have a car knows one bus route and can use every bus r
  
  
 \section{Our choice}
-To evaluate M2MShare performance in a realistic environment we use the Working Day Movement model in our simulations. While other simpler models can reproduce some characteristics in common with real traces, like contact and inter-contact times, they are not able to completely show human relationships and group movements between users. In \cite{Natarajan:2007:UUI:1762888.1762904} is shown that analysing data from real traces, there appears a specific behaviour of users clustering in groups. 
+To evaluate M2MShare performance in a realistic environment we use the Working Day Movement model in our simulations. While other simpler models can reproduce some characteristics in common with real traces, like contact and inter-contact times, they are not able to completely show human relationships and group movements between users. In \cite{Natarajan:2007:UUI:1762888.1762904} it is shown that analysing data from real traces, there appears a specific behaviour of users clustering in groups. 
 \\
 
 Two other aspects of human movement patterns are locality and heterogeneity. Locality is the tendency of nodes spending most of their time within a small area, so in a movement model with high locality, node's movement is restricted to a small portion of the simulated world. Heterogeneity implies differences in movement patterns and properties between nodes. These two aspects are not shown using simpler mobility models, like Random Walk or Random Waypoint, in which nodes have low locality (they move randomly through the whole area) and heterogeneity (they moves adopting the same behaviour for all the simulation, entering in contact with all other nodes with equal probability). In WDM locality is achieved assigning nodes to different home, office and evening activity locations. Heterogeneity is achieved using different transportations to move through the simulation area and using different distributions from which draw waiting times related to activities performed during the day.
 \\
 
 In M2MShare the creation of social relationships and spontaneous communities is very important and WDM is able to show such human behaviours in its way of emulating daily activities performed by a user in places common to other users. This ability is very useful to realistically move nodes emulating M2MShare users and it is one of the main reasons why we chose WDM for our simulations.
+\\
 
 Finally, WDM is very configurable and this is another important characteristic because it is practical to have a model with configurable parameters to work with, especially to test how a protocol like M2MShare performs when certain parameters change, to better be able to discover weaknesses and strengths.
  

@@ -23,6 +23,8 @@
 \usepackage{subfigure}	
 \usepackage{multirow}
 
+\usepackage[final]{pdfpages}			%aggiungere in allegato dei pdf
+
 \usepackage[nottoc]{tocbibind} %per sistemare i link alle figure e tables	
 
 \oddsidemargin=30pt \evensidemargin=20pt	%impostano i margini
@@ -124,6 +126,9 @@ INDICE}}
 \input{7-simulazione/simulazione}
 \input{8-conclusioni/conclusioni}
 
+\appendix
+\chapter{Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility}\label{appendice-paper}
+\includepdf[pages=1-7]{paper.pdf}
 
 \cleardoublepage 	 %va a pagina nuova iniziando dalla pagina di destra
 
@@ -203,6 +208,8 @@ TABLES INDEX}}
 %\phantomsection \label{listoftab}
 %\addcontentsline{toc}{chapter}{List of Tables}                        %aggiungilo all'indice
 \cleardoublepage                                                            %non numera l'ultima pagina sinistra
+
+
 
 %%%%%%%%%%%%%%RINGRAZIAMENTI%%%%%%%%%%%%%%%%%%%%
 
