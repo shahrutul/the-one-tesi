@@ -74,7 +74,8 @@
 \contentsline {section}{\numberline {7.4}File Division Strategy efficiency}{87}{section.7.4}
 \contentsline {chapter}{\numberline {8}Conclusions}{93}{chapter.8}
 \contentsline {section}{\numberline {8.1}Future Work}{95}{section.8.1}
+\contentsline {section}{\numberline {8.2}Acknowledgements}{96}{section.8.2}
 \contentsline {chapter}{\numberline {A}Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility}{97}{appendix.A}
-\contentsline {chapter}{Bibliography}{105}{appendix*.69}
-\contentsline {chapter}{List of Figures}{109}{appendix*.70}
-\contentsline {chapter}{List of Tables}{111}{appendix*.71}
+\contentsline {chapter}{Bibliography}{107}{appendix*.69}
+\contentsline {chapter}{List of Figures}{111}{appendix*.70}
+\contentsline {chapter}{List of Tables}{113}{appendix*.71}
