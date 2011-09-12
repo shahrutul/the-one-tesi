@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  6 SEP 2011 11:01
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  6 SEP 2011 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3170,101 +3170,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-) (./appendice-paper.tex
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[96]
-Appendix A.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--5
-
- []
-
-[97
-
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 25.23671pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[98
-
-] <paper.pdf, id=1380, page=1, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 1>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 1>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 1>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 1>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 1> [99 <./paper.pdf>]
-<paper.pdf, id=1427, page=2, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 2>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 2>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 2> [100 <./paper.pdf>]
-<paper.pdf, id=1447, page=3, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 3>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 3>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 3> [101 <./paper.pdf>]
-<paper.pdf, id=1454, page=4, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 4>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 4>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 4> [102 <./paper.pdf>]
-<paper.pdf, id=1459, page=5, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 5>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 5>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 5> [103 <./paper.pdf>]
-<paper.pdf, id=1469, page=6, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 6>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 6>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 6> [104 <./paper.pdf>]
-<paper.pdf, id=1474, page=7, 614.295pt x 794.97pt>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 7>
-File: paper.pdf Graphic file (type pdf)
-
-<use paper.pdf, page 7>
-File: paper.pdf Graphic file (type pdf)
- <use paper.pdf, page 7> [105 <./paper.pdf>])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 25.23671pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[106
-
-] (./Tesi.bbl
+[96] (./Tesi.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
  (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -3280,7 +3193,8 @@ Underfull \hbox (badness 1062) in paragraph at lines 46--50
 ot,
  []
 
-[107
+[97
+
 
 ]
 
@@ -3289,23 +3203,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[108])
+[98])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[109]
+[99]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[110
+[100
 
-] (./Tesi.lof [111]
+] (./Tesi.lof [101]
 Overfull \hbox (1.13542pt too wide) in paragraph at lines 56--56
  [][] [][][]\T1/cmr/m/n/10.95 Average data re-dun-dancy and num-ber of ac-tive 
 del-e-gated tasks 
@@ -3346,7 +3260,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[112] (./Tesi.lot
+[102] (./Tesi.lot
 Overfull \hbox (1.21786pt too wide) in paragraph at lines 11--11
  [][] [][][]\T1/cmr/m/n/10.95 Simulations set-tings for eval-u-a-tion of del-e-
 ga-tion ef-fi-ciency with 
@@ -3362,7 +3276,7 @@ ga-tion ef-fi-ciency with
 \tf@lot=\write6
 \openout6 = `Tesi.lot'.
 
- [113
+ [103
 
 
 ]
@@ -3372,26 +3286,105 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[114
+[104
+
+] (./appendice-paper.tex
+Appendix A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+[105
 
 ]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 25.23671pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[106
+
+] <paper.pdf, id=1491, page=1, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 1>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 1>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 1>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 1>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 1> [107 <./paper.pdf>]
+<paper.pdf, id=1537, page=2, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 2>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 2>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 2> [108 <./paper.pdf>]
+<paper.pdf, id=1557, page=3, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 3>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 3>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 3> [109 <./paper.pdf>]
+<paper.pdf, id=1565, page=4, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 4>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 4>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 4> [110 <./paper.pdf>]
+<paper.pdf, id=1570, page=5, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 5>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 5>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 5> [111 <./paper.pdf>]
+<paper.pdf, id=1579, page=6, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 6>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 6>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 6> [112 <./paper.pdf>]
+<paper.pdf, id=1584, page=7, 614.295pt x 794.97pt>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 7>
+File: paper.pdf Graphic file (type pdf)
+
+<use paper.pdf, page 7>
+File: paper.pdf Graphic file (type pdf)
+ <use paper.pdf, page 7> [113 <./paper.pdf>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 229.
- (./Tesi.aux)
+
+(./Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 695F7F6BDB46ED8EEDBB911F80D061A7;4093.
+(rerunfilecheck)             Checksum: 2C7F66464C2870545F3C4E56DA3A9D4A;4090.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
  ) 
 Here is how much of TeX's memory you used:
- 11252 strings out of 493772
- 169099 string characters out of 3150564
- 262695 words of memory out of 3000000
+ 11251 strings out of 493772
+ 169085 string characters out of 3150564
+ 262696 words of memory out of 3000000
  13899 multiletter control sequences out of 15000+200000
  28450 words of font info for 75 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 44i,18n,47p,1529b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,18n,47p,1529b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/
@@ -3412,10 +3405,10 @@ super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share
 /texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fon
 ts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (120 pages, 3987370 bytes).
+Output written on Tesi.pdf (119 pages, 3986925 bytes).
 PDF statistics:
- 1741 PDF objects out of 2073 (max. 8388607)
- 1405 compressed objects within 15 object streams
- 320 named destinations out of 1000 (max. 500000)
+ 1737 PDF objects out of 2073 (max. 8388607)
+ 1402 compressed objects within 15 object streams
+ 319 named destinations out of 1000 (max. 500000)
  849 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -75,7 +75,7 @@
 \contentsline {chapter}{\numberline {8}Conclusions}{93}{chapter.8}
 \contentsline {section}{\numberline {8.1}Future Work}{95}{section.8.1}
 \contentsline {section}{\numberline {8.2}Acknowledgements}{96}{section.8.2}
-\contentsline {chapter}{\numberline {A}Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility}{97}{appendix.A}
-\contentsline {chapter}{Bibliography}{107}{appendix*.69}
-\contentsline {chapter}{List of Figures}{111}{appendix*.70}
-\contentsline {chapter}{List of Tables}{113}{appendix*.71}
+\contentsline {chapter}{Bibliography}{97}{chapter*.69}
+\contentsline {chapter}{List of Figures}{101}{chapter*.70}
+\contentsline {chapter}{List of Tables}{103}{chapter*.71}
+\contentsline {chapter}{\numberline {A}Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility}{105}{appendix.A}
