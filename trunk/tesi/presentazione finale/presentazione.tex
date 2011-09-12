@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{xmpmulti}
+\usepackage{subfigure}
+\usepackage[small]{caption}
 %\usetheme{JuanLesPins}
 \usetheme{Padova}
 
@@ -450,121 +452,141 @@ Mappa del centro cittadino di Helsinki:
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempiRitornoDeleghe.eps}
-\caption{Average, min, max output return time for systems using task delegations.}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempiVFDiversaPop.eps}
+\includegraphics[scale=0.7]{tempiVFDiversaPop_zoom.eps}
     \caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
 \end{figure}
 \end{center}
 \end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/tempiVF_Fp5.eps}
+%\caption{Average found time with $Fp = 5\%$}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/tempiVF_Fp10.eps}
+%\caption{Average found time with $Fp = 10\%$}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/tempiVF_Fp50.eps}
+%\caption{Average found time with $Fp = 50\%$}
+%\end{figure}
+%\end{center}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Risultati}
+\begin{figure}[htbp]
+\centering%
+\vspace{-30pt}%
+\subfigure[Explored area with {1-hop}]%
+{\includegraphics[scale=0.38]{../grafici/mappe/M2MShare_1_hop_50perc.eps}}\qquad
+\vspace{-10pt}%
+\pause
+\subfigure[Explored area with 2-hop]%
+{\includegraphics[scale=0.38]{../grafici/mappe/M2MShare_2_hop_50perc.eps}}\qquad
+\vspace{-10pt}%
+\pause
+\subfigure[Explored area with 3-hop]%
+{\includegraphics[scale=0.38]{../grafici/mappe/M2MShare_3_hop_50perc.eps}}
+%\caption{Average explored area with MhDP $= 50\%$\label{fig:mappaMultiHop_50}}
+\end{figure}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempiVF_Fp5.eps}
-\caption{Average found time with $Fp = 5\%$}
+\includegraphics[scale=0.7]{../grafici/mapCovered_MultiHop.eps}
+\caption{Average percentage of explored area employing M2MShare with different multi-hop versions.}
 \end{figure}
 \end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempiVF_Fp10.eps}
-\caption{Average found time with $Fp = 10\%$}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempiVF_Fp50.eps}
-\caption{Average found time with $Fp = 50\%$}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/percCompletaMultiHop.eps}
-\caption{Percentage of successfully completed simulations with searched file far from requester.}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.25]{../figure/mappa_0_hop.png}
-    \caption{Explored area without use of delegations}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.25]{../figure/mappa_1_hop.png}
-    \caption{Explored area using M2MShare and 1-hop delegations}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.25]{../figure/mappa_3_hop.png}
-    \caption{Explored area using M2MShare and up to 3-hop delegations}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/dataDFS_3MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/dataDFS_10MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.}
-\end{figure}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/dataDFS_25MB.eps}
-\caption{Average, min, max transferred data amount using different file division strategies and 25.0 MB file size.}
-\end{figure}
-\end{center}
-\end{frame}
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/percCompletaMultiHop.eps}
+%\caption{Percentage of successfully completed simulations with searched file far from requester.}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.25]{../figure/mappa_0_hop.png}
+%    \caption{Explored area without use of delegations}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.25]{../figure/mappa_1_hop.png}
+%    \caption{Explored area using M2MShare and 1-hop delegations}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.25]{../figure/mappa_3_hop.png}
+%    \caption{Explored area using M2MShare and up to 3-hop delegations}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/dataDFS_3MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 3.0 MB file size.}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/dataDFS_10MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 10.0 MB file size.}
+%\end{figure}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/dataDFS_25MB.eps}
+%\caption{Average, min, max transferred data amount using different file division strategies and 25.0 MB file size.}
+%\end{figure}
+%\end{center}
+%\end{frame}
 
 \begin{frame}
 \frametitle{Riassumendo}
