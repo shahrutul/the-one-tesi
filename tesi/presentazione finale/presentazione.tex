@@ -59,7 +59,7 @@ Corso di Laurea Magistrale in Informatica
 
 \begin{frame}
 \frametitle{DTN - Delay Tolerant Networks}
-
+\label{DTN}
 Caratterizzate da interruzioni frequenti di connettività\\
 Difficoltà di instaurare un link sorgente-destinazione permanente\\
 Ne segue inefficienza dei protocolli di routing tradizionali\\
@@ -79,6 +79,7 @@ Non si mantiene un collegamento continuo fra la sorgente e la destinazione ma i 
 
 \begin{frame}
 \frametitle{M2MShare}
+\label{M2MShare}
 %\textbf{Problema: } un nodo in una DTN può non coprire abbastanza spazio durante i propri movimenti per raggiungere il destinatario dei dati che sta trasportando.
 %\ \\
 %\ \\
@@ -99,14 +100,36 @@ Dispositivi dotati di:
 \begin{frame}
 \frametitle{M2MShare}
 Mentre l'elevata mobilità dei dispositivi costituirebbe un problema per dei protocolli tradizionali, M2MShare utilizza tale mobilità, assieme al sistema delle deleghe per ampliare l'area esplorata dai nodi interessati nella ricerca di un file.
+\ \\
+\ \\
+\pause
+Delega selettiva solo verso i nodi più promettenti: nodi incontrati più frequentemente.
 \end{frame}
 
+
+
 \begin{frame}
+\label{ONE}
 \frametitle{The ONE simulator}
 Simulatore che permette di emulare il comportamento dei nodi all'interno della rete in un  ambiente realistico, utilizzando diversi modelli di movimento di diversa complessità.
+\begin{figure}[ht]
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\includegraphics[scale=0.12]{img/Schermata-ONE.png}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+%\pause
+\includegraphics[scale=0.28]{img/connessioni.png}
+\end{minipage}
+\end{figure}
 \end{frame}
 
+
+
 \begin{frame}
+\label{movement models}
 \frametitle{Movement Models}
 ONE contiene al suo interno diversi Movement Models:
 \begin{itemize}
@@ -127,6 +150,7 @@ Più adatto alle nostre simulazioni:
 
 \begin{frame}
 \frametitle{Movement Models - WDM}
+\label{WDM}
 \textbf{Working Day Movement Model} (WDM)\\
 simula la ripetitività delle azioni giornaliere svolte dalle persone durante i giorni lavorativi:
 \begin{itemize}
@@ -146,6 +170,7 @@ Utilizza diversi sottomodelli per simulare diverse possibilità per i nodi di mu
 
 \begin{frame}
 \frametitle{La Mappa}
+\label{mappa}
 Mappa del centro cittadino di Helsinki:
 \begin{figure}[htpb]
 
@@ -153,7 +178,6 @@ Mappa del centro cittadino di Helsinki:
   \begin{center}
   	\multiinclude[format=png,graphics={scale=0.18}]{../figure/mappa/mappa}
 %    \includegraphics[scale=0.18]{../figure/mappa_ABCD.png}      
-    \label{imgMappaABCD}
   \end{center}
 \end{minipage}
 
@@ -402,51 +426,53 @@ Mappa del centro cittadino di Helsinki:
 \begin{minipage}[b]{0.45\linewidth}
 \centering
 \pause
-\includegraphics[scale=0.4]{../grafici/data.eps}
-\caption{Average, min, max number of delegations employed by each delegation strategy.}
+%\includegraphics[scale=0.4]{../grafici/data.eps}
+%\caption{Average, min, max number of delegations employed by each delegation strategy.}
+\includegraphics[scale=0.4]{../grafici/percDeleghe.eps}
+\caption{Percentage of completed tasks against the number of overall delegations employed.}
 \end{minipage}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Risultati}
-\begin{figure}[ht]
-\begin{minipage}[b]{0.4\linewidth}
-\centering
-\includegraphics[scale=0.4]{../grafici/delegheAttive.eps}
-%\caption{Average number of simultaneously active delegated tasks}
-\end{minipage}
-
-%\hspace{0.5cm}
-
-%\begin{minipage}[b]{0.40\linewidth}
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{figure}[ht]
+%\begin{minipage}[b]{0.4\linewidth}
+%\centering
+%\includegraphics[scale=0.4]{../grafici/delegheAttive.eps}
+%%\caption{Average number of simultaneously active delegated tasks}
+%\end{minipage}
+%
+%%\hspace{0.5cm}
+%
+%%\begin{minipage}[b]{0.40\linewidth}
+%%\centering
+%%\pause
+%%\includegraphics[scale=0.3]{../grafici/ridondanza.eps}
+%%\caption{Average data redundancy in the network}
+%%\end{minipage}
+%
+%\begin{minipage}[b]{0.4\linewidth}
 %\centering
 %\pause
-%\includegraphics[scale=0.3]{../grafici/ridondanza.eps}
-%\caption{Average data redundancy in the network}
+%\includegraphics[scale=0.4]{../grafici/percDeleghe.eps}
+%%\caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
 %\end{minipage}
-
-\begin{minipage}[b]{0.4\linewidth}
-\centering
-\pause
-\includegraphics[scale=0.4]{../grafici/percDeleghe.eps}
+%
+%\end{figure}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Risultati}
+%\begin{center}
+%\begin{figure}[ht]
+%\includegraphics[scale=0.7]{../grafici/percDeleghe.eps}
 %\caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
-\end{minipage}
-
-\end{figure}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Risultati}
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/percDeleghe.eps}
-\caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
-\end{figure}
-\end{center}
-\end{frame}
+%\end{figure}
+%\end{center}
+%\end{frame}
 
 \begin{frame}
 \frametitle{Risultati}
@@ -490,6 +516,13 @@ Mappa del centro cittadino di Helsinki:
 
 \begin{frame}
 \frametitle{Risultati}
+\label{descrizione multi hop}
+\textbf{Obiettivo:} aggiornare M2MShare aggiungendo la possibilità di delega multi-hop e analizzare l’efficienza di M2MShare originale (1-hop) rispetto alla nuova versione  (con deleghe fino a 3 hop)
+\end{frame}
+
+\begin{frame}
+\frametitle{Risultati}
+\label{mappa multi hop}
 \begin{figure}[htbp]
 \centering%
 \vspace{-30pt}%
@@ -503,10 +536,20 @@ Mappa del centro cittadino di Helsinki:
 \pause
 \subfigure[Explored area with 3-hop]%
 {\includegraphics[scale=0.38]{../grafici/mappe/M2MShare_3_hop_50perc.eps}}
-%\caption{Average explored area with MhDP $= 50\%$\label{fig:mappaMultiHop_50}}
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{Risultati}
+Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza all'interno della rete
+\begin{center}
+\begin{figure}[ht]
+\pause
+\includegraphics[scale=0.55]{delegheMultiHopPerc.eps}
+\caption{Average delegations used employing M2MShare with different multi-hop versions.}
+\end{figure}
+\end{center}
+\end{frame}
 
 \begin{frame}
 \frametitle{Risultati}
@@ -517,6 +560,8 @@ Mappa del centro cittadino di Helsinki:
 \end{figure}
 \end{center}
 \end{frame}
+
+
 
 %\begin{frame}
 %\frametitle{Risultati}
