@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  6 SEP 2011 17:16
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  13 SEP 2011 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1894,15 +1894,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--159
  []
 
 Package epstopdf Info: Source file: <grafici/percDeleghe.eps>
-(epstopdf)                    date: 2011-08-24 16:05:01
-(epstopdf)                    size: 17965 bytes
+(epstopdf)                    date: 2011-09-13 10:55:26
+(epstopdf)                    size: 17974 bytes
 (epstopdf)             Output file: <grafici/percDeleghe-eps-converted-to.pdf>
 (epstopdf)                    date: 2011-08-24 16:05:35
 (epstopdf)                    size: 8063 bytes
 (epstopdf)             Command: <repstopdf --outfile=grafici/percDeleghe-eps-co
 nverted-to.pdf grafici/percDeleghe.eps>
 (epstopdf)             \includegraphics on input line 178.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=grafici/percDeleghe-eps-converted-to.pdf grafici/
+percDeleghe.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <grafici/percDeleghe-eps-converted-to.pdf>
+(epstopdf)                    date: 2011-09-13 10:57:46
+(epstopdf)                    size: 8320 bytes.
 <grafici/percDeleghe-eps-converted-to.pdf, id=792, 361.35pt x 252.945pt>
 File: grafici/percDeleghe-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -3375,6 +3380,10 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
 (rerunfilecheck)             Checksum: 2C7F66464C2870545F3C4E56DA3A9D4A;4090.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
  ) 
 Here is how much of TeX's memory you used:
@@ -3405,7 +3414,7 @@ super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share
 /texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fon
 ts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesi.pdf (119 pages, 3986925 bytes).
+Output written on Tesi.pdf (119 pages, 3987167 bytes).
 PDF statistics:
  1737 PDF objects out of 2073 (max. 8388607)
  1402 compressed objects within 15 object streams

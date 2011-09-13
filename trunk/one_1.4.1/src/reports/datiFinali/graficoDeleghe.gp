@@ -15,7 +15,7 @@ set style data histograms
 set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set ytics 10
 
-set ylabel "Percent of returned delegated tasks"
+set ylabel "Percentage of returned delegated tasks (%)"
 #set xlabel "Session number"
 
 set key horiz
