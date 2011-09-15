@@ -15,7 +15,7 @@
           
 \author{Daniele Bonaldo}
 \title{Performance Evaluation with Realistic Mobility of a File Sharing DTN Protocol}
-\institute{UNIVERSITA' DEGLI STUDI DI PADOVA\\
+\institute{UNIVERSITÀ DEGLI STUDI DI PADOVA\\
 Facoltà di Scienze MM. FF. NN.\\
 Corso di Laurea Magistrale in Informatica
 }
@@ -40,14 +40,6 @@ Corso di Laurea Magistrale in Informatica
 %\end{enumerate}
 %\end{frame}
 
-\begin{frame}
-\frametitle{Obiettivi del progetto}
-\begin{itemize}
-\item Implementare M2MShare in un ambiente di simulazione che permetta di valutarne l'efficienza considerando la mobilità dei nodi interessati
-\item Confrontare l'efficienza di M2MShare rispetto altre strategie applicabili nello stesso contesto
-\item Migliorare la versione esistente del protocollo 
-\end{itemize}
-\end{frame}
 
 %\begin{frame}[t,fragile]
 %\frametitle{DTN - Delay Tolerant Networks}
@@ -60,18 +52,37 @@ Corso di Laurea Magistrale in Informatica
 \begin{frame}
 \frametitle{DTN - Delay Tolerant Networks}
 \label{DTN}
-Caratterizzate da interruzioni frequenti di connettività\\
-Difficoltà di instaurare un link sorgente-destinazione permanente\\
-Ne segue inefficienza dei protocolli di routing tradizionali\\
+Reti inizialmente ideate per comunicazioni spaziali.\\
+\ \\
+Caratterizzate da:
+\begin{itemize}
+\item connettività intermittente
+\item delay elevati o variabili
+\item alta probabilità di errore
+\end{itemize}
+\ \\
 \ \\
 \pause 
-Una soluzione:\\
+Difficoltà di instaurare un link sorgente-destinazione permanente.\\
+Ne segue inefficienza dei protocolli di routing tradizionali.\\
+
+\end{frame}
+
+\begin{frame}
+\frametitle{DTN - Delay Tolerant Networks}
+Una soluzione:
 \ \\
 \begin{center}
 \textbf{Store-carry-forward}\\
 \end{center}
 
 Non si mantiene un collegamento continuo fra la sorgente e la destinazione ma i nodi intermedi trasportano i pacchetti dalla sorgente alla destinazione muovendosi.
+
+\begin{center}
+\begin{figure}[ht]
+\includegraphics[scale=0.4]{store-and-forward.png}
+\end{figure}
+\end{center}
 \end{frame}
 
 
@@ -80,11 +91,8 @@ Non si mantiene un collegamento continuo fra la sorgente e la destinazione ma i 
 \begin{frame}
 \frametitle{M2MShare}
 \label{M2MShare}
-%\textbf{Problema: } un nodo in una DTN può non coprire abbastanza spazio durante i propri movimenti per raggiungere il destinatario dei dati che sta trasportando.
-%\ \\
-%\ \\
-%\pause 
-\textbf{M2MShare} aggiunge il sistema delle deleghe e lo utilizza all'interno di un protocollo Peer-to-peer per lo scambio di files fra dispositivi mobili.
+%\textbf{M2MShare} aggiunge il sistema delle deleghe e lo utilizza all'interno di un protocollo Peer-to-peer per lo scambio di files fra dispositivi mobili.
+\textbf{M2MShare} adotta alcune tecniche tipiche delle DTN per realizzare un applicazione Peer-to-Peer per lo scambio di files fra dispositivi mobili.
 \ \\
 \ \\
 \pause 
@@ -99,19 +107,40 @@ Dispositivi dotati di:
 
 \begin{frame}
 \frametitle{M2MShare}
-Mentre l'elevata mobilità dei dispositivi costituirebbe un problema per dei protocolli tradizionali, M2MShare utilizza tale mobilità, assieme al sistema delle deleghe per ampliare l'area esplorata dai nodi interessati nella ricerca di un file.
+L'elevata mobilità dei dispositivi costituirebbe un problema per dei protocolli tradizionali.\\
+M2MShare utilizza tale mobilità, assieme ad un sistema di deleghe per ampliare l'area esplorata dai nodi interessati nella ricerca di un file.
 \ \\
 \ \\
 \pause
-Delega selettiva solo verso i nodi più promettenti: nodi incontrati più frequentemente.
+Elezione di nodi "servant" e delega di tasks incompleti solo verso i nodi più promettenti: \\
+\begin{center}
+\textbf{nodi incontrati più frequentemente.}
+\end{center}
 \end{frame}
 
+
+\begin{frame}
+\label{Obiettivi}
+\frametitle{Obiettivi del progetto}
+\begin{itemize}
+\item Implementare M2MShare in un ambiente di simulazione che permetta di valutarne l'efficienza considerando la mobilità dei nodi interessati
+\item Confrontare l'efficienza di M2MShare rispetto altre strategie applicabili nello stesso contesto
+\item Migliorare la versione esistente del protocollo aggiungendo la possibilità di delega multihop
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}
 \label{ONE}
 \frametitle{The ONE simulator}
-Simulatore che permette di emulare il comportamento dei nodi all'interno della rete in un  ambiente realistico, utilizzando diversi modelli di movimento di diversa complessità.
+\textbf{ONE}: \textbf{O}pportunistic \textbf{N}etwork \textbf{E}nvironment simulator.\\
+Simulatore utilizzato per le nostre simulazioni.
+\begin{itemize}
+\item architettura modulare
+\item diversi modelli di movimento disponibili
+\item possibilità di emulare il comportamento di numerosi nodi in un ambiente realistico
+\end{itemize}
+
 \begin{figure}[ht]
 \begin{minipage}[b]{0.4\linewidth}
 \centering
@@ -131,7 +160,10 @@ Simulatore che permette di emulare il comportamento dei nodi all'interno della r
 \begin{frame}
 \label{movement models}
 \frametitle{Movement Models}
-ONE contiene al suo interno diversi Movement Models:
+ONE consente di integrare nelle simulazioni diversi Movement Models.\\
+\ \\
+\pause
+Modelli analizzati durante il lavoro di tesi:
 \begin{itemize}
 \item Random Walk Movement
 \item Random Waypoint Movement
@@ -139,13 +171,8 @@ ONE contiene al suo interno diversi Movement Models:
 \item Random Map-Based Movement
 \item Shortest Path Map-Based Movement
 \item Routed Map-Based Movement
+\item \textbf{Working Day Movement Model}
 \end{itemize}
-\ \\
-\pause
-Più adatto alle nostre simulazioni:
-\begin{center}
-\textbf{Working Day Movement Model}
-\end{center}
 \end{frame}
 
 \begin{frame}
@@ -400,8 +427,18 @@ Mappa del centro cittadino di Helsinki:
 %\end{frame}
 
 \begin{frame}
+\label{Risultati}
 \frametitle{Risultati}
-\textbf{Obiettivo:} analizzare l'efficienza di M2MShare in termini di tempo di recupero del file cercato rispetto ad altre due strategie, una che non utilizza deleghe, l'altra in cui si delegano task indiscriminatamente a tutti i nodi incontrati.
+\textbf{Obiettivo:} analizzare l'efficienza di M2MShare in termini di tempo di recupero del file cercato rispetto ad altre due strategie, una che non utilizza deleghe, l'altra in cui si delegano task indiscriminatamente a tutti i nodi incontrati.\\
+\ \\
+\pause
+Metriche analizzate:
+\begin{itemize}
+\item Found Time.
+\item Numero di deleghe utilizzate.
+\item Percentuale di task completati con successo.
+\item Ridondanza introdotta nella rete.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -475,11 +512,12 @@ Mappa del centro cittadino di Helsinki:
 %\end{frame}
 
 \begin{frame}
+\label{diversa pop}
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
 \includegraphics[scale=0.7]{tempiVFDiversaPop_zoom.eps}
-    \caption{Percentage of completed previously delegated tasks against the number of overall delegations employed.}
+    \caption{Average found time with variable file popularity}
 \end{figure}
 \end{center}
 \end{frame}
@@ -517,7 +555,7 @@ Mappa del centro cittadino di Helsinki:
 \begin{frame}
 \frametitle{Risultati}
 \label{descrizione multi hop}
-\textbf{Obiettivo:} aggiornare M2MShare aggiungendo la possibilità di delega multi-hop e analizzare l’efficienza di M2MShare originale (1-hop) rispetto alla nuova versione  (con deleghe fino a 3 hop)
+\textbf{Obiettivo:} aggiornare M2MShare aggiungendo la possibilità di delega multi-hop per estendere efficientemente il raggio di azione ed analizzare l’efficienza di M2MShare originale (1-hop) rispetto alla nuova versione  (con deleghe fino a 3 hop)
 \end{frame}
 
 \begin{frame}
@@ -635,17 +673,20 @@ Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conse
 
 \begin{frame}
 \frametitle{Riassumendo}
-
+\label{Riassumendo}
 \begin{itemize}
 \item Implementato M2MShare in un ambiente di simulazione realistico, che ci ha permesso di valutarne l'efficienza considerando la mobilità dei nodi interessati
 \pause
 \item Verificato l'efficienza di M2MShare rispetto altre strategie applicabili nello stesso contesto
 \pause
-\item Migliorare il protocollo esistente aggiungendo la possibilità di delega a più hops
+\item Migliorato il protocollo esistente aggiungendo la possibilità di delega a più hops
 \pause
 \item Migliorato il simulatore ONE aggiungendo delle features condivise con la comunità di utenti
 \pause
-\item Alcuni risultati pubblicati durante Wireless Days Conference 2011 (\href{http://www.wireless-days.org/}{http://www.wireless-days.org}) in Niagara Falls, Ontario, Canada.
+\item Risultati preliminari pubblicati su\\
+A. Bujari, C. E. Palazzi, D. Bonaldo, "Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility", in Proc. of IFIP/IEEE Wireless Days 2011, Niagara
+Falls, Ontario, Canada, Oct 2011
+%Wireless Days Conference 2011 (\href{http://www.wireless-days.org/}{http://www.wireless-days.org}) in Niagara Falls, Ontario, Canada.
 \end{itemize}
 \end{frame}
 
