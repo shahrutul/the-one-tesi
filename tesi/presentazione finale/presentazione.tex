@@ -50,8 +50,9 @@ Corso di Laurea Magistrale in Informatica
 %\end{frame}
 
 \begin{frame}
-\frametitle{DTN - Delay Tolerant Networks}
+\frametitle{Background: DTN}
 \label{DTN}
+DTN: Delay/Disruption Tolerant Network\\
 Reti inizialmente ideate per comunicazioni spaziali.\\
 \ \\
 Caratterizzate da:
@@ -69,7 +70,7 @@ Ne segue inefficienza dei protocolli di routing tradizionali.\\
 \end{frame}
 
 \begin{frame}
-\frametitle{DTN - Delay Tolerant Networks}
+\frametitle{Background: DTN}
 Una soluzione:
 \ \\
 \begin{center}
@@ -89,10 +90,10 @@ Non si mantiene un collegamento continuo fra la sorgente e la destinazione ma i 
 
 
 \begin{frame}
-\frametitle{M2MShare}
+\frametitle{Background: M2MShare}
 \label{M2MShare}
 %\textbf{M2MShare} aggiunge il sistema delle deleghe e lo utilizza all'interno di un protocollo Peer-to-peer per lo scambio di files fra dispositivi mobili.
-\textbf{M2MShare} adotta alcune tecniche tipiche delle DTN per realizzare un applicazione Peer-to-Peer per lo scambio di files fra dispositivi mobili.
+\textbf{M2MShare} adotta alcune tecniche tipiche delle DTN per realizzare un applicazione Peer-to-Peer basata sulla prossimità fisica tra utenti, per lo scambio di files fra dispositivi mobili.
 \ \\
 \ \\
 \pause 
@@ -106,7 +107,7 @@ Dispositivi dotati di:
 \end{frame}
 
 \begin{frame}
-\frametitle{M2MShare}
+\frametitle{Background: M2MShare}
 L'elevata mobilità dei dispositivi costituirebbe un problema per dei protocolli tradizionali.\\
 M2MShare utilizza tale mobilità, assieme ad un sistema di deleghe per ampliare l'area esplorata dai nodi interessati nella ricerca di un file.
 \ \\
@@ -121,7 +122,7 @@ Elezione di nodi "servant" e delega di tasks incompleti solo verso i nodi più p
 
 \begin{frame}
 \label{Obiettivi}
-\frametitle{Obiettivi del progetto}
+\frametitle{Obiettivi della tesi}
 \begin{itemize}
 \item Implementare M2MShare in un ambiente di simulazione che permetta di valutarne l'efficienza considerando la mobilità dei nodi interessati
 \item Confrontare l'efficienza di M2MShare rispetto altre strategie applicabili nello stesso contesto
@@ -162,12 +163,12 @@ Simulatore utilizzato per le nostre simulazioni.
 \frametitle{Movement Models}
 ONE consente di integrare nelle simulazioni diversi Movement Models.\\
 \ \\
-\pause
+%\pause
 Modelli analizzati durante il lavoro di tesi:
 \begin{itemize}
 \item Random Walk Movement
 \item Random Waypoint Movement
-\pause
+%\pause
 \item Random Map-Based Movement
 \item Shortest Path Map-Based Movement
 \item Routed Map-Based Movement
@@ -427,17 +428,17 @@ Mappa del centro cittadino di Helsinki:
 %\end{frame}
 
 \begin{frame}
-\label{Risultati}
-\frametitle{Risultati}
+\label{Esperimenti}
+\frametitle{Esperimenti}
 \textbf{Obiettivo:} analizzare l'efficienza di M2MShare in termini di tempo di recupero del file cercato rispetto ad altre due strategie, una che non utilizza deleghe, l'altra in cui si delegano task indiscriminatamente a tutti i nodi incontrati.\\
 \ \\
-\pause
+%\pause
 Metriche analizzate:
 \begin{itemize}
-\item Found Time.
-\item Numero di deleghe utilizzate.
-\item Percentuale di task completati con successo.
-\item Ridondanza introdotta nella rete.
+\item Tempo di reperimento
+\item Numero di deleghe utilizzate
+\item Percentuale di task completati con successo
+\item Ridondanza introdotta nella rete
 \end{itemize}
 \end{frame}
 
@@ -445,8 +446,8 @@ Metriche analizzate:
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/tempi.eps}
-\caption{Average, min. max found time employed by each strategy in finding the required data file.}
+\includegraphics[scale=0.7]{tempi.eps}
+\caption{Figure: Average, min and max time employed by each strategy to find the required data file.}
 \end{figure}
 \end{center}
 \end{frame}
@@ -456,16 +457,15 @@ Metriche analizzate:
 \begin{figure}[ht]
 \begin{minipage}[b]{0.45\linewidth}
 \centering
-\includegraphics[scale=0.4]{../grafici/delegheFatte.eps}
+\includegraphics[scale=0.4]{delegheFatte.eps}
 \caption{Average, min, max number of delegations employed by each delegation strategy.}
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 \centering
-\pause
 %\includegraphics[scale=0.4]{../grafici/data.eps}
 %\caption{Average, min, max number of delegations employed by each delegation strategy.}
-\includegraphics[scale=0.4]{../grafici/percDeleghe.eps}
+\includegraphics[scale=0.4]{percDeleghe.eps}
 \caption{Percentage of completed tasks against the number of overall delegations employed.}
 \end{minipage}
 \end{figure}
@@ -517,7 +517,7 @@ Metriche analizzate:
 \begin{center}
 \begin{figure}[ht]
 \includegraphics[scale=0.7]{tempiVFDiversaPop_zoom.eps}
-    \caption{Average found time with variable file popularity}
+    \caption{Average retrieval time with variable file popularity}
 \end{figure}
 \end{center}
 \end{frame}
@@ -553,7 +553,7 @@ Metriche analizzate:
 %\end{frame}
 
 \begin{frame}
-\frametitle{Risultati}
+\frametitle{Esperimenti}
 \label{descrizione multi hop}
 \textbf{Obiettivo:} aggiornare M2MShare aggiungendo la possibilità di delega multi-hop per estendere efficientemente il raggio di azione ed analizzare l’efficienza di M2MShare originale (1-hop) rispetto alla nuova versione  (con deleghe fino a 3 hop)
 \end{frame}
@@ -564,6 +564,7 @@ Metriche analizzate:
 \begin{figure}[htbp]
 \centering%
 \vspace{-30pt}%
+\setcounter{subfigure}{0}%
 \subfigure[Explored area with {1-hop}]%
 {\includegraphics[scale=0.38]{../grafici/mappe/M2MShare_1_hop_50perc.eps}}\qquad
 \vspace{-10pt}%
@@ -577,12 +578,12 @@ Metriche analizzate:
 \end{figure}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Risultati}
 Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza all'interno della rete
 \begin{center}
 \begin{figure}[ht]
-\pause
 \includegraphics[scale=0.55]{delegheMultiHopPerc.eps}
 \caption{Average delegations used employing M2MShare with different multi-hop versions.}
 \end{figure}
@@ -593,7 +594,7 @@ Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conse
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.7]{../grafici/mapCovered_MultiHop.eps}
+\includegraphics[scale=0.7]{mapCovered_MultiHop.eps}
 \caption{Average percentage of explored area employing M2MShare with different multi-hop versions.}
 \end{figure}
 \end{center}
@@ -676,15 +677,15 @@ Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conse
 \label{Riassumendo}
 \begin{itemize}
 \item Implementato M2MShare in un ambiente di simulazione realistico, che ci ha permesso di valutarne l'efficienza considerando la mobilità dei nodi interessati
-\pause
+%\pause
 \item Verificato l'efficienza di M2MShare rispetto altre strategie applicabili nello stesso contesto
-\pause
+%\pause
 \item Migliorato il protocollo esistente aggiungendo la possibilità di delega a più hops
-\pause
+%\pause
 \item Migliorato il simulatore ONE aggiungendo delle features condivise con la comunità di utenti
-\pause
+%\pause
 \item Risultati preliminari pubblicati su\\
-A. Bujari, C. E. Palazzi, D. Bonaldo, "Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility", in Proc. of IFIP/IEEE Wireless Days 2011, Niagara
+A. Bujari, C. E. Palazzi, D. Bonaldo, ``Performance Evaluation of a File Sharing DTN Protocol with Realistic Mobility", in Proc. of IFIP/IEEE Wireless Days 2011, Niagara
 Falls, Ontario, Canada, Oct 2011
 %Wireless Days Conference 2011 (\href{http://www.wireless-days.org/}{http://www.wireless-days.org}) in Niagara Falls, Ontario, Canada.
 \end{itemize}
