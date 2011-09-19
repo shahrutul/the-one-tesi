@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  18 SEP 2011 11:41
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2011.5.12)  19 SEP 2011 08:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1537,9 +1537,6 @@ Package rerunfilecheck Info: File `presentazione.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 714.
  ) 
 Here is how much of TeX's memory you used:
@@ -1555,7 +1552,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ssbx10.pfb>
-Output written on presentazione.pdf (29 pages, 990277 bytes).
+Output written on presentazione.pdf (29 pages, 990281 bytes).
 PDF statistics:
  305 PDF objects out of 1000 (max. 8388607)
  221 compressed objects within 3 object streams
