@@ -111,11 +111,13 @@ Dispositivi dotati di:
 L'elevata mobilità dei dispositivi costituirebbe un problema per dei protocolli tradizionali.\\
 M2MShare utilizza tale mobilità, assieme ad un sistema di deleghe per ampliare l'area esplorata dai nodi interessati nella ricerca di un file.
 \ \\
-\ \\
+
 \pause
 Elezione di nodi ``servant" e delega di tasks incompleti solo verso i nodi più promettenti: \\
 \begin{center}
 \textbf{nodi incontrati più frequentemente.}
+\ \\
+Esempio: 
 \end{center}
 \end{frame}
 
@@ -458,7 +460,7 @@ Metriche analizzate:
 \begin{center}
 \begin{figure}[ht]
 \includegraphics[scale=0.7]{tempi.eps}
-\caption{Figure: Average, min and max time employed by each strategy to find the required data file.}
+\caption{Average, min and max time employed by each strategy to find the required data file}
 \end{figure}
 \end{center}
 \end{frame}
@@ -469,15 +471,15 @@ Metriche analizzate:
 \begin{minipage}[b]{0.45\linewidth}
 \centering
 \includegraphics[scale=0.4]{delegheFatte.eps}
-\caption{Average, min, max number of delegations employed by each delegation strategy.}
+\caption{Average, min, max number of delegations employed by each delegation strategy}
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 \centering
 %\includegraphics[scale=0.4]{../grafici/data.eps}
-%\caption{Average, min, max number of delegations employed by each delegation strategy.}
+%\caption{Average, min, max number of delegations employed by each delegation strategy}
 \includegraphics[scale=0.4]{percDeleghe.eps}
-\caption{Percentage of completed tasks against the number of overall delegations employed.}
+\caption{Percentage of completed tasks against the number of overall delegations employed}
 \end{minipage}
 \end{figure}
 \end{frame}
@@ -592,11 +594,10 @@ Metriche analizzate:
 
 \begin{frame}
 \frametitle{Risultati}
-Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza all'interno della rete
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.55]{delegheMultiHopPerc.eps}
-\caption{Average delegations used employing M2MShare with different multi-hop versions.}
+\includegraphics[scale=0.7]{mapCovered_MultiHop.eps}
+\caption{Average percentage of explored area employing M2MShare with different multi-hop versions}
 \end{figure}
 \end{center}
 \end{frame}
@@ -605,11 +606,24 @@ Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conse
 \frametitle{Risultati}
 \begin{center}
 \begin{figure}[ht]
-\includegraphics[scale=0.7]{mapCovered_MultiHop.eps}
-\caption{Average percentage of explored area employing M2MShare with different multi-hop versions.}
+\includegraphics[scale=0.7]{tempiVF_MultiHop.eps}
+\caption{Average found time employed by M2MShare with different multi-hop versions in finding the required data file}
 \end{figure}
 \end{center}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Risultati}
+Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza
+\begin{center}
+\begin{figure}[ht]
+\includegraphics[scale=0.55]{delegheMultiHopPerc.eps}
+\caption{Avg. delegations used, M2MShare with different multi-hop versions}
+\end{figure}
+\end{center}
+\end{frame}
+
 
 
 
@@ -618,7 +632,7 @@ Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conse
 %\begin{center}
 %\begin{figure}[ht]
 %\includegraphics[scale=0.7]{../grafici/percCompletaMultiHop.eps}
-%\caption{Percentage of successfully completed simulations with searched file far from requester.}
+%\caption{Percentage of successfully completed simulations with searched file far from requester}
 %\end{figure}
 %\end{center}
 %\end{frame}
