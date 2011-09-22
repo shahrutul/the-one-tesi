@@ -116,9 +116,9 @@ M2MShare utilizza tale mobilità, assieme ad un sistema di deleghe per ampliare 
 Elezione di nodi ``servant" e delega di tasks incompleti solo verso i nodi più promettenti: \\
 \begin{center}
 \textbf{nodi incontrati più frequentemente.}
-\ \\
-Esempio: 
 \end{center}
+\ \\
+Esempio: colleghi di lavoro, pendolari, famigliari, ecc..
 \end{frame}
 
 
@@ -574,11 +574,11 @@ Metriche analizzate:
 \begin{frame}
 \frametitle{Risultati}
 \label{mappa multi hop}
-\vspace{-40pt}
+\vspace{-10pt}
 \begin{center}
-\begin{figure}
-%\caption{Average explored area employing M2MShare with different multi-hop versions}   
-\multiinclude[format=eps,graphics={scale=0.8}]{mappe/mappa} 
+\begin{figure}  
+\multiinclude[<+->][format=eps,graphics={scale=0.8}]{mappe/mappa} 
+\caption{Average explored area employing M2MShare with different multi-hop versions} 
 
 \end{figure}
 
@@ -602,6 +602,19 @@ Metriche analizzate:
 \end{frame}
 
 
+
+\begin{frame}
+\frametitle{Risultati}
+\vspace{-5pt}
+Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza
+\begin{center}
+\begin{figure}[ht]
+\includegraphics[scale=0.65]{delegheMultiHopPerc.eps}
+\caption{Avg. delegations used, M2MShare with different multi-hop versions}
+\end{figure}
+\end{center}
+\end{frame}
+
 \begin{frame}
 \frametitle{Risultati}
 \begin{center}
@@ -622,17 +635,6 @@ Metriche analizzate:
 \end{center}
 \end{frame}
 
-
-\begin{frame}
-\frametitle{Risultati}
-Il sistema di deleghe multi-hop aumenta il numero di nodi interessati, con conseguente aumento della ridondanza
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[scale=0.55]{delegheMultiHopPerc.eps}
-\caption{Avg. delegations used, M2MShare with different multi-hop versions}
-\end{figure}
-\end{center}
-\end{frame}
 
 
 
